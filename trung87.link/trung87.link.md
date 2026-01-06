@@ -44,7 +44,9 @@ transform: scale(1.1);
 
 ## Tailwind Css
 
-...
+UI Kit: học thuộc lòng
+UI Blocks : mẫu snippet tham khảo, copy, so sánh với các mẫu hãng khác
+Blocks: tự xây dựng các UI Blocks từ UI Kit
 
 ## Javascript
 
