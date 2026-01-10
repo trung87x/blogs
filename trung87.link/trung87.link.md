@@ -44,9 +44,15 @@ transform: scale(1.1);
 
 ## Tailwind Css
 
-UI Kit: học thuộc lòng
-UI Blocks : mẫu snippet tham khảo, copy, so sánh với các mẫu hãng khác
-Blocks: tự xây dựng các UI Blocks từ UI Kit
+### UI Blocks : mẫu snippet tham khảo, copy, so sánh với các mẫu hãng khác
+#### Marketing (basic, cần hiểu mẫu, copy và điều chỉnh thêm)
+Sections
+#### Application-ui (normal, cần set hệ thống nội bộ, not shared)
+Elements
+#### Ecommerce (advance, cần set hệ thống shared)
+Components
+
+### UI Kit : học thuộc lòng
 
 ## Javascript
 
@@ -55,3 +61,10 @@ Blocks: tự xây dựng các UI Blocks từ UI Kit
 ### React.js
 
 BEMJSON -> components - Tailwind CSS -> styles - Zustand -> states
+
+
+components
+/ 
+/
+/ecommerce
+
