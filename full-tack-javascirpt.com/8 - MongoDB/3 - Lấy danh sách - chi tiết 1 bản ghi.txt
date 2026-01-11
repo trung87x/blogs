@@ -1,0 +1,45 @@
+📦 Ngữ cảnh #3: Lấy danh sách / Chi tiết 1 bản ghi (MongoDB + Mongoose)
+
+🧠 Model (Ý nghĩa)
+- Truy xuất dữ liệu là thao tác phổ biến nhất sau khi đã lưu thành công.
+- Có thể lấy toàn bộ danh sách (GET all) hoặc chi tiết theo `id` (GET by ID).
+- Phù hợp cho API như: xem tất cả user, 1 bài viết cụ thể, sản phẩm chi tiết...
+
+🛠️ Controller (Công cụ / Câu lệnh)
+- `Model.find()` → lấy toàn bộ
+- `Model.findById(id)` → lấy theo `_id` (hoặc `Model.findOne({ _id })`)
+- Có thể kết hợp `.select()` để ẩn/hiện trường
+- `.lean()` nếu chỉ cần object đơn giản, không cần instance mongoose
+
+🧪 Example (routes/userRoute.js)
+const express = require('express');
+const User = require('../models/User');
+const router = express.Router();
+
+// GET /users - Lấy danh sách tất cả user
+router.get('/users', async (req, res) => {
+  try {
+    const users = await User.find().select('-password'); // ẩn trường password
+    res.json(users);
+  } catch (err) {
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+// GET /users/:id - Lấy chi tiết 1 user theo ID
+router.get('/users/:id', async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id).select('-password');
+    if (!user) return res.status(404).json({ error: 'User not found' });
+    res.json(user);
+  } catch (err) {
+    res.status(400).json({ error: 'Invalid ID' });
+  }
+});
+
+module.exports = router;
+
+📝 Ghi chú:
+- `.select('-password')`: loại bỏ field không cần trả về
+- `.lean()` giúp hiệu năng cao hơn nếu không cần các method mongoose
+- Nếu ID không hợp lệ → sẽ ném lỗi (nên dùng try/catch hoặc validate ID trước)

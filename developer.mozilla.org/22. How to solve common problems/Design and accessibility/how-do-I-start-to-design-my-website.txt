@@ -1,0 +1,68 @@
+1. Cách bắt đầu thiết kế website của bạn
+Bài viết này đề cập đến bước quan trọng đầu tiên của mỗi dự án: xác định những gì bạn muốn đạt được với nó.
+
+**Tiền đề:** Không yêu cầu kiến thức trước.
+
+**Mục tiêu:** Học cách xác định mục tiêu để định hướng cho dự án web của bạn.
+
+**Tóm tắt**
+Khi bắt đầu với một dự án web, nhiều người tập trung vào mặt kỹ thuật. Tất nhiên, bạn phải quen thuộc với kỹ thuật của nghề mình, nhưng điều quan trọng nhất là bạn muốn đạt được điều gì. Dường như điều này là hiển nhiên, nhưng quá nhiều dự án thất bại không phải vì thiếu kiến thức kỹ thuật, mà là do thiếu mục tiêu và tầm nhìn.
+
+Vậy khi bạn có một ý tưởng và muốn biến nó thành một website, có một số câu hỏi bạn cần trả lời trước khi làm bất cứ điều gì:
+
+- Tôi muốn đạt được điều gì?
+- Website sẽ giúp tôi đạt được mục tiêu như thế nào?
+- Cần làm gì và theo thứ tự nào để đạt được mục tiêu của tôi?
+
+Tất cả những điều này được gọi là "Project Ideation" và là bước cần thiết đầu tiên để đạt được mục tiêu của bạn, dù bạn là người mới bắt đầu hay một lập trình viên có kinh nghiệm.
+
+**Đi sâu hơn**
+Một dự án không bắt đầu từ khía cạnh kỹ thuật. Nhạc sĩ sẽ không bao giờ tạo ra âm nhạc nếu họ không có ý tưởng về những gì họ muốn chơi — và điều này cũng đúng với các họa sĩ, nhà văn và lập trình viên web. Kỹ thuật đến sau.
+
+Kỹ thuật là rất quan trọng. Nhạc sĩ phải thành thạo công cụ của mình. Nhưng nhạc sĩ giỏi sẽ không bao giờ tạo ra âm nhạc hay nếu không có ý tưởng. Do đó, trước khi nhảy vào kỹ thuật — ví dụ như mã và công cụ — bạn phải bước lại và quyết định chi tiết về những gì bạn muốn làm.
+
+Một cuộc thảo luận kéo dài một giờ với bạn bè là một khởi đầu tốt, nhưng vẫn chưa đủ. Bạn phải ngồi xuống và cấu trúc ý tưởng của mình để có cái nhìn rõ ràng về con đường bạn phải đi để biến ý tưởng thành hiện thực. Để làm điều này, bạn chỉ cần bút và giấy và một ít thời gian để trả lời ít nhất những câu hỏi sau.
+
+**Tôi muốn đạt được điều gì?**
+Đây là câu hỏi quan trọng nhất, vì nó sẽ thúc đẩy mọi thứ còn lại. Liệt kê tất cả các mục tiêu bạn muốn đạt được. Nó có thể là bất kỳ điều gì: bán hàng kiếm tiền, thể hiện quan điểm chính trị, gặp gỡ bạn bè mới, chơi nhạc với các nhạc sĩ, sưu tập ảnh mèo, hay bất kỳ điều gì bạn muốn.
+
+Giả sử bạn là một nhạc sĩ. Bạn có thể muốn:
+
+- Cho mọi người nghe nhạc của bạn.
+- Bán đồ lưu niệm.
+- Gặp gỡ các nhạc sĩ khác.
+- Nói về âm nhạc của bạn.
+- Dạy nhạc qua video.
+- Xuất bản ảnh mèo của bạn.
+- Tìm một căn hộ mới.
+
+Sau khi bạn có một danh sách như vậy, bạn cần phải ưu tiên. Sắp xếp các mục tiêu từ quan trọng nhất đến ít quan trọng nhất:
+
+1. Tìm một căn hộ mới.
+2. Cho mọi người nghe nhạc của bạn.
+3. Nói về âm nhạc của bạn.
+4. Gặp gỡ các nhạc sĩ khác.
+5. Bán đồ lưu niệm.
+6. Dạy nhạc qua video.
+7. Xuất bản ảnh mèo của bạn.
+
+**Website có thể giúp tôi đạt được mục tiêu như thế nào?**
+Khi bạn đã có danh sách các mục tiêu và cảm thấy cần một website để đạt được những mục tiêu đó, bạn có chắc chắn không?
+
+Hãy nhìn lại ví dụ của chúng ta. Chúng ta có năm mục tiêu liên quan đến âm nhạc, một mục tiêu liên quan đến cuộc sống cá nhân (tìm một căn hộ mới), và hoàn toàn không liên quan gì đến ảnh mèo. Liệu có hợp lý khi xây dựng một website duy nhất để bao quát tất cả các mục tiêu này không? Có thật sự cần thiết không?
+
+**Cần làm gì và theo thứ tự nào để đạt được mục tiêu của tôi?**
+Bây giờ bạn biết mình muốn đạt được điều gì, đã đến lúc biến các mục tiêu đó thành các bước hành động cụ thể. Mục tiêu của bạn không nhất thiết phải là vĩnh viễn. Chúng có thể thay đổi theo thời gian, thậm chí trong suốt quá trình dự án, đặc biệt nếu bạn gặp phải những rào cản bất ngờ hoặc thay đổi quyết định.
+
+Dưới đây là một bảng ví dụ để minh họa:
+
+| Mục tiêu                     | Việc cần làm                           |
+|------------------------------|----------------------------------------|
+| Cho mọi người nghe nhạc của bạn | Thu âm nhạc, chuẩn bị các tệp âm thanh có thể sử dụng trực tuyến |
+| Nói về âm nhạc của bạn        | Viết một vài bài viết để bắt đầu cuộc thảo luận, định nghĩa cách các bài viết sẽ trông như thế nào |
+| Gặp gỡ các nhạc sĩ khác       | Cung cấp cách để mọi người liên hệ với bạn |
+| Bán đồ lưu niệm               | Tạo đồ lưu niệm, lưu trữ đồ lưu niệm, tìm cách xử lý vận chuyển và thanh toán |
+| Dạy nhạc qua video            | Quay các bài học video, chuẩn bị video có thể xem trực tuyến |
+
+**Kết luận**
+Như bạn có thể thấy, ý tưởng đơn giản "Tôi muốn làm một website" tạo ra một danh sách công việc dài, và nó chỉ càng dài hơn khi bạn suy nghĩ về nó. Đừng hoảng sợ. Bạn không cần phải trả lời tất cả các câu hỏi và không cần phải làm mọi thứ trong danh sách của mình. Điều quan trọng là có một tầm nhìn rõ ràng về những gì bạn muốn và cách thức đạt được nó. Khi bạn đã có tầm nhìn rõ ràng, bạn cần quyết định làm thế nào và khi nào thực hiện nó. Chia nhỏ các nhiệm vụ lớn thành các bước hành động nhỏ, và những bước nhỏ này sẽ dẫn đến những thành tựu lớn.

@@ -1,0 +1,69 @@
+
+### Vẽ đồ họa với Web APIs
+
+**Canvas API**
+Canvas API cho phép bạn vẽ đồ họa bitmap trên trang web. Bạn có thể tạo các hình vẽ động, trò chơi, các biểu đồ dữ liệu và nhiều ứng dụng khác.
+
+**Khởi tạo Canvas:**
+Để tạo canvas trong HTML, bạn chỉ cần thêm thẻ `<canvas>` vào trang web của mình và sử dụng JavaScript để thao tác với nó.
+
+**Ví dụ cơ bản**:
+```html
+<canvas id="myCanvas" width="500" height="500"></canvas>
+<script>
+  const canvas = document.getElementById("myCanvas");
+  const ctx = canvas.getContext("2d");
+  ctx.fillStyle = "blue";
+  ctx.fillRect(50, 50, 150, 100);
+</script>
+```
+
+**Các hình dạng cơ bản:**
+- **Hình chữ nhật**: Sử dụng `fillRect(x, y, width, height)` để vẽ hình chữ nhật.
+- **Đường thẳng**: Dùng `beginPath()`, `moveTo(x, y)`, và `lineTo(x, y)` để vẽ các đoạn đường thẳng.
+- **Hình tròn**: Dùng `arc(x, y, radius, startAngle, endAngle)` để vẽ hình tròn hoặc cung tròn.
+
+**Xử lý sự kiện với Canvas API**
+Bạn có thể sử dụng các sự kiện như `click`, `mousemove` để vẽ các hình vẽ theo tương tác của người dùng.
+
+**Ví dụ vẽ theo sự kiện chuột:**
+```js
+canvas.addEventListener("mousemove", (e) => {
+  if (pressed) {
+    ctx.beginPath();
+    ctx.arc(e.pageX, e.pageY, 10, 0, Math.PI * 2);
+    ctx.fill();
+  }
+});
+```
+
+**WebGL API**
+WebGL là API cho phép vẽ đồ họa 3D trong trình duyệt, dựa trên OpenGL. WebGL rất mạnh mẽ nhưng cũng phức tạp, thường được sử dụng kết hợp với các thư viện như Three.js để đơn giản hóa việc tạo cảnh 3D.
+
+**Thư viện WebGL:**
+- **Three.js** là thư viện phổ biến giúp bạn làm việc với WebGL một cách dễ dàng hơn, cho phép tạo các hình khối 3D, camera, ánh sáng, v.v.
+
+**Ví dụ sử dụng WebGL với Three.js**:
+```js
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+const geometry = new THREE.BoxGeometry();
+const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+const cube = new THREE.Mesh(geometry, material);
+scene.add(cube);
+camera.position.z = 5;
+function animate() {
+  requestAnimationFrame(animate);
+  cube.rotation.x += 0.01;
+  cube.rotation.y += 0.01;
+  renderer.render(scene, camera);
+}
+animate();
+```
+
+**Tóm tắt**
+- **Canvas API** là công cụ mạnh mẽ để tạo đồ họa 2D trên trang web.
+- **WebGL API** giúp tạo đồ họa 3D trong trình duyệt, mặc dù khó sử dụng trực tiếp nhưng có thể dễ dàng thông qua các thư viện như Three.js.

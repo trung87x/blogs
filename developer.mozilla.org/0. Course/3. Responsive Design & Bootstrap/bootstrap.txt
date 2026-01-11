@@ -1,0 +1,67 @@
+
+# Bootstrap
+
+## 1. **Project: TinDog Startup Website**
+
+### Mục tiêu:
+TinDog là một trang web khởi nghiệp giả tưởng, sử dụng Bootstrap để tạo giao diện hiện đại và phản hồi nhanh chóng cho các thiết bị khác nhau.
+
+### Các phần chính của trang web:
+- **Navbar**: Thanh điều hướng với logo và menu.
+- **Hero Section**: Tiêu đề chính với văn bản và hình ảnh.
+- **Features**: Danh sách các tính năng nổi bật.
+- **Testimonials**: Đánh giá từ khách hàng.
+- **Pricing**: Bảng giá các gói dịch vụ.
+- **Footer**: Chân trang với liên kết mạng xã hội.
+
+### Sử dụng Bootstrap:
+- **Navbar**: Thanh điều hướng có menu và khả năng thu gọn.
+- **Hero Section**: Tạo bố cục bằng Grid System để căn chỉnh văn bản và hình ảnh.
+- **Features Section**: Sử dụng Cards và Icons.
+- **Pricing**: Tạo bảng giá với các gói dịch vụ .
+
+---
+
+## 2. **What is Bootstrap?**
+
+### **Bootstrap là gì?**
+Bootstrap là một CSS framework phổ biến giúp tạo giao diện web nhanh chóng với các thành phần dựng sẵn và hệ thống lưới 12 cột.
+
+### **Tại sao Bootstrap phổ biến?**
+- Cung cấp các thành phần dựng sẵn như nút, thẻ, navbar, form.
+- Hỗ trợ Mobile First và thiết kế Responsive.
+- Dễ sử dụng và tương thích trình duyệt cao【277†source】.
+
+---
+
+## 3. **Bootstrap Layout - Hệ thống bố cục 12 cột**
+
+### **Hệ thống 12 cột**:
+Bootstrap sử dụng hệ thống 12 cột để tạo bố cục linh hoạt. Bạn có thể chia cột theo kích thước màn hình, từ màn hình nhỏ đến rất lớn.
+
+### **Các loại container**:
+- `.container`: Giới hạn chiều rộng của trang.
+- `.container-fluid`: Chiều rộng 100% trên mọi kích thước màn hình【278†source】.
+
+---
+
+## 4. **Bootstrap Components – Các thành phần có sẵn của Bootstrap**
+
+### **Các thành phần phổ biến**:
+- **Nút (Button)**: Các nút có sẵn với nhiều màu sắc và kích thước.
+- **Navbar**: Thanh điều hướng có thể mở rộng.
+- **Cards**: Các thẻ để hiển thị nội dung trong các hộp.
+- **Carousel**: Băng chuyền hình ảnh.
+- **Icons**: Thêm biểu tượng vào trang web【279†source】.
+
+---
+
+## Summary
+
+- **Bootstrap** là một công cụ mạnh mẽ giúp xây dựng giao diện nhanh chóng với các thành phần dựng sẵn và hệ thống lưới 12 cột.
+- **TinDog** là ví dụ sử dụng Bootstrap để tạo một trang web khởi nghiệp.
+- Bootstrap cung cấp các **Components** và **Grid System** cho việc tạo giao diện responsive dễ dàng và hiệu quả 【277†source】【278†source】【279†source】.
+
+---
+
+# End of Content

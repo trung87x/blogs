@@ -1,0 +1,115 @@
+/* ===========================
+   THIẾT KẾ GIAO DIỆN PHẢN HỒI
+   =========================== */
+
+/* === 1. KHÁI NIỆM === */
+/*
+- Responsive Design là cách thiết kế web để nội dung hiển thị tốt trên mọi kích thước màn hình.
+- Giao diện phải thích ứng linh hoạt với điện thoại, tablet, laptop, desktop,...
+- Không phải công nghệ riêng biệt → là tập hợp kỹ thuật tốt (best practices).
+*/
+
+/* === 2. KỸ THUẬT CƠ BẢN === */
+/*
+- Fluid layout (lưới linh hoạt) → không dùng width cố định
+- Flexible media (media co giãn)
+- Media queries để áp dụng CSS theo điều kiện thiết bị
+*/
+
+/* === 3. <meta viewport> — BẮT BUỘC CHO MOBILE === */
+/*
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+- Giúp trình duyệt mobile dùng đúng chiều rộng thiết bị thật
+- Không có tag này → media queries có thể không hoạt động
+*/
+
+/* === 4. MEDIA QUERIES — KIỂM TRA KÍCH THƯỚC === */
+@media (min-width: 600px) {
+  .wrapper {
+    display: flex;
+  }
+  .col1 {
+    flex: 1;
+    margin-right: 5%;
+  }
+  .col2 {
+    flex: 2;
+  }
+}
+
+/*
+- Dùng để thay đổi layout hoặc font theo breakpoint
+- Best practice: dùng đơn vị tương đối (em, rem, %) thay vì px
+- Thiết kế theo hướng mobile-first (ưu tiên thiết bị nhỏ)
+*/
+
+/* === 5. FLEXBOX & GRID — LAYOUT LINH HOẠT === */
+
+/* Flexbox ví dụ: */
+.container {
+  display: flex;
+}
+.item {
+  flex: 1;
+}
+
+/* Grid ví dụ: */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* Grid có breakpoint: */
+@media screen and (min-width: 600px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 5%;
+  }
+}
+
+/* === 6. RESPONSIVE MEDIA (HÌNH ẢNH/VIDEO) === */
+img,
+video,
+picture {
+  max-width: 100%;
+}
+/*
+- Đảm bảo media không tràn khỏi container
+- Dùng <picture> với srcset/sizes để tối ưu theo thiết bị
+*/
+
+/* === 7. TYPOGRAPHY PHẢN HỒI === */
+
+/* Cách 1: Dùng media queries */
+h1 {
+  font-size: 2rem;
+}
+@media (min-width: 1200px) {
+  h1 {
+    font-size: 4rem;
+  }
+}
+
+/* Cách 2: Dùng viewport units + calc() */
+h1 {
+  font-size: calc(1.5rem + 4vw);
+}
+/*
+- Tránh chỉ dùng vw vì không hỗ trợ zoom
+- Kết hợp rem + vw sẽ vẫn zoom được + thích ứng viewport
+*/
+
+/* === 8. LƯU Ý QUAN TRỌNG === */
+/*
+- Không cần media queries cho mọi thứ → dùng layout linh hoạt (auto-fill, minmax)
+- Ưu tiên đơn giản: mobile-first, dùng grid/flex hợp lý
+- Giảm tải: tránh ảnh lớn, script nặng khi không cần thiết
+*/
+
+/* ==============================================================
+   TÓM TẮT:
+   - Responsive Design = thiết kế đáp ứng theo màn hình người dùng
+   - Dùng fluid grid, flexbox, grid, media queries, và viewport meta tag
+   - Hướng đến trải nghiệm tốt hơn, hiệu quả hơn cho mọi thiết bị
+   ============================================================== */

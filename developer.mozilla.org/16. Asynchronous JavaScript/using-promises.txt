@@ -1,0 +1,110 @@
+
+### Cách sử dụng Promise trong JavaScript
+
+**Promise là gì?**
+Promise là một đối tượng được trả về bởi các hàm bất đồng bộ, đại diện cho trạng thái hiện tại của một tác vụ. Khi Promise được trả về, tác vụ có thể chưa hoàn thành, nhưng Promise cung cấp các phương thức để xử lý kết quả khi tác vụ hoàn thành (hoặc thất bại).
+
+**Sử dụng Fetch API với Promise**
+Fetch API là một API hiện đại dùng để gửi yêu cầu HTTP và nhận dữ liệu từ máy chủ. Thay vì sử dụng `XMLHttpRequest` như trước, Fetch API sử dụng Promise để xử lý kết quả bất đồng bộ.
+
+**Ví dụ sử dụng Fetch API**:
+```js
+const fetchPromise = fetch(
+  "https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json",
+);
+
+console.log(fetchPromise);
+
+fetchPromise.then((response) => {
+  console.log(`Received response: ${response.status}`);
+});
+
+console.log("Started request…");
+```
+Kết quả sẽ là:
+- Promise { <state>: "pending" }
+- "Started request…"
+- "Received response: 200"
+
+**Chaining Promise**
+Chaining Promise là quá trình sử dụng một `then()` tiếp theo sau một `then()` khác. Điều này giúp bạn thực hiện các tác vụ bất đồng bộ liên tiếp mà không bị lồng nhau (callback hell).
+
+**Ví dụ về Promise chaining**:
+```js
+const fetchPromise = fetch(
+  "https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json",
+);
+
+fetchPromise
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data[0].name);
+  });
+```
+**Xử lý lỗi trong Promise**
+Lỗi có thể xảy ra trong các hàm bất đồng bộ. Để xử lý lỗi, bạn sử dụng `catch()` để nhận thông báo khi một Promise bị từ chối.
+
+**Ví dụ về xử lý lỗi với catch()**:
+```js
+fetch("bad-url")
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error(`HTTP error: ${response.status}`);
+    }
+    return response.json();
+  })
+  .catch((error) => {
+    console.error(`Could not get products: ${error}`);
+  });
+```
+
+**Promise Terminology**
+- **pending**: Promise đang trong quá trình thực thi và chưa hoàn thành.
+- **fulfilled**: Promise đã hoàn thành và trả về kết quả thành công.
+- **rejected**: Promise bị lỗi và không thể hoàn thành.
+
+**Kết hợp Promise**
+Bạn có thể kết hợp nhiều Promise bằng cách sử dụng `Promise.all()` khi tất cả các Promise phải hoàn thành trước khi tiếp tục.
+
+**Ví dụ về Promise.all()**:
+```js
+const fetchPromise1 = fetch("url1");
+const fetchPromise2 = fetch("url2");
+const fetchPromise3 = fetch("url3");
+
+Promise.all([fetchPromise1, fetchPromise2, fetchPromise3])
+  .then((responses) => {
+    responses.forEach((response) => {
+      console.log(`${response.url}: ${response.status}`);
+    });
+  })
+  .catch((error) => {
+    console.error(`Failed to fetch: ${error}`);
+  });
+```
+
+**async và await**
+`async` và `await` là cú pháp mới giúp làm việc với Promise dễ dàng hơn. `async` biến một hàm thành bất đồng bộ, và `await` giúp chờ đợi kết quả của một Promise.
+
+**Ví dụ sử dụng async/await**:
+```js
+async function fetchProducts() {
+  try {
+    const response = await fetch(
+      "https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json",
+    );
+    if (!response.ok) {
+      throw new Error(`HTTP error: ${response.status}`);
+    }
+    const data = await response.json();
+    console.log(data[0].name);
+  } catch (error) {
+    console.error(`Could not get products: ${error}`);
+  }
+}
+
+fetchProducts();
+```
+
+**Tóm tắt**:
+Promise là nền tảng của lập trình bất đồng bộ trong JavaScript. Với Promise, bạn có thể dễ dàng quản lý các tác vụ bất đồng bộ mà không bị lồng nhau quá mức, đồng thời dễ dàng xử lý lỗi. `async` và `await` giúp bạn viết mã bất đồng bộ giống như mã đồng bộ.

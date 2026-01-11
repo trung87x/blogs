@@ -1,0 +1,39 @@
+
+1. Sử dụng nội dung được tạo ra bởi CSS
+Bài viết này mô tả một số cách bạn có thể sử dụng CSS để thêm nội dung khi tài liệu được hiển thị. Bạn có thể thay đổi stylesheet của mình để thêm văn bản hoặc hình ảnh.
+
+Một trong những ưu điểm quan trọng của CSS là nó giúp bạn tách biệt kiểu dáng của tài liệu với nội dung của nó. Tuy nhiên, có những trường hợp mà bạn có thể muốn chỉ định một số nội dung là một phần của stylesheet, thay vì là một phần của tài liệu. Bạn có thể chỉ định nội dung văn bản hoặc hình ảnh trong stylesheet khi nội dung đó có liên quan chặt chẽ đến cấu trúc của tài liệu.
+
+Lưu ý: Nội dung được chỉ định trong stylesheet sẽ không trở thành một phần của DOM.
+
+**Ví dụ về nội dung văn bản**
+CSS có thể chèn nội dung văn bản trước hoặc sau một phần tử, hoặc thay đổi nội dung của một dấu hiệu mục trong danh sách (như biểu tượng bullet hoặc số) trước một `<li>` hoặc phần tử khác với `display: list-item;`. Để chỉ định điều này, hãy tạo một quy tắc và thêm `::before`, `::after`, hoặc `::marker` vào selector. Trong khai báo, chỉ định thuộc tính `content` với nội dung văn bản là giá trị của nó.
+
+Ví dụ:
+```html
+A text where I need to <span class="ref">something</span>
+```
+
+```css
+.ref::before {
+  font-weight: bold;
+  color: navy;
+  content: "Reference ";
+}
+```
+
+**Ví dụ về nội dung hình ảnh**
+Để thêm hình ảnh trước hoặc sau một phần tử, bạn có thể chỉ định URL của tệp hình ảnh trong giá trị của thuộc tính `content`.
+
+Ví dụ, quy tắc dưới đây thêm một khoảng trắng và một biểu tượng sau mỗi liên kết có lớp `glossary`:
+```html
+<a href="developer.mozilla.org" class="glossary">developer.mozilla.org</a>
+```
+
+```css
+a.glossary::after {
+  content: " " url("glossary-icon.gif");
+}
+```
+
+Lưu ý: Bộ ký tự của một stylesheet mặc định là UTF-8, nhưng cũng có thể được chỉ định trong liên kết, trong chính stylesheet, hoặc theo các cách khác. Để biết thêm chi tiết, xem tham chiếu `@charset`.

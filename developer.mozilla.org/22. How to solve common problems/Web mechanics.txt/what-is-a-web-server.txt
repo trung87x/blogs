@@ -1,0 +1,77 @@
+Dưới đây là nội dung bài về **máy chủ web và cách thức hoạt động của nó**:
+
+```
+1. Máy chủ web là gì và cách thức hoạt động của nó
+Bài viết này giải thích máy chủ web là gì, cách thức hoạt động của nó và tại sao chúng lại quan trọng.
+
+**Tiền đề:** Bạn nên hiểu cách Internet hoạt động, và sự khác biệt giữa trang web, website, máy chủ web và công cụ tìm kiếm.
+
+**Mục tiêu:** Bạn sẽ học về máy chủ web và có cái nhìn tổng quan về cách chúng hoạt động.
+
+**Tóm tắt**
+Thuật ngữ "máy chủ web" có thể đề cập đến phần cứng, phần mềm, hoặc cả hai làm việc cùng nhau.
+
+Về phần cứng, máy chủ web là một máy tính lưu trữ phần mềm máy chủ web và các tệp thành phần của website (ví dụ: tài liệu HTML, hình ảnh, tệp CSS, và tệp JavaScript). Một máy chủ web kết nối với Internet và hỗ trợ việc trao đổi dữ liệu vật lý với các thiết bị khác kết nối với web.
+
+Về phần mềm, máy chủ web bao gồm nhiều phần điều khiển cách thức người dùng truy cập các tệp đã lưu trữ. Ít nhất, đó là một máy chủ HTTP. Một máy chủ HTTP là phần mềm hiểu các URL (địa chỉ web) và HTTP (giao thức mà trình duyệt của bạn sử dụng để xem các trang web). Một máy chủ HTTP có thể truy cập thông qua tên miền của các website mà nó lưu trữ và gửi nội dung của các website này đến thiết bị của người dùng cuối.
+
+Ở mức cơ bản nhất, mỗi khi trình duyệt cần một tệp được lưu trữ trên một máy chủ web, trình duyệt yêu cầu tệp qua HTTP. Khi yêu cầu đến đúng máy chủ (phần cứng) web, phần mềm máy chủ HTTP chấp nhận yêu cầu, tìm tài liệu được yêu cầu, và gửi nó lại cho trình duyệt, cũng qua HTTP. (Nếu máy chủ không tìm thấy tài liệu yêu cầu, nó sẽ trả về một phản hồi 404 thay vì.)
+
+**Biểu diễn cơ bản của một kết nối client/server qua HTTP**
+
+Để xuất bản một website, bạn cần một máy chủ web tĩnh hoặc động.
+
+Máy chủ web tĩnh, hay stack, gồm một máy tính (phần cứng) với một máy chủ HTTP (phần mềm). Chúng ta gọi nó là "tĩnh" vì máy chủ gửi các tệp đã lưu trữ như là chúng, không thay đổi gì cả cho trình duyệt của bạn.
+
+Máy chủ web động bao gồm một máy chủ web tĩnh cộng thêm phần mềm bổ sung, phổ biến nhất là máy chủ ứng dụng và cơ sở dữ liệu. Chúng ta gọi nó là "động" vì máy chủ ứng dụng cập nhật các tệp đã lưu trữ trước khi gửi nội dung đến trình duyệt của bạn qua máy chủ HTTP.
+
+Ví dụ, để tạo ra các trang web cuối cùng mà bạn thấy trong trình duyệt, máy chủ ứng dụng có thể điền các mẫu HTML với nội dung từ cơ sở dữ liệu. Các website như MDN hoặc Wikipedia có hàng nghìn trang web. Thông thường, các loại website này chỉ bao gồm một vài mẫu HTML và một cơ sở dữ liệu khổng lồ, thay vì hàng nghìn tài liệu HTML tĩnh. Cấu trúc này làm cho việc duy trì và cung cấp nội dung trở nên dễ dàng hơn.
+
+**Đi sâu hơn**
+Để xem lại: để truy xuất một trang web, trình duyệt của bạn gửi yêu cầu đến máy chủ web, máy chủ tìm tệp yêu cầu trong không gian lưu trữ của nó. Sau khi tìm thấy tệp, máy chủ đọc nó, xử lý nếu cần, và gửi nó cho trình duyệt. Hãy cùng xem chi tiết các bước đó.
+
+**Lưu trữ các tệp**
+Đầu tiên, một máy chủ web phải lưu trữ các tệp của website, chủ yếu là tất cả các tài liệu HTML và các tài sản liên quan của chúng, bao gồm hình ảnh, tệp CSS, tệp JavaScript, phông chữ và video.
+
+Kỹ thuật, bạn có thể lưu trữ tất cả các tệp này trên máy tính của chính mình, nhưng việc lưu trữ chúng trên một máy chủ web chuyên dụng sẽ tiện lợi hơn vì:
+
+- Máy chủ web chuyên dụng thường có sẵn (hoạt động).
+- Ngoại trừ thời gian ngừng hoạt động và sự cố hệ thống, máy chủ web chuyên dụng luôn kết nối với Internet.
+- Máy chủ web chuyên dụng có thể có cùng một địa chỉ IP suốt thời gian. Đây được gọi là địa chỉ IP chuyên dụng. (Không phải tất cả các ISP cung cấp địa chỉ IP cố định cho các đường truyền gia đình.)
+- Máy chủ web chuyên dụng thường được duy trì bởi bên thứ ba.
+  
+Vì tất cả những lý do này, việc tìm nhà cung cấp dịch vụ lưu trữ tốt là một phần quan trọng trong việc xây dựng website của bạn. Hãy xem xét các dịch vụ mà các công ty cung cấp. Chọn một dịch vụ phù hợp với nhu cầu và ngân sách của bạn. (Các dịch vụ dao động từ miễn phí đến hàng nghìn đô la mỗi tháng.) Bạn có thể tìm thêm chi tiết trong bài viết này.
+
+Sau khi bạn có dịch vụ lưu trữ web, bạn phải tải các tệp của mình lên máy chủ web.
+
+**Giao tiếp qua HTTP**
+Thứ hai, một máy chủ web cung cấp hỗ trợ cho HTTP (Hypertext Transfer Protocol). Như tên gọi của nó, HTTP chỉ định cách truyền tải siêu văn bản (tài liệu web có liên kết) giữa hai máy tính.
+
+Một giao thức là một bộ quy tắc giao tiếp giữa hai máy tính. HTTP là một giao thức văn bản, không trạng thái.
+
+**Văn bản**
+Tất cả các lệnh đều là văn bản thuần túy và dễ đọc.
+
+**Không trạng thái**
+Cả máy chủ và khách hàng đều không ghi nhớ các giao tiếp trước đó. Ví dụ, khi dựa vào HTTP một mình, máy chủ không thể nhớ mật khẩu bạn đã nhập hoặc nhớ tiến trình của bạn trong một giao dịch chưa hoàn thành. Bạn cần một máy chủ ứng dụng để thực hiện các tác vụ như vậy. (Chúng tôi sẽ thảo luận về công nghệ đó trong các bài viết khác.)
+
+HTTP cung cấp các quy tắc rõ ràng cho cách thức giao tiếp giữa client và server. Nếu bạn muốn tìm hiểu thêm, bạn có thể đọc tài liệu HTTP. Hiện tại, có một vài điều cần lưu ý:
+
+- Khách hàng thực hiện yêu cầu HTTP đến máy chủ. Máy chủ trả lời yêu cầu HTTP của khách hàng.
+- Khi yêu cầu một tệp qua HTTP, khách hàng phải cung cấp URL của tệp.
+- Máy chủ web phải trả lời mọi yêu cầu HTTP, ít nhất là với một thông báo lỗi.
+- Trên máy chủ web, máy chủ HTTP chịu trách nhiệm xử lý và trả lời các yêu cầu đến.
+
+Khi nhận được yêu cầu, một máy chủ HTTP kiểm tra xem URL yêu cầu có trùng với một tệp đã có hay không.
+Nếu có, máy chủ web gửi nội dung tệp đó trở lại trình duyệt. Nếu không, máy chủ sẽ kiểm tra xem có nên tạo tệp động cho yêu cầu hay không (xem nội dung tĩnh vs động).
+Nếu không có lựa chọn nào trong hai, máy chủ web sẽ trả về thông báo lỗi cho trình duyệt, phổ biến nhất là lỗi 404 Not Found. Lỗi 404 phổ biến đến mức một số nhà thiết kế web dành nhiều thời gian và công sức để thiết kế trang lỗi 404.
+
+**Nội dung tĩnh vs động**
+Một cách sơ bộ, một máy chủ có thể phục vụ nội dung tĩnh hoặc động. Hãy nhớ rằng thuật ngữ "tĩnh" có nghĩa là "phục vụ như là nó". Các website tĩnh là dễ nhất để thiết lập, vì vậy chúng tôi khuyên bạn nên tạo trang web đầu tiên của mình là một trang tĩnh.
+
+Thuật ngữ "động" có nghĩa là máy chủ xử lý nội dung hoặc thậm chí tạo ra nó ngay lập tức từ cơ sở dữ liệu. Phương pháp này cung cấp sự linh hoạt hơn, nhưng bộ công cụ kỹ thuật phức tạp hơn, làm cho việc xây dựng một website khó khăn hơn rất nhiều.
+
+Không thể chỉ ra một máy chủ ứng dụng có sẵn nào là giải pháp đúng cho tất cả mọi trường hợp. Một số máy chủ ứng dụng được thiết kế để lưu trữ và quản lý các blog, wiki hoặc giải pháp thương mại điện tử, trong khi những máy chủ khác thì chung chung hơn. Nếu bạn đang xây dựng một website động, hãy dành thời gian nghiên cứu yêu cầu của mình và tìm kiếm công nghệ phù hợp nhất với nhu cầu của bạn.
+
+Hầu hết các nhà phát triển website không cần phải tạo một máy chủ ứng dụng từ đầu, vì có rất nhiều giải pháp có sẵn, trong đó nhiều giải pháp có thể cấu hình cao. Nhưng nếu bạn cần phải tạo máy chủ của riêng mình, bạn sẽ muốn sử dụng một framework máy chủ, tận dụng mã và thư viện sẵn có của nó, và mở rộng chỉ các phần mà bạn cần để đáp ứng trường hợp sử dụng của bạn. Chỉ một số ít nhà phát triển cần phải phát triển máy chủ hoàn toàn từ đầu: ví dụ, để đáp ứng các ràng buộc tài nguyên nghiêm ngặt trên hệ thống nhúng. Nếu bạn muốn thử nghiệm với việc xây dựng máy chủ, hãy tham khảo tài liệu trong lộ trình học lập trình website phía server.
+```

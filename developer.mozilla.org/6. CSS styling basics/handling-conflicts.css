@@ -1,0 +1,142 @@
+/* =========================
+   GIẢI QUYẾT XUNG ĐỘT STYLE
+   ========================= */
+
+/* 1. Tổng quan – Những khái niệm chính:
+   - Cascade (luồng chảy CSS)
+   - Specificity (độ ưu tiên)
+   - Inheritance (kế thừa)
+   → Các cơ chế quyết định style nào được áp dụng cuối cùng
+*/
+
+/* ------------------------------
+   2. Cascade – Luồng chảy CSS
+   ------------------------------ */
+/* Khi nhiều rule cùng áp dụng một property cho cùng một phần tử,
+   thì rule viết sau sẽ được ưu tiên nếu specificity bằng nhau */
+
+h1 {
+  color: red;
+}
+h1 {
+  color: blue; /* Cái này thắng vì viết sau */
+}
+
+/* ------------------------------
+   3. Specificity – Độ ưu tiên selector
+   ------------------------------ */
+/* Mức độ cụ thể của selector càng cao → càng ưu tiên */
+
+.main-heading {
+  color: red; /* Class: specificity cao hơn */
+}
+h1 {
+  color: blue;
+}
+/* → màu cuối là đỏ, do class > element */
+
+/* Bảng điểm specificity:
+   - ID selector       → 1-0-0
+   - Class/Attr/Pseudo-class → 0-1-0
+   - Element/Pseudo-element → 0-0-1
+   - Inline style      → 1-0-0-0
+   - !important        → thắng tất cả
+*/
+
+/* ------------------------------
+   4. Inheritance – Kế thừa style
+   ------------------------------ */
+
+body {
+  color: blue;
+}
+span {
+  color: black; /* Ghi đè kế thừa */
+}
+/* Một số property sẽ kế thừa (color, font), một số thì không (width, margin) */
+
+/* ------------------------------
+   5. Giá trị điều khiển kế thừa
+   ------------------------------ */
+/*
+   inherit      → ép kế thừa từ cha
+   initial      → về mặc định CSS
+   unset        → kế thừa nếu được phép, nếu không thì dùng initial
+   revert       → về mặc định trình duyệt
+   revert-layer → về mặc định lớp cascade trước đó
+*/
+
+.my-class-1 a { color: inherit; }
+.my-class-2 a { color: initial; }
+.my-class-3 a { color: unset; }
+
+/* Dùng all để reset toàn bộ thuộc tính */
+.fix-this {
+  all: unset;
+}
+
+/* ------------------------------
+   6. Source Order – Thứ tự trong file
+   ------------------------------ */
+/* Nếu specificity bằng nhau, rule viết sau thắng */
+
+h2 {
+  font-size: 2em;
+  color: #000;
+}
+.bright {
+  color: rebeccapurple;
+}
+/* → class bright áp dụng vì specificity cao hơn */
+
+/* ------------------------------
+   7. So sánh specificity thực tế
+   ------------------------------ */
+/*
+#outer a                 → 1-0-1
+#outer #inner a          → 2-0-1
+#outer div ul li a       → 1-0-4
+#outer div ul .nav a     → 1-1-3
+div div li:nth-child(2) a:hover        → 0-2-4
+div li:nth-child(2) a:hover            → 0-2-3
+div div .nav:nth-child(2) a:hover      → 0-3-3
+*/
+
+/* Kết luận:
+   - Dù selector dài nhưng nếu chỉ dùng element thì specificity vẫn thấp
+   - Class tăng trọng số nhanh hơn element
+*/
+
+/* ------------------------------
+   8. Inline style và !important
+   ------------------------------ */
+
+/* Inline style có specificity cao hơn mọi selector thông thường */
+<p style="color: red;">...<p>
+
+/* !important vượt qua cả inline */
+p {
+  border: none !important; /* thắng cả #id { border: 1px solid black; } */
+}
+
+/* ⚠️ Hạn chế dùng !important vì phá vỡ cascade, khó debug */
+
+/* ------------------------------
+   9. Thứ tự ưu tiên tổng thể
+   ------------------------------ */
+/*
+1. User agent stylesheet         (trình duyệt mặc định)
+2. User stylesheet               (người dùng tự chỉnh)
+3. Author stylesheet             (web dev – bạn)
+4. Author stylesheet !important
+5. User stylesheet !important
+6. User agent stylesheet !important
+*/
+
+/* ========================================================
+   GHI NHỚ:
+   - Luôn cân nhắc specificity khi CSS không hoạt động
+   - Đừng lạm dụng !important
+   - Dùng DevTools để tra rule đang bị override
+   - Hiểu cascade giúp code CSS vững vàng hơn
+   ======================================================== */

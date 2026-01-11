@@ -1,0 +1,77 @@
+🧠 Model 5: Client-side Rendering (CSR) trong Next.js
+-------------------------------------------------------
+• Vai trò: Render nội dung động trên trình duyệt sau khi trang đã tải.
+• Controller:
+  - Dùng `useEffect()` để fetch dữ liệu từ API sau khi component đã mount.
+  - Thường dùng trong các trang có dữ liệu phụ thuộc người dùng (tìm kiếm, lọc, bảng điều khiển...).
+
+🌐 Ngữ cảnh #5: Tìm kiếm sản phẩm – nhập từ khóa, fetch kết quả phía client
+---------------------------------------------------------------------------
+• Mục tiêu: Giao diện tìm kiếm sản phẩm – fetch dữ liệu client-side khi người dùng nhập từ khóa.
+• Giả lập API tìm kiếm từ JSONPlaceholder: `https://jsonplaceholder.typicode.com/posts`
+
+📁 Cấu trúc thư mục:
+
+app/
+└── search/
+    └── page.tsx
+
+✏️ Mã nguồn:
+
+// app/search/page.tsx
+'use client'
+
+import { useState, useEffect } from 'react'
+
+export default function SearchPage() {
+  const [query, setQuery] = useState('')
+  const [results, setResults] = useState([])
+
+  useEffect(() => {
+    if (query.length < 3) return setResults([])
+
+    const timer = setTimeout(() => {
+      fetch(`https://jsonplaceholder.typicode.com/posts`)
+        .then(res => res.json())
+        .then(data => {
+          const filtered = data.filter((post: any) =>
+            post.title.toLowerCase().includes(query.toLowerCase())
+          )
+          setResults(filtered.slice(0, 5))
+        })
+    }, 500) // debounce 500ms
+
+    return () => clearTimeout(timer)
+  }, [query])
+
+  return (
+    <main className="p-6">
+      <h1 className="text-2xl font-bold">🔍 Tìm kiếm sản phẩm</h1>
+      <input
+        type="text"
+        placeholder="Nhập từ khóa..."
+        value={query}
+        onChange={e => setQuery(e.target.value)}
+        className="mt-4 border p-2 rounded w-full"
+      />
+
+      <ul className="mt-6 list-disc pl-6">
+        {results.map((post: any) => (
+          <li key={post.id}>
+            <strong>{post.title}</strong>
+          </li>
+        ))}
+      </ul>
+    </main>
+  )
+}
+
+✅ Kết quả:
+- Giao diện tìm kiếm hoạt động tức thì sau khi người dùng nhập từ khóa.
+- Tất cả xử lý diễn ra ở client → không render trên server.
+- Phù hợp với dashboard, tìm kiếm sản phẩm, lọc theo category...
+
+🎯 Ghi nhớ:
+- CSR dùng khi dữ liệu phụ thuộc hành động người dùng hoặc không cần SEO.
+- `useEffect()` + `fetch()` là cặp đôi chính cho client-side logic.
+- Thêm `debounce` để tránh gọi API quá nhiều khi gõ liên tục.

@@ -1,0 +1,40 @@
+🧠 Ngữ cảnh #9: Logout & Xoá token
+→ Khi người dùng logout, cần xoá token để bảo vệ bảo mật và tránh bị tái sử dụng trái phép.
+
+📁 Gợi ý file:
+- routes/auth.js     → Thêm route `/logout`
+- (tuỳ chọn) Nếu lưu refreshToken trong DB, cần xoá trong DB luôn
+
+===============================
+📄 Route: POST /logout – Xoá refreshToken khỏi cookie
+===============================
+const express = require('express');
+const router = express.Router();
+
+router.post('/logout', (req, res) => {
+  // Xoá cookie chứa refreshToken
+  res.clearCookie('refreshToken', {
+    httpOnly: true,
+    secure: true,
+    sameSite: 'Strict',
+  });
+
+  res.json({ message: 'Logged out successfully' });
+});
+
+module.exports = router;
+
+===============================
+📌 Ghi chú quan trọng:
+===============================
+✅ Nếu dùng cookie chứa refreshToken:
+- Phải dùng `res.clearCookie()` đúng tên, và đúng config (httpOnly, sameSite, secure)
+
+✅ Nếu lưu refreshToken trong DB (tuỳ chọn nâng cao):
+- Cần tìm và xoá refreshToken đó trong DB khi logout
+
+✅ Sau logout, frontend nên:
+- Xoá accessToken nếu đang lưu trong memory/state
+- Điều hướng về trang login hoặc landing
+
+✅ Nếu dùng JWT stateless, không cần lưu token server-side → chỉ xoá cookie là đủ

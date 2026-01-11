@@ -1,0 +1,148 @@
+/* =====================================
+   THIẾT KẾ PHẢN HỒI (RESPONSIVE DESIGN)
+   ===================================== */
+
+/* === 1. MEDIA QUERY LÀ GÌ? === */
+/* 
+- Cho phép áp dụng CSS tùy theo điều kiện thiết bị/môi trường.
+- Thường dùng để tạo giao diện responsive (thay đổi theo viewport).
+- Cú pháp cơ bản:
+
+@media media-type and (media-feature) {
+  Quy tắc CSS
+} 
+*/
+
+
+/* === 2. CÁC LOẠI MEDIA TYPE PHỔ BIẾN === */
+/*
+- all: áp dụng cho mọi thiết bị
+- print: in ấn
+- screen: màn hình
+
+Ví dụ:
+@media print {
+  body { font-size: 12pt; }
+}
+*/
+
+/* === 3. MEDIA FEATURE – TÍNH CHẤT THIẾT BỊ === */
+/* -- Width & Height -- */
+@media screen and (max-width: 600px) {
+  body { color: blue; }
+}
+
+@media screen and (min-width: 600px) {
+  body { color: red; }
+}
+
+/* -- Orientation (xoay dọc/ngang) -- */
+@media (orientation: landscape) {
+  body { color: rebeccapurple; }
+}
+
+/* -- Hover & Pointer (có dùng chuột không) -- */
+@media screen and (hover: hover) {
+  body:hover {
+    color: white;
+    background: black;
+  }
+}
+
+/* pointer: none | coarse | fine */
+@media (pointer: coarse) {
+  body {
+    font-size: 1.2em;
+  }
+}
+
+/* === 4. RANGE SYNTAX (cú pháp so sánh dải) === */
+/*
+Cũ:
+@media (min-width: 30em) and (max-width: 50em) { ... }
+
+Mới:
+@media (30em <= width <= 50em) { ... }
+*/
+
+/* === 5. KẾT HỢP LOGIC TRONG MEDIA QUERY === */
+/*
+- and: đồng thời đúng nhiều điều kiện
+- , (dấu phẩy): hoặc – chỉ cần một điều kiện đúng
+- not: phủ định
+
+Ví dụ:
+@media screen and (min-width: 600px), screen and (orientation: landscape) {
+  body { color: blue; }
+}
+
+@media not (orientation: landscape) {
+  body { color: blue; }
+}
+*/
+
+/* === 6. MOBILE-FIRST DESIGN === */
+/*
+- Bắt đầu với layout đơn giản cho thiết bị nhỏ
+- Sau đó dùng @media min-width để mở rộng dần
+
+Ví dụ:
+@media screen and (min-width: 40em) {
+  article {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    column-gap: 20px;
+  }
+
+  nav ul {
+    display: flex;
+  }
+
+  nav li {
+    flex: 1;
+  }
+}
+
+@media screen and (min-width: 70em) {
+  main {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    column-gap: 20px;
+  }
+
+  article {
+    margin-bottom: 0;
+  }
+
+  footer {
+    border-top: 1px solid #ccc;
+    margin-top: 2em;
+  }
+}
+*/
+
+/* === 7. THẺ META viewport === */
+/*
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+- Cần thiết để các media query hoạt động đúng trên mobile.
+- Giúp trình duyệt dùng chiều rộng thực tế của thiết bị.
+*/
+
+/* === 8. CÓ PHẢI LÚC NÀO CŨNG CẦN MEDIA QUERY? === */
+/*
+→ KHÔNG. Có thể dùng Grid/Flex để tạo layout phản hồi mà không cần query:
+
+.grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+*/
+
+/* ===============================================================
+   TÓM TẮT:
+   - Media queries dùng để điều chỉnh CSS theo môi trường thiết bị
+   - Hữu ích nhất trong responsive design
+   - Nên dùng min-width (mobile-first)
+   - Kết hợp tốt với Flexbox & Grid để có layout linh hoạt
+   =============================================================== */

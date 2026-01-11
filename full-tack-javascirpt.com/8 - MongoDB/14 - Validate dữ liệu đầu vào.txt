@@ -1,0 +1,41 @@
+==============================
+#14. Validate dữ liệu đầu vào
+==============================
+
+📘 Model (Ý nghĩa):
+- Đảm bảo dữ liệu nhập vào hợp lệ trước khi lưu vào database
+- Ngăn người dùng gửi dữ liệu sai định dạng, thiếu thông tin...
+
+🛠️ Controller (Công cụ / Câu lệnh):
+
+// File: models/User.js
+const mongoose = require('mongoose');
+
+const userSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: [true, 'Tên là bắt buộc'],
+    minlength: [3, 'Tên quá ngắn (tối thiểu 3 ký tự)']
+  },
+  email: {
+    type: String,
+    required: [true, 'Email là bắt buộc'],
+    match: [/.+@.+\..+/, 'Email không hợp lệ'],
+    unique: true
+  },
+  password: {
+    type: String,
+    required: [true, 'Mật khẩu là bắt buộc'],
+    minlength: [6, 'Mật khẩu quá ngắn (tối thiểu 6 ký tự)']
+  }
+});
+
+module.exports = mongoose.model('User', userSchema);
+
+// Khi gọi create:
+try {
+  const newUser = await User.create(req.body);
+} catch (err) {
+  console.log(err.errors); // Chi tiết lỗi validate
+  res.status(400).json({ error: err.message });
+}

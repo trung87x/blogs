@@ -1,0 +1,163 @@
+<!-- ============================== -->
+<!-- 🧠 Ngữ cảnh #1: Màu sắc & Nền -->
+<!-- ============================== -->
+
+<!-- 🧠 Model -->
+<!-- Tác động đến: Màu chữ, màu nền, màu viền, gradient -->
+
+<!-- 🛠️ Controller -->
+<p class="text-red-500">Chữ màu đỏ</p>
+<div class="bg-blue-200 p-4">Nền xanh nhạt</div>
+<div
+  class="bg-gradient-to-r from-purple-400 to-pink-500 text-white p-4 rounded-lg"
+>
+  Gradient tím → hồng
+</div>
+<div class="border border-green-500 text-green-700 p-2">Viền xanh lá</div>
+
+<!-- 🧪 View -->
+<div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+  ⚠️ Có lỗi xảy ra!
+</div>
+<div
+  class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded"
+>
+  ✅ Đã lưu thành công!
+</div>
+
+<!-- ============================== -->
+<!-- 🧠 Ngữ cảnh #2: Kích thước & Khoảng cách -->
+<!-- ============================== -->
+
+<!-- 🛠️ Controller -->
+<div class="w-1/2 h-64 bg-gray-100">Chiều rộng 50%, cao 64</div>
+<div class="p-4 m-2 bg-yellow-100">Padding 4, margin 2</div>
+<div class="flex space-x-4">
+  <div class="w-8 h-8 bg-red-300"></div>
+  <div class="w-8 h-8 bg-blue-300"></div>
+</div>
+
+<!-- ============================== -->
+<!-- 🧠 Ngữ cảnh #3: Hiển thị & Vị trí -->
+<!-- ============================== -->
+
+<div class="flex justify-center items-center h-32 bg-gray-100">Flex center</div>
+<div class="grid grid-cols-2 gap-4">
+  <div class="bg-pink-200">1</div>
+  <div class="bg-pink-400">2</div>
+</div>
+<div class="relative bg-yellow-100 p-4">
+  <div class="absolute top-0 right-0 bg-red-500 text-white p-1">X</div>
+</div>
+
+<!-- ============================== -->
+<!-- 🧠 Ngữ cảnh #4: Viền & Bo góc -->
+<!-- ============================== -->
+
+<div class="border border-2 border-gray-400 p-2 rounded">Bo góc vừa</div>
+<div class="rounded-lg border p-2 bg-white">Bo góc lớn</div>
+
+<!-- ============================== -->
+<!-- 🧠 Ngữ cảnh #5: Chữ viết & Canh lề -->
+<!-- ============================== -->
+
+<p class="text-center font-bold text-xl uppercase tracking-wide">TIÊU ĐỀ</p>
+<p class="text-left text-gray-600">Đây là đoạn mô tả bên trái.</p>
+
+<!-- ============================== -->
+<!-- 🧠 Ngữ cảnh #6: Hiệu ứng & Animation -->
+<!-- ============================== -->
+
+<button
+  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300"
+>
+  Hover me
+</button>
+<div class="animate-bounce w-10 h-10 bg-green-500 mt-4"></div>
+
+<!-- ============================== -->
+<!-- 🧠 Ngữ cảnh #7: Responsive & Breakpoints -->
+<!-- ============================== -->
+
+<div class="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl">
+  Responsive Text
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+  <div class="bg-gray-100 p-2">1</div>
+  <div class="bg-gray-200 p-2">2</div>
+  <div class="bg-gray-300 p-2">3</div>
+</div>
+
+<!-- ============================== -->
+<!-- 🧠 Ngữ cảnh #8: Trạng thái & Tương tác -->
+<!-- ============================== -->
+
+<input
+  class="border p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+  placeholder="Tập trung sẽ hiện viền"
+/>
+<button
+  class="bg-gray-300 text-black px-4 py-2 rounded disabled:opacity-50"
+  disabled
+>
+  Nút bị disable
+</button>
+
+<!-- ============================== -->
+<!-- 🧠 Ngữ cảnh #9: Grid & Flex nâng cao -->
+<!-- ============================== -->
+
+<div class="flex flex-wrap gap-2">
+  <div class="bg-red-200 w-20 h-10">A</div>
+  <div class="bg-blue-200 w-20 h-10">B</div>
+  <div class="bg-green-200 w-20 h-10">C</div>
+</div>
+<div class="grid grid-cols-3 gap-4 items-center justify-items-center">
+  <div class="bg-yellow-200 p-4">1</div>
+  <div class="bg-yellow-300 p-4">2</div>
+  <div class="bg-yellow-400 p-4">3</div>
+</div>
+
+<!-- ============================== -->
+<!-- 🧠 Ngữ cảnh #10: Typography chi tiết -->
+<!-- ============================== -->
+
+<p class="leading-loose tracking-wide text-gray-700">
+  Văn bản với khoảng cách dòng rộng và tracking lớn.
+</p>
+<p class="line-clamp-2">
+  Đây là đoạn văn bản rất dài nhưng sẽ bị giới hạn trong 2 dòng hiển thị...
+</p>
+
+<!-- ============================== -->
+<!-- 🧠 Ngữ cảnh #11: Dark Mode & Theme -->
+<!-- ============================== -->
+
+<div class="bg-white text-black dark:bg-gray-800 dark:text-white p-4">
+  Nội dung thay đổi theo dark mode
+</div>
+
+<!-- ============================== -->
+<!-- 🧠 Ngữ cảnh #12: Form & Input styling -->
+<!-- ============================== -->
+
+<input
+  class="form-input border border-gray-300 p-2 rounded focus:ring focus:ring-blue-500"
+  placeholder="Nhập tên..."
+/>
+<textarea
+  class="form-textarea mt-2 block w-full border rounded-md p-2"
+  rows="3"
+  placeholder="Nhập mô tả..."
+></textarea>
+
+<!-- ============================== -->
+<!-- 🧠 Ngữ cảnh #13: Utility Plugin & Tùy chỉnh -->
+<!-- ============================== -->
+
+<div class="aspect-w-16 aspect-h-9 bg-gray-300">Khung 16:9</div>
+<div class="container mx-auto bg-blue-100 p-4">Container tự động căn giữa</div>
+<div class="h-48 overflow-y-scroll snap-y snap-mandatory">
+  <div class="snap-start h-48 bg-red-200">A</div>
+  <div class="snap-start h-48 bg-green-200">B</div>
+</div>

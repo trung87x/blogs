@@ -1,0 +1,83 @@
+
+### Cách cấu trúc một Web Form
+
+**Form trong HTML là gì?**
+Form trong HTML là công cụ giúp người dùng tương tác với trang web, cho phép họ nhập dữ liệu mà sau đó sẽ được gửi đến máy chủ để xử lý và lưu trữ, hoặc có thể được xử lý ngay lập tức trên phía client để cập nhật giao diện.
+
+**Cấu trúc cơ bản của một Web Form**
+Một form HTML thường bao gồm các điều khiển (widgets) như trường văn bản, dropdown, nút bấm, checkbox, và radio button. Chúng ta sử dụng các phần tử HTML như `<form>`, `<input>`, `<textarea>`, `<label>`, `<button>`, và `<fieldset>` để tạo các form này.
+
+**Thẻ `<form>`**
+Thẻ `<form>` định nghĩa một form, bao gồm các thuộc tính `action` (địa chỉ gửi dữ liệu) và `method` (phương thức gửi dữ liệu: POST hoặc GET).
+
+```html
+<form action="/my-handling-form-page" method="post">...</form>
+```
+
+**Thẻ `<fieldset>` và `<legend>`**
+Thẻ `<fieldset>` giúp nhóm các điều khiển form có cùng mục đích, ví dụ như nhóm các radio button lại với nhau. Thẻ `<legend>` mô tả mục đích của nhóm đó.
+
+```html
+<fieldset>
+  <legend>Fruit juice size</legend>
+  <input type="radio" name="size" value="small"> Small
+  <input type="radio" name="size" value="medium"> Medium
+  <input type="radio" name="size" value="large"> Large
+</fieldset>
+```
+
+**Thẻ `<label>`**
+Thẻ `<label>` giúp mô tả ý nghĩa của các điều khiển trong form, rất quan trọng để tạo form có thể tiếp cận được (accessible) cho người khiếm thị.
+
+```html
+<label for="name">Name:</label> <input type="text" id="name" name="user_name" />
+```
+Mối quan hệ giữa thẻ `<label>` và các điều khiển như `<input>` được xác định qua thuộc tính `for` của thẻ `<label>` và thuộc tính `id` của thẻ `<input>`.
+
+**Thẻ `<input>` và `<textarea>`**
+- `<input>` dùng cho các trường văn bản đơn hoặc các trường đặc biệt như email, password, checkbox.
+- `<textarea>` dùng cho các trường văn bản nhiều dòng, ví dụ như tin nhắn.
+
+```html
+<input type="text" id="name" name="user_name" />
+<textarea id="msg" name="user_message"></textarea>
+```
+
+**Thẻ `<button>`**
+Thẻ `<button>` được sử dụng để gửi dữ liệu form. Thẻ này có thể có nhiều loại: `submit`, `reset`, và `button`.
+
+```html
+<button type="submit">Send your message</button>
+```
+
+**CSS cơ bản cho Form**
+```css
+form {
+  display: inline-block;
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 1em;
+}
+
+label {
+  display: inline-block;
+  min-width: 90px;
+  text-align: right;
+}
+
+input, textarea {
+  font: 1em sans-serif;
+  width: 300px;
+  box-sizing: border-box;
+  border: 1px solid #999;
+}
+
+button {
+  margin-left: 0.5em;
+}
+```
+
+**Tóm tắt**:
+- Form HTML giúp người dùng nhập dữ liệu và gửi đến máy chủ.
+- Cấu trúc của form gồm các phần tử như `<form>`, `<input>`, `<textarea>`, `<label>`, và `<button>`.
+- Để tạo một form dễ sử dụng và dễ tiếp cận, hãy sử dụng các thẻ như `<fieldset>` và `<legend>` để nhóm các điều khiển và tạo các nhãn mô tả cho chúng.

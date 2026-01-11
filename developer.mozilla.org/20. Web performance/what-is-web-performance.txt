@@ -1,0 +1,44 @@
+Hiệu suất web là gì?
+
+**Hiệu suất web** là một khái niệm liên quan đến cách đo lường khách quan và trải nghiệm người dùng khi sử dụng một trang web hoặc ứng dụng. Bài viết này cung cấp một cái nhìn tổng quan về các yếu tố cấu thành hiệu suất web, bao gồm những công nghệ, kỹ thuật và công cụ được sử dụng để tối ưu hóa trang web.
+
+### **Hiệu suất web là gì?**
+Hiệu suất web bao gồm việc đo lường thời gian trang web tải và render, cũng như khả năng phản hồi khi người dùng tương tác. Đây là những yếu tố quan trọng ảnh hưởng trực tiếp đến trải nghiệm người dùng và mục tiêu kinh doanh.
+
+Các yếu tố chính của hiệu suất web bao gồm:
+
+1. **Giảm thời gian tải chung**: Thời gian tải trang web, bao gồm thời gian tải các tệp từ máy chủ đến máy tính của người dùng. Các yếu tố ảnh hưởng bao gồm độ trễ mạng, kích thước tệp, số lượng tệp, và cách tải tài nguyên (như `preload`).
+
+2. **Đảm bảo trang web có thể sử dụng ngay lập tức**: Cung cấp một cách tiếp cận hợp lý để tải tài nguyên theo thứ tự sao cho người dùng có thể bắt đầu tương tác với trang ngay khi có thể, trong khi các tài nguyên khác có thể tiếp tục tải trong nền. Một chỉ số đo lường việc này là **time to interactive** (từ khi trang bắt đầu tải đến khi người dùng có thể tương tác).
+
+3. **Mượt mà và khả năng tương tác**: Đảm bảo trải nghiệm người dùng mượt mà và không bị giật, các nút có thể nhấp, và các pop-up xuất hiện nhanh chóng và mượt mà. Việc giảm số lần tái vẽ giao diện (repaint) và sử dụng **CSS animations** thay vì JavaScript animations là một số thực hành tốt để cải thiện yếu tố này.
+
+4. **Hiệu suất cảm nhận**: Hiệu suất cảm nhận là cảm nhận của người dùng về tốc độ tải trang web, ảnh hưởng đến trải nghiệm của họ. Đây là một yếu tố chủ quan, nhưng việc cung cấp phản hồi cho người dùng, như spinner tải hoặc thông báo trạng thái tải, có thể giúp họ cảm thấy thời gian chờ đợi ngắn hơn và trang không bị "hỏng".
+
+5. **Đo lường hiệu suất**: Đo lường hiệu suất là quá trình theo dõi các chỉ số và sử dụng các công cụ để đo lường tốc độ thực tế và cảm nhận của ứng dụng, từ đó tối ưu hóa hiệu suất và duy trì nó.
+
+### **Các yếu tố ảnh hưởng đến hiệu suất web**:
+- **Độ trễ**: Là thời gian để tải tài nguyên của trang từ máy chủ đến máy của người dùng. Để giảm độ trễ, có thể giảm số lượng yêu cầu HTTP, sử dụng **CDN** (Content Delivery Network), và áp dụng **HTTP/2** để cải thiện hiệu quả tải tài nguyên từ máy chủ.
+  
+- **Kích thước tệp**: Các tệp lớn như hình ảnh và video có thể làm tăng thời gian tải trang. Do đó, việc giảm kích thước tệp hoặc tối ưu hóa chúng sẽ giúp giảm thiểu thời gian tải.
+
+- **Số lượng yêu cầu tài nguyên**: Mỗi yêu cầu HTTP đến máy chủ sẽ tốn thời gian. Việc giảm số lượng yêu cầu hoặc sử dụng các kỹ thuật như **bundling** và **minification** (nén mã) có thể giúp giảm thiểu số lượng yêu cầu và cải thiện hiệu suất.
+
+- **Hiệu suất JavaScript**: JavaScript là một yếu tố quan trọng ảnh hưởng đến hiệu suất. Việc tối ưu hóa mã JavaScript, giảm thiểu các tác vụ nặng và thực hiện chúng ngoài luồng chính (sử dụng **Web Workers**) sẽ giúp cải thiện hiệu suất trang web.
+
+- **Tải tài nguyên theo thứ tự hợp lý**: Tải tài nguyên quan trọng như CSS và JavaScript cần thiết cho việc render trang trước các tài nguyên ít quan trọng hơn, điều này sẽ giúp trang tải nhanh hơn và sớm có thể tương tác được.
+
+### **Cách nội dung được render trong trình duyệt**:
+Để hiểu rõ về hiệu suất web, bạn cần hiểu cách mà trình duyệt render (hiển thị) nội dung:
+
+1. **Thứ tự nguồn**: Trình duyệt tải tài nguyên theo thứ tự trong mã HTML, ảnh hưởng đến thời gian hiển thị trang. Tối ưu thứ tự tài nguyên và sử dụng kỹ thuật `preload` có thể giúp giảm thời gian tải.
+
+2. **Critical Path**: Đây là quá trình trình duyệt sử dụng để xây dựng tài liệu web sau khi các tệp đã được tải từ máy chủ. Tối ưu hóa đường dẫn render giúp cải thiện thời gian hiển thị nội dung và tăng tốc độ tải trang.
+
+3. **Document Object Model (DOM)**: DOM là cấu trúc cây đại diện cho các phần tử HTML của trang web. Manipulating DOM quá nhiều sau khi tải trang có thể làm giảm hiệu suất, do đó cần phải tối ưu hóa việc thay đổi DOM để giảm tác động đến hiệu suất.
+
+4. **Độ trễ (Latency)**: Độ trễ là thời gian cần thiết để tài nguyên từ máy chủ đến người dùng. Việc giảm độ trễ là một yếu tố quan trọng để tối ưu hiệu suất, có thể sử dụng **CDN**, giảm số lượng yêu cầu HTTP và áp dụng HTTP/2 để giảm độ trễ.
+
+### **Kết luận**:
+Hiệu suất web có ảnh hưởng trực tiếp đến trải nghiệm người dùng. Việc tối ưu hiệu suất sẽ giúp giảm thời gian tải trang, làm cho người dùng có thể tương tác sớm hơn và trải nghiệm trang web mượt mà hơn. Các yếu tố như độ trễ, kích thước tệp, số lượng yêu cầu HTTP, hiệu suất JavaScript và DOM đều cần được tối ưu hóa để cải thiện hiệu suất tổng thể của trang web.
+

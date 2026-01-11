@@ -1,0 +1,84 @@
+🧠 Model 1: Giao diện động với React (Next.js)
+------------------------------------------------
+• Vai trò: Tách giao diện thành các component có thể tái sử dụng.
+• Controller: Sử dụng folder `app/` của Next.js để tổ chức `page.tsx` và các component con trong thư mục `components`.
+
+🌐 Ngữ cảnh #1: Trang chủ có header, nội dung, footer
+-----------------------------------------------------
+• Mục tiêu: Làm quen với cách tổ chức file và component trong Next.js App Router.
+• Cấu trúc thư mục:
+
+app/
+├── page.tsx
+└── components/
+    ├── Header.tsx
+    ├── Hero.tsx
+    ├── Features.tsx
+    └── Footer.tsx
+
+✏️ Mã nguồn:
+
+// app/page.tsx
+import Header from './components/Header'
+import Footer from './components/Footer'
+import Hero from './components/Hero'
+import Features from './components/Features'
+
+export default function HomePage() {
+  return (
+    <>
+      <Header />
+      <main className="px-4 py-8">
+        <Hero />
+        <Features />
+      </main>
+      <Footer />
+    </>
+  )
+}
+
+// app/components/Header.tsx
+export default function Header() {
+  return (
+    <header className="bg-black text-white p-4">
+      <h1 className="text-xl">🛒 ShopNext</h1>
+    </header>
+  )
+}
+
+// app/components/Hero.tsx
+export default function Hero() {
+  return (
+    <section className="bg-blue-100 p-6 rounded-xl mb-4">
+      <h2 className="text-2xl font-bold">Chào mừng bạn đến với ShopNext!</h2>
+      <p>Mua sắm cực nhanh – giao hàng tận nơi.</p>
+    </section>
+  )
+}
+
+// app/components/Features.tsx
+export default function Features() {
+  const features = ['Giao hàng nhanh', 'Giá tốt', 'Hỗ trợ 24/7']
+  return (
+    <section>
+      <h3 className="text-xl font-semibold mb-2">Tính năng nổi bật:</h3>
+      <ul className="list-disc pl-5">
+        {features.map((f, i) => <li key={i}>{f}</li>)}
+      </ul>
+    </section>
+  )
+}
+
+// app/components/Footer.tsx
+export default function Footer() {
+  return (
+    <footer className="bg-gray-200 text-center py-4 mt-8">
+      <small>&copy; 2025 ShopNext. All rights reserved.</small>
+    </footer>
+  )
+}
+
+✅ Kết quả:
+- Giao diện trang chủ rõ ràng, có cấu trúc chuẩn hóa
+- Component hóa giao diện giúp mở rộng nhanh chóng
+- Là tiền đề để học layout, routing, SSR/SSG ở ngữ cảnh tiếp theo

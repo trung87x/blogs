@@ -1,0 +1,94 @@
+/* ===================================
+   SỬ DỤNG FONT TÙY CHỈNH TRÊN WEBSITE
+   =================================== */
+
+/* === 1. VẤN ĐỀ CỦA FONT MẶC ĐỊNH === */
+/*
+- font-family hoạt động theo danh sách ưu tiên.
+- Nếu font đầu không có, trình duyệt chọn tiếp font kế tiếp.
+- Tuy nhiên, số lượng "web-safe fonts" rất hạn chế.
+- Kết quả là khó kiểm soát đồng nhất giao diện giữa các thiết bị.
+*/
+
+/* === 2. GIẢI PHÁP: SỬ DỤNG WEB FONT === */
+/*
+- CSS hỗ trợ @font-face → tải font trực tiếp từ web.
+- Cho phép hiển thị đúng font đã chọn, kể cả nếu máy không cài.
+*/
+
+/* Cú pháp cơ bản: */
+@font-face {
+  font-family: "myFont";
+  src: url("fonts/myFont.woff2") format("woff2"),
+       url("fonts/myFont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  font-family: "myFont", "Bitstream Vera Serif", serif;
+}
+
+/* === 3. CÁC LƯU Ý KHI DÙNG WEB FONT === */
+/*
+- Phải tuân thủ bản quyền: không được tự ý dùng nếu không rõ giấy phép.
+- Ưu tiên định dạng WOFF2 → nhẹ và hiện đại.
+- Trình duyệt sẽ dùng font đầu tiên có thể đọc được trong danh sách src.
+- Có thể cung cấp thêm .ttf, .eot, .svg nếu cần hỗ trợ trình duyệt cũ.
+*/
+
+/* === 4. TẠO BỘ FONT VỚI FONTSQUIRREL === */
+/*
+1. Chọn font từ FontSquirrel hoặc Google Fonts.
+2. Dùng Fontsquirrel Webfont Generator để tạo kit.
+3. Kit gồm: .woff, .woff2, stylesheet.css, demo.html.
+4. Dán các @font-face vào đầu file CSS của bạn.
+5. Kiểm tra đường dẫn tương đối (nên dùng: fonts/font-name.woff2).
+*/
+
+/* === 5. DÙNG DỊCH VỤ FONT ONLINE === */
+/*
+- Google Fonts, Adobe Fonts, Cloud.typography,...
+- Google Fonts miễn phí & dễ tích hợp:
+  + Thêm link vào <head> HTML
+  + Dùng font-family tương ứng trong CSS
+*/
+
+/* === 6. CÁCH CHÈN FONT TỪ GOOGLE FONTS === */
+/*
+1. Truy cập: https://fonts.google.com
+2. Chọn font → nhấn “+” → Copy dòng <link> vào <head>
+3. Dán CSS font-family vào stylesheet:
+*/
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+/* === 7. PHÂN TÍCH CHI TIẾT CÚ PHÁP @font-face === */
+/*
+- font-family: tên tùy chọn, bạn sẽ dùng trong CSS sau đó.
+- src:
+    + url(...): đường dẫn font
+    + format(...): dạng định dạng font (“woff2”, “woff”...)
+- font-weight / font-style: định nghĩa để dễ chọn đúng font khi gọi.
+- Có thể thêm:
+    + font-stretch
+    + font-variant
+    + unicode-range (chỉ tải nếu có ký tự dùng → tiết kiệm băng thông)
+*/
+
+/* Ví dụ unicode-range: */
+@font-face {
+  font-family: "MyFont";
+  src: url("MyFont.woff2") format("woff2");
+  unicode-range: U+000-5FF; /* chỉ Latin + ký hiệu cơ bản */
+}
+
+/* ===============================================================
+   TÓM TẮT:
+   - Web font giúp dùng font tùy chỉnh → kiểm soát giao diện tốt hơn.
+   - @font-face tải font từ web → nhớ chú ý license & hiệu năng.
+   - WOFF2 là định dạng hiện đại → nên ưu tiên.
+   - Google Fonts là cách dễ và nhanh nhất để bắt đầu dùng web fonts.
+   =============================================================== */

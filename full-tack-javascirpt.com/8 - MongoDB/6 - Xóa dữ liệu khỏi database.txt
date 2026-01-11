@@ -1,0 +1,34 @@
+📦 Ngữ cảnh #6: Xóa dữ liệu khỏi database (MongoDB + Mongoose)
+
+🧠 Model (Ý nghĩa)
+- Cho phép người dùng hoặc admin xóa tài nguyên khỏi hệ thống:
+  - Xóa tài khoản, bài viết, sản phẩm, bình luận...
+- Đây là thao tác "Delete" trong CRUD (thường dùng DELETE request)
+
+🛠️ Controller (Công cụ / Câu lệnh)
+- `Model.findByIdAndDelete(id)` → xóa theo ID
+- `Model.deleteOne({ điều kiện })`
+- `Model.deleteMany({ điều kiện })`
+
+🧪 Example (routes/userRoute.js)
+const express = require('express');
+const User = require('../models/User');
+const router = express.Router();
+
+// DELETE /users/:id - Xóa user theo ID
+router.delete('/users/:id', async (req, res) => {
+  try {
+    const user = await User.findByIdAndDelete(req.params.id);
+    if (!user) return res.status(404).json({ error: 'User not found' });
+    res.json({ message: 'User deleted successfully' });
+  } catch (err) {
+    res.status(400).json({ error: 'Invalid ID' });
+  }
+});
+
+module.exports = router;
+
+📝 Ghi chú:
+- Nên xác thực (auth) trước khi cho phép xóa
+- Với dữ liệu quan trọng, có thể dùng "soft delete" thay vì xoá vĩnh viễn (ví dụ: `isDeleted: true`)
+- Xóa nhiều → dùng `deleteMany({ isActive: false })` hoặc tương tự

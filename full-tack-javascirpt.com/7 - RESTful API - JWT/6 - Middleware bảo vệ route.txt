@@ -1,0 +1,56 @@
+🧠 Ngữ cảnh #6: Middleware bảo vệ route – Kiểm tra JWT hợp lệ trước khi truy cập route cần đăng nhập
+
+📁 Gợi ý vị trí file:
+- File: middlewares/verifyToken.js
+
+// middlewares/verifyToken.js
+const jwt = require('jsonwebtoken');
+
+function verifyToken(req, res, next) {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1]; // Bearer <token>
+
+  if (!token) {
+    return res.status(401).json({ message: 'Access token not found' });
+  }
+
+  try {
+    const secret = process.env.JWT_SECRET;
+    const decoded = jwt.verify(token, secret);
+    req.user = decoded; // lưu thông tin user vào request
+    next();
+  } catch (err) {
+    return res.status(403).json({ message: 'Invalid or expired token' });
+  }
+}
+
+module.exports = verifyToken;
+
+// ===============================
+// Sử dụng middleware trong route
+// ===============================
+
+// routes/userRoutes.js
+const express = require('express');
+const router = express.Router();
+const verifyToken = require('../middlewares/verifyToken');
+
+router.get('/profile', verifyToken, (req, res) => {
+  res.json({ message: 'Welcome, authenticated user!', user: req.user });
+});
+
+module.exports = router;
+
+// ===============================
+// 📌 Ghi chú quan trọng:
+// ===============================
+// - Token phải được client gửi lên trong header:
+//     Authorization: Bearer <token>
+//
+// - Nếu thiếu hoặc sai token → trả về lỗi:
+//     401: Không có token
+//     403: Token sai hoặc hết hạn
+//
+// - verifyToken nên được đặt TRƯỚC route handler để bảo vệ
+//
+// - req.user chứa thông tin user đã giải mã → có thể dùng tiếp ở controller

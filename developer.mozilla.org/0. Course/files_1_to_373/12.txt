@@ -1,0 +1,59 @@
+📌 Cornell Notes - How to Download the Course Resources
+
+📌 Topic/Title:
+
+Cách tải xuống và sử dụng tài nguyên khóa học
+
+🔎 Keywords/Questions:
+
+Tài nguyên khóa học nằm ở đâu?
+
+Tại sao cần giải nén tệp ZIP trước khi sử dụng?
+
+Cách mở tài nguyên trong VS Code?
+
+📝 Notes:
+
+Tài nguyên khóa học là gì?
+
+Bao gồm hình ảnh, âm thanh, tệp mã nguồn dùng trong bài học.
+
+Có thể tải xuống từ mục tài nguyên của từng bài học.
+
+Các tệp tải xuống thường ở định dạng ZIP (.zip).
+
+Cách tải xuống tài nguyên khóa học
+
+Tìm tài nguyên có biểu tượng thư mục 📁 trong bài học.
+
+Nhấp vào liên kết tải xuống → Tệp ZIP sẽ được tải về máy.
+
+Cách giải nén tệp ZIP
+
+Trên Mac:
+
+Nhấp đúp vào tệp ZIP → Hệ thống sẽ tự động giải nén.
+
+Trên Windows:
+
+Nhấp chuột phải vào tệp ZIP → Chọn "Giải nén tất cả" (Extract All).
+
+Nếu không thấy tùy chọn đó, tìm trong thanh công cụ "Trích xuất tất cả".
+
+Lưu ý quan trọng khi mở trong VS Code
+
+Chỉ mở thư mục đã giải nén trong VS Code.
+
+Không kéo tệp ZIP vào VS Code, vì:
+
+Có thể thấy tệp, nhưng không thể chỉnh sửa hoặc chạy mã đúng cách.
+
+Đặc biệt trên Windows, mở tệp ZIP trực tiếp có thể gây lỗi.
+
+Cách đúng:
+
+Sau khi giải nén, kéo thư mục vào VS Code để mở toàn bộ dự án.
+
+📌 Summary:
+
+Để sử dụng tài nguyên khóa học, tải xuống tệp ZIP từ mục tài nguyên và giải nén trước khi mở trong VS Code. Nếu không giải nén, bạn có thể gặp lỗi khi làm việc với các tệp trong dự án.

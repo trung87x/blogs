@@ -1,0 +1,58 @@
+🧠 Model 2: Routing đa trang (SPA/MPA) trong Next.js
+-----------------------------------------------------
+• Vai trò: Xây dựng website có nhiều trang riêng biệt (trang chủ, giới thiệu, blog...).
+• Controller: Dùng File-based Routing trong thư mục `app/`, mỗi thư mục con có `page.tsx` tương ứng với 1 route.
+
+🌐 Ngữ cảnh #2: Website có 3 trang – Trang chủ, Giới thiệu, Blog
+----------------------------------------------------------------
+• Mục tiêu: Làm quen với cấu trúc routing tự động của Next.js (App Router).
+• Truy cập:
+  - `/`       → Trang chủ
+  - `/about`  → Giới thiệu
+  - `/blog`   → Blog
+
+📁 Cấu trúc thư mục:
+
+app/
+├── page.tsx                ← Trang chủ
+├── about/
+│   └── page.tsx            ← Trang giới thiệu
+└── blog/
+    └── page.tsx            ← Trang blog
+
+✏️ Mã nguồn:
+
+// app/page.tsx
+export default function HomePage() {
+  return (
+    <main className="p-6">
+      <h1 className="text-2xl font-bold">🏠 Trang chủ</h1>
+      <p>Chào mừng đến với trang chủ của ShopNext!</p>
+    </main>
+  )
+}
+
+// app/about/page.tsx
+export default function AboutPage() {
+  return (
+    <main className="p-6">
+      <h1 className="text-2xl font-bold">ℹ️ Giới thiệu</h1>
+      <p>Chúng tôi là công ty thương mại điện tử uy tín, phục vụ khách hàng toàn quốc.</p>
+    </main>
+  )
+}
+
+// app/blog/page.tsx
+export default function BlogPage() {
+  return (
+    <main className="p-6">
+      <h1 className="text-2xl font-bold">📝 Blog</h1>
+      <p>Đọc các bài viết mới nhất về công nghệ và thương mại điện tử.</p>
+    </main>
+  )
+}
+
+✅ Kết quả:
+- Truy cập `/`, `/about`, `/blog` là tự động – không cần cấu hình thủ công
+- Dễ mở rộng: thêm `/contact/page.tsx` là có ngay route `/contact`
+- Đây là nền tảng cho các routing nâng cao: dynamic route, nested layout, params...

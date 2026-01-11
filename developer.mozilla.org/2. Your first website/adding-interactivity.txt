@@ -1,0 +1,117 @@
+THÊM TƯƠNG TÁC CHO TRANG WEB BẰNG JAVASCRIPT
+=============================================
+
+1. THÊM TƯƠNG TÁC CHO DANH SÁCH
+- Mục tiêu: Click vào từng mục `<li>` để đánh dấu đã hoàn thành.
+
+HTML:
+<ul>
+  <li>Eat</li>
+  <li>Sleep</li>
+  <li>Repeat</li>
+</ul>
+
+
+CSS:
+.done {
+  color: darkseagreen;
+  text-decoration: line-through solid black 2px;
+}
+
+
+JavaScript:
+const listItems = document.querySelectorAll("li");
+
+function toggleDone(e) {
+  if (!e.target.className) {
+    e.target.className = "done";
+  } else {
+    e.target.className = "";
+  }
+}
+
+listItems.forEach((item) => {
+  item.addEventListener("click", toggleDone);
+});
+
+
++ Ghi chú:
+  - Sử dụng `forEach` để gắn sự kiện `click` cho từng item.
+  - Dùng class `.done` để thay đổi giao diện khi hoàn thành.
+
+2. THAY ĐỔI NỘI DUNG TIÊU ĐỀ
+- Mục tiêu: Đổi nội dung thẻ `<h1>` bằng JavaScript.
+
+JavaScript:
+const myHeading = document.querySelector("h1");
+myHeading.textContent = "Hello world!";
+
+
++ Ghi chú:
+  - `textContent` thay đổi nội dung văn bản.
+  - `querySelector("h1")` giúp chọn phần tử cần chỉnh sửa.
+
+3. THAY ĐỔI HÌNH ẢNH KHI CLICK
+- Mục tiêu: Nhấn vào ảnh để đổi giữa hai ảnh khác nhau.
+
+JavaScript:
+const myImage = document.querySelector("img");
+
+myImage.addEventListener("click", () => {
+  const mySrc = myImage.getAttribute("src");
+  if (mySrc === "images/firefox-icon.png") {
+    myImage.setAttribute("src", "images/firefox2.png");
+  } else {
+    myImage.setAttribute("src", "images/firefox-icon.png");
+  }
+});
+
+
++ Ghi chú:
+  - Dùng `getAttribute()` để lấy đường dẫn hiện tại.
+  - Dùng `setAttribute()` để thay đổi ảnh hiển thị.
+
+4. CÁ NHÂN HOÁ LỜI CHÀO NGƯỜI DÙNG
+- Mục tiêu: Hiển thị tên người dùng được nhập và lưu lại.
+
+HTML:
+<button>Change user</button>
+
+
+JavaScript:
+let myButton = document.querySelector("button");
+let myHeading = document.querySelector("h1");
+
+function setUserName() {
+  const myName = prompt("Please enter your name.");
+  if (!myName) {
+    setUserName(); // gọi lại nếu trống
+  } else {
+    localStorage.setItem("name", myName);
+    myHeading.textContent = `Mozilla is cool, ${myName}`;
+  }
+}
+
+if (!localStorage.getItem("name")) {
+  setUserName();
+} else {
+  const storedName = localStorage.getItem("name");
+  myHeading.textContent = `Mozilla is cool, ${storedName}`;
+}
+
+myButton.addEventListener("click", () => {
+  setUserName();
+});
+
+
++ Ghi chú:
+  - Dữ liệu được lưu bằng `localStorage` nên vẫn còn sau khi reload.
+  - `prompt()` cho phép người dùng nhập dữ liệu.
+  - Gọi lại `setUserName()` nếu giá trị nhập trống hoặc ấn Cancel.
+
+5. GHI NHỚ CÁC CẤU TRÚC TƯƠNG TÁC THƯỜNG DÙNG
+- `addEventListener("click", ...)`: lắng nghe sự kiện người dùng.
+- `querySelector("tag")`: chọn phần tử trong DOM.
+- `getAttribute()` / `setAttribute()`: lấy và đặt thuộc tính HTML.
+- `textContent`: chỉnh sửa nội dung chữ.
+- `localStorage.setItem()` / `getItem()`: lưu và truy xuất dữ liệu trình duyệt.

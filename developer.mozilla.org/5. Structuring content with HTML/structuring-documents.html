@@ -1,0 +1,132 @@
+<!-- ==========================
+Structuring Documents in HTML
+========================== -->
+
+<!-- 1. Các phần chính của một website -->
+<!-- Bạn có thể chia cấu trúc trang thành: -->
+
+<header>Tiêu đề chính, logo, slogan</header>
+<nav>Menu điều hướng chính</nav>
+<main>
+  <article>
+    Nội dung chính của trang (bài viết, video, bản đồ, v.v.)
+    <section>Phần phụ trong bài viết (sub-section)</section>
+  </article>
+  <aside>
+    Thông tin bên lề: liên kết liên quan, tiểu sử tác giả, quảng cáo...
+  </aside>
+</main>
+<footer>Thông tin bản quyền, liên hệ, chính sách, liên kết phụ</footer>
+
+<!-- 2. Ví dụ HTML đầy đủ -->
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>My page title</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Header</h1>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Our team</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+
+      <form>
+        <input type="search" name="q" placeholder="Search query" />
+        <input type="submit" value="Go!" />
+      </form>
+    </nav>
+
+    <main>
+      <article>
+        <h2>Article heading</h2>
+        <p>Nội dung chính...</p>
+
+        <section>
+          <h3>Subsection</h3>
+          <p>Đoạn phụ trong bài viết</p>
+        </section>
+
+        <section>
+          <h3>Another subsection</h3>
+          <p>Phần phụ khác nữa...</p>
+        </section>
+      </article>
+
+      <aside>
+        <h2>Related</h2>
+        <ul>
+          <li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+        </ul>
+      </aside>
+    </main>
+
+    <footer>
+      <p>©Copyright 2050 by nobody. All rights reversed.</p>
+    </footer>
+  </body>
+</html>
+
+<!-- 3. Khi nào dùng thẻ nào? -->
+<!--
+- <main>: chỉ dùng 1 lần/trang, chứa nội dung chính.
+- <article>: dùng cho nội dung độc lập (tin tức, blog post).
+- <section>: nhóm các phần nội dung theo chủ đề (có heading).
+- <aside>: nội dung không liên quan trực tiếp nhưng có ích.
+- <nav>: menu điều hướng chính.
+- <header>: giới thiệu (logo, tiêu đề).
+- <footer>: kết thúc trang hoặc phần.
+-->
+
+<!-- 4. Khi nào dùng <div> và <span>? -->
+<!-- Dùng khi KHÔNG có thẻ semantic phù hợp -->
+<div class="shopping-cart">
+  <h2>Shopping cart</h2>
+  <ul>
+    <li>
+      <p>
+        <a href=""><strong>Silver earrings</strong></a>: $99.95
+      </p>
+      <img src="thumb.png" alt="Silver earrings" />
+    </li>
+  </ul>
+  <p>Total cost: $237.89</p>
+</div>
+
+<span class="editor-note">[Chú thích từ biên tập viên]</span>
+
+<!-- Lưu ý: Tránh lạm dụng <div> và <span> vì không có giá trị ngữ nghĩa -->
+
+<!-- 5. Một số thẻ nhỏ nhưng hữu ích -->
+<!-- Dòng mới -->
+<p>
+  This is a poem line 1<br />
+  This is line 2<br />
+</p>
+
+<!-- Đường kẻ ngang chuyển cảnh -->
+<p>Phần truyện trước...</p>
+<hr />
+<p>Phần truyện mới bắt đầu...</p>
+
+<!-- 6. Gợi ý lập kế hoạch website -->
+<!-- - Xác định phần chung cho mọi trang: header, nav, footer -->
+<!-- - Liệt kê nội dung riêng biệt cho từng trang -->
+<!-- - Gom nhóm nội dung → sắp xếp thành sitemap -->
+<!-- - Vẽ sơ đồ cấu trúc trang (wireframe) trước khi code -->
+
+<!-- 7. Tóm tắt -->
+<!-- - Dùng thẻ semantic HTML giúp code rõ ràng, hỗ trợ người dùng khuyết tật -->
+<!-- - Tránh dùng <div> quá nhiều -->
+<!-- - Luôn xác định mục đích từng phần nội dung để chọn thẻ phù hợp -->

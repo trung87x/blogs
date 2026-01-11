@@ -1,0 +1,72 @@
+
+1. EJS là gì?
+EJS (Embedded JavaScript) là một template engine giúp bạn nhúng JavaScript vào HTML để tạo nội dung động, hiển thị dữ liệu từ server một cách dễ dàng. Nó tách biệt HTML tĩnh và JavaScript động, giúp code gọn gàng và dễ bảo trì.
+
+Ứng dụng vào công việc:
+- EJS giúp tạo các ứng dụng web động, nơi dữ liệu từ backend được truyền đến frontend để hiển thị.
+
+---
+
+2. Cài Đặt và Sử Dụng EJS
+Cách cài đặt:
+1. Khởi tạo project Node.js và cài đặt các gói:
+   npm init -y
+   npm install express ejs
+
+2. Cấu hình server Express sử dụng EJS:
+   const express = require('express');
+   const app = express();
+   app.set('view engine', 'ejs');
+
+Ứng dụng vào công việc:
+- Dễ dàng tạo các ứng dụng web động, nơi dữ liệu từ backend được truyền đến frontend để hiển thị.
+
+---
+
+3. Truyền Dữ Liệu vào EJS Templates
+Cách truyền dữ liệu từ server đến EJS:
+- Sử dụng res.render() để gửi dữ liệu từ server đến template:
+   res.render("index", { key: value });
+
+Ứng dụng vào công việc:
+- Truyền dữ liệu từ máy chủ để hiển thị trên các trang web động như trang chủ, chi tiết sản phẩm, danh sách người dùng.
+
+---
+
+4. EJS Partials và Layouts
+EJS Partials giúp chia nhỏ giao diện thành các phần có thể tái sử dụng (header, footer, navbar). Bạn có thể sử dụng:
+   <%- include("partials/header") %>
+
+Quản lý tệp tĩnh:
+Dùng express.static() để phục vụ các tệp tĩnh như CSS, hình ảnh.
+   app.use(express.static('public'));
+
+Ứng dụng vào công việc:
+- Tạo các trang web có nhiều phần chung như header và footer, giúp tái sử dụng mã dễ dàng.
+
+---
+
+5. Các Loại Thẻ trong EJS
+EJS hỗ trợ các thẻ khác nhau:
+- <%= %>: Hiển thị nội dung (escape HTML).
+- <%- %>: Hiển thị nội dung (không escape HTML).
+- <% %>: Chạy JavaScript mà không hiển thị kết quả.
+
+Ứng dụng vào công việc:
+- Sử dụng các thẻ để hiển thị dữ liệu từ server trong HTML và kiểm soát cách thức hiển thị.
+
+---
+
+6. Dự Án Trình Tạo Tên Ban Nhạc với EJS
+Mục tiêu:
+Xây dựng một trang web động để tạo tên ban nhạc ngẫu nhiên bằng EJS. Người dùng nhấn nút để tạo tên ban nhạc và hiển thị trên trang.
+
+Ứng dụng vào công việc:
+- Áp dụng kiến thức về EJS, Express, và JavaScript để tạo trang web động tương tác với người dùng.
+
+---
+
+Tóm Tắt:
+- EJS giúp tạo các ứng dụng web động dễ dàng bằng cách nhúng JavaScript vào HTML.
+- Partials giúp tái sử dụng mã HTML trong nhiều trang, giảm sự trùng lặp.
+- Các loại thẻ trong EJS cung cấp khả năng hiển thị dữ liệu và thực thi logic trong HTML một cách linh hoạt.

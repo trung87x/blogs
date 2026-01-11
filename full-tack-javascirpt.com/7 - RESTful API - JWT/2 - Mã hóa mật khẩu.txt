@@ -1,0 +1,47 @@
+===========================================
+🧩 Ngữ cảnh #2: Mã hóa mật khẩu
+===========================================
+
+🧠 Mô hình (Model) – Ý nghĩa:
+Không bao giờ lưu mật khẩu người dùng ở dạng rõ ràng (plain text).  
+Thay vào đó, sử dụng **thuật toán hash** để mã hóa mật khẩu trước khi lưu vào DB.
+
+Nếu hacker có được DB, họ cũng không thể biết được mật khẩu thật.
+
+---
+
+🔐 Công nghệ phổ biến:
+- `bcrypt`: Thư viện hash mạnh, thêm "muối" (salt) để chống lại tấn công rainbow table.
+
+---
+
+🛠️ Các bước xử lý:
+1. Sinh `salt` (chuỗi ngẫu nhiên thêm vào trước khi hash)
+2. Hash mật khẩu với salt
+3. Lưu chuỗi đã mã hóa vào DB
+
+---
+
+📦 Cài đặt thư viện:
+npm install bcrypt
+
+---
+
+🧪 Ví dụ độc lập kiểm tra `bcrypt`:
+-----------------------------------
+```js
+const bcrypt = require('bcrypt');
+
+async function hashPassword(password) {
+  const saltRounds = 10;
+  const salt = await bcrypt.genSalt(saltRounds);
+  const hashed = await bcrypt.hash(password, salt);
+
+  console.log('Mật khẩu gốc:', password);
+  console.log('Salt:', salt);
+  console.log('Hashed:', hashed);
+
+  return hashed;
+}
+
+hashPassword('123456');

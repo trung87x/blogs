@@ -1,0 +1,121 @@
+
+### Các Điều Khiển Select Tùy Chỉnh
+
+**Điều khiển select tùy chỉnh là gì?**
+Điều khiển `<select>` trong HTML đã được cải tiến để có thể hoàn toàn tùy chỉnh về mặt giao diện với sự kết hợp của HTML và CSS hiện đại. Việc này cho phép bạn kiểm soát đầy đủ các yếu tố như nút select, picker drop-down, biểu tượng mũi tên, dấu chọn cho lựa chọn hiện tại và từng phần tử `<option>`.
+
+**Lý do cần điều khiển select tùy chỉnh**
+Trước đây, việc tùy chỉnh giao diện của các điều khiển `<select>` là rất khó khăn vì chúng chứa các phần tử nội bộ được trình duyệt xử lý và áp dụng kiểu dáng ở cấp độ hệ điều hành, điều này không thể chỉnh sửa trực tiếp bằng CSS. Tuy nhiên, điều khiển select tùy chỉnh cung cấp một giải pháp cho vấn đề này, cho phép bạn tạo ra các điều khiển select hoàn toàn tùy chỉnh chỉ với HTML và CSS, giúp bạn tùy chỉnh giao diện các phần tử như nút select, danh sách thả xuống, biểu tượng mũi tên và lựa chọn hiện tại.
+
+**Các yếu tố của một điều khiển select tùy chỉnh**:
+1. **Thẻ `<select>`, `<option>`, và `<optgroup>`**: Các thẻ này vẫn hoạt động như những điều khiển select truyền thống, nhưng chúng có thể chứa thêm các loại nội dung như hình ảnh hoặc các phần tử HTML khác.
+2. **Thẻ `<button>`**: Được thêm vào như con cái đầu tiên trong thẻ `<select>`, thay thế giao diện nút mặc định của thẻ `<select>` khi đóng.
+3. **Thẻ `<selectedcontent>`**: Tùy chọn có thể được thêm vào để hiển thị giá trị hiện tại được chọn trong nút `<select>` khi chưa mở.
+4. **Pseudoelement `::picker(select)`**: Nhắm đến toàn bộ nội dung của picker, bao gồm tất cả các phần tử bên trong thẻ `<select>`.
+5. **Pseudoelement `::picker-icon`**: Nhắm đến biểu tượng mũi tên bên trong nút select.
+6. **Pseudo-class `:checked`**: Nhắm đến phần tử `<option>` hiện tại được chọn.
+
+**Ví dụ về điều khiển select tùy chỉnh**:
+```html
+<form>
+  <p>
+    <label for="pet-select">Select pet:</label>
+    <select id="pet-select">
+      <button>
+        <selectedcontent></selectedcontent>
+      </button>
+
+      <option value="">Please select a pet</option>
+      <option value="cat">
+        <span class="icon" aria-hidden="true">🐱</span><span class="option-label">Cat</span>
+      </option>
+      <option value="dog">
+        <span class="icon" aria-hidden="true">🐶</span><span class="option-label">Dog</span>
+      </option>
+      <option value="hamster">
+        <span class="icon" aria-hidden="true">🐹</span><span class="option-label">Hamster</span>
+      </option>
+      <option value="chicken">
+        <span class="icon" aria-hidden="true">🐔</span><span class="option-label">Chicken</span>
+      </option>
+      <option value="fish">
+        <span class="icon" aria-hidden="true">🐟</span><span class="option-label">Fish</span>
+      </option>
+      <option value="snake">
+        <span class="icon" aria-hidden="true">🐍</span><span class="option-label">Snake</span>
+      </option>
+    </select>
+  </p>
+</form>
+```
+
+**CSS để tạo điều khiển select tùy chỉnh**:
+```css
+select, ::picker(select) {
+  appearance: base-select;
+}
+
+select {
+  border: 2px solid #ddd;
+  background: #eee;
+  padding: 10px;
+  transition: 0.4s;
+}
+
+select:hover, select:focus {
+  background: #ddd;
+}
+
+select::picker-icon {
+  color: #999;
+  transition: 0.4s rotate;
+}
+
+select:open::picker-icon {
+  rotate: 180deg;
+}
+
+::picker(select) {
+  border: none;
+}
+
+option {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  border: 2px solid #ddd;
+  background: #eee;
+  padding: 10px;
+  transition: 0.4s;
+}
+
+option:nth-of-type(odd) {
+  background: #fff;
+}
+
+option:hover, option:focus {
+  background: plum;
+}
+
+option .icon {
+  font-size: 1.6rem;
+  text-box: trim-both cap alphabetic;
+}
+
+selectedcontent .icon {
+  display: none;
+}
+
+option:checked {
+  font-weight: bold;
+}
+
+option::checkmark {
+  order: 1;
+  margin-left: auto;
+  content: "☑️";
+}
+```
+
+**Tóm tắt**:
+Điều khiển select tùy chỉnh là một tính năng mạnh mẽ trong HTML5, cho phép bạn thay đổi hoàn toàn giao diện của các thẻ `<select>`, `<option>` và các phần tử liên quan chỉ bằng HTML và CSS. Các trình duyệt hỗ trợ tính năng này mang đến khả năng tùy chỉnh vượt trội, giúp bạn tạo ra các form hiện đại và dễ sử dụng.

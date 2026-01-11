@@ -1,0 +1,80 @@
+/* =======================
+   CÁC BỘ CHỌN (SELECTORS)
+   ======================= */
+
+/* 1. Type Selector – Bộ chọn theo tên thẻ */
+span {
+  background-color: yellow;
+}
+strong, em {
+  color: rebeccapurple;
+}
+/* Chọn theo tên thẻ HTML: h1, p, span, em, strong, ... */
+
+/* 2. Class Selector – Bộ chọn theo class (dấu .) */
+.highlight {
+  background-color: yellow;
+}
+/* Chọn tất cả các phần tử có class="highlight" */
+
+/* 3. Class kết hợp với Type – Rút gọn phạm vi */
+h1.highlight {
+  background-color: pink;
+}
+span.highlight {
+  background-color: yellow;
+}
+/* Chỉ chọn đúng phần tử vừa có tag vừa có class */
+
+ /* 4. Nhiều class kết hợp */
+.notebox {
+  border: 4px solid #666;
+  padding: 0.5em;
+  margin: 0.5em;
+}
+.notebox.warning {
+  border-color: orange;
+  font-weight: bold;
+}
+.notebox.danger {
+  border-color: red;
+  font-weight: bold;
+}
+/* Chỉ áp dụng nếu element có cả class notebox và warning/danger */
+
+/* 5. ID Selector – Bộ chọn theo ID (dấu #) */
+#one {
+  background-color: yellow;
+}
+h1#heading {
+  color: rebeccapurple;
+}
+/* ID là duy nhất và chỉ dùng 1 lần trong mỗi trang HTML */
+
+/* ⚠️ KHÔNG được dùng nhiều phần tử cùng ID – vi phạm chuẩn HTML */
+
+/* 6. Selector List – Danh sách bộ chọn kết hợp */
+h1, .special {
+  color: blue;
+}
+/* Gộp nhiều bộ chọn có cùng kiểu khai báo */
+
+/* 7. Universal Selector – Bộ chọn toàn bộ (*) */
+* {
+  margin: 0;
+}
+/* Dùng để reset toàn bộ margin hoặc style mặc định của trình duyệt */
+
+/* Có thể dùng kết hợp:
+   article *:first-child { font-weight: bold; }
+   → chọn mọi phần tử là con đầu tiên trong <article> */
+
+/* 8. Tổng kết:
+   - span         → chọn thẻ <span>
+   - .class       → chọn phần tử có class
+   - #id          → chọn phần tử có ID
+   - tag.class    → tag có class cụ thể
+   - .a.b         → phần tử có đồng thời cả class a và b
+   - h1, .note    → nhóm selector chung style
+   - *            → mọi phần tử
+*/

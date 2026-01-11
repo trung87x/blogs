@@ -1,0 +1,47 @@
+📦 Ngữ cảnh #5: Cập nhật thông tin user / bản ghi (MongoDB + Mongoose)
+
+🧠 Model (Ý nghĩa)
+- Cho phép người dùng chỉnh sửa thông tin như: tên, mật khẩu, ảnh đại diện...
+- Admin có thể thay đổi trạng thái, vai trò (role), hoặc cập nhật dữ liệu bất kỳ.
+- Đây là hành vi "Update" trong CRUD (PUT/PATCH request).
+
+🛠️ Controller (Công cụ / Câu lệnh)
+- `Model.findByIdAndUpdate(id, updateObj, options)`
+- `Model.updateOne({ _id }, updateObj)`
+- `Model.updateMany({ điều kiện }, updateObj)`
+- Options thường dùng: `{ new: true, runValidators: true }`
+
+🧪 Example (routes/userRoute.js)
+const express = require('express');
+const User = require('../models/User');
+const router = express.Router();
+
+// PUT /users/:id - Cập nhật tên và trạng thái active
+router.put('/users/:id', async (req, res) => {
+  try {
+    const updates = {
+      name: req.body.name,
+      isActive: req.body.isActive,
+    };
+
+    const user = await User.findByIdAndUpdate(
+      req.params.id,
+      updates,
+      { new: true, runValidators: true }
+    ).select('-password');
+
+    if (!user) return res.status(404).json({ error: 'User not found' });
+
+    res.json({ message: 'User updated', user });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+module.exports = router;
+
+📝 Ghi chú:
+- `new: true` → trả về dữ liệu sau khi cập nhật
+- `runValidators: true` → kiểm tra ràng buộc schema khi cập nhật
+- Không nên cập nhật password bằng cách này (xử lý riêng với `bcrypt` và `.pre('save')`)
+- Có thể dùng `PATCH` thay vì `PUT` nếu chỉ sửa 1 phần dữ liệu

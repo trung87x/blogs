@@ -1,0 +1,83 @@
+<!-- ==========================
+Basic HTML Syntax
+========================== -->
+
+<!-- 1. Thẻ HTML cơ bản: phần tử, nội dung và đóng/mở thẻ -->
+
+<!-- Đây là một thẻ đoạn văn -->
+<p>My cat is very grumpy</p>
+
+<!-- Thẻ có cấu trúc: mở thẻ + nội dung + đóng thẻ -->
+<!-- Ví dụ: <p> (mở) nội dung </p> (đóng) -->
+
+<!-- 2. Lồng thẻ (Nesting elements) đúng cách -->
+
+<!-- Đúng -->
+<p>My cat is <strong>very</strong> grumpy.</p>
+
+<!-- Sai (lỗi đóng thẻ không đúng thứ tự) -->
+<!-- <p>My cat is <strong>very grumpy.</p></strong> -->
+
+<!-- 3. Thẻ rỗng (Void elements): không có nội dung, không cần thẻ đóng -->
+<img src="https://example.com/icon.png" alt="Example icon" width="100" />
+
+<!-- 4. Thuộc tính (Attributes) -->
+
+<!-- Có thể thêm nhiều thuộc tính -->
+<img src="https://example.com/image.jpg" alt="A beautiful scene" width="300" height="200" />
+
+<!-- Boolean attribute: không cần giá trị (giá trị nào cũng coi là true) -->
+<input type="text" disabled />
+<input type="text" />
+
+<!-- 5. Dấu ngoặc kép quanh giá trị thuộc tính (quotes) -->
+
+<!-- Đúng cách -->
+<a href="https://www.mozilla.org" title="Trang chủ Mozilla">Visit Mozilla</a>
+
+<!-- Sai: bỏ dấu ngoặc sẽ gây lỗi khi có nhiều từ -->
+<!-- <a href=https://www.mozilla.org title=Trang chủ Mozilla>Visit Mozilla</a> -->
+
+<!-- 6. Mẫu tài liệu HTML đầy đủ (HTML skeleton) -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>My test page</title>
+  </head>
+  <body>
+    <h1>Welcome to My HTML Page</h1>
+    <p>This is a <strong>simple</strong> HTML document. Visit <a href="https://developer.mozilla.org">MDN</a>.</p>
+    <img src="https://developer.mozilla.org/static/img/favicon144.png" alt="MDN Logo" width="100" />
+  </body>
+</html>
+
+<!-- 7. Khoảng trắng không làm thay đổi nội dung hiển thị -->
+<p id="noWhitespace">Dogs are silly.</p>
+<p id="whitespace">Dogs
+    are
+        silly.</p>
+
+<!-- Trong HTML, nhiều khoảng trắng bị rút thành một khoảng trắng duy nhất -->
+
+<!-- 8. Ký tự đặc biệt (Character references) -->
+<!-- Không dùng trực tiếp các ký tự <, >, ", ' và & -->
+
+<p>Sai: &lt;p&gt;My paragraph&lt;/p&gt;</p>
+<!-- Đúng: dùng &lt; cho < và &gt; cho > -->
+
+<!-- Danh sách ký hiệu phổ biến:
+<  → &lt;
+>  → &gt;
+"  → &quot;
+'  → &apos;
+&  → &amp;
+-->
+
+<!-- 9. Ghi chú (Comment) trong HTML -->
+<!-- Ghi chú sẽ không hiển thị ra trình duyệt -->
+<!-- <p>Đây là dòng ghi chú</p> -->
+
+<p>Tôi không ở trong comment</p>
+<!-- <p>Tôi ở trong comment và không được hiển thị</p> -->

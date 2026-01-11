@@ -1,0 +1,96 @@
+
+### Routes và Controllers trong Express
+
+**Giới thiệu về Routes và Controllers**
+Trong Express, **Routes** là các đoạn mã định nghĩa URL mà người dùng có thể truy cập và **Controllers** là các hàm xử lý các yêu cầu đó. Routes chịu trách nhiệm nhận và định tuyến các yêu cầu đến đúng controller, trong khi các controller chứa mã thực hiện các tác vụ như truy vấn cơ sở dữ liệu, tạo và trả về các views, hoặc gửi dữ liệu phản hồi.
+
+**Tạo Routes trong Express**
+Mỗi route trong Express kết nối một HTTP verb (GET, POST, PUT, DELETE) với một URL path và một hàm callback xử lý yêu cầu đó. Bạn có thể tạo các routes trực tiếp trong file `app.js` hoặc chia chúng thành các module riêng biệt sử dụng `express.Router` để dễ dàng quản lý.
+
+**Cấu trúc cơ bản của một route**:
+```javascript
+app.get('/home', (req, res) => {
+  res.send('Welcome to the home page');
+});
+```
+
+- **GET**: Sử dụng để yêu cầu dữ liệu từ server.
+- **POST**: Dùng để gửi dữ liệu đến server.
+- **PUT**: Cập nhật dữ liệu trên server.
+- **DELETE**: Xóa dữ liệu khỏi server.
+
+**Sử dụng Express Router để Tổ chức Routes**
+Express cung cấp `express.Router` giúp bạn nhóm các routes lại với nhau, giúp dễ dàng quản lý và cấu trúc ứng dụng theo các module. Bạn có thể tạo ra các route module cho từng phần của ứng dụng, chẳng hạn như quản lý sách, tác giả, thể loại trong dự án thư viện.
+
+**Ví dụ về việc sử dụng Router**:
+```javascript
+const express = require('express');
+const router = express.Router();
+
+// Define a route for the home page
+router.get('/', (req, res) => {
+  res.send('Welcome to the catalog home page');
+});
+
+// Define a route for viewing a book
+router.get('/book/:id', (req, res) => {
+  res.send(`Details of book with ID: ${req.params.id}`);
+});
+
+module.exports = router;
+```
+
+Trong ví dụ trên, chúng ta sử dụng `router.get()` để tạo một route xử lý yêu cầu GET đến đường dẫn `/` và `/book/:id`.
+
+**Sử dụng Controllers**
+Controller là nơi xử lý logic của ứng dụng. Các controller nhận dữ liệu từ route và thực hiện các tác vụ như truy vấn cơ sở dữ liệu hoặc tính toán trước khi trả về kết quả. Các controller cũng có thể gọi các hàm khác để xử lý dữ liệu và trả về các views hoặc JSON.
+
+**Ví dụ về Controller**:
+```javascript
+const Book = require('../models/book');
+
+// Controller function to get list of all books
+exports.book_list = (req, res) => {
+  Book.find({}, (err, books) => {
+    if (err) {
+      return res.status(500).send('Error occurred while fetching books');
+    }
+    res.render('book_list', { title: 'Book List', books: books });
+  });
+};
+```
+
+**Xử lý lỗi trong Routes và Controllers**
+Một trong những phần quan trọng khi phát triển web là xử lý lỗi. Express cho phép bạn xử lý lỗi trong middleware hoặc trực tiếp trong các controller. Bạn có thể sử dụng `next()` để chuyển lỗi tới middleware xử lý lỗi toàn cục.
+
+**Ví dụ về xử lý lỗi trong Controller**:
+```javascript
+router.get('/books/:id', (req, res, next) => {
+  Book.findById(req.params.id, (err, book) => {
+    if (err) {
+      return next(err); // Pass the error to the error-handling middleware
+    }
+    res.render('book_detail', { title: 'Book Detail', book: book });
+  });
+});
+```
+
+**Tạo các routes và controller cho các mô-đun khác nhau**
+Một trong những thực tiễn tốt nhất khi xây dựng các ứng dụng web là tách các controller và route thành các module riêng biệt. Ví dụ, nếu bạn có một ứng dụng quản lý thư viện, bạn có thể tạo các controller cho sách, tác giả, thể loại và book instance.
+
+**Cấu trúc thư mục ứng dụng**:
+```
+/express-locallibrary-tutorial
+  /controllers
+    bookController.js
+    authorController.js
+    genreController.js
+  /routes
+    index.js
+    book.js
+    author.js
+  app.js
+```
+
+**Tóm tắt**
+Trong bài học này, chúng ta đã tìm hiểu về cách tạo Routes và Controllers trong Express để xử lý các yêu cầu HTTP và trả về các kết quả cho người dùng. Việc sử dụng `express.Router` giúp tổ chức các routes và controller thành các module riêng biệt, dễ quản lý và bảo trì. Đảm bảo rằng bạn luôn xử lý lỗi trong các route và controller để bảo vệ ứng dụng khỏi các sự cố ngoài ý muốn.

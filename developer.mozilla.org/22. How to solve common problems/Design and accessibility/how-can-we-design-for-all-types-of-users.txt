@@ -1,0 +1,96 @@
+
+1. Cách thiết kế cho tất cả các loại người dùng
+Bài viết này cung cấp các mẹo cơ bản để giúp bạn thiết kế trang web cho bất kỳ loại người dùng nào.
+
+**Tiền đề:** Bạn nên đọc bài viết "What is accessibility?" trước, vì chúng tôi không đi vào chi tiết về tính khả dụng ở đây.
+
+**Mục tiêu:** Thiết kế phổ quát có nghĩa là thiết kế cho tất cả mọi người, bất kể khuyết tật, ràng buộc kỹ thuật, văn hóa, vị trí, v.v. Bài viết này liệt kê những cải tiến nhanh nhất cho thiết kế phổ quát.
+
+**Tóm tắt**
+Khi bạn xây dựng một trang web, một vấn đề quan trọng cần xem xét là Thiết kế phổ quát: đáp ứng tất cả người dùng bất kể khuyết tật, ràng buộc kỹ thuật, văn hóa, vị trí, v.v.
+
+**Học tập chủ động**
+Hiện tại chưa có học tập chủ động. Xin vui lòng xem xét đóng góp.
+
+**Đi sâu hơn**
+**Độ tương phản màu sắc**
+Để giữ cho văn bản của bạn dễ đọc, hãy sử dụng màu sắc văn bản có độ tương phản tốt với màu nền. Làm cho văn bản dễ đọc hơn, giúp những người khiếm thị và người sử dụng điện thoại trên phố.
+
+W3C xác định một sự kết hợp màu sắc tốt với thuật toán tính tỷ lệ độ sáng giữa tiền cảnh và nền. Tính toán có thể khá phức tạp, nhưng chúng ta có thể dựa vào các công cụ để làm công việc đó.
+
+Hãy tải xuống và cài đặt Công cụ phân tích độ tương phản màu của Paciello Group.
+
+Lưu ý: Ngoài ra, bạn có thể tìm thấy nhiều công cụ kiểm tra độ tương phản trực tuyến, chẳng hạn như WebAIM's Color Contrast Checker. Chúng tôi khuyên bạn sử dụng công cụ kiểm tra tại chỗ vì nó đi kèm với công cụ chọn màu trên màn hình để tìm giá trị màu.
+
+Ví dụ, hãy kiểm tra màu sắc trên trang này và xem độ tương phản thế nào trong Công cụ phân tích độ tương phản màu:
+
+Độ tương phản màu trên trang này: tuyệt vời!
+
+Tỷ lệ độ tương phản độ sáng giữa văn bản và nền là 8.30:1, vượt qua chuẩn tối thiểu (4.5:1) và sẽ giúp nhiều người khiếm thị đọc được trang này.
+
+**Kích thước phông chữ**
+Bạn có thể chỉ định kích thước phông chữ trên trang web thông qua đơn vị tuyệt đối hoặc đơn vị tỷ lệ.
+
+**Đơn vị tuyệt đối**
+Đơn vị tuyệt đối không được tính toán tỷ lệ mà tham chiếu đến một kích thước cố định, thường được biểu thị bằng pixel (px).
+
+```css
+body {
+  font-size: 16px;
+}
+```
+
+**Đơn vị tỷ lệ**
+Đơn vị tỷ lệ tính toán tỷ lệ đối với một phần tử cha. Đơn vị tỷ lệ thân thiện hơn với khả năng truy cập vì chúng tôn trọng cài đặt trên hệ thống của người dùng.
+
+Đơn vị tỷ lệ bao gồm em, % và rem.
+
+**Đơn vị %:** Kích thước của phần tử phải là N% của phần tử trước đó.
+
+**Đơn vị em:** Tính toán tương tự như % nhưng chia tỷ lệ trong phần tử cha.
+
+**Đơn vị rem:** Tỷ lệ với kích thước của phần tử gốc.
+
+```css
+body {
+  font-size: 1em;
+}
+h1 {
+  font-size: 2rem;
+}
+span.subheading {
+  font-size: 1rem;
+}
+```
+
+**Tại sao tôi muốn sử dụng đơn vị tỷ lệ?**
+Vì bạn không biết khi nào trình duyệt sẽ từ chối việc phóng to văn bản có kích thước được chỉ định bằng pixel. Ngoài ra, kiểm tra thống kê trang web của bạn có thể cho thấy bạn nhận được lượt truy cập từ các trình duyệt cũ.
+
+**Chiều rộng dòng**
+Có một cuộc tranh luận lâu dài về độ dài dòng trên web, nhưng đây là câu chuyện. Khi chúng ta có báo chí, các nhà in nhận ra rằng mắt của người đọc sẽ gặp khó khăn khi chuyển từ dòng này sang dòng khác nếu các dòng quá dài. Giải pháp? Cột.
+
+Khi chúng ta chuyển sang Web, vấn đề không biến mất. Để làm cho mắt của người đọc dễ dàng hơn, hãy giới hạn chiều rộng dòng trong khoảng 60 đến 70 ký tự.
+
+```css
+div.container {
+  max-width: 70em;
+}
+```
+
+**Nội dung thay thế cho hình ảnh, âm thanh và video**
+Trang web thường bao gồm các yếu tố ngoài văn bản thuần túy.
+
+**Hình ảnh**
+Hình ảnh có thể là trang trí hoặc thông tin, nhưng không có gì đảm bảo rằng người dùng của bạn có thể nhìn thấy chúng.
+
+- **Hình ảnh trang trí**: Chỉ để trang trí và không mang lại thông tin thực sự. Chúng có thể được thay thế bằng hình nền.
+- **Hình ảnh thông tin**: Dùng để truyền đạt thông tin, chẳng hạn như biểu đồ hoặc hình ảnh biểu cảm. Ít nhất, bạn phải cung cấp thuộc tính alt phù hợp.
+
+**Video/Âm thanh**
+Bạn cũng phải cung cấp các lựa chọn thay thế cho nội dung đa phương tiện.
+
+- **Phụ đề/đóng phụ đề**: Bạn nên thêm phụ đề vào video để phục vụ người không nghe được âm thanh.
+- **Biên bản**: Cung cấp một bản văn bản của video/âm thanh cho những người không có thời gian xem video hoặc không có plugin/công cụ thích hợp.
+
+**Nén hình ảnh**
+Một số người dùng có thể chọn hiển thị hình ảnh nhưng vẫn có băng thông hạn chế, đặc biệt là ở các quốc gia đang phát triển và trên các thiết bị di động. Nếu bạn muốn có một trang web thành công, hãy nén hình ảnh của bạn.

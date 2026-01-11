@@ -1,0 +1,36 @@
+COMMAND LINE CƠ BẢN
+====================
+
+1. MỞ TERMINAL
+--------------
+- Linux/macOS: Mở Terminal có sẵn.
+- Windows:
+  + `cmd`: đơn giản, hạn chế.
+  + `PowerShell`: mạnh hơn.
+  + `Git Bash`: kèm theo Git.
+  + `WSL`: chạy Linux trên Windows.
+
+2. ĐIỀU HƯỚNG & LIỆT KÊ
+------------------------
+- `cd folder/`: vào thư mục  
+- `cd ..`: về thư mục trước  
+- `ls`: liệt kê thư mục (Unix) | `dir`: tương đương (Windows)  
+- `ls -l`: chi tiết | `-a`: file ẩn | `-lah`: kết hợp  
+- [Tab]: tự động hoàn thành
+
+3. QUẢN LÝ FILE/THƯ MỤC
+------------------------
+- Tạo: `mkdir tên_thư_mục` | `touch tên_file`  
+- Xóa: `rm file` | `rmdir thư_mục_rỗng` | `rm -r thư_mục`  
+- Đổi tên/Di chuyển: `mv a.txt b.txt`  
+- Sao chép: `cp a.txt b.txt`  
+- Dùng `*` để đại diện: `rm *.log` → xóa tất cả `.log`
+
+4. PIPE `|` — KẾT HỢP LỆNH
+---------------------------
+- `lệnh1 | lệnh2`: đầu ra của lệnh1 là đầu vào lệnh2  
+
+Ví dụ:  
+- `ls | wc -l`: đếm số file/thư mục  
+- `curl -I -L <url> | grep location`: kiểm tra redirect  
+- `... | awk '{print "https://site.com" $2}'`: xử lý chuỗi

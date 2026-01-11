@@ -1,0 +1,97 @@
+
+### Các Điều Khiển Form Khác
+
+**Các điều khiển không phải <input>**
+Trong bài này, chúng ta sẽ tìm hiểu về các điều khiển không phải `<input>` trong HTML, bao gồm các điều khiển như danh sách thả xuống, trường văn bản đa dòng, và các tính năng hữu ích khác như thẻ `<output>` và thanh tiến trình.
+
+**Trường văn bản đa dòng (Multi-line text fields)**
+Trường văn bản đa dòng được chỉ định bằng thẻ `<textarea>` thay vì thẻ `<input>`.
+
+**Ví dụ về `<textarea>`**:
+```html
+<textarea cols="30" rows="8"></textarea>
+```
+- Thẻ `<textarea>` cho phép người dùng nhập liệu nhiều dòng và giữ lại các ký tự xuống dòng khi gửi dữ liệu.
+- Thẻ `<textarea>` có thể được điều chỉnh kích thước và thông qua CSS có thể thay đổi chiều rộng và chiều cao của trường nhập liệu.
+
+**Điều khiển thả xuống (Drop-down controls)**
+Điều khiển thả xuống giúp người dùng chọn một giá trị từ danh sách các giá trị mà không chiếm quá nhiều không gian.
+
+**Ví dụ về danh sách thả xuống**:
+```html
+<select id="simple" name="simple">
+  <option>Banana</option>
+  <option selected>Cherry</option>
+  <option>Lemon</option>
+</select>
+```
+
+**Sử dụng `<optgroup>`** để nhóm các giá trị:
+```html
+<select id="groups" name="groups">
+  <optgroup label="fruits">
+    <option>Banana</option>
+    <option selected>Cherry</option>
+    <option>Lemon</option>
+  </optgroup>
+  <optgroup label="vegetables">
+    <option>Carrot</option>
+    <option>Eggplant</option>
+    <option>Potato</option>
+  </optgroup>
+</select>
+```
+
+**Trường chọn nhiều (Multiple choice select box)**:
+Nếu bạn muốn người dùng có thể chọn nhiều giá trị từ danh sách, bạn có thể thêm thuộc tính `multiple` vào thẻ `<select>`.
+
+**Ví dụ về trường chọn nhiều**:
+```html
+<select id="multi" name="multi" multiple size="2">
+  <optgroup label="fruits">
+    <option>Banana</option>
+    <option selected>Cherry</option>
+    <option>Lemon</option>
+  </optgroup>
+  <optgroup label="vegetables">
+    <option>Carrot</option>
+    <option>Eggplant</option>
+    <option>Potato</option>
+  </optgroup>
+</select>
+```
+
+**Trường tự động hoàn thành (Autocomplete box)**
+Thẻ `<datalist>` cho phép bạn cung cấp các giá trị gợi ý cho trường nhập liệu, giúp người dùng điền dữ liệu nhanh hơn.
+
+**Ví dụ về `<datalist>`**:
+```html
+<label for="myFruit">What's your favorite fruit?</label>
+<input type="text" name="myFruit" id="myFruit" list="mySuggestion" />
+<datalist id="mySuggestion">
+  <option>Apple</option>
+  <option>Banana</option>
+  <option>Blackberry</option>
+  <option>Blueberry</option>
+  <option>Lemon</option>
+  <option>Lychee</option>
+  <option>Peach</option>
+  <option>Pear</option>
+</datalist>
+```
+
+**Các tính năng khác của form**
+- **Meters và Progress Bars**: Các thẻ `<meter>` và `<progress>` cho phép hiển thị các giá trị số dưới dạng thanh.
+
+**Ví dụ về `<meter>`**:
+```html
+<meter min="0" max="100" value="75" low="33" high="66" optimum="0">75</meter>
+```
+
+**Ví dụ về `<progress>`**:
+```html
+<progress max="100" value="75">75/100</progress>
+```
+
+**Tóm tắt**:
+Bài này giới thiệu các điều khiển form không phải là `<input>`, bao gồm các trường văn bản đa dòng, danh sách thả xuống, trường tự động hoàn thành, và các thanh tiến trình. Những điều khiển này giúp cải thiện trải nghiệm người dùng trong việc nhập liệu và tương tác với form.

@@ -1,0 +1,64 @@
+ 
+1. API Blog là gì?
+API Blog là một RESTful API giúp quản lý các bài viết blog. API này không có giao diện người dùng mà chỉ tập trung vào xử lý dữ liệu và logic phía backend.
+
+Ứng dụng vào công việc:
+- API Blog giúp bạn xây dựng và quản lý các bài viết trong ứng dụng web. Bạn sẽ học cách xử lý dữ liệu, sử dụng phương thức HTTP, và tạo các route API cho các bài viết như xem, thêm, sửa và xóa.
+
+---
+
+2. Các Phương Thức HTTP trong API Blog
+- **GET**: Lấy tất cả bài viết hoặc bài viết theo ID.
+- **POST**: Thêm bài viết mới vào cơ sở dữ liệu.
+- **PATCH**: Cập nhật bài viết.
+- **DELETE**: Xóa bài viết khỏi cơ sở dữ liệu【158†source】【159†source】.
+
+**Ứng dụng vào công việc:**
+- Học cách sử dụng các phương thức HTTP giúp bạn xây dựng API quản lý dữ liệu dễ dàng hơn.
+
+---
+
+3. Cách Xây Dựng API Blog với Express.js
+**Các bước xây dựng API Blog**:
+1. **Khởi tạo dự án**: Cài đặt **Express**, **Nodemon**, và **Body-Parser** để khởi tạo server.
+2. **Tạo routes cho API**: Xây dựng các endpoint cho API để xử lý các yêu cầu như GET, POST, PATCH và DELETE.
+3. **Lưu trữ dữ liệu trong bộ nhớ**: Dữ liệu bài viết có thể được lưu trong mảng (ở bộ nhớ tạm thời trong dự án nhỏ này)【159†source】.
+
+**Ứng dụng vào công việc:**
+- Sử dụng **Express.js** để tạo API và **Axios** để giao tiếp với giao diện người dùng.
+
+---
+
+4. Các Phương Thức HTTP: POST, PUT, PATCH
+- **POST**: Thêm dữ liệu mới vào API.
+- **PUT**: Cập nhật toàn bộ đối tượng.
+- **PATCH**: Cập nhật một phần của đối tượng【161†source】.
+
+**Ứng dụng vào công việc:**
+- Sử dụng các phương thức này khi làm việc với dữ liệu động trong các ứng dụng web, đặc biệt khi cần tạo mới, cập nhật hoặc xóa dữ liệu.
+
+---
+
+5. Xử Lý Yêu Cầu Xóa Dữ Liệu (DELETE)
+**Cách thực hiện DELETE trong API**:
+1. **Xóa một phần tử cụ thể**: Xử lý yêu cầu DELETE theo ID, sử dụng `.findIndex()` và `.splice()` để xóa phần tử trong mảng【162†source】.
+2. **Xóa toàn bộ dữ liệu**: Dùng xác thực qua **query parameter** để bảo vệ thao tác xóa toàn bộ dữ liệu.
+
+**Ứng dụng vào công việc:**
+- Xử lý các yêu cầu xóa dữ liệu trong API giúp duy trì dữ liệu chính xác và bảo mật trong các ứng dụng web.
+
+---
+
+6. Kiểm Tra API
+Sử dụng **Postman** để kiểm tra các API GET, POST, PUT, DELETE, và kiểm tra phản hồi từ server. Bạn có thể gửi các yêu cầu với các phương thức khác nhau và xem kết quả trả về từ API.
+
+**Ứng dụng vào công việc:**
+- **Postman** là công cụ hữu ích để kiểm tra và debug API trong quá trình phát triển.
+
+---
+
+### **Tóm Tắt**
+- **API Blog** cho phép bạn xây dựng API RESTful để quản lý các bài viết blog.
+- **Phương thức HTTP** như GET, POST, PATCH và DELETE là những phương thức cơ bản trong việc tương tác với dữ liệu API.
+- **Express.js** giúp bạn dễ dàng xây dựng API, trong khi **Axios** hỗ trợ việc gửi và nhận yêu cầu API từ frontend.
+

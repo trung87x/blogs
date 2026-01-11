@@ -1,0 +1,67 @@
+1. Cách Internet hoạt động
+Bài viết này giải thích Internet là gì và cách thức hoạt động của nó.
+
+**Tiền đề:** Không yêu cầu kiến thức trước, nhưng chúng tôi khuyến khích bạn đọc bài viết về việc thiết lập mục tiêu dự án trước.
+
+**Mục tiêu:** Bạn sẽ tìm hiểu cơ bản về cơ sở hạ tầng kỹ thuật của Web và sự khác biệt giữa Internet và Web.
+
+**Tóm tắt**
+Internet là xương sống của Web, là cơ sở hạ tầng kỹ thuật giúp Web có thể hoạt động. Ở mức cơ bản nhất, Internet là một mạng lưới lớn các máy tính giao tiếp với nhau.
+
+Lịch sử của Internet có phần mơ hồ. Nó bắt đầu vào những năm 1960 như một dự án nghiên cứu do quân đội Mỹ tài trợ, sau đó phát triển thành một cơ sở hạ tầng công cộng vào những năm 1980 với sự hỗ trợ của nhiều trường đại học công và công ty tư nhân. Các công nghệ hỗ trợ Internet đã phát triển theo thời gian, nhưng cách thức hoạt động của nó không thay đổi quá nhiều: Internet là cách kết nối các máy tính lại với nhau và đảm bảo rằng dù có chuyện gì xảy ra, chúng vẫn có thể kết nối.
+
+**Học tập chủ động**
+- How the internet Works in 5 minutes: Một video 5 phút giúp bạn hiểu cơ bản về Internet, bởi Aaron Titus.
+- How does the Internet work? Video chi tiết với hình ảnh minh họa kéo dài 9 phút.
+
+**Đi sâu hơn**
+**Một mạng đơn giản**
+Khi hai máy tính cần giao tiếp, bạn phải kết nối chúng, có thể là kết nối vật lý (thường là với cáp Ethernet) hoặc kết nối không dây (ví dụ, với Wi-Fi hoặc Bluetooth). Tất cả các máy tính hiện đại đều có thể duy trì bất kỳ kết nối nào trong số đó.
+
+Lưu ý: Đối với phần còn lại của bài viết này, chúng ta sẽ chỉ nói về cáp vật lý, nhưng các mạng không dây hoạt động tương tự.
+
+**Hai máy tính kết nối với nhau**
+
+Mạng này không giới hạn ở hai máy tính. Bạn có thể kết nối bao nhiêu máy tính tùy thích. Nhưng vấn đề sẽ phức tạp rất nhanh. Nếu bạn muốn kết nối, ví dụ, mười máy tính, bạn sẽ cần 45 cáp, với chín phích cắm cho mỗi máy tính!
+
+**Mười máy tính kết nối với nhau**
+
+Để giải quyết vấn đề này, mỗi máy tính trong mạng được kết nối với một máy tính nhỏ đặc biệt gọi là switch (hoặc switch ngắn gọn). Switch này chỉ có một nhiệm vụ: giống như một người điều khiển ở ga tàu, nó đảm bảo rằng các tin nhắn gửi từ một máy tính nhất định chỉ đến máy tính đích của nó. Để gửi một tin nhắn tới máy tính B, máy tính A gửi tin nhắn tới switch, sau đó switch chuyển tiếp tin nhắn đến máy tính B — máy tính B không nhận tin nhắn gửi cho máy tính khác, và không có tin nhắn gửi cho máy tính B sẽ đến các máy tính khác trong mạng cục bộ.
+
+Khi chúng ta thêm một switch vào hệ thống, mạng của 10 máy tính chỉ cần 10 cáp: một phích cắm duy nhất cho mỗi máy tính và một switch với 10 phích cắm.
+
+**Mạng của các mạng**
+Cho đến nay là ổn. Nhưng làm thế nào để kết nối hàng trăm, hàng nghìn, hàng tỷ máy tính? Dĩ nhiên, một switch đơn lẻ không thể mở rộng đến mức đó, nhưng như bạn đã đọc kỹ, chúng tôi nói rằng switch là một máy tính như bao máy tính khác, vậy cái gì ngăn chúng ta kết nối hai switch với nhau? Không có gì, vậy hãy làm điều đó.
+
+**Hai switch kết nối với nhau**
+
+Bạn có thể tưởng tượng rằng chúng ta có thể kết nối các switch với nhau vô hạn, để tạo ra một mạng như thế này:
+
+**Switches kết nối với switches**
+
+Trên thực tế, điều này dẫn đến nhiều vấn đề kỹ thuật. Càng nhiều switch mà một gói dữ liệu phải đi qua, càng mất nhiều thời gian để đến đích. Và bạn không thể chỉ có một cây switch, vì nếu một switch gặp sự cố, thì một phần lớn thiết bị có thể bị ngắt kết nối. Để giải quyết vấn đề này, chúng ta giữ mỗi mạng cục bộ càng nhỏ càng tốt, và chúng ta kết nối các mạng cục bộ này bằng một thiết bị riêng biệt gọi là router. Router là một máy tính biết cách chuyển tiếp các tin nhắn giữa các mạng. Router giống như một bưu điện: khi một gói dữ liệu đến, nó đọc địa chỉ người nhận và chuyển gói dữ liệu đến đúng người nhận mà không phải đi qua nhiều lần relay.
+
+Mạng như thế này gần như là những gì chúng ta gọi là Internet. Chúng ta chỉ cần phương tiện vật lý (cáp) để kết nối tất cả các router này. May mắn thay, cơ sở hạ tầng như vậy đã tồn tại trước khi Internet ra đời, và đó chính là mạng điện thoại. Để kết nối mạng của chúng ta với cơ sở hạ tầng điện thoại, chúng ta cần một thiết bị đặc biệt gọi là modem. Modem này biến thông tin từ mạng của chúng ta thành thông tin có thể được xử lý bởi cơ sở hạ tầng điện thoại và ngược lại.
+
+**Một router kết nối với modem**
+
+Lưu ý rằng router thương mại ở nhà của bạn có thể là sự kết hợp của switch, router và modem, tất cả trong một thiết bị.
+
+Vậy chúng ta đã kết nối với cơ sở hạ tầng điện thoại. Bước tiếp theo là gửi các tin nhắn từ mạng của chúng ta đến mạng mà chúng ta muốn tiếp cận. Để làm điều đó, chúng ta sẽ kết nối mạng của mình với một Nhà cung cấp Dịch vụ Internet (ISP). ISP là một công ty quản lý một số router đặc biệt được kết nối với nhau và có thể truy cập router của các ISP khác. Vì vậy, tin nhắn từ mạng của chúng ta được truyền qua mạng của các ISP đến mạng đích. Internet bao gồm toàn bộ cơ sở hạ tầng này của các mạng.
+
+**Cấu trúc đầy đủ của Internet**
+
+**Tìm máy tính**
+Nếu bạn muốn gửi một tin nhắn đến một máy tính, bạn phải chỉ định máy tính đó. Do đó, mỗi máy tính được kết nối với một mạng có một địa chỉ duy nhất gọi là "địa chỉ IP" (IP là viết tắt của Internet Protocol). Địa chỉ này được tạo thành từ một chuỗi bốn số, mỗi số cách nhau bằng dấu chấm, ví dụ: 192.0.2.172.
+
+Điều này hoàn toàn ổn với máy tính, nhưng chúng ta – những con người – lại rất khó để nhớ loại địa chỉ này. Để làm cho mọi thứ dễ dàng hơn, chúng ta có thể thay thế một địa chỉ IP bằng một tên dễ đọc cho con người gọi là tên miền. Ví dụ (tại thời điểm viết bài này; địa chỉ IP có thể thay đổi) google.com là tên miền sử dụng trên địa chỉ IP 142.250.190.78. Do đó, sử dụng tên miền là cách dễ dàng nhất để chúng ta tiếp cận một máy tính qua Internet.
+
+**Internet và Web**
+Như bạn có thể nhận thấy, khi duyệt Web bằng trình duyệt, chúng ta thường sử dụng tên miền để đến một website. Điều đó có nghĩa là Internet và Web là cùng một thứ? Câu trả lời không đơn giản như vậy. Như chúng ta đã thấy, Internet là cơ sở hạ tầng kỹ thuật cho phép hàng tỷ máy tính kết nối với nhau. Trong số những máy tính này, một số máy tính (gọi là Web servers) có thể gửi tin nhắn mà trình duyệt web có thể hiểu. Internet là cơ sở hạ tầng, trong khi Web là một dịch vụ được xây dựng trên cơ sở hạ tầng này. Cần lưu ý rằng còn nhiều dịch vụ khác được xây dựng trên Internet, chẳng hạn như email và IRC.
+
+**Intranets và Extranets**
+Intranets là mạng riêng tư chỉ giới hạn cho các thành viên của một tổ chức cụ thể. Chúng thường được sử dụng để cung cấp một cổng thông tin để các thành viên có thể truy cập tài nguyên chia sẻ một cách bảo mật, cộng tác và giao tiếp. Ví dụ, intranet của một tổ chức có thể lưu trữ các trang web để chia sẻ thông tin về phòng ban hoặc nhóm, các ổ đĩa chia sẻ để quản lý tài liệu và tệp quan trọng, cổng thông tin để thực hiện các công việc quản trị kinh doanh, và các công cụ cộng tác như wiki, diễn đàn thảo luận và hệ thống nhắn tin.
+
+Extranets rất giống với Intranets, ngoại trừ việc chúng mở tất cả hoặc một phần mạng riêng tư để cho phép chia sẻ và cộng tác với các tổ chức khác. Chúng thường được sử dụng để chia sẻ thông tin một cách an toàn và bảo mật với khách hàng và các bên liên quan làm việc chặt chẽ với một doanh nghiệp. Các chức năng của chúng thường tương tự như những gì được cung cấp bởi một intranet: chia sẻ thông tin và tệp, công cụ cộng tác, diễn đàn thảo luận, v.v.
+
+Cả intranets và extranets đều hoạt động trên cùng một cơ sở hạ tầng như Internet, và sử dụng cùng các giao thức. Do đó, chúng có thể được truy cập bởi các thành viên được ủy quyền từ các địa điểm vật lý khác nhau.

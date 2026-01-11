@@ -1,0 +1,139 @@
+/* ===========================
+   GIÁ TRỊ VÀ ĐƠN VỊ TRONG CSS
+   =========================== */
+
+/* === 1. GIÁ TRỊ CSS LÀ GÌ? === */
+/*
+  - Giá trị (value) là phần gán cho một thuộc tính (property).
+  - Mỗi property có một hoặc nhiều kiểu giá trị cho phép.
+  - Ví dụ: background-color: <color>; width: <length>;
+  - Các kiểu value được đặt trong dấu <> như <color>, <length>
+*/
+
+/* === 2. KIỂU SỐ LIỆU (NUMERIC TYPES) === */
+/*
+  - <integer>: số nguyên – ví dụ: 100, -50
+  - <number>: số thập phân – ví dụ: 1.25, -0.75
+  - <dimension>: số + đơn vị – ví dụ: 45deg, 2s, 10px
+  - <percentage>: phần trăm – ví dụ: 80%
+*/
+
+/* === 3. LENGTH UNITS – ĐƠN VỊ CHIỀU DÀI === */
+
+/* Absolute units – đơn vị tuyệt đối */
+.box {
+  width: 100px; /* px: phổ biến trên màn hình */
+  /* Các đơn vị khác ít dùng hơn: cm, mm, in, pt, pc, Q */
+}
+
+/* Relative units – đơn vị tương đối */
+.box {
+  font-size: 1em;   /* theo kích thước font cha */
+  width: 10em;      /* theo font-size hiện tại */
+  width: 10rem;     /* theo font-size root (<html>) */
+  width: 20vw;      /* 20% chiều rộng viewport */
+  height: 30vh;     /* 30% chiều cao viewport */
+}
+
+/* === 4. PERCENTAGES – PHẦN TRĂM === */
+.wrapper {
+  width: 400px;
+}
+.percent-box {
+  width: 40%; /* 40% chiều rộng của phần tử cha */
+}
+
+/* === 5. UNITS: em vs rem === */
+/*
+  - em: dựa vào font-size của phần tử cha (đệ quy)
+  - rem: dựa vào font-size của <html> (root)
+*/
+
+/* em ví dụ (tăng dần theo cấp độ lồng nhau) */
+.ems li {
+  font-size: 1.3em;
+}
+
+/* rem ví dụ (ổn định kích cỡ lồng nhau) */
+.rems li {
+  font-size: 1.3rem;
+}
+
+/* === 6. LINE HEIGHT UNITS – lh, rlh === */
+p {
+  line-height: 2lh; /* theo line-height của chính phần tử */
+}
+p {
+  line-height: 2rlh; /* theo line-height của <html> */
+}
+
+/* === 7. COLOR VALUES – GIÁ TRỊ MÀU SẮC === */
+
+/* Color keywords */
+.box {
+  background-color: rebeccapurple;
+}
+
+/* Hex color */
+.box {
+  background-color: #c55da1;
+}
+
+/* RGB */
+.box {
+  background-color: rgb(197 93 161); /* hoặc rgb(197 93 161 / 0.6) */
+}
+
+/* HSL */
+.box {
+  background-color: hsl(321 47% 57%); /* hoặc hsl(321 47% 57% / 0.7) */
+}
+
+/* HWB */
+.box {
+  background-color: hwb(321 30% 20%);
+}
+
+/* === 8. IMAGE & GRADIENT VALUES === */
+.image {
+  background-image: url('image.png');
+}
+
+.gradient {
+  background-image: linear-gradient(to right, red, yellow);
+}
+
+/* === 9. POSITION VALUES – VỊ TRÍ === */
+.box {
+  background-position: right 40px; /* căn phải 40px */
+}
+
+/* === 10. STRINGS & IDENTIFIERS === */
+.box::after {
+  content: "Đây là một chuỗi"; /* String cần đặt trong dấu "" */
+}
+.box {
+  color: red; /* 'red' là identifier (không cần dấu "") */
+}
+
+/* === 11. FUNCTIONS – HÀM CSS === */
+.box {
+  width: calc(20% + 100px); /* Tính toán động */
+}
+
+/* Các hàm toán học phổ biến:
+   - calc(): phép cộng/trừ/nhân/chia
+   - min(), max(), clamp(): giới hạn giá trị
+*/
+
+/* Hàm transform thường gặp:
+   - rotate(), scale(), translate()
+*/
+
+/* =======================================================
+   TỔNG KẾT:
+   - Giá trị CSS rất đa dạng: số, phần trăm, màu, hình ảnh, chuỗi,...
+   - Đơn vị có thể là tuyệt đối (px, cm) hoặc tương đối (em, %, vw)
+   - Các hàm như calc(), hsl(), rgb() giúp kiểm soát giao diện linh hoạt
+   - Nắm rõ các value type giúp viết CSS đúng và hiệu quả hơn
+   ======================================================= */

@@ -1,0 +1,63 @@
+📌 Cornell Notes - Command Line Techniques and Directory Navigation
+
+📌 Topic/Title:
+
+Kỹ thuật dòng lệnh và điều hướng thư mục
+
+🔎 Keywords/Questions:
+
+Lệnh ls trong dòng lệnh dùng để làm gì?
+
+Cách sử dụng lệnh cd để điều hướng thư mục?
+
+Có thể di chuyển nhanh trong dòng lệnh không?
+
+Cách quay lại thư mục trước đó trong Terminal?
+
+Những phím tắt hữu ích khi làm việc với dòng lệnh?
+
+📝 Notes:
+
+Lệnh ls – Liệt kê các tệp/thư mục
+
+Cú pháp: ls
+
+Dùng để liệt kê tất cả các mục trong thư mục hiện tại.
+
+ls -a: Hiển thị cả các tệp/thư mục ẩn.
+
+Lệnh cd – Điều hướng giữa các thư mục
+
+cd TênThưMục: Đi vào thư mục cụ thể.
+
+cd ~: Quay lại thư mục gốc (home directory).
+
+cd ..: Quay lại thư mục cha (một cấp phía trên).
+
+cd /: Về thư mục gốc của hệ thống.
+
+cd Documents/Learn/Languages: Điều hướng trực tiếp đến thư mục con mà không cần đi từng bước.
+
+Các phím tắt giúp thao tác nhanh hơn
+
+Tab: Tự động hoàn thành tên thư mục/tệp khi nhập lệnh.
+
+Mũi tên lên (↑) và xuống (↓): Duyệt lại lệnh đã nhập trước đó.
+
+Ctrl + A: Di chuyển con trỏ đến đầu dòng lệnh.
+
+Ctrl + E: Di chuyển con trỏ đến cuối dòng lệnh.
+
+Ctrl + U: Xóa toàn bộ dòng lệnh hiện tại.
+
+Alt + Click: Đưa con trỏ đến vị trí bất kỳ trong lệnh để chỉnh sửa nhanh.
+
+Di chuyển nhanh mà không dùng chuột
+
+Mục tiêu của việc dùng dòng lệnh là giảm sự phụ thuộc vào chuột.
+
+Sử dụng các phím tắt giúp thao tác nhanh hơn so với GUI (Giao diện đồ họa).
+
+📌 Summary:
+
+Lệnh ls giúp hiển thị danh sách thư mục/tệp, trong khi cd được sử dụng để điều hướng giữa các thư mục. Các phím tắt như Tab, Ctrl + A, Ctrl + U giúp thao tác nhanh hơn. Điều hướng bằng dòng lệnh không chỉ nhanh mà còn giúp kiểm soát tốt hơn so với giao diện đồ họa.

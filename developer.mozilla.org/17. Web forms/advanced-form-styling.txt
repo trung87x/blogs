@@ -1,0 +1,96 @@
+
+### Styling Các Form Nâng Cao
+
+**Thử thách trong việc styling các widget form**
+Lịch sử
+Vào năm 1995, HTML 2 đã giới thiệu các điều khiển form (còn gọi là "widget form" hay "form elements"). Tuy nhiên, CSS không được phát hành cho đến cuối năm 1996 và không được hầu hết các trình duyệt hỗ trợ cho đến vài năm sau đó. Do đó, trong thời gian này, các trình duyệt đã dựa vào hệ điều hành để hiển thị các widget form.
+
+Mặc dù CSS đã có mặt, nhưng các nhà cung cấp trình duyệt vẫn không muốn làm cho các phần tử form có thể được tùy chỉnh về mặt giao diện, vì người dùng đã quá quen với các kiểu giao diện mặc định của trình duyệt. Tuy nhiên, mọi thứ đã thay đổi, và hiện nay hầu hết các widget form đều có thể tùy chỉnh giao diện, mặc dù vẫn còn một số ngoại lệ.
+
+**Các loại widget form cần tùy chỉnh khó hơn**:
+1. Checkbox và radio button
+2. `<input type="search">`
+3. Các điều khiển dạng dropdown như `<select>`, `<option>`, `<optgroup>`, `<datalist>`
+4. Các điều khiển như `<input type="color">`, `<input type="datetime-local">`, `<input type="range">`, `<input type="file">`
+5. Các thẻ `<progress>` và `<meter>`
+
+**Thuộc tính appearance: controlling OS-level styling**
+Lịch sử styling các điều khiển form chủ yếu phụ thuộc vào hệ điều hành, đây là lý do tại sao việc tùy chỉnh giao diện của các điều khiển này gặp khó khăn. Thuộc tính `appearance` được tạo ra để kiểm soát việc áp dụng kiểu dáng từ hệ điều hành, giúp việc tùy chỉnh trở nên dễ dàng hơn.
+
+**Ví dụ sử dụng appearance**:
+```css
+input {
+  appearance: none;
+}
+```
+Điều này giúp loại bỏ kiểu dáng mặc định và cho phép bạn tự xây dựng giao diện của các widget form bằng CSS.
+
+**Styling checkboxes và radio buttons**
+Việc styling checkbox và radio button là một thách thức bởi các kích thước của chúng không được thiết kế để thay đổi. Một cách để tùy chỉnh giao diện của chúng là sử dụng `appearance: none`.
+
+**Ví dụ về styling checkbox**:
+```css
+input[type="checkbox"] {
+  appearance: none;
+  position: relative;
+  width: 1em;
+  height: 1em;
+  border: 1px solid gray;
+  vertical-align: -2px;
+  color: green;
+}
+
+input[type="checkbox"]::before {
+  content: "✔";
+  position: absolute;
+  font-size: 1.2em;
+  right: -1px;
+  top: -0.3em;
+  visibility: hidden;
+}
+
+input[type="checkbox"]:checked::before {
+  visibility: visible;
+}
+```
+
+**Styling các điều khiển dropdown**
+Điều khiển thả xuống (`<select>`, `<option>`, `<optgroup>`) có thể tùy chỉnh nhưng gặp khó khăn trong việc thay đổi giao diện của các thành phần bên trong, như mũi tên dropdown. Bạn có thể sử dụng `appearance: none` để loại bỏ mũi tên mặc định và tự tạo một mũi tên tùy chỉnh.
+
+**Ví dụ về styling `<select>`**:
+```css
+select {
+  appearance: none;
+  width: 100%;
+  height: 100%;
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper::after {
+  content: "▼";
+  font-size: 1rem;
+  top: 6px;
+  right: 10px;
+  position: absolute;
+}
+```
+
+**Các loại input khó tùy chỉnh**
+Các loại input như `<input type="file">`, `<input type="range">`, `<input type="color">` có thể khó tùy chỉnh do sự khác biệt trong cách mỗi trình duyệt xử lý chúng.
+
+**Ví dụ về styling slider (`<input type="range">`)**:
+```css
+input[type="range"] {
+  appearance: none;
+  background: red;
+  height: 2px;
+  padding: 0;
+  outline: 1px solid transparent;
+}
+```
+
+**Tóm tắt**:
+Việc styling các widget form trong HTML không phải lúc nào cũng dễ dàng. Tuy nhiên, bằng cách sử dụng thuộc tính `appearance`, bạn có thể loại bỏ kiểu dáng mặc định và áp dụng các kiểu tùy chỉnh dễ dàng hơn. Mặc dù có một số loại điều khiển khó hoặc không thể tùy chỉnh, CSS vẫn cung cấp các công cụ mạnh mẽ để cải thiện giao diện và trải nghiệm người dùng.

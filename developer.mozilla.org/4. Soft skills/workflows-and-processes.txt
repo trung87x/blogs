@@ -1,0 +1,117 @@
+QUY TRÌNH LÀM VIỆC VÀ VAI TRÒ TRONG DỰ ÁN LẬP TRÌNH WEB
+=========================================================
+
+1. MỤC TIÊU
+- Hiểu bức tranh tổng thể khi làm dự án web.
+- Biết các công nghệ thường dùng, vai trò trong nhóm, quy trình dự án và cách tổ chức công việc.
+
+2. STACK CÔNG NGHỆ THƯỜNG GẶP
+- Front-end:
+  + HTML, CSS, JavaScript
+  + Framework: React, Vue...
+  + Template: Mustache, JSX
+  + CSS tools: Tailwind, Sass
+  + Testing: Jest
+  + Build tool: Parcel
+
+- Back-end:
+  + Node.js, PHP, .NET, Python
+
+- Database:
+  + MySQL, PostgreSQL, MongoDB
+
+- Web server:
+  + Apache, Netlify...
+
+- Các stack phổ biến:
+  + MEAN = MongoDB + Express + Angular + Node
+  + LAMP = Linux + Apache + MySQL + PHP/Python
+
+- Ngoài tech stack:
+  + Quản lý phiên bản: GitHub
+  + Thiết kế: Figma, Canva
+  + Quản lý dự án: Trello, Asana
+  + Lập kế hoạch: Miro
+
+3. CÁC VAI TRÒ TRONG NHÓM DỰ ÁN
+- Product Manager:
+  + Định hướng sản phẩm, phân tích thị trường, đề xuất tính năng, theo dõi hiệu quả.
+
+- Project Manager:
+  + Lập kế hoạch, chia task, theo dõi tiến độ, xử lý vướng mắc.
+
+- UX Designer:
+  + Tối ưu trải nghiệm người dùng, nghiên cứu người dùng, vẽ wireframe.
+
+- Graphic Designer:
+  + Thiết kế giao diện, màu sắc, font, icon, mockup.
+
+- Front-end Developer:
+  + Dựng phần hiển thị bằng HTML/CSS/JS từ mockup của UX/UI.
+
+- Back-end Developer:
+  + Xử lý logic, lưu trữ, xử lý form, API, bảo mật.
+
+- Full-stack Developer:
+  + Làm cả front-end + back-end.
+
+- QA Engineer:
+  + Kiểm thử, báo cáo lỗi, phối hợp sửa lỗi.
+
+- Content/Technical Writer:
+  + Viết nội dung, tài liệu, UI text, bài blog, hướng dẫn sản phẩm.
+
+- Vai trò khác:
+  + User Researcher: nghiên cứu người dùng (ở team lớn).
+  + SEO Specialist: tối ưu hiện diện trên công cụ tìm kiếm.
+
+4. CÁC GIAI ĐOẠN CỦA DỰ ÁN
+a. Product manager đề xuất yêu cầu mới.
+b. Cả nhóm thống nhất: tạo tính năng mới.
+c. Project manager chia nhỏ task → lên kế hoạch.
+d. UX designer lên quy trình dùng + wireframe.
+e. Graphic designer tạo mockup cụ thể.
+f. Content writer soạn UI text + hướng dẫn.
+g. Back-end dev xử lý lưu trữ + xử lý dữ liệu.
+h. Front-end dev dựng giao diện và kết nối backend.
+i. QA engineer test kỹ tính năng mới.
+j. Dev sửa bug nghiêm trọng.
+k. Sau khi hoàn tất → cho lên production.
+
+5. PHƯƠNG PHÁP TỔ CHỨC CÔNG VIỆC
+- Waterfall:
+  + Theo giai đoạn cố định.
+  + Ít thay đổi giữa chừng, dễ lên kế hoạch.
+  + Nhưng thiếu linh hoạt, chậm thay đổi.
+
+- Agile:
+  + Linh hoạt, nhiều bước song song.
+  + Nhiều bản cập nhật nhỏ.
+  + Dễ đổi thứ tự ưu tiên khi cần.
+  + Cải tiến liên tục, nhưng dễ “trôi deadline”.
+
+6. SCRUM VÀ KANBAN
+- Scrum:
+  + Vai trò: scrum master (gần giống PM).
+  + Chia chu kỳ 2 tuần → gọi là sprint.
+  + Trước mỗi sprint: chọn task → backlog.
+  + Mỗi ngày: họp ngắn (daily standup) để báo cáo nhanh.
+  + Cuối sprint: họp tổng kết (retrospective).
+
+- Kanban:
+  + Đơn giản hơn Scrum, không cần sprint.
+  + Tập trung cải tiến liên tục.
+  + Phù hợp cho công việc không có deadline rõ ràng (VD: xử lý yêu cầu khách hàng).
+
+7. KANBAN BOARD
+- Dụng cụ: Trello, Asana, GitHub Projects.
+- Cấu trúc phổ biến:
+  + Cột theo tiến độ: "backlog", "todo", "in progress", "done".
+  + Hoặc theo loại công việc: "research", "design", "dev",...
+
+8. GỢI Ý THỰC HÀNH
+- Dùng thử Trello để quản lý dự án cá nhân.
+- Tập tạo task, ước lượng độ khó, gắn hạn hoàn thành, đánh dấu trạng thái.
+- Tự tổ chức 1 mini sprint hoặc theo dõi side project từ đầu đến cuối.
+- Góp sức vào 1 project open source có dùng GitHub Project hoặc kanban.
+

@@ -1,0 +1,61 @@
+
+### Video và Audio APIs
+
+**HTML Video và Audio**
+HTML cung cấp các phần tử `<video>` và `<audio>` cho phép nhúng video và âm thanh vào trang web. Mặc định, các phần tử này đi kèm với các điều khiển phát (play, pause, stop), nhưng bạn có thể tùy chỉnh chúng nếu cần thiết.
+
+**HTMLMediaElement API**
+API này cho phép bạn điều khiển các phần tử `<video>` và `<audio>` thông qua các phương thức như `play()`, `pause()`, `stop()`, v.v.
+
+**Ví dụ cơ bản**:
+```html
+<video controls>
+  <source src="video.mp4" type="video/mp4">
+  <source src="video.webm" type="video/webm">
+  <p>Your browser doesn't support the video tag.</p>
+</video>
+```
+- Dùng `controls` để hiển thị các điều khiển mặc định cho video.
+- Bạn có thể thêm các `<source>` với các định dạng video khác nhau để tương thích với nhiều trình duyệt.
+
+**Xử lý Video và Audio bằng JavaScript**
+JavaScript cho phép bạn thay đổi trạng thái video, thay đổi âm lượng, tua lại video, v.v.
+
+**Ví dụ điều khiển phát và tạm dừng**:
+```js
+const video = document.querySelector('video');
+const playBtn = document.querySelector('.play');
+
+playBtn.addEventListener('click', () => {
+  if (video.paused) {
+    video.play();
+    playBtn.textContent = "Pause";
+  } else {
+    video.pause();
+    playBtn.textContent = "Play";
+  }
+});
+```
+
+**Web Audio API**
+Web Audio API giúp bạn xử lý âm thanh trong trình duyệt. Bạn có thể tạo các hiệu ứng âm thanh, thay đổi âm lượng, thay đổi tốc độ phát và nhiều hơn nữa.
+
+**Ví dụ sử dụng AudioContext**:
+```js
+const audioContext = new AudioContext();
+const audioElement = document.querySelector('audio');
+const audioSource = audioContext.createMediaElementSource(audioElement);
+const gainNode = audioContext.createGain();
+audioSource.connect(gainNode);
+gainNode.connect(audioContext.destination);
+```
+
+**Quản lý các sự kiện trong Video và Audio APIs**
+Các sự kiện như `ended`, `play`, `pause` có thể được sử dụng để xử lý các hành động của người dùng khi điều khiển video và âm thanh.
+
+**Lý thuyết về Video và Audio APIs**:
+- API này rất hữu ích trong việc tạo các trình phát video và âm thanh tùy chỉnh.
+- Bạn có thể sử dụng chúng để kiểm soát cách thức video và âm thanh hoạt động trên trang web của mình.
+
+**Tóm tắt**:
+Video và Audio APIs giúp bạn điều khiển và thao tác với âm thanh và video trong trình duyệt. Chúng bao gồm các công cụ như HTMLMediaElement API và Web Audio API, giúp bạn tạo ra các ứng dụng âm thanh và video mạnh mẽ cho trang web.

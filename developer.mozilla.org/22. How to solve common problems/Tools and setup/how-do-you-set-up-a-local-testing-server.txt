@@ -1,0 +1,83 @@
+
+1. Cách thiết lập một máy chủ kiểm tra cục bộ
+Bài viết này giải thích cách thiết lập một máy chủ kiểm tra cục bộ đơn giản trên máy của bạn và các bước cơ bản để sử dụng nó.
+
+**Tiền đề:** Bạn cần biết cách tải tệp lên máy chủ web.
+
+**Mục tiêu:** Bạn sẽ học cách thiết lập một máy chủ kiểm tra cục bộ.
+
+**Tệp cục bộ và tệp từ xa**
+Trong hầu hết các khu vực học tập, chúng tôi bảo bạn chỉ cần mở các ví dụ của mình trực tiếp trong trình duyệt — điều này có thể được thực hiện bằng cách nhấp đúp vào tệp HTML, kéo và thả nó vào cửa sổ trình duyệt, hoặc chọn File > Open… và điều hướng đến tệp HTML. Có nhiều cách để làm điều này.
+
+Nếu đường dẫn web bắt đầu bằng `file://` theo sau là đường dẫn đến tệp trên ổ cứng cục bộ của bạn, một tệp cục bộ đang được sử dụng. Ngược lại, nếu bạn xem một trong các ví dụ của chúng tôi được lưu trữ trên GitHub (hoặc một ví dụ trên máy chủ từ xa khác), địa chỉ web sẽ bắt đầu bằng `http://` hoặc `https://`, cho thấy rằng tệp đã được nhận qua HTTP.
+
+**Vấn đề với kiểm tra các tệp cục bộ**
+Một số ví dụ sẽ không chạy nếu bạn mở chúng dưới dạng các tệp cục bộ. Điều này có thể do một số lý do, và nguyên nhân phổ biến nhất là:
+
+- Chúng sử dụng các yêu cầu bất đồng bộ. Một số trình duyệt (bao gồm Chrome) sẽ không chạy các yêu cầu bất đồng bộ nếu bạn chỉ chạy ví dụ từ một tệp cục bộ. Điều này là do các hạn chế bảo mật.
+- Chúng sử dụng ngôn ngữ phía máy chủ. Các ngôn ngữ phía máy chủ (chẳng hạn như PHP hoặc Python) yêu cầu một máy chủ đặc biệt để diễn giải mã và trả về kết quả.
+- Chúng bao gồm các tệp khác. Trình duyệt thường xem các yêu cầu tải tài nguyên sử dụng sơ đồ `file://` như là các yêu cầu chéo nguồn (CORS), vì vậy nếu bạn tải một tệp cục bộ bao gồm các tệp cục bộ khác, điều này có thể gây ra lỗi CORS.
+
+**Chạy một máy chủ HTTP cục bộ đơn giản**
+Để vượt qua vấn đề các yêu cầu bất đồng bộ, chúng ta cần kiểm tra các ví dụ như vậy bằng cách chạy chúng qua một máy chủ web cục bộ.
+
+**Sử dụng một tiện ích mở rộng trong trình soạn thảo mã của bạn**
+Nếu bạn chỉ cần HTML, CSS và JavaScript, và không có ngôn ngữ phía máy chủ, cách dễ nhất có thể là kiểm tra các tiện ích mở rộng trong trình soạn thảo mã của bạn. Ngoài việc tự động cài đặt và thiết lập cho máy chủ HTTP cục bộ, chúng cũng tích hợp tốt với các trình soạn thảo mã của bạn. Kiểm tra các tệp cục bộ trong một máy chủ HTTP có thể chỉ cách bạn một cú nhấp chuột.
+
+**Sử dụng Node.js**
+Mô-đun `http-server` của Node.js là cách dễ nhất để lưu trữ các tệp HTML trong bất kỳ thư mục nào.
+
+Để sử dụng mô-đun này:
+
+Chạy các lệnh sau để kiểm tra xem Node.js đã được cài đặt chưa:
+
+```bash
+node -v
+npm -v
+npx -v
+```
+
+Nếu Node.js chưa được cài đặt, bạn cần cài đặt nó. Làm theo hướng dẫn tải về trong tài liệu Node.js, sau đó chạy các lệnh trên lại để kiểm tra xem việc cài đặt có thành công không.
+
+Giả sử thư mục của bạn là `/path/to/project`. Chạy lệnh sau để bắt đầu máy chủ:
+
+```bash
+npx http-server /path/to/project -o -p 9999
+```
+
+Điều này sẽ lưu trữ tất cả các tệp trong thư mục `/path/to/project` trên localhost:9999. Tùy chọn `-o` sẽ mở trang `index.html` trong trình duyệt. Nếu không có `index.html`, thư mục sẽ được hiển thị thay vào đó.
+
+**Sử dụng Python**
+Một cách khác để thực hiện việc này là sử dụng mô-đun `http.server` của Python.
+
+Lưu ý: Các phiên bản Python cũ (lên đến phiên bản 2.7) cung cấp một mô-đun tương tự có tên `SimpleHTTPServer`. Python 2 đã hết hạn sử dụng, vì vậy chúng tôi khuyên bạn nên sử dụng Python 3.
+
+Để làm điều này:
+
+Chạy lệnh sau để kiểm tra xem Python đã được cài đặt chưa:
+
+```bash
+python -V
+# Nếu trên không thành công, thử:
+python3 -V
+# Hoặc, nếu lệnh "py" có sẵn, thử:
+py -3 -V
+```
+
+Nếu Python chưa được cài đặt, bạn cần cài đặt nó. Làm theo hướng dẫn tải về trong tài liệu Python, sau đó chạy các lệnh trên lại để kiểm tra xem việc cài đặt có thành công không.
+
+Nếu Python đã được cài đặt, điều hướng đến thư mục chứa mã website bạn muốn kiểm tra, sử dụng lệnh `cd`.
+
+```bash
+cd Desktop
+```
+
+Chạy lệnh để khởi động máy chủ trong thư mục đó:
+
+```bash
+python3 -m http.server
+```
+
+Mặc định, lệnh này sẽ chạy nội dung của thư mục trên một máy chủ web cục bộ, trên cổng 8000. Bạn có thể truy cập máy chủ này bằng cách vào URL `localhost:8000` trong trình duyệt của mình. Ở đây bạn sẽ thấy nội dung của thư mục được liệt kê — nhấp vào tệp HTML bạn muốn chạy.
+
+Lưu ý: Nếu bạn đã có thứ gì đó đang chạy trên cổng 8000, bạn có thể chọn một cổng khác bằng cách chạy lệnh máy chủ với một số cổng thay thế, ví dụ: `python3 -m http.server 7800`. Bạn có thể truy cập nội dung của mình tại `localhost:7800`.

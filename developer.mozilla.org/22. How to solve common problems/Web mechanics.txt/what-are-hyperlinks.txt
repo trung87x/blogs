@@ -1,0 +1,39 @@
+1. Liên kết (Hyperlinks) và vai trò của chúng trên web
+Bài viết này giải thích về liên kết (hyperlinks), vai trò của chúng trong việc kết nối các tài liệu trên web và các loại liên kết phổ biến.
+
+**Tiền đề:** Bạn cần hiểu cách thức hoạt động của Internet và sự khác biệt giữa một trang web, website, máy chủ web và công cụ tìm kiếm.
+
+**Mục tiêu:** Học về liên kết trên web và tầm quan trọng của chúng.
+
+**Tóm tắt**
+Liên kết (thường gọi là links) là một khái niệm cơ bản của Web. Để giải thích liên kết là gì, chúng ta cần quay lại những kiến thức cơ bản về cấu trúc Web.
+
+Vào năm 1989, Tim Berners-Lee, người sáng lập Web, đã nói về ba yếu tố cơ bản tạo nên Web:
+
+- URL, một hệ thống địa chỉ giúp theo dõi các tài liệu Web
+- HTTP, giao thức truyền tải để tìm các tài liệu khi có URL
+- HTML, định dạng tài liệu cho phép nhúng các liên kết
+
+Như bạn có thể thấy, mọi thứ trên Web xoay quanh tài liệu và cách để truy cập chúng. Mục đích ban đầu của Web là cung cấp cách dễ dàng để truy cập, đọc và điều hướng qua các tài liệu văn bản. Kể từ đó, Web đã phát triển để cung cấp quyền truy cập vào hình ảnh, video và dữ liệu nhị phân, nhưng những cải tiến này không thay đổi ba yếu tố cơ bản của Web.
+
+Trước khi Web ra đời, việc truy cập tài liệu và chuyển từ tài liệu này sang tài liệu khác rất khó khăn. Địa chỉ URL đã giúp đơn giản hóa điều này, nhưng việc gõ một URL dài mỗi khi muốn truy cập tài liệu vẫn là một vấn đề. Chính vì vậy, liên kết đã cách mạng hóa mọi thứ. Liên kết có thể liên kết bất kỳ chuỗi văn bản nào với một URL, giúp người dùng có thể ngay lập tức đến tài liệu mục tiêu bằng cách kích hoạt liên kết.
+
+Liên kết nổi bật so với văn bản xung quanh bằng cách được gạch chân và có màu chữ xanh. Bạn chỉ cần nhấp vào một liên kết để kích hoạt nó, hoặc nếu bạn sử dụng bàn phím, bạn có thể nhấn Tab cho đến khi liên kết có trong tầm nhìn, sau đó nhấn Enter hoặc Spacebar để kích hoạt.
+
+**Các loại liên kết**
+- **Liên kết nội bộ**: Là liên kết giữa hai trang web, cả hai đều thuộc cùng một website. Nếu không có liên kết nội bộ, sẽ không có website (trừ khi website đó chỉ là một trang duy nhất).
+- **Liên kết bên ngoài**: Là liên kết từ trang web của bạn đến một trang web khác. Không có liên kết bên ngoài, sẽ không có Web, vì Web là một mạng lưới các trang web.
+- **Liên kết đến (Incoming links)**: Là liên kết từ trang web của người khác đến trang của bạn. Đây là ngược lại với liên kết bên ngoài.
+
+Khi bạn xây dựng một website, tập trung vào liên kết nội bộ vì chúng giúp website của bạn dễ sử dụng hơn. Tìm một sự cân bằng giữa việc có quá nhiều liên kết và quá ít. Điều này quan trọng vì mỗi khi bạn thêm một trang mới vào website, hãy đảm bảo rằng ít nhất một trong các trang khác của bạn có liên kết đến trang mới này.
+
+**Mối liên hệ giữa liên kết và công cụ tìm kiếm**
+Liên kết không chỉ quan trọng đối với người dùng mà còn đối với các công cụ tìm kiếm. Mỗi khi công cụ tìm kiếm duyệt một trang web, chúng sẽ chỉ mục website bằng cách theo dõi các liên kết có trên trang web đó. Công cụ tìm kiếm không chỉ theo dõi các liên kết để khám phá các trang khác nhau của website mà còn sử dụng văn bản hiển thị của liên kết để xác định các truy vấn tìm kiếm phù hợp với trang mục tiêu.
+
+**Liên kết và SEO**
+Liên kết ảnh hưởng đến cách công cụ tìm kiếm liên kết đến trang web của bạn. Các liên kết bên ngoài (liên kết đến website của bạn từ các trang web khác) có thể ảnh hưởng đến thứ hạng của trang web trong kết quả tìm kiếm. Hệ thống tối ưu hóa công cụ tìm kiếm (SEO) là việc học cách làm cho website của bạn có thứ hạng cao hơn trong kết quả tìm kiếm. Cải thiện việc sử dụng liên kết trên website là một kỹ thuật SEO hữu ích.
+
+**Các điểm cần lưu ý về liên kết:**
+- Văn bản liên kết có thể ảnh hưởng đến các truy vấn tìm kiếm sẽ dẫn đến một URL nhất định.
+- Số lượng liên kết đến (incoming links) mà một trang web có sẽ ảnh hưởng đến thứ hạng của trang đó trong kết quả tìm kiếm.
+- Liên kết bên ngoài có thể ảnh hưởng đến thứ hạng của cả trang nguồn và trang đích.

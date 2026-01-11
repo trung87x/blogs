@@ -1,0 +1,47 @@
+# Ngữ cảnh 5: Hiển thị danh sách bài viết kèm tên tác giả
+
+🧠 Model (Ý nghĩa dữ liệu & quan hệ)
+- Mỗi bài viết thuộc về một người dùng → quan hệ 1-nhiều: user - post.
+- Để hiển thị bài viết kèm tên tác giả, cần JOIN hai bảng:
+  - Bảng `posts`: chứa tiêu đề, nội dung, user_id
+  - Bảng `users`: chứa thông tin tác giả
+
+🛠️ Controller (SQL)
+
+-- Tạo bảng users
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(100) UNIQUE NOT NULL
+);
+
+-- Tạo bảng posts có khóa ngoại user_id
+CREATE TABLE posts (
+  id SERIAL PRIMARY KEY,
+  title TEXT NOT NULL,
+  content TEXT,
+  user_id INTEGER REFERENCES users(id),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Thêm người dùng
+INSERT INTO users (name, email) VALUES ('Trung Đinh', 'trung@example.com');
+
+-- Thêm bài viết thuộc user_id = 1
+INSERT INTO posts (title, content, user_id)
+VALUES ('Giới thiệu PostgreSQL', 'Nội dung chi tiết...', 1);
+
+-- Truy vấn bài viết kèm tên tác giả
+SELECT
+  posts.id,
+  posts.title,
+  users.name AS author,
+  posts.created_at
+FROM posts
+JOIN users ON posts.user_id = users.id;
+
+📘 Ghi chú:
+- `JOIN`: kết hợp hai bảng theo điều kiện (ở đây là `posts.user_id = users.id`)
+- Có thể thêm điều kiện: `WHERE`, `ORDER BY`, `LIMIT`, ...
+- `users.name AS author`: đổi tên cột hiển thị (alias)
+

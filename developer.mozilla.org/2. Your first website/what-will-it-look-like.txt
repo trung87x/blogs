@@ -1,0 +1,47 @@
+LÊN Ý TƯỞNG & GIAI ĐOẠN THIẾT KẾ WEBSITE BAN ĐẦU
+==================================================
+
+1. MỤC TIÊU
+- Lên kế hoạch cơ bản trước khi viết bất kỳ dòng mã HTML/CSS nào.
+- Xác định:
+  + Nội dung chính website cung cấp là gì?
+  + Hình ảnh, màu sắc, font chữ dự kiến.
+  + Trang trông như thế nào về tổng thể?
+
+2. CÂU HỎI CẦN TRẢ LỜI TRƯỚC KHI BẮT ĐẦU
+- Website bạn nói về gì? (VD: mèo, du lịch, trò chơi…)
+- Bạn sẽ viết tiêu đề gì? Bao nhiêu đoạn văn? Có ảnh gì?
+- Màu nền chủ đạo là gì?
+- Font chữ muốn dùng mang phong cách nào?
+  + Gợi ý: nghiêm túc, sáng tạo, vui nhộn, tối giản...
+
+3. PHÁC THẢO BỐ CỤC (SKETCH)
+- Dùng giấy bút vẽ nhanh bố cục trang:
+  + Vị trí tiêu đề
+  + Hình ảnh ở đâu?
+  + Đoạn văn nằm bên dưới hay cạnh ảnh?
+- Không cần vẽ đẹp, chỉ cần thể hiện rõ cấu trúc bạn muốn.
+- Mẹo: Đây là thói quen thiết kế chuyên nghiệp nên bắt đầu từ sớm.
+
+4. CHỌN MÀU NỀN CHỦ ĐẠO
+- Dùng công cụ như [MDN Color Picker](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_colors/Color_picker_tool)
+- Chọn màu → ghi lại mã HEX ví dụ: `#660066`
+- Gợi ý: chọn màu phù hợp chủ đề (trẻ trung, công nghệ, vintage...)
+
+5. CHỌN HÌNH ẢNH CHỦ ĐẠO
+- Tìm ảnh liên quan trên Google Images.
+- Lưu ảnh bằng cách:
+  a. Click vào ảnh → xem ảnh to.
+  b. Chuột phải → "Lưu ảnh thành..."
+  c. Chọn thư mục chứa ảnh (nên là `images/`)
+- Lưu ý:
+  + Dùng bộ lọc bản quyền → Tools → Usage Rights → “Creative Commons licenses”
+  + Tránh vi phạm bản quyền
+
+6. CHỌN FONT CHỮ PHÙ HỢP
+- Cách 1: Font sẵn có (web-safe): Arial, Times New Roman, Courier...
+- Cách 2: Google Fonts (khuyên dùng):
+  a. Truy cập: https://fonts.google.com  
+  b. Lọc và chọn font yêu thích
+  c. Click "Get font" → “Embed” → Sao chép đoạn mã `<link>` và `font-family`
+  d. Lưu lại để dùng trong HTML và CSS

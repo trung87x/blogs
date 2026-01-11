@@ -1,0 +1,45 @@
+📦 Ngữ cảnh #1: Tạo bảng & định nghĩa tài nguyên (MongoDB + Mongoose)
+
+🧠 Model (Ý nghĩa)
+- Mỗi tài nguyên (User, Post, Product...) cần có cấu trúc xác định: các trường (field), kiểu dữ liệu, ràng buộc.
+- Việc định nghĩa này giúp đảm bảo dữ liệu lưu vào MongoDB có tính nhất quán và an toàn.
+
+🛠️ Controller (Công cụ / Câu lệnh)
+- `mongoose.Schema({ ... })`: định nghĩa cấu trúc của tài nguyên
+- `mongoose.model('TênModel', schema)`: tạo model đại diện cho collection
+
+🧪 Example (models/User.js)
+const mongoose = require('mongoose');
+
+const userSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+    minlength: 2,
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    match: /.+\@.+\..+/,
+  },
+  password: {
+    type: String,
+    required: true,
+    minlength: 6,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  }
+});
+
+const User = mongoose.model('User', userSchema);
+
+module.exports = User;
+
+📝 Ghi chú:
+- `required`: bắt buộc nhập
+- `unique`: không trùng
+- `match`: dùng regex để validate email
+- `default`: giá trị mặc định

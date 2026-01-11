@@ -1,0 +1,180 @@
+
+# JavaScript Trung Cấp
+
+JavaScript là một ngôn ngữ lập trình quan trọng giúp tạo ra các trang web động và tương tác. Sau khi học các khái niệm cơ bản, lập trình viên có thể tiến tới các khái niệm JavaScript trung cấp, bao gồm vòng lặp, câu lệnh điều kiện, toán tử so sánh, làm việc với mảng và các ứng dụng thực tế.
+
+## 1. Làm việc với Vòng Lặp
+
+### Vòng Lặp `for`
+Vòng lặp `for` được sử dụng để lặp lại một khối mã một số lần nhất định. Nó rất hữu ích khi bạn biết trước số lần cần lặp.
+
+Cú pháp:
+```javascript
+for (let i = 0; i < 10; i++) {
+    console.log(i);
+}
+```
+- `let i = 0`: Khởi tạo.
+- `i < 10`: Điều kiện.
+- `i++`: Tăng i mỗi lần lặp.
+
+Ví dụ: FizzBuzz với vòng lặp `for`:
+```javascript
+for (let count = 1; count <= 100; count++) {
+    if (count % 3 === 0 && count % 5 === 0) {
+        console.log("FizzBuzz");
+    } else if (count % 3 === 0) {
+        console.log("Fizz");
+    } else if (count % 5 === 0) {
+        console.log("Buzz");
+    } else {
+        console.log(count);
+    }
+}
+```
+
+### Vòng Lặp `while`
+Vòng lặp `while` sẽ lặp lại một khối mã khi điều kiện trong `while` là đúng.
+
+Cú pháp:
+```javascript
+let i = 0;
+while (i < 10) {
+    console.log(i);
+    i++; // Tăng i để tránh vòng lặp vô hạn
+}
+```
+
+Ví dụ: Bài hát 99 chai bia:
+```javascript
+function singBeerSong() {
+    let bottles = 99;
+    while (bottles >= 1) {
+        console.log(bottles + " chai bia trên tường, " + bottles + " chai bia.");
+        console.log("Lấy một cái xuống và chuyền quanh, " + (bottles - 1) + " chai bia trên tường.");
+        bottles--;
+    }
+    console.log("Không còn chai bia nào trên tường, không còn chai bia nào.");
+}
+singBeerSong();
+```
+
+## 2. Câu Lệnh Điều Kiện
+
+### Câu Lệnh `if-else`
+Câu lệnh `if-else` được sử dụng để kiểm tra điều kiện và thực thi các khối mã khác nhau dựa trên điều kiện đó.
+
+Cú pháp:
+```javascript
+if (điều kiện) {
+    // Thực hiện nếu điều kiện đúng
+} else {
+    // Thực hiện nếu điều kiện sai
+}
+```
+
+Ví dụ:
+```javascript
+let age = 18;
+if (age >= 18) {
+    console.log("Bạn đủ tuổi để lái xe.");
+} else {
+    console.log("Bạn chưa đủ tuổi để lái xe.");
+}
+```
+
+### Nhiều Điều Kiện với `if-else if-else`
+Có thể kiểm tra nhiều điều kiện bằng cách sử dụng `else if`.
+
+Ví dụ:
+```javascript
+let score = 75;
+if (score >= 90) {
+    console.log("Xuất sắc!");
+} else if (score >= 70) {
+    console.log("Tốt!");
+} else {
+    console.log("Cần cải thiện.");
+}
+```
+
+## 3. Toán Tử So Sánh
+
+JavaScript cung cấp các toán tử so sánh quan trọng để kiểm tra các điều kiện.
+
+### `===` vs `==`
+- `===` kiểm tra giá trị và kiểu dữ liệu.
+- `==` kiểm tra giá trị, nhưng tự động chuyển đổi kiểu dữ liệu nếu cần.
+
+Ví dụ:
+```javascript
+let a = 1;
+let b = "1";
+
+console.log(a === b); // false
+console.log(a == b);  // true
+```
+
+### Các Toán Tử So Sánh Khác
+- `>`: Lớn hơn.
+- `<`: Nhỏ hơn.
+- `>=`: Lớn hơn hoặc bằng.
+- `<=`: Nhỏ hơn hoặc bằng.
+- `!==`: Khác nhau về giá trị hoặc kiểu dữ liệu.
+
+## 4. Làm Việc Với Mảng
+
+### Tạo và Truy Cập Mảng
+Mảng là một cấu trúc dữ liệu giúp lưu trữ nhiều giá trị trong một biến duy nhất.
+
+Ví dụ:
+```javascript
+let guestList = ["Alice", "Bob", "Charlie"];
+console.log(guestList[0]); // Alice
+console.log(guestList.length); // 3
+```
+
+### Phương Thức Mảng
+- **`push()`**: Thêm phần tử vào cuối mảng.
+- **`pop()`**: Xóa phần tử cuối cùng của mảng.
+
+Ví dụ:
+```javascript
+let numbers = [1, 2, 3];
+numbers.push(4); // [1, 2, 3, 4]
+numbers.pop(); // [1, 2, 3]
+```
+
+### Kiểm Tra Sự Tồn Tại Của Giá Trị Trong Mảng
+Sử dụng `.includes()` để kiểm tra xem một giá trị có tồn tại trong mảng không.
+
+Ví dụ:
+```javascript
+let guestList = ["Alice", "Bob", "Charlie"];
+console.log(guestList.includes("Bob")); // true
+console.log(guestList.includes("Eve")); // false
+```
+
+## 5. Ứng Dụng Thực Tế
+
+### Máy Tính Tình Yêu
+Chúng ta có thể kết hợp JavaScript để tạo ra một máy tính tình yêu sử dụng số ngẫu nhiên và các câu lệnh điều kiện.
+
+Ví dụ:
+```javascript
+let name1 = prompt("Tên của bạn là gì?");
+let name2 = prompt("Tên của người ấy là gì?");
+let loveScore = Math.floor(Math.random() * 100) + 1;
+
+if (loveScore > 70) {
+    alert("Điểm tình yêu của " + name1 + " và " + name2 + " là " + loveScore + "%. Các bạn yêu nhau như Kanye yêu Kanye!");
+} else if (loveScore >= 30 && loveScore <= 70) {
+    alert("Điểm tình yêu của " + name1 + " và " + name2 + " là " + loveScore + "%. Một cặp đôi khá hợp nhau!");
+} else {
+    alert("Điểm tình yêu của " + name1 + " và " + name2 + " là " + loveScore + "%. Cần cải thiện hơn!");
+}
+```
+
+## Kết luận
+
+Bài viết này đã giới thiệu về các khái niệm JavaScript trung cấp, bao gồm vòng lặp, câu lệnh điều kiện, toán tử so sánh và làm việc với mảng. Việc nắm vững những khái niệm này sẽ giúp bạn trở thành một lập trình viên JavaScript thành thạo và ứng dụng các kỹ năng vào các dự án thực tế.

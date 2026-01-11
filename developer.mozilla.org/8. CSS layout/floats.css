@@ -1,0 +1,104 @@
+/* ====================
+   BỐ CỤC NỔI TRONG CSS
+   ==================== */
+
+/* === 1. MỤC ĐÍCH BAN ĐẦU CỦA FLOAT === */
+/*
+- float được tạo ra để làm cho hình ảnh nằm trong văn bản giống bố cục báo giấy.
+- Văn bản sẽ quấn quanh phần tử được float.
+- Có thể float trái hoặc phải (left | right).
+*/
+
+/* === 2. VÍ DỤ FLOAT CƠ BẢN === */
+.box {
+  float: left;
+  margin-right: 15px;
+  width: 150px;
+  height: 100px;
+  border-radius: 5px;
+  background-color: rgb(207 232 220);
+  padding: 1em;
+}
+/*
+- .box sẽ được đẩy sang trái
+- đoạn văn phía sau sẽ quấn quanh phần tử này về bên phải
+*/
+
+/* Nếu float: right → box sẽ sang phải và text quấn bên trái */
+
+/* === 3. TÌNH TRẠNG FLOAT GÂY RA === */
+/*
+- Phần tử được float bị loại khỏi luồng bình thường (normal flow)
+- Các phần tử sau nó có thể lấn lên phía dưới của phần tử float
+*/
+
+/* === 4. THÍ NGHIỆM: VĂN BẢN CHẠY BÊN DƯỚI FLOAT === */
+.special {
+  background-color: rgb(148 255 172);
+  padding: 10px;
+  color: purple;
+}
+/*
+- Paragraph với lớp .special sẽ có nền đi *dưới* phần tử float
+- Vì phần tử float bị loại khỏi flow → phần tử tiếp theo không tránh nó
+*/
+
+/* === 5. CLEARING FLOAT – clear === */
+.cleared {
+  clear: left; /* hoặc right / both */
+}
+/*
+- Dùng để ngăn phần tử bị "chạy lên" bên cạnh float
+- clear: both → tránh cả 2 bên
+*/
+
+/* === 6. VẤN ĐỀ VỚI FLOAT TRONG BỐ CỤC BAO BỌC === */
+.wrapper {
+  background-color: rgb(148 255 172);
+  padding: 10px;
+  color: purple;
+}
+/*
+- Nếu wrapper bao cả float + đoạn văn: nền .wrapper bị chèn lên bởi float
+- Vì float không chiếm không gian trong flow của .wrapper
+*/
+
+/* === 7. GIẢI PHÁP: display: flow-root === */
+.wrapper {
+  display: flow-root;
+}
+/*
+- Tạo block formatting context → buộc float phải nằm gọn trong wrapper
+- Giải pháp hiện đại, chuẩn, thay cho các “clearfix hacks” cũ
+*/
+
+/* === 8. float KHÔNG DÙNG CHO LAYOUT CHÍNH NỮA === */
+/*
+- float từng được dùng để tạo layout đa cột (multi-column)
+- Nhưng giờ đã có Flexbox & Grid → float chỉ dùng cho mục đích phụ như:
+  + hình nổi cạnh văn bản
+  + drop cap
+  + highlight box
+*/
+
+/* === 9. TỔNG HỢP float & clear CƠ BẢN === */
+.box-left {
+  float: left;
+  margin-right: 1rem;
+}
+
+.box-right {
+  float: right;
+  margin-left: 1rem;
+}
+
+.clear-both {
+  clear: both;
+}
+
+/* ============================================================
+   TÓM TẮT:
+   - float dùng để làm phần tử nổi trong văn bản, chủ yếu cho hình ảnh.
+   - Không nên dùng float cho bố cục chính → dùng Flexbox hoặc Grid.
+   - Sử dụng clear hoặc display: flow-root để tránh lỗi tràn nền.
+   ============================================================ */

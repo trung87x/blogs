@@ -1,0 +1,69 @@
+[Ngữ cảnh #5] CRUD đầy đủ: Create - Read - Update - Delete
+
+📄 routes/user.route.js
+---------------------
+const express = require('express');
+const router = express.Router();
+const userController = require('../controllers/user.controller');
+
+router.get('/', userController.getAllUsers);         // GET all
+router.get('/:id', userController.getUserById);      // GET by ID
+router.post('/', userController.createUser);         // POST
+router.put('/:id', userController.updateUser);       // PUT
+router.delete('/:id', userController.deleteUser);    // DELETE
+
+module.exports = router;
+
+📄 controllers/user.controller.js
+---------------------
+const User = require('../models/user.model');
+
+exports.getAllUsers = async (req, res) => {
+  const users = await User.find();
+  res.json(users);
+};
+
+exports.getUserById = async (req, res) => {
+  const user = await User.findById(req.params.id);
+  if (!user) return res.status(404).json({ error: 'Không tìm thấy user' });
+  res.json(user);
+};
+
+exports.createUser = async (req, res) => {
+  const { name, email } = req.body;
+  if (!name || !email) return res.status(400).json({ error: 'Thiếu name hoặc email' });
+
+  const existed = await User.findOne({ email });
+  if (existed) return res.status(409).json({ error: 'Email đã tồn tại' });
+
+  const newUser = new User({ name, email });
+  await newUser.save();
+  res.status(201).json(newUser);
+};
+
+exports.updateUser = async (req, res) => {
+  const { name, email } = req.body;
+  const updatedUser = await User.findByIdAndUpdate(
+    req.params.id,
+    { name, email },
+    { new: true, runValidators: true }
+  );
+
+  if (!updatedUser) return res.status(404).json({ error: 'Không tìm thấy user để cập nhật' });
+
+  res.json(updatedUser);
+};
+
+exports.deleteUser = async (req, res) => {
+  const deleted = await User.findByIdAndDelete(req.params.id);
+  if (!deleted) return res.status(404).json({ error: 'Không tìm thấy user để xóa' });
+  res.json({ message: 'Đã xóa user thành công' });
+};
+
+📌 Test với Postman:
+---------------------
+GET     /users
+GET     /users/ID
+POST    /users        { "name": "Trung", "email": "trung@example.com" }
+PUT     /users/ID     { "name": "Trung update", "email": "trung@gmail.com" }
+DELETE  /users/ID

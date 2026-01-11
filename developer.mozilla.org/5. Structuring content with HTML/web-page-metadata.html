@@ -1,0 +1,60 @@
+<!-- ==========================
+Web Page Metadata in HTML
+========================== -->
+
+<!-- 1. Cấu trúc mẫu tối thiểu của trang HTML -->
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>My test page</title>
+  </head>
+  <body>
+    <p>This is my page</p>
+  </body>
+</html>
+
+<!-- Phần <head> chứa METADATA: không hiển thị trên trang, nhưng giúp trình duyệt hiểu về trang -->
+
+<!-- 2. <title> và <h1> khác nhau thế nào? -->
+<!-- <title>: xuất hiện ở tab trình duyệt, bookmark, kết quả tìm kiếm -->
+<title>My Awesome Site</title>
+
+<!-- <h1>: xuất hiện trong phần thân (body) -->
+<h1>Welcome to my awesome site!</h1>
+
+<!-- 3. <meta charset>: mã hóa ký tự -->
+<meta charset="utf-8" />
+<!-- Dùng "utf-8" để hỗ trợ đa ngôn ngữ (ví dụ tiếng Nhật, Việt, Nga...) -->
+
+<!-- 4. <meta name="author"> và <meta name="description"> -->
+<meta name="author" content="Trung Đinh" />
+<meta name="description" content="Trang web học HTML từ cơ bản đến nâng cao." />
+
+<!-- Giúp hiển thị mô tả tốt trong kết quả tìm kiếm (SEO) -->
+
+<!-- 5. <meta> khác -->
+<!-- ⚠️ Không cần dùng <meta name="keywords"> vì các công cụ tìm kiếm không còn dùng nó -->
+
+<!-- 6. Open Graph (chia sẻ đẹp trên mạng xã hội như Facebook) -->
+<meta property="og:title" content="Trung's HTML Tutorial" />
+<meta property="og:description" content="Khóa học HTML miễn phí, dễ hiểu." />
+<meta property="og:image" content="https://example.com/share-image.png" />
+
+<!-- 7. Favicon (biểu tượng nhỏ ở tab trình duyệt) -->
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<!-- Ngoài ra: apple-touch-icon, nhiều size cho thiết bị di động -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180.png" />
+
+<!-- 8. Kết nối CSS -->
+<link rel="stylesheet" href="styles.css" />
+
+<!-- 9. Kết nối JavaScript -->
+<script src="script.js" defer></script>
+<!-- ⚠️ Nên dùng "defer" để JS tải sau khi HTML hoàn thành -->
+
+<!-- 10. Gán ngôn ngữ cho trang và cho đoạn -->
+<html lang="vi">
+  ...
+  <p>Ví dụ tiếng Nhật: <span lang="ja">ご飯が熱い。</span></p>
+</html>

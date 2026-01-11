@@ -1,0 +1,49 @@
+
+1. Câu hỏi thường gặp về CSS (CSS FAQ)
+Trong bài viết này, bạn sẽ tìm thấy các câu hỏi thường gặp (FAQ) về CSS, cùng với các câu trả lời có thể giúp bạn trong quá trình trở thành một lập trình viên web.
+
+**Tại sao CSS hợp lệ của tôi không hiển thị đúng?**
+Các trình duyệt sử dụng khai báo doctype để chọn chế độ hiển thị tài liệu phù hợp với các chuẩn web hoặc các lỗi của trình duyệt cũ. Sử dụng một khai báo doctype đúng và hiện đại ở đầu HTML của bạn sẽ cải thiện sự tuân thủ chuẩn của trình duyệt.
+
+Có hai chế độ hiển thị chính mà trình duyệt sử dụng:
+- **Chế độ Quirks (Quirks Mode)**: Chế độ tương thích ngược cho phép các trang web cũ được hiển thị theo cách mà các trình duyệt cũ đã làm, theo các quy tắc không chuẩn.
+- **Chế độ Standards (Standards Mode)**: Trình duyệt cố gắng tuân theo chuẩn W3C một cách nghiêm ngặt. Các trang HTML mới dự kiến được thiết kế cho các trình duyệt tuân thủ chuẩn.
+
+Khai báo doctype chuẩn để kích hoạt chế độ chuẩn là:
+```html
+<!doctype html>
+```
+
+**Tại sao CSS hợp lệ của tôi không hiển thị gì cả?**
+Một số nguyên nhân có thể là:
+- Đường dẫn đến tệp CSS bị sai.
+- Đảm bảo rằng tệp CSS được phục vụ với loại MIME `text/css`. Nếu máy chủ web không phục vụ nó với loại này, nó sẽ không được áp dụng.
+
+**Sự khác biệt giữa id và class là gì?**
+- **id**: Gán một tên cho phần tử và mỗi id phải là duy nhất trong tài liệu HTML.
+- **class**: Gán một tên lớp cho phần tử và có thể sử dụng trên nhiều phần tử.
+
+**Cách khôi phục giá trị mặc định của một thuộc tính?**
+CSS ban đầu không cung cấp từ khóa "default", nhưng từ CSS 2, từ khóa `initial` có thể được sử dụng để khôi phục giá trị mặc định của một thuộc tính.
+
+**Làm sao để kế thừa một kiểu từ một kiểu khác?**
+CSS không cho phép một kiểu được định nghĩa trong một kiểu khác. Tuy nhiên, bạn có thể sử dụng nhiều lớp cho một phần tử, và CSS Variables cho phép bạn định nghĩa thông tin kiểu ở một nơi và tái sử dụng nhiều lần.
+
+**Làm sao để gán nhiều lớp cho một phần tử?**
+HTML cho phép gán nhiều lớp cho một phần tử bằng cách liệt kê các lớp trong thuộc tính `class`, cách nhau bởi dấu cách.
+```html
+<div class="news today">Content of today's news goes here.</div>
+```
+
+**Tại sao quy tắc kiểu của tôi không hoạt động đúng?**
+- **Hệ thống phân cấp của các phần tử HTML**: Quy tắc CSS áp dụng cho các phần tử HTML tùy thuộc vào hệ thống phân cấp của chúng.
+- **Quy tắc kiểu được xác định lại**: Nếu bạn định nghĩa lại cùng một quy tắc, quy tắc cuối cùng sẽ được áp dụng.
+
+**Sử dụng thuộc tính rút gọn (Shorthand property)**
+- Việc sử dụng thuộc tính rút gọn giúp viết mã ngắn gọn hơn, nhưng cần lưu ý rằng các thuộc tính chưa được khai báo sẽ tự động được thiết lập lại về giá trị mặc định.
+
+**Sử dụng selector `*`**
+- `*` là selector đại diện cho bất kỳ phần tử nào. Tuy nhiên, bạn cần sử dụng nó cẩn thận vì nó có thể ảnh hưởng đến hiệu suất và các phần tử con không mong muốn.
+
+**`z-index` và vị trí (positioning)**
+- Thuộc tính `z-index` xác định thứ tự xếp chồng của các phần tử. Một phần tử có `z-index` cao hơn sẽ được hiển thị trước phần tử có `z-index` thấp hơn.

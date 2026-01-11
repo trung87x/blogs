@@ -1,0 +1,81 @@
+
+# Giới thiệu về DOM và Các Kỹ Thuật Với JavaScript
+
+DOM (Document Object Model) là một giao diện lập trình ứng dụng (API) giúp JavaScript tương tác với các phần tử HTML và XML. DOM cho phép bạn thay đổi cấu trúc trang web, thêm, sửa, và xóa các phần tử, thay đổi thuộc tính của chúng. Bài viết này sẽ chỉ ra cách làm việc với DOM trong JavaScript.
+
+## 1. Cách Chọn Phần Tử HTML
+
+### Các Phương Thức Chọn Phần Tử
+JavaScript cung cấp nhiều phương thức để chọn phần tử HTML, mỗi phương thức có cách sử dụng riêng:
+
+- **`getElementsByTagName("tag")`**: Chọn tất cả phần tử theo tên thẻ (ví dụ: "li", "p", "h1").
+- **`getElementsByClassName("class")`**: Chọn tất cả phần tử theo tên lớp.
+- **`getElementById("id")`**: Chọn một phần tử duy nhất theo ID.
+- **`querySelector("selector")`**: Chọn phần tử đầu tiên khớp với bộ chọn CSS.
+- **`querySelectorAll("selector")`**: Chọn tất cả phần tử khớp với bộ chọn CSS.
+
+Ví dụ:
+```javascript
+let firstItem = document.querySelector("li"); // Chọn phần tử đầu tiên là <li>
+let allItems = document.querySelectorAll("li"); // Chọn tất cả các phần tử <li>
+```
+
+### Sự Khác Nhau Giữa `querySelector()` và `getElementById()`
+- **`querySelector()`**: Linh hoạt, có thể chọn theo ID, class, hoặc thẻ HTML.
+- **`getElementById()`**: Dùng khi bạn muốn chọn phần tử theo ID duy nhất.
+
+## 2. Thao Tác Với Thuộc Tính Của Phần Tử HTML
+
+### Lấy và Thay Đổi Thuộc Tính Của Phần Tử
+JavaScript cung cấp các phương thức `getAttribute()` và `setAttribute()` để lấy và thay đổi giá trị thuộc tính.
+
+- **`getAttribute("attribute")`**: Lấy giá trị của một thuộc tính.
+- **`setAttribute("attribute", "newValue")`**: Thay đổi giá trị của một thuộc tính.
+
+Ví dụ:
+```javascript
+let link = document.querySelector("a").getAttribute("href"); // Lấy giá trị của href
+document.querySelector("a").setAttribute("href", "https://www.bing.com"); // Thay đổi href
+```
+
+## 3. Thao Tác và Thay Đổi Kiểu CSS Của Phần Tử HTML
+
+### Thay Đổi Thuộc Tính CSS
+Để thay đổi kiểu CSS của phần tử, bạn có thể sử dụng `.style` trong JavaScript. Các thuộc tính CSS trong JavaScript sử dụng camelCase thay vì kebab-case.
+
+Ví dụ:
+```javascript
+document.querySelector("h1").style.color = "red"; // Đổi màu chữ thành đỏ
+document.querySelector("h1").style.fontSize = "20px"; // Thay đổi kích thước chữ
+```
+
+### Thêm và Xóa Class Với `classList`
+Thay vì thay đổi trực tiếp các thuộc tính CSS, bạn có thể sử dụng `classList` để thêm, xóa hoặc thay đổi các class của phần tử HTML.
+
+- **`classList.add("className")`**: Thêm một class.
+- **`classList.remove("className")`**: Xóa một class.
+- **`classList.toggle("className")`**: Bật/Tắt một class.
+
+Ví dụ:
+```javascript
+document.querySelector("button").classList.add("active"); // Thêm class 'active'
+document.querySelector("button").classList.remove("active"); // Xóa class 'active'
+document.querySelector("button").classList.toggle("active"); // Toggle class 'active'
+```
+
+## 4. Phân Tách Các Mối Quan Tâm: HTML, CSS, JavaScript
+
+Trong lập trình web, bạn nên phân tách các mối quan tâm giữa HTML, CSS và JavaScript:
+- **HTML**: Cấu trúc (Content).
+- **CSS**: Kiểu dáng (Style).
+- **JavaScript**: Hành vi (Behaviour).
+
+Thay vì thay đổi các thuộc tính CSS trực tiếp bằng JavaScript, bạn nên sử dụng các class trong CSS và thao tác với `classList` để thay đổi hành vi và kiểu dáng.
+
+Ví dụ:
+```javascript
+document.querySelector("button").classList.add("invisible"); // Thêm class để ẩn nút
+```
+
+## Kết luận
+Bài viết này đã giới thiệu về các kỹ thuật làm việc với DOM trong JavaScript, bao gồm cách chọn phần tử, thao tác với thuộc tính và thay đổi kiểu CSS của phần tử. Bằng cách sử dụng DOM một cách hiệu quả, bạn có thể tạo ra những trang web động và tương tác. Hãy tách biệt các mối quan tâm giữa HTML, CSS và JavaScript để giữ mã nguồn sạch sẽ và dễ bảo trì.

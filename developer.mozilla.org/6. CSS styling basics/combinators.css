@@ -1,0 +1,65 @@
+/* ============================
+   CÁC TOÁN TỬ KẾT HỢP SELECTOR
+   ============================ */
+
+/* 1. Descendant Combinator (khoảng trắng) */
+/* Chọn phần tử B nằm bên trong (con, cháu, chắt...) của A */
+.box p {
+  color: red;
+}
+/* Ví dụ: <div class="box"><p>nội dung</p></div> */
+
+/* 2. Child Combinator (dấu >) */
+/* Chọn phần tử B là con trực tiếp của A */
+ul > li {
+  border-top: 5px solid red;
+}
+/* Không chọn li bên trong <ol> nằm trong <li> của <ul> */
+
+/* 3. Next-sibling Combinator (dấu +) */
+/* Chọn phần tử B đứng ngay sau A (cùng cấp cha) */
+h1 + p {
+  font-weight: bold;
+  background-color: #333;
+  color: white;
+  padding: 0.5em;
+}
+/* Ví dụ: <h1>Tiêu đề</h1><p>Đoạn ngay sau tiêu đề</p> */
+
+/* 4. Subsequent-sibling Combinator (dấu ~) */
+/* Chọn tất cả phần tử B nằm sau A (cùng cấp cha) */
+h1 ~ p {
+  font-weight: bold;
+  background-color: #333;
+  color: white;
+  padding: 0.5em;
+}
+/* Các <p> sau <h1> sẽ được chọn, không cần liền kề */
+
+/* 5. Nesting với combinator (CSS nesting syntax) */
+/* Dạng lồng nhau, thường dùng trong công cụ hỗ trợ (Sass, CSS nesting) */
+h1 {
+  & ~ p {
+    font-weight: bold;
+  }
+}
+/* Tương đương với: h1 ~ p */
+
+/* 6. Kết hợp combinator và selector phức tạp */
+ul > li[class="a"] {
+  color: blue;
+}
+/* Chỉ chọn <li class="a"> là con trực tiếp của <ul> */
+
+/* ⚠️ Lưu ý:
+   - Tránh viết selector quá cụ thể → khó tái sử dụng
+   - Ưu tiên dùng class nếu bạn có quyền sửa HTML
+*/
+
+/* =======================
+   TÓM TẮT KÝ HIỆU:
+   A B   → B bên trong A (con cháu)
+   A > B → B là con trực tiếp của A
+   A + B → B ngay sau A (liền kề)
+   A ~ B → B bất kỳ nào sau A (cùng cấp)
+   ======================= */

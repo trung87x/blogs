@@ -1,0 +1,196 @@
+TÌM VIỆC LÀM NGÀNH LẬP TRÌNH WEB
+==================================
+
+1. MỤC TIÊU
+- Biết cách xác định công việc phù hợp.
+- Cải thiện kỹ năng mềm và viết CV.
+- Tạo portfolio và hồ sơ LinkedIn.
+- Hiểu quy trình nộp đơn và phỏng vấn.
+
+2. XÁC ĐỊNH MỤC TIÊU CÔNG VIỆC
+- Vị trí mong muốn:
+  + Web Designer (HTML/CSS, thiết kế UI).
+  + JS Developer (JavaScript, framework).
+  + DevRel/Sales Engineer (giao tiếp kỹ thuật).
+  + Kỹ sư full-stack, viết tài liệu, v.v.
+
+- Loại công ty:
+  + Freelancer / contractor.
+  + Công ty agency.
+  + Doanh nghiệp lớn.
+  + Tổ chức phi lợi nhuận.
+
+- Lĩnh vực ngành:
+  + Công nghệ, sức khoẻ, tài chính, âm nhạc, giáo dục...
+
+- Cách làm việc:
+  + Làm từ xa / tại văn phòng / hybrid / du mục.
+
+3. PHÁT TRIỂN KỸ NĂNG MỀM
+- Thái độ tích cực, tôn trọng, hoà đồng.
+- Giao tiếp rõ ràng, biết lắng nghe.
+- Giải quyết vấn đề kiên nhẫn, có tư duy mở.
+- Làm việc nhóm hiệu quả và linh hoạt.
+
+4. VIẾT CV/RÉSUMÉ CHUYÊN NGHIỆP
+- Nội dung cần có:
+  + Thông tin liên lạc: email, LinkedIn.
+  + Tóm tắt cá nhân: ngắn gọn, thực tế, tích cực.
+  + Kinh nghiệm làm việc: vai trò, thời gian, đóng góp chính.
+  + Trình độ học vấn: trường, chứng chỉ liên quan.
+  + Dự án, portfolio, kỹ năng mềm, sở thích cá nhân.
+
+- Mẹo:
+  + Viết ngắn gọn (tối đa 2 trang).
+  + Không sai chính tả.
+  + Điều chỉnh nội dung theo từng công việc ứng tuyển.
+  + Thêm "References on request".
+
+5. TẠO PORTFOLIO CÁ NHÂN
+- Gồm:
+  + Landing page đẹp mắt, dễ duyệt.
+  + Danh sách dự án đã làm: tiêu đề, mô tả, công nghệ dùng.
+  + Link source code (GitHub), demo online.
+  + Bài viết blog, bài nói chuyện (nếu có).
+  + Góp phần mã nguồn mở: liệt kê thay đổi, link PR.
+
+- Cách trình bày:
+  + Ưu tiên chất lượng hơn số lượng.
+  + Dùng website riêng nếu có thể, hoặc GitHub Page.
+
+6. LẬP HỒ SƠ LINKEDIN
+- Ưu điểm:
+  + Thêm nhiều kinh nghiệm mà CV không có chỗ.
+  + Nhận lời giới thiệu từ người quen.
+  + Đăng bài chia sẻ, tìm việc, học kỹ năng mới.
+
+- Hành động:
+  + Làm hồ sơ chuyên nghiệp, đầy đủ.
+  + Kết nối với đồng nghiệp, bạn học, cộng đồng kỹ thuật.
+
+7. CÁCH TÌM VIỆC
+- Dùng nền tảng:
+  + LinkedIn, VietnamWorks, TopCV, Glassdoor, GitHub Jobs...
+- Tham gia cộng đồng:
+  + Meetup, Slack, Discord, nhóm Facebook, diễn đàn...
+- Tìm trực tiếp:
+  + Ghé trang tuyển dụng của công ty mong muốn.
+  + Gửi thư hỏi nhân sự/giới thiệu qua bạn bè.
+
+8. CHUẨN BỊ NỘP ĐƠN
+- Đọc kỹ JD, chọn công việc phù hợp.
+- Nghiên cứu công ty, thử dùng sản phẩm của họ.
+- Cá nhân hoá CV + Portfolio cho từng công ty.
+- Viết thư xin việc (Cover Letter) súc tích, rõ lý do phù hợp.
+
+9. PHỎNG VẤN THÀNH CÔNG
+TÌM VIỆC LÀM NGÀNH LẬP TRÌNH WEB
+==================================
+
+1. MỤC TIÊU
+- Biết cách xác định công việc phù hợp.
+- Cải thiện kỹ năng mềm và viết CV.
+- Tạo portfolio và hồ sơ LinkedIn.
+- Hiểu quy trình nộp đơn và phỏng vấn.
+
+2. XÁC ĐỊNH MỤC TIÊU CÔNG VIỆC
+- Vị trí mong muốn:
+  + Web Designer (HTML/CSS, thiết kế UI).
+  + JS Developer (JavaScript, framework).
+  + DevRel/Sales Engineer (giao tiếp kỹ thuật).
+  + Kỹ sư full-stack, viết tài liệu, v.v.
+
+- Loại công ty:
+  + Freelancer / contractor.
+  + Công ty agency.
+  + Doanh nghiệp lớn.
+  + Tổ chức phi lợi nhuận.
+
+- Lĩnh vực ngành:
+  + Công nghệ, sức khoẻ, tài chính, âm nhạc, giáo dục...
+
+- Cách làm việc:
+  + Làm từ xa / tại văn phòng / hybrid / du mục.
+
+3. PHÁT TRIỂN KỸ NĂNG MỀM
+- Thái độ tích cực, tôn trọng, hoà đồng.
+- Giao tiếp rõ ràng, biết lắng nghe.
+- Giải quyết vấn đề kiên nhẫn, có tư duy mở.
+- Làm việc nhóm hiệu quả và linh hoạt.
+
+4. VIẾT CV/RÉSUMÉ CHUYÊN NGHIỆP
+- Nội dung cần có:
+  + Thông tin liên lạc: email, LinkedIn.
+  + Tóm tắt cá nhân: ngắn gọn, thực tế, tích cực.
+  + Kinh nghiệm làm việc: vai trò, thời gian, đóng góp chính.
+  + Trình độ học vấn: trường, chứng chỉ liên quan.
+  + Dự án, portfolio, kỹ năng mềm, sở thích cá nhân.
+
+- Mẹo:
+  + Viết ngắn gọn (tối đa 2 trang).
+  + Không sai chính tả.
+  + Điều chỉnh nội dung theo từng công việc ứng tuyển.
+  + Thêm "References on request".
+
+5. TẠO PORTFOLIO CÁ NHÂN
+- Gồm:
+  + Landing page đẹp mắt, dễ duyệt.
+  + Danh sách dự án đã làm: tiêu đề, mô tả, công nghệ dùng.
+  + Link source code (GitHub), demo online.
+  + Bài viết blog, bài nói chuyện (nếu có).
+  + Góp phần mã nguồn mở: liệt kê thay đổi, link PR.
+
+- Cách trình bày:
+  + Ưu tiên chất lượng hơn số lượng.
+  + Dùng website riêng nếu có thể, hoặc GitHub Page.
+
+6. LẬP HỒ SƠ LINKEDIN
+- Ưu điểm:
+  + Thêm nhiều kinh nghiệm mà CV không có chỗ.
+  + Nhận lời giới thiệu từ người quen.
+  + Đăng bài chia sẻ, tìm việc, học kỹ năng mới.
+
+- Hành động:
+  + Làm hồ sơ chuyên nghiệp, đầy đủ.
+  + Kết nối với đồng nghiệp, bạn học, cộng đồng kỹ thuật.
+
+7. CÁCH TÌM VIỆC
+- Dùng nền tảng:
+  + LinkedIn, VietnamWorks, TopCV, Glassdoor, GitHub Jobs...
+- Tham gia cộng đồng:
+  + Meetup, Slack, Discord, nhóm Facebook, diễn đàn...
+- Tìm trực tiếp:
+  + Ghé trang tuyển dụng của công ty mong muốn.
+  + Gửi thư hỏi nhân sự/giới thiệu qua bạn bè.
+
+8. CHUẨN BỊ NỘP ĐƠN
+- Đọc kỹ JD, chọn công việc phù hợp.
+- Nghiên cứu công ty, thử dùng sản phẩm của họ.
+- Cá nhân hoá CV + Portfolio cho từng công ty.
+- Viết thư xin việc (Cover Letter) súc tích, rõ lý do phù hợp.
+
+9. PHỎNG VẤN THÀNH CÔNG
+- Chuẩn bị:
+  + Trang phục phù hợp, không gian yên tĩnh.
+  + Đọc kỹ thông tin công ty, sản phẩm, đối thủ.
+  + Có vài câu hỏi hay để hỏi ngược lại nhà tuyển dụng.
+  + Ôn thuật toán & coding test (Fibonacci, DOM, bugs...).
+
+- Giai đoạn:
+  + Screening: kiểm tra phù hợp ban đầu.
+  + Main interview: kỹ năng chuyên môn, team-work.
+  + Coding Test / Homework: làm thử dự án mini (thời gian rõ ràng).
+
+10. NẾU NHẬN ĐƯỢC JOB OFFER
+- Kiểm tra:
+  + Mức lương có hợp lý không.
+  + Lịch bắt đầu phù hợp, có nghỉ lễ/vấn đề di chuyển không.
+  + Có cam kết trước nào cần báo trước không.
+  + Nếu cần: thương lượng lại (lịch trình, mức lương).
+
+11. NẾU CHƯA THÀNH CÔNG
+- Kiên trì, học từ phản hồi (nếu có).
+- Mở rộng networking.
+- Làm freelance/nghề liên quan để tích luỹ kinh nghiệm.
+- Tiếp tục học và cập nhật portfolio.
+

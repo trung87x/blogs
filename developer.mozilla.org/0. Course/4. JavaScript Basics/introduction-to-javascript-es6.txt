@@ -1,0 +1,181 @@
+
+# Giới thiệu về JavaScript ES6
+
+JavaScript, một công nghệ cốt lõi cho web, được sử dụng rộng rãi để tạo ra các trang web tương tác và động. Trong những năm gần đây, JavaScript đã phát triển mạnh mẽ, với việc phát hành **ECMAScript 6 (ES6)** mang đến những tính năng mới và cải tiến giúp phát triển trở nên hiệu quả và dễ dàng hơn. Bài viết này sẽ giới thiệu về các khái niệm cơ bản của JavaScript và các tính năng chính từ phiên bản ES6.
+
+## 1. JavaScript là gì?
+
+JavaScript là một ngôn ngữ lập trình bậc cao, thông dịch, cho phép bạn triển khai các tính năng phức tạp trên các trang web. Đây là một ngôn ngữ linh hoạt, được sử dụng để lập trình cả ở phía máy khách và máy chủ. Ban đầu, JavaScript được phát triển vào năm 1995 bởi Brendan Eich để làm cho các trang web trở nên tương tác, nhưng nó đã trở thành một ngôn ngữ được sử dụng trong nhiều ngữ cảnh khác nhau, từ lập trình phía máy chủ với Node.js đến ứng dụng di động với React Native.
+
+### Cú pháp và kiểu dữ liệu trong JavaScript
+JavaScript sử dụng kiểu dữ liệu động, có nghĩa là các biến có thể được gán giá trị thuộc bất kỳ kiểu dữ liệu nào và có thể được gán lại giá trị thuộc kiểu dữ liệu khác. JavaScript hỗ trợ nhiều kiểu dữ liệu:
+- **String**: Dữ liệu văn bản.
+- **Number**: Giá trị số, bao gồm cả số nguyên và số thập phân.
+- **Boolean**: Đại diện cho hai giá trị `true` hoặc `false`.
+- **Object**: Bộ sưu tập các thuộc tính và phương thức.
+- **Array**: Bộ sưu tập các giá trị có thứ tự.
+
+Ví dụ:
+```javascript
+var name = "John";
+var age = 30;
+var isStudent = false;
+```
+
+## 2. Tính năng của ES6
+
+### Hàm mũi tên (Arrow Functions)
+ES6 giới thiệu cú pháp ngắn gọn hơn để viết hàm gọi là **hàm mũi tên**. Cú pháp này đặc biệt hữu ích khi sử dụng các hàm callback, giúp viết mã ngắn gọn và dễ đọc hơn so với cách khai báo hàm truyền thống.
+
+Ví dụ:
+```javascript
+// Hàm truyền thống
+function greet(name) {
+    return "Hello " + name;
+}
+
+// Hàm mũi tên
+const greet = (name) => "Hello " + name;
+```
+
+### Template Literals
+Template literals cho phép kết hợp chuỗi và tạo chuỗi đa dòng bằng dấu backticks (`` ` ``). Nó hỗ trợ việc nhúng biểu thức vào chuỗi bằng cách sử dụng `${}`.
+
+Ví dụ:
+```javascript
+let name = "Alice";
+let message = `Hello, ${name}! Welcome to JavaScript.`;
+console.log(message); // Output: Hello, Alice! Welcome to JavaScript.
+```
+
+### Destructuring Assignment
+Destructuring giúp "giải nén" các giá trị từ mảng hoặc các thuộc tính từ đối tượng vào các biến riêng biệt.
+
+Ví dụ:
+```javascript
+// Destructuring với mảng
+const [a, b] = [10, 20];
+console.log(a); // 10
+console.log(b); // 20
+
+// Destructuring với đối tượng
+const person = { name: "John", age: 30 };
+const { name, age } = person;
+console.log(name); // John
+console.log(age); // 30
+```
+
+### Tham số mặc định (Default Parameters)
+ES6 cho phép gán giá trị mặc định cho các tham số hàm, khi hàm được gọi mà không truyền tham số tương ứng.
+
+Ví dụ:
+```javascript
+function greet(name = "Guest") {
+    console.log(`Hello, ${name}!`);
+}
+
+greet(); // Output: Hello, Guest!
+greet("Alice"); // Output: Hello, Alice!
+```
+
+### Lớp (Classes)
+ES6 giới thiệu cú pháp `class` cho lập trình hướng đối tượng. Điều này cung cấp một cách thức có cấu trúc hơn để định nghĩa đối tượng và làm việc với kế thừa.
+
+Ví dụ:
+```javascript
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    greet() {
+        console.log(`Hello, my name is ${this.name} and I'm ${this.age} years old.`);
+    }
+}
+
+const person1 = new Person("Alice", 25);
+person1.greet(); // Output: Hello, my name is Alice and I'm 25 years old.
+```
+
+### Modules
+ES6 modules cho phép tổ chức mã nguồn tốt hơn và phân tách chức năng giữa các tệp thông qua việc xuất và nhập các tính năng giữa các tệp.
+
+Ví dụ:
+```javascript
+// trong math.js
+export const add = (a, b) => a + b;
+
+// trong main.js
+import { add } from './math.js';
+console.log(add(5, 3)); // Output: 8
+```
+
+## 3. Làm việc với Biến
+
+### var, let, và const
+Trong ES6, JavaScript giới thiệu hai cách khai báo biến mới là `let` và `const`. Chúng mang lại phạm vi khối (block scope) tốt hơn so với `var`.
+
+- **var**: Phạm vi hàm hoặc phạm vi toàn cục.
+- **let**: Phạm vi khối (trong vòng lặp hoặc câu lệnh điều kiện).
+- **const**: Phạm vi khối và không thể gán lại giá trị sau khi khởi tạo.
+
+Ví dụ:
+```javascript
+let a = 10;  // Phạm vi khối
+const b = 20; // Hằng, không thể gán lại
+
+// var có phạm vi hàm
+if (true) {
+    var x = 5;
+    let y = 10;
+    const z = 15;
+}
+console.log(x); // 5
+console.log(y); // Lỗi: y không được định nghĩa
+```
+
+## 4. Hàm trong JavaScript
+
+### Khai báo hàm
+Trong JavaScript, bạn có thể khai báo hàm bằng từ khóa `function`. Hàm rất quan trọng trong việc tổ chức mã nguồn thành các khối tái sử dụng.
+
+Ví dụ:
+```javascript
+function greet(name) {
+    console.log("Hello, " + name + "!");
+}
+
+greet("Alice"); // Output: Hello, Alice!
+```
+
+### Trả về giá trị
+Hàm cũng có thể trả về giá trị bằng từ khóa `return`, cho phép bạn sử dụng kết quả của hàm ở các phần khác của chương trình.
+
+Ví dụ:
+```javascript
+function add(a, b) {
+    return a + b;
+}
+
+let result = add(2, 3);
+console.log(result); // Output: 5
+```
+
+### Tham số và đối số
+Hàm có thể nhận tham số, là các biến được khai báo trong dấu ngoặc của hàm, và giá trị thực tế được truyền vào hàm khi gọi là đối số.
+
+Ví dụ:
+```javascript
+function greet(name, age) {
+    console.log(`${name} is ${age} years old.`);
+}
+
+greet("Alice", 25); // Output: Alice is 25 years old.
+```
+
+## Kết luận
+
+JavaScript ES6 đã mang đến nhiều cải tiến giúp việc lập trình trở nên hiệu quả và dễ dàng hơn. Các tính năng như hàm mũi tên, template literals, destructuring và modules giúp các lập trình viên viết mã rõ ràng và dễ bảo trì hơn. Việc hiểu các tính năng cơ bản và nâng cao của JavaScript là rất quan trọng đối với bất kỳ ai làm việc với phát triển web hoặc lập trình nói chung.
+
+Bằng cách áp dụng những tính năng mới này, bạn sẽ tăng năng suất làm việc và viết mã JavaScript hiện đại, dễ hiểu hơn.

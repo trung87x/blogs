@@ -1,0 +1,65 @@
+
+1. Mục Tiêu Dự Án
+Dự án này nhằm tạo một ứng dụng blog web sử dụng Node.js, Express.js, và EJS. Người dùng có thể tạo và xem các bài viết blog. Các bài viết không sẽ không được lưu trữ sau khi tắt máy chủ vì không sử dụng cơ sở dữ liệu trong phiên bản này.
+
+Các tính năng cần có:
+- Tạo bài viết: Người dùng có thể tạo bài viết mới.
+- Xem bài viết: Trang chủ hiển thị tất cả các bài viết của người dùng.
+- Chỉnh sửa/Xóa bài viết: Người dùng có thể chỉnh sửa và xóa bài viết.
+- Styling: Ứng dụng phải có thiết kế đẹp, tương thích trên cả desktop và mobile.
+
+Ứng dụng vào công việc:
+- Dự án giúp bạn thực hành việc xây dựng một ứng dụng web đầy đủ với các tính năng cơ bản của blog.
+- Đây là cơ hội tốt để học cách làm việc với EJS (để tạo giao diện động), Express.js (quản lý routing và middleware), và Node.js (với khả năng xử lý backend).
+
+---
+
+2. Các Bước Thực Hiện Dự Án
+
+Giờ 0: Lên Kế Hoạch
+- Thu thập nội dung, ý tưởng thiết kế, tạo wireframes và mockups.
+- Lập kế hoạch về cách thức hoạt động của ứng dụng, các routes cần thiết và các trang cần xây dựng.
+
+Giờ 1: Cài Đặt Môi Trường
+- Khởi tạo dự án Node.js, cài đặt các phụ thuộc cần thiết (Express.js, EJS).
+- Tạo cấu trúc ứng dụng bao gồm các route, view, và tệp tĩnh.
+- Cấu hình server Express và định nghĩa các route cần thiết.
+
+Giờ 2-3: Triển Khai Các Tính Năng
+- Tạo bài viết: Tạo form để người dùng nhập bài viết và xử lý dữ liệu gửi lên từ form.
+- Xem bài viết: Hiển thị các bài viết trên trang chủ.
+- Chỉnh sửa/Xóa bài viết: Cho phép người dùng chỉnh sửa và xóa bài viết.
+
+Giờ 4-5: Styling và Hoàn Thiện
+- Thiết kế giao diện đẹp, sử dụng CSS hoặc Bootstrap để trang web trở nên hấp dẫn và dễ sử dụng trên nhiều thiết bị.
+- Kiểm tra tính tương thích và sửa lỗi (nếu có).
+
+---
+
+3. Các Yêu Cầu Kỹ Thuật
+- Node.js & Express.js: Dự án xây dựng ứng dụng web server bằng Node.js và Express.js để xử lý routing và middleware.
+- EJS: Sử dụng EJS làm template engine để tạo HTML động, giúp hiển thị dữ liệu từ backend một cách dễ dàng.
+
+Ứng dụng vào công việc:
+- Sử dụng Node.js và Express.js giúp bạn phát triển các ứng dụng backend một cách nhanh chóng, trong khi EJS giúp bạn quản lý giao diện động.
+
+---
+
+4. Tính Năng Chính của Ứng Dụng
+- Tạo bài viết: Cho phép người dùng nhập tiêu đề và nội dung bài viết qua một form, và gửi thông tin đến server để tạo bài viết mới.
+- Xem bài viết: Hiển thị danh sách tất cả các bài viết trên trang chủ, giúp người dùng xem và duyệt các bài viết cũ.
+- Chỉnh sửa và xóa bài viết: Cung cấp các tính năng cho phép người dùng chỉnh sửa và xóa bài viết đã tạo.
+- Styling và trải nghiệm người dùng: Đảm bảo ứng dụng có giao diện đẹp, dễ sử dụng và tương thích trên các thiết bị khác nhau.
+
+---
+
+5. Thực Hành và Cải Tiến
+Dự án này có thể được mở rộng trong tương lai bằng cách:
+- Thêm cơ sở dữ liệu: Lưu trữ bài viết vào cơ sở dữ liệu để bài viết không bị mất sau khi server tắt.
+- Tối ưu hóa: Thêm tính năng đăng nhập, phân quyền người dùng để quản lý bài viết của mỗi cá nhân.
+
+---
+
+Tổng kết:
+- Dự án blog giúp bạn thực hành việc xây dựng ứng dụng web cơ bản với Node.js, Express.js, và EJS. Bạn sẽ học cách xử lý các yêu cầu từ người dùng, hiển thị dữ liệu động và cải thiện trải nghiệm người dùng với các kỹ thuật frontend và backend.
+- Đây là dự án tuyệt vời để nâng cao kỹ năng phát triển web và chuẩn bị cho các dự án lớn hơn trong tương lai.

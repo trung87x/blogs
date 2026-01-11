@@ -1,0 +1,40 @@
+
+### Bảo Mật Website
+
+**Bảo mật website là gì?**
+Bảo mật website là việc bảo vệ các trang web khỏi các cuộc tấn công và sự xâm nhập từ bên ngoài. Các cuộc tấn công này có thể gây hại cho người dùng, làm gián đoạn dịch vụ hoặc gây thiệt hại tài chính. Mục tiêu của bảo mật website là ngăn chặn các cuộc tấn công và bảo vệ thông tin người dùng khỏi các nguy cơ.
+
+**Các mối đe dọa phổ biến đối với bảo mật website**
+1. **Cross-Site Scripting (XSS)**: Tấn công XSS cho phép kẻ tấn công chèn mã JavaScript vào trang web và chạy mã này trên trình duyệt của người dùng. Điều này có thể dẫn đến việc đánh cắp cookie hoặc thông tin đăng nhập của người dùng.
+
+   - **Phòng chống XSS**: Chúng ta có thể ngăn chặn các cuộc tấn công XSS bằng cách khử mã (sanitize) đầu vào của người dùng và sử dụng các cơ chế bảo vệ tự động trong các web framework.
+
+2. **SQL Injection**: SQL Injection xảy ra khi dữ liệu người dùng nhập vào được sử dụng trong các truy vấn SQL mà không được kiểm tra, cho phép kẻ tấn công thay đổi truy vấn SQL và thao túng cơ sở dữ liệu.
+
+   - **Phòng chống SQL Injection**: Sử dụng các câu truy vấn đã được tham số hóa (parameterized queries) thay vì kết hợp trực tiếp dữ liệu người dùng vào câu truy vấn.
+
+3. **Cross-Site Request Forgery (CSRF)**: Tấn công CSRF cho phép kẻ tấn công thực thi các hành động thay mặt người dùng mà không cần sự đồng ý của họ, sử dụng các cookie của người dùng để xác thực yêu cầu.
+
+   - **Phòng chống CSRF**: Đảm bảo rằng tất cả các yêu cầu POST đều bao gồm mã thông báo CSRF (Cross-Site Request Forgery Token) duy nhất cho mỗi phiên làm việc của người dùng.
+
+4. **Clickjacking**: Clickjacking là một cuộc tấn công cho phép kẻ tấn công chồng các yếu tố trên trang web để thao túng người dùng, ví dụ như lừa họ nhấn vào các nút ẩn hoặc thay đổi dữ liệu của họ.
+
+   - **Phòng chống Clickjacking**: Có thể ngăn chặn clickjacking bằng cách sử dụng header `X-Frame-Options` để không cho phép trang web của bạn bị nhúng trong một iframe của trang khác.
+
+5. **Denial of Service (DoS)**: DoS là một cuộc tấn công làm ngập website của bạn với các yêu cầu giả mạo, làm cho website không thể truy cập được đối với người dùng hợp pháp.
+
+   - **Phòng chống DoS**: Sử dụng các công cụ chống tấn công và giám sát lưu lượng truy cập để phát hiện và chặn các yêu cầu không hợp lệ.
+
+6. **File Inclusion**: Đây là một cuộc tấn công cho phép kẻ tấn công nhập vào một tệp tin không mong muốn, làm lộ các tệp tin hoặc thực thi mã độc trên máy chủ.
+
+   - **Phòng chống File Inclusion**: Kiểm tra tất cả các đường dẫn tệp tin được người dùng nhập vào và đảm bảo rằng chúng không thể truy cập các tệp tin nhạy cảm.
+
+**Các bước phòng chống bảo mật website**
+- **Xử lý dữ liệu đầu vào**: Luôn kiểm tra và làm sạch dữ liệu đầu vào từ người dùng. Dữ liệu từ phía client luôn có thể bị giả mạo hoặc thao túng.
+- **Sử dụng HTTPS**: Sử dụng giao thức HTTPS để mã hóa dữ liệu truyền tải giữa client và server, bảo vệ thông tin nhạy cảm như mật khẩu và thông tin thẻ tín dụng.
+- **Quản lý mật khẩu**: Khuyến khích sử dụng mật khẩu mạnh và thực hiện xác thực hai yếu tố (2FA) để bảo vệ tài khoản người dùng.
+- **Cập nhật phần mềm thường xuyên**: Đảm bảo rằng tất cả các phần mềm và framework sử dụng trên máy chủ đều được cập nhật để vá các lỗ hổng bảo mật.
+- **Sử dụng công cụ quét lỗ hổng**: Dùng các công cụ quét bảo mật như OWASP ZAP hoặc Nessus để phát hiện các lỗ hổng bảo mật trong ứng dụng.
+
+**Tóm tắt**
+Bảo mật website là một phần quan trọng trong phát triển ứng dụng web. Các cuộc tấn công như XSS, SQL injection, và CSRF có thể gây ra các thiệt hại nghiêm trọng cho người dùng và hệ thống. Tuy nhiên, bằng cách thực hiện các biện pháp phòng chống như khử mã đầu vào, sử dụng HTTPS, và kiểm tra bảo mật thường xuyên, bạn có thể bảo vệ website của mình khỏi các mối đe dọa này.

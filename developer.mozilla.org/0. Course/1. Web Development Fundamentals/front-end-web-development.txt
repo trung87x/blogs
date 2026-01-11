@@ -1,0 +1,50 @@
+
+# Front-End Web Development
+
+## 1. Cài đặt phần mềm cần thiết cho lập trình
+
+### Visual Studio Code
+Visual Studio Code (VS Code) là phần mềm miễn phí của Microsoft, giúp lập trình viên viết mã dễ dàng và hiệu quả. Trước đây, khóa học sử dụng Atom Editor, nhưng GitHub đã ngừng hỗ trợ nó, vì vậy VS Code trở thành lựa chọn thay thế.
+
+### Các Tiện ích Mở rộng (Extensions)
+- **Live Preview**: Xem trước trang web ngay trong VS Code.
+- **Prettier**: Tự động định dạng mã nguồn.
+- **vscode-icons**: Cải thiện giao diện tệp tin.
+
+### Cài đặt Google Chrome
+Google Chrome là trình duyệt miễn phí, đặc biệt hỗ trợ tốt cho lập trình viên nhờ các công cụ phát triển mạnh mẽ.
+
+---
+
+## 2. Cách Internet thực sự hoạt động
+
+### Các thành phần chính
+- **Máy chủ (Server)**: Là máy tính luôn trực tuyến 24/7, cung cấp dữ liệu khi có yêu cầu từ người dùng.
+- **Máy khách (Client)**: Là máy tính của người dùng, truy cập Internet.
+
+### Quy trình truy cập một trang web
+1. Người dùng nhập URL vào trình duyệt.
+2. Trình duyệt gửi yêu cầu đến **ISP**.
+3. ISP chuyển yêu cầu đến **DNS** để tra cứu địa chỉ IP của website.
+4. Trình duyệt gửi yêu cầu đến máy chủ website.
+5. Máy chủ gửi lại dữ liệu và trang web được hiển thị.
+
+### Cáp quang dưới biển
+Internet kết nối toàn cầu thông qua các tuyến cáp quang dưới biển, cho phép truyền tải dữ liệu cực nhanh với tốc độ lên đến 400 gigabytes/giây.
+
+---
+
+## 3. Cách các trang web thực sự hoạt động
+
+### Các thành phần chính của một trang web
+- **HTML**: Định nghĩa nội dung trang web (văn bản, hình ảnh, nút bấm).
+- **CSS**: Định dạng giao diện trang web (màu sắc, kiểu chữ, bố cục).
+- **JavaScript**: Thêm chức năng và tính tương tác cho trang web.
+
+### Quy trình trình duyệt xử lý một trang web
+1. Nhận tệp HTML và hiển thị nội dung trang.
+2. Tải tệp CSS và cập nhật giao diện.
+3. Chạy JavaScript để thêm tính năng tương tác.
+
+### Chrome Developer Tools
+Công cụ dành cho lập trình viên trong Google Chrome giúp kiểm tra và chỉnh sửa HTML, CSS ngay trên trình duyệt. Bạn có thể sửa tạm thời nội dung của trang web để kiểm tra và phát triển.

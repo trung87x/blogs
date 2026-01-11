@@ -1,0 +1,73 @@
+
+### Tổng Quan Về Mô Hình Client-Server Trong Website
+
+**Client-Server là gì?**
+Mô hình client-server là kiến trúc cơ bản trong phát triển web hiện đại, trong đó **client** (trình duyệt của người dùng) gửi yêu cầu đến **server** (máy chủ), và server xử lý yêu cầu đó rồi trả về dữ liệu hoặc giao diện tương ứng.
+
+**Giao thức giao tiếp: HTTP**
+Tất cả các tương tác giữa trình duyệt và máy chủ web đều sử dụng giao thức HTTP. Khi bạn nhấp vào một liên kết, gửi form, hoặc thực hiện tìm kiếm, trình duyệt sẽ gửi một HTTP request đến server. Server phản hồi bằng một HTTP response.
+
+**Các loại HTTP request phổ biến:**
+- `GET`: Truy vấn tài nguyên (trang HTML, dữ liệu...).
+- `POST`: Gửi dữ liệu mới lên server (ví dụ: form đăng ký).
+- `PUT`: Cập nhật dữ liệu hiện có.
+- `DELETE`: Xóa dữ liệu.
+- `HEAD`: Lấy thông tin về tài nguyên, không bao gồm phần thân.
+- (Và một số phương thức nâng cao khác như PATCH, CONNECT…)
+
+**Gửi dữ liệu đến server**
+- **GET**: Dữ liệu được gắn vào URL dưới dạng query string (không bảo mật).
+- **POST**: Dữ liệu nằm trong phần thân của yêu cầu (bảo mật hơn).
+- **Cookies**: Trình duyệt gửi thêm thông tin về phiên đăng nhập hoặc trạng thái người dùng.
+
+**Server phản hồi như thế nào?**
+Server xử lý request, truy vấn dữ liệu nếu cần, và phản hồi lại bằng HTTP response. Response này có thể chứa:
+- Mã trạng thái HTTP (200, 404, 403...).
+- HTML hoặc dữ liệu khác (JSON, XML, v.v.).
+- Cookie và thông tin điều hướng trình duyệt.
+
+**Trang web tĩnh và động**
+- **Trang web tĩnh**: Mỗi URL trả về đúng một file HTML được viết sẵn.
+- **Trang web động**: Server tự tạo nội dung HTML dựa trên dữ liệu được lưu trữ (ví dụ: truy vấn database) và yêu cầu cụ thể từ client.
+
+**Minh họa luồng request động:**
+1. Trình duyệt gửi request có URL hoặc dữ liệu truy vấn.
+2. Web server nhận request và phân phối đến Web Application xử lý.
+3. Ứng dụng truy vấn database, lấy dữ liệu.
+4. Ứng dụng đưa dữ liệu vào template HTML.
+5. HTML sinh ra được gửi lại cho trình duyệt.
+
+**Ví dụ thực tế: chọn đội hình thi đấu**
+- HLV nhập tên đội và số cầu thủ → trình duyệt gửi GET request.
+- Server truy vấn danh sách cầu thủ từ database.
+- Dữ liệu được đưa vào template HTML tạo giao diện.
+- Trình duyệt hiển thị danh sách đội hình tối ưu.
+
+**Server không chỉ trả về HTML**
+Ứng dụng phía server cũng có thể:
+- Trả về JSON để client hiển thị nội dung qua JavaScript.
+- Trả về PDF, ảnh, CSV, XML…
+- Gửi email, ghi log, xử lý file...
+
+**Web frameworks hỗ trợ server-side**
+Framework giúp đơn giản hóa việc xử lý URL, truy vấn dữ liệu, tạo template:
+- **Django (Python)**: Cho phép bạn ánh xạ URL đến các hàm xử lý.
+- **Express (Node.js)**, **Ruby on Rails**, v.v.
+
+**Ví dụ ánh xạ URL trong Django:**
+```python
+urlpatterns = [
+  url(r'^$', views.index),
+  url(r'^junior/$', views.junior),
+]
+```
+Với:
+```python
+def junior(request):
+    list_teams = Team.objects.filter(team_type__exact="junior")
+    return render(request, 'best/index.html', {'list': list_teams})
+```
+
+**Tóm tắt**
+Hiểu cách hoạt động của client-server là nền tảng để xây dựng website động. Kiến thức về HTTP, request/response, cookie, và cách sử dụng framework phía server sẽ giúp bạn dễ dàng phát triển các ứng dụng web thực tế, có tính tương tác cao và dễ mở rộng.
+

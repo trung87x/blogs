@@ -1,0 +1,66 @@
+1. Cách đảm bảo website của bạn hoạt động đúng
+Bài viết này trình bày các bước khắc phục sự cố cho một website và một số hành động cơ bản để giải quyết các vấn đề này.
+
+**Tiền đề:** Bạn cần biết cách tải tệp lên máy chủ web.
+
+**Mục tiêu:** Bạn sẽ học cách chẩn đoán và giải quyết một số vấn đề cơ bản mà bạn có thể gặp phải với website của mình.
+
+Vậy bạn đã xuất bản website của mình trực tuyến? Tuyệt vời! Nhưng bạn có chắc chắn rằng nó hoạt động đúng không?
+
+Máy chủ web từ xa thường hoạt động khác rất nhiều so với một máy chủ địa phương, vì vậy tốt nhất bạn nên kiểm tra website của mình khi nó đã trực tuyến. Bạn có thể sẽ ngạc nhiên về những vấn đề mà bạn gặp phải: hình ảnh không hiển thị, trang không tải hoặc tải chậm, và nhiều vấn đề khác. Hầu hết các vấn đề này không nghiêm trọng, chỉ là một sai lầm đơn giản hoặc vấn đề với cấu hình máy chủ web của bạn.
+
+Hãy xem cách chẩn đoán và giải quyết những vấn đề đó.
+
+**Kiểm tra trong trình duyệt**
+Nếu bạn muốn biết liệu website của mình có hoạt động đúng không, điều đầu tiên cần làm là mở trình duyệt và truy cập trang bạn muốn kiểm tra.
+
+**À, hình ảnh đâu mất rồi?**
+Hãy nhìn vào trang web cá nhân của chúng ta, http://demozilla.examplehostingprovider.net/. Hình ảnh chúng ta mong đợi không hiển thị!
+
+**Lỗi 404**
+Mở công cụ Mạng trong Firefox (Tools ➤ Web Developer ➤ Network) và tải lại trang:
+
+Lỗi 404 xuất hiện
+
+Đây là vấn đề, lỗi "404" ở dưới cùng. "404" có nghĩa là "resource not found" (tài nguyên không tìm thấy), và đó là lý do chúng ta không thấy hình ảnh.
+
+**Mã trạng thái HTTP**
+Máy chủ trả lời với một thông điệp trạng thái mỗi khi nhận được yêu cầu. Dưới đây là một số mã trạng thái phổ biến:
+
+- 200: OK
+- 301: Moved permanently
+- 304: Not modified
+- 403: Forbidden
+- 404: Not found
+- 500: Internal server error
+- 503: Service unavailable
+
+Chúng ta sẽ thường xuyên gặp các mã lỗi 200, 304, 403, và 404 khi kiểm tra website của mình.
+
+**Khắc phục lỗi 404**
+Vậy vấn đề là gì?
+
+Nhìn vào danh sách hình ảnh trong dự án của chúng ta
+
+Ban đầu, hình ảnh mà chúng ta yêu cầu có vẻ như ở đúng vị trí nhưng công cụ Mạng báo lỗi "404". Hóa ra chúng ta đã mắc lỗi chính tả trong mã HTML của mình: `unicorn_pics.png` thay vì `unicorn_pic.png`. Hãy sửa lỗi chính tả trong trình soạn thảo mã của bạn bằng cách thay đổi thuộc tính `src` của hình ảnh.
+
+**Xóa chữ 's'**
+
+Lưu lại, đẩy lên máy chủ và tải lại trang trong trình duyệt:
+
+Hình ảnh giờ đã tải đúng trong trình duyệt.
+
+**Lỗi thường gặp**
+Những lỗi thường gặp mà chúng ta gặp phải bao gồm:
+
+- Lỗi chính tả trong địa chỉ
+- Lỗi 404
+- Lỗi JavaScript
+
+**Kiểm tra thêm**
+Chúng tôi đã liệt kê một số cách đơn giản để kiểm tra website của bạn hoạt động đúng, cũng như những lỗi phổ biến và cách khắc phục chúng. Bạn cũng có thể kiểm tra xem trang của bạn có đáp ứng các tiêu chí sau không:
+
+- Hiệu suất trang
+- Máy chủ có phản hồi đủ nhanh không?
+
+Chỉ cần nhớ một phím tắt tiện dụng: Ctrl+C. Ctrl+C gửi tín hiệu "interrupt" đến thời gian chạy và yêu cầu dừng lại. Nếu không dừng thời gian chạy, `ping` sẽ tiếp tục gửi yêu cầu đến máy chủ mãi mãi.

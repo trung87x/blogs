@@ -1,0 +1,83 @@
+/* =======================
+   GỠ LỖI VÀ PHÂN TÍCH CSS
+   ======================= */
+
+/* 1. Dùng DevTools trình duyệt
+   ----------------------------- */
+/* - Chuột phải → Inspect để xem CSS áp dụng lên phần tử
+   - Panel "Rules" hiển thị: style trực tiếp, kế thừa, bị override
+   - Tắt/mở từng thuộc tính bằng checkbox → kiểm thử nhanh
+   - Dùng color picker, thay đổi padding, margin, border,... trực tiếp */
+
+/* 2. View Source vs DOM trong DevTools
+   ------------------------------------- */
+/* - View Source = mã HTML gốc trên server
+   - DOM trong DevTools = kết quả sau khi trình duyệt render
+   - JS có thể thay đổi DOM, nhưng không thay đổi View Source */
+
+/* 3. Chỉnh sửa và thêm CSS ngay trong DevTools
+   --------------------------------------------- */
+/* - Click giá trị để chỉnh sửa (màu, px, font-size, v.v.)
+   - Click dấu + hoặc dấu ngoặc } để thêm thuộc tính mới
+   - Có tính năng autocomplete giúp gõ nhanh */
+
+/* 4. Kiểm tra Box Model
+   ---------------------- */
+/* - Tab "Layout" trong DevTools hiển thị Box Model trực quan
+   - So sánh content-box vs border-box dễ dàng
+   - Xem kích thước thực tế: content + padding + border */
+
+/* 5. Vấn đề specificity (độ ưu tiên selector)
+   -------------------------------------------- */
+/* .special {
+     color: orange;
+   }
+   em {
+     color: hotpink;
+   }
+   → .special áp dụng vì specificity cao hơn
+
+   Trong DevTools:
+   - CSS bị override sẽ bị gạch ngang
+   - Có thể thấy rule nào thắng (dễ kiểm tra) */
+
+/* 6. Quy trình gỡ lỗi CSS
+   ------------------------- */
+/* 1. Bình tĩnh, nghỉ ngơi nếu quá căng thẳng
+   2. Dùng validator kiểm tra HTML & CSS
+      - https://validator.w3.org/
+      - https://jigsaw.w3.org/css-validator/
+   3. Kiểm tra hỗ trợ trình duyệt
+      - Có thể dùng https://caniuse.com/
+   4. Kiểm tra specificity, thứ tự khai báo
+   5. Tạo reduced test case
+      - Tối giản code để cô lập lỗi
+      - Gỡ phần không liên quan (JS, CSS dư thừa)
+      - Có thể dùng CodePen, JSFiddle để chia sẻ */
+
+/* 7. Dấu hiệu nhận biết CSS lỗi
+   ------------------------------ */
+/* - Selector không đúng → không áp dụng
+   - Sai cú pháp → thuộc tính bị gạch ngang
+   - Giá trị không được hỗ trợ → bị bỏ qua
+   - Thứ tự hoặc độ ưu tiên sai → rule không hoạt động */
+
+/* 8. Công cụ hỗ trợ kiểm tra
+   ---------------------------- */
+/* - Firefox DevTools: mạnh về layout & box model
+   - Chrome DevTools: tốt với mạng và performance
+   - Safari, Edge: có công cụ tương tự */
+
+/* 9. Kỹ năng nâng cao
+   --------------------- */
+/* - Học cách đọc cascade, inheritance, và specificity
+   - Biết khi nào dùng !important (hạn chế tối đa)
+   - Có thói quen tách biệt style phức tạp thành component/class riêng */
+
+/* ============================================
+   GHI NHỚ:
+   - Kiểm tra DOM, không chỉ nhìn HTML gốc
+   - DevTools là người bạn thân thiết của lập trình viên CSS
+   - Gỡ lỗi từng bước, đừng vội vàng
+   - Làm việc có phương pháp, bạn sẽ tiến bộ rất nhanh
+   ============================================ */

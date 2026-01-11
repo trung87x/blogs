@@ -1,0 +1,69 @@
+[Ngữ cảnh #6] Middleware custom + thư viện ngoài
+
+📦 Cài thư viện:
+---------------------
+npm install cors morgan helmet
+
+📄 server.js
+---------------------
+const express = require('express');
+const cors = require('cors');
+const morgan = require('morgan');
+const helmet = require('helmet');
+
+const userRoutes = require('./routes/user.route');
+const app = express();
+
+// Dùng middleware ngoài
+app.use(cors());
+app.use(morgan('dev'));
+app.use(helmet());
+
+// Middleware express
+app.use(express.json());
+
+// Routes
+app.use('/users', userRoutes);
+
+// Middleware xử lý lỗi cuối cùng
+app.use((err, req, res, next) => {
+  console.error('❌ Error:', err.message);
+  res.status(500).json({ error: 'Lỗi server nội bộ' });
+});
+
+app.listen(3000, () => console.log('✅ Server chạy ở cổng 3000'));
+
+📄 middlewares/logger.js
+---------------------
+module.exports = (req, res, next) => {
+  console.log(`📥 ${req.method} - ${req.originalUrl}`);
+  next();
+};
+
+📄 middlewares/validateUser.js
+---------------------
+module.exports = (req, res, next) => {
+  const { name, email } = req.body;
+  if (!name || !email) {
+    return res.status(400).json({ error: 'Thiếu name hoặc email' });
+  }
+  next();
+};
+
+📄 routes/user.route.js
+---------------------
+const express = require('express');
+const router = express.Router();
+const userController = require('../controllers/user.controller');
+const validateUser = require('../middlewares/validateUser');
+const log = require('../middlewares/logger');
+
+router.use(log); // middleware toàn bộ route
+
+router.get('/', userController.getAllUsers);
+router.get('/:id', userController.getUserById);
+router.post('/', validateUser, userController.createUser);
+router.put('/:id', validateUser, userController.updateUser);
+router.delete('/:id', userController.deleteUser);
+
+module.exports = router;

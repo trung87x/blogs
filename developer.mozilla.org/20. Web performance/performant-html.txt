@@ -1,0 +1,34 @@
+Hiệu suất web là gì?
+
+Hiệu suất web đề cập đến cách trang web tải và render (hiển thị) nhanh chóng và cách người dùng tương tác với trang web đó. Điều này bao gồm các yếu tố như:
+
+1. Giảm thời gian tải trang: Bao gồm thời gian cần để tải các tệp cần thiết từ máy chủ xuống máy tính của người dùng. Các yếu tố như độ trễ, kích thước tệp, số lượng tệp, và cách tải tài nguyên (như preload) có thể ảnh hưởng đến thời gian này. Một chiến lược hiệu quả là giảm kích thước tệp và số lượng yêu cầu HTTP.
+
+2. Tạo trang web có thể sử dụng ngay lập tức: Điều này có nghĩa là tải tài nguyên theo một thứ tự hợp lý, giúp người dùng có thể bắt đầu sử dụng trang web càng sớm càng tốt. Các tài nguyên còn lại có thể tiếp tục tải trong nền khi người dùng thực hiện các nhiệm vụ chính. Kỹ thuật lazy loading (tải chậm) cho phép tải tài nguyên chỉ khi người dùng thực sự cần.
+
+3. Mượt mà và tính tương tác: Trang web có cảm giác ổn định và dễ sử dụng không? Liệu người dùng có thể cuộn trang mượt mà, nhấn vào các nút dễ dàng và các pop-up có mở nhanh không? Để làm trang web mượt mà, bạn nên sử dụng CSS animations thay vì JavaScript và tối ưu hóa DOM để giảm việc vẽ lại giao diện.
+
+4. Hiệu suất cảm nhận (Perceived Performance): Đây là cảm nhận của người dùng về tốc độ tải trang. Dù trang web có thể tải chậm, nếu bạn cung cấp thông tin về trạng thái tải (như hiển thị spinner hoặc các gợi ý hữu ích), người dùng sẽ cảm thấy thời gian chờ đợi ngắn hơn. Hiệu suất cảm nhận có thể quan trọng hơn nhiều so với các chỉ số khách quan, mặc dù nó rất khó đo lường.
+
+5. Đo lường hiệu suất: Đo lường hiệu suất web bao gồm việc theo dõi tốc độ tải thực tế và cảm nhận của ứng dụng. Điều này giúp bạn tối ưu hóa và duy trì hiệu suất trang web, sử dụng các chỉ số như time to load, frames per second, và time to interactive.
+
+Các yếu tố ảnh hưởng đến hiệu suất web:
+- Độ trễ: Đây là thời gian cần thiết để tải tài nguyên từ máy chủ về máy của người dùng. Một số cách giảm độ trễ bao gồm giảm số lượng yêu cầu HTTP, sử dụng CDN để tải tài nguyên nhanh hơn và sử dụng HTTP/2 để phục vụ tệp hiệu quả hơn.
+- Kích thước và số lượng tệp: Các tệp lớn và nhiều yêu cầu HTTP làm chậm trang. Việc giảm kích thước tệp và tối ưu hóa số lượng yêu cầu sẽ giúp cải thiện hiệu suất.
+- Hiệu suất của JavaScript và CPU: Các mã JavaScript không tối ưu hoặc tác vụ CPU tốn nhiều tài nguyên có thể làm chậm trang. Bạn cần tối ưu hóa mã JavaScript và xử lý tác vụ tính toán ngoài luồng (sử dụng Web Workers).
+
+Cách mà trình duyệt render nội dung:
+Để hiểu rõ hơn về hiệu suất web, bạn cần biết cách mà trình duyệt hoạt động khi tải trang:
+
+1. Thứ tự nguồn (Source Order): Trình duyệt tải tài nguyên theo thứ tự trong mã HTML, và thứ tự này có thể ảnh hưởng đến hiệu suất. Bạn cần tối ưu thứ tự tải tài nguyên để hiển thị nội dung nhanh chóng.
+
+2. Critical Path: Đây là quy trình mà trình duyệt sử dụng để xây dựng tài liệu web sau khi các tệp đã được tải xuống từ máy chủ. Việc tối ưu đường dẫn render quan trọng giúp cải thiện thời gian hiển thị nội dung.
+
+3. Document Object Model (DOM): DOM là cây cấu trúc đại diện các phần tử HTML của trang web. Manipulating DOM quá nhiều sau khi tải trang có thể ảnh hưởng đến hiệu suất, vì vậy bạn cần tối ưu hóa việc thay đổi DOM.
+
+4. Độ trễ (Latency): Độ trễ là thời gian cần thiết để tài nguyên của trang web di chuyển từ máy chủ đến máy tính người dùng. Việc giảm độ trễ giúp tăng tốc quá trình tải trang.
+
+Kết luận:
+Hiệu suất web ảnh hưởng đến rất nhiều yếu tố như độ trễ mạng, kích thước ứng dụng, số lượng tài nguyên yêu cầu, hiệu suất JavaScript và tài nguyên CPU. Để tối ưu hiệu suất, bạn cần giảm thời gian tải và phản hồi, đồng thời sử dụng các kỹ thuật tải tài nguyên thông minh và tối ưu hóa DOM.
+
+Tóm lại, hiệu suất web không chỉ liên quan đến tốc độ tải mà còn ảnh hưởng trực tiếp đến trải nghiệm người dùng. Các yếu tố như tải tài nguyên, độ trễ và tính tương tác đều quan trọng để tạo ra một trang web mượt mà và dễ sử dụng.

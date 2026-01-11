@@ -1,0 +1,73 @@
+📌 Cornell Notes - How Does the Internet Actually Work?
+
+📌 Topic/Title:
+
+Cách Internet thực sự hoạt động
+
+🔎 Keywords/Questions:
+
+Internet thực chất là gì?
+
+Máy chủ (Server) và Máy khách (Client) là gì?
+
+Internet truyền dữ liệu như thế nào?
+
+ISP và DNS đóng vai trò gì trong việc truy cập website?
+
+Cáp quang dưới biển hoạt động thế nào?
+
+📝 Notes:
+
+Internet thực chất là gì?
+
+Không phải là một đám mây lơ lửng trên trời.
+
+Đơn giản chỉ là một mạng lưới các dây cáp kết nối máy tính trên toàn thế giới.
+
+Giúp truyền dữ liệu giữa các máy tính.
+
+Máy chủ (Server) & Máy khách (Client)
+
+Máy chủ (Server): Máy tính luôn trực tuyến 24/7, cung cấp dữ liệu khi có yêu cầu từ người dùng.
+
+Máy khách (Client): Máy tính của người dùng truy cập Internet.
+
+Máy chủ giống như một thư viện khổng lồ, luôn sẵn sàng cung cấp thông tin theo yêu cầu.
+
+Quy trình truy cập một trang web
+
+Người dùng nhập http://google.com  vào trình duyệt.
+
+Trình duyệt gửi yêu cầu đến ISP (Internet Service Provider - Nhà cung cấp dịch vụ Internet).
+
+ISP chuyển tiếp yêu cầu đến DNS (Domain Name System - Hệ thống tên miền).
+
+DNS hoạt động như danh bạ điện thoại, tìm địa chỉ IP của website.
+
+Sau khi có địa chỉ IP, trình duyệt gửi yêu cầu đến máy chủ của Google.
+
+Máy chủ Google gửi lại tất cả dữ liệu cần thiết để hiển thị trang web.
+
+Vai trò của cáp quang dưới biển
+
+Internet không chỉ kết nối trong một khu vực mà còn giữa các châu lục.
+
+Dữ liệu được truyền qua các tuyến cáp quang dưới biển.
+
+Mỗi tuyến cáp chứa hàng trăm sợi quang, sử dụng tia laser để truyền dữ liệu với tốc độ 400 gigabytes/giây.
+
+Các tín hiệu này có thể đi vòng quanh Trái Đất chỉ trong mili-giây.
+
+Có thể xem bản đồ cáp quang tại http://submarinecablemap.com .
+
+Điểm đặc biệt của Internet
+
+Mọi thao tác trên web đều gửi tín hiệu điện đi qua hàng ngàn dây cáp trên cạn và dưới biển.
+
+Tất cả chỉ cần một địa chỉ IP để xác định đúng máy chủ và tải nội dung cần thiết.
+
+Công nghệ này giúp chúng ta có thể xem trang web yêu thích gần như ngay lập tức.
+
+📌 Summary:
+
+Internet đơn giản là một hệ thống kết nối máy tính trên toàn thế giới thông qua dây cáp, đặc biệt là cáp quang dưới biển. Khi truy cập một trang web, trình duyệt sẽ gửi yêu cầu qua ISP, tra cứu địa chỉ IP qua DNS, sau đó tải dữ liệu từ máy chủ về máy khách. Công nghệ cáp quang và địa chỉ IP giúp dữ liệu được truyền đi với tốc độ nhanh như chớp, làm cho Internet trở thành một phần không thể thiếu trong cuộc sống hiện đại.

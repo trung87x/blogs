@@ -1,0 +1,96 @@
+/* ===============================
+   KIẾN THỨC CƠ BẢN VỀ CHỮ VÀ FONT
+   =============================== */
+
+/* === 1. TEXT TRONG HỘP NỘI DUNG === */
+/*
+- Text nằm trong content box và tự động xuống dòng.
+- Không tạo ngắt dòng trừ khi hết dòng hoặc dùng <br>.
+- Muốn style 1 phần chữ: dùng <span>, <strong>, hoặc ::first-line, ::first-letter.
+*/
+
+/* === 2. FONT PROPERTIES – THUỘC TÍNH FONT CƠ BẢN === */
+p {
+  color: red;                                /* màu chữ */
+  font-family: Helvetica, Arial, sans-serif; /* font chữ */
+  font-size: 1.5rem;                          /* cỡ chữ */
+  line-height: 1.6;                           /* khoảng cách dòng */
+  letter-spacing: 1px;                        /* khoảng cách chữ */
+}
+
+/* Font shorthand – viết gọn */
+p {
+  font: italic normal bold normal 1.5rem/1.6 Helvetica, Arial, sans-serif;
+}
+
+/* === 3. FONT FAMILY & FONT STACKS === */
+/*
+- font-family: đặt font chính + danh sách fallback.
+- web-safe fonts: Arial, Georgia, Times New Roman, Verdana...
+- generic families: serif, sans-serif, monospace, cursive, fantasy
+- nên luôn có generic cuối danh sách.
+*/
+
+/* === 4. FONT SIZE & UNITS === */
+/*
+- Đơn vị phổ biến: px, em, rem
+- em: theo cỡ font của cha
+- rem: theo cỡ font của <html> (gốc)
+- 1rem = 16px mặc định
+*/
+
+/* === 5. FONT STYLE / WEIGHT / TRANSFORM / DECORATION === */
+h1 {
+  font-style: italic;         /* normal | italic | oblique */
+  font-weight: bold;          /* normal | bold | 100–900 */
+  text-transform: capitalize; /* uppercase | lowercase | none */
+  text-decoration: underline; /* overline | line-through | none */
+}
+
+/* Có thể kết hợp nhiều giá trị:
+   text-decoration: underline overline red wavy;
+*/
+
+/* === 6. TEXT-SHADOW (ĐỔ BÓNG CHỮ) === */
+h1 {
+  text-shadow:
+    1px 1px 1px red,
+    2px 2px 1px red;
+}
+
+/* === 7. TEXT ALIGNMENT – CĂN CHỮ === */
+p {
+  text-align: left;   /* right | center | justify */
+}
+
+/* === 8. SPACING – KHOẢNG CÁCH CHỮ & TỪ === */
+p::first-line {
+  letter-spacing: 4px;
+  word-spacing: 4px;
+}
+
+/* === 9. TEXT LAYOUT PROPERTIES KHÁC === */
+/*
+- text-indent: thụt đầu dòng
+- text-overflow: ellipsis, clip...
+- white-space: nowrap, pre-line, etc.
+- word-break, overflow-wrap: kiểm soát ngắt từ
+- direction, writing-mode: ngôn ngữ RTL, dọc/ ngang
+- text-align-last: căn dòng cuối đoạn
+- hyphens: bật/tắt ngắt từ tự động
+*/
+
+/* === 10. FONT VARIANT & FEATURES – TÙY CHỌN OPEN TYPE === */
+/*
+- font-variant: small-caps,...
+- font-kerning, font-feature-settings,...
+- font-variant-ligatures, -numeric, -caps,...
+*/
+
+/* ===============================================================
+   GHI NHỚ:
+   - Luôn cung cấp fallback font để hiển thị đúng.
+   - rem giúp tính toán dễ hơn trong thiết kế responsive.
+   - Dùng text-shadow và spacing để tạo hiệu ứng đọc tốt hơn.
+   - Explore thêm thuộc tính text layout nâng cao khi cần trình bày chi tiết.
+   =============================================================== */

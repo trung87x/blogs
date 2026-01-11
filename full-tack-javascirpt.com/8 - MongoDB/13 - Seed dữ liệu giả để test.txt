@@ -1,0 +1,78 @@
+📦 Ngữ cảnh #13: Seed dữ liệu giả để test (MongoDB + Mongoose)
+
+🧠 Model (Ý nghĩa)
+- Khi phát triển ứng dụng, cần có dữ liệu mẫu để:
+  - Kiểm thử chức năng (test logic, UI)
+  - Làm việc offline không cần nhập tay
+  - Demo chức năng app
+- "Seed" = đổ dữ liệu mẫu vào DB bằng script
+
+🛠️ Controller (Công cụ / Câu lệnh)
+- Dùng Mongoose để kết nối và tạo dữ liệu
+- Dùng thư viện giả lập như `faker.js`, `chance.js`
+- Chạy file `seed.js` bằng `node seed.js`
+
+🧪 Example: seed/users.js
+```js
+const mongoose = require('mongoose');
+const faker = require('faker');
+const User = require('./models/User'); // Đường dẫn đến model của bạn
+
+mongoose.connect('mongodb://localhost:27017/myapp', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+
+async function seedUsers() {
+  await User.deleteMany(); // Xoá dữ liệu cũ
+  for (let i = 0; i < 10; i++) {
+    await User.create({
+      name: faker.name.findName(),
+      email: faker.internet.email(),
+      password: faker.internet.password()
+    });
+  }
+  console.log('✅ Seeded 10 users');
+  mongoose.disconnect();
+}
+
+seedUsers();
+📦 Ngữ cảnh #13: Seed dữ liệu giả để test (MongoDB + Mongoose)
+
+🧠 Model (Ý nghĩa)
+- Khi phát triển ứng dụng, cần có dữ liệu mẫu để:
+  - Kiểm thử chức năng (test logic, UI)
+  - Làm việc offline không cần nhập tay
+  - Demo chức năng app
+- "Seed" = đổ dữ liệu mẫu vào DB bằng script
+
+🛠️ Controller (Công cụ / Câu lệnh)
+- Dùng Mongoose để kết nối và tạo dữ liệu
+- Dùng thư viện giả lập như `faker.js`, `chance.js`
+- Chạy file `seed.js` bằng `node seed.js`
+
+🧪 Example: seed/users.js
+```js
+const mongoose = require('mongoose');
+const faker = require('faker');
+const User = require('./models/User'); // Đường dẫn đến model của bạn
+
+mongoose.connect('mongodb://localhost:27017/myapp', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+
+async function seedUsers() {
+  await User.deleteMany(); // Xoá dữ liệu cũ
+  for (let i = 0; i < 10; i++) {
+    await User.create({
+      name: faker.name.findName(),
+      email: faker.internet.email(),
+      password: faker.internet.password()
+    });
+  }
+  console.log('✅ Seeded 10 users');
+  mongoose.disconnect();
+}
+
+seedUsers();

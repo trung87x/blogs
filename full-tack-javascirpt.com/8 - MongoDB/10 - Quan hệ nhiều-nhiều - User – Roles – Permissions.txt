@@ -1,0 +1,56 @@
+📦 Ngữ cảnh #10: Quan hệ nhiều-nhiều – User – Roles – Permissions (MongoDB + Mongoose)
+
+🧠 Model (Ý nghĩa)
+- Một người dùng có nhiều vai trò (roles)
+- Một vai trò có nhiều quyền (permissions)
+- Mô hình phân quyền linh hoạt → User ↔ Role ↔ Permission
+
+🛠️ Controller (Công cụ / Câu lệnh)
+- Dùng `ref` để liên kết giữa các bảng
+- Dùng `.populate()` để truy vấn sâu nhiều cấp
+
+🧪 Example Schema: models/Permission.js
+const mongoose = require('mongoose');
+const permissionSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+});
+module.exports = mongoose.model('Permission', permissionSchema);
+
+🧪 Example Schema: models/Role.js
+const mongoose = require('mongoose');
+const roleSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  permissions: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Permission' }]
+});
+module.exports = mongoose.model('Role', roleSchema);
+
+🧪 Example Schema: models/User.js
+const mongoose = require('mongoose');
+const userSchema = new mongoose.Schema({
+  name: String,
+  email: String,
+  roles: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Role' }]
+});
+module.exports = mongoose.model('User', userSchema);
+
+🧪 Example: Lấy User kèm Roles + Permissions
+const User = require('../models/User');
+
+const getUsersWithRolesAndPermissions = async (req, res) => {
+  try {
+    const users = await User.find()
+      .populate({
+        path: 'roles',
+        populate: { path: 'permissions' } // populate lồng nhau
+      });
+
+    res.json(users);
+  } catch (err) {
+    res.status(500).json({ error: 'Lỗi truy vấn người dùng' });
+  }
+};
+
+📝 Ghi chú:
+- Cần tạo sẵn dữ liệu cho các bảng: `Permission`, `Role`, `User`
+- Đây là quan hệ nhiều-nhiều theo kiểu "gián tiếp"
+- Có thể mở rộng thêm trường mô tả quyền, ngày cấp quyền...

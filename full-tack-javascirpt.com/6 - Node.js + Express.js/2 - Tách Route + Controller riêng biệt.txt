@@ -1,0 +1,70 @@
+[Ngữ cảnh #2] Tách Route + Controller riêng biệt (MVC nâng cấp)
+
+📁 Cấu trúc thư mục:
+backend-mvc/
+├── server.js
+├── routes/
+│   └── user.route.js
+├── controllers/
+│   └── user.controller.js
+
+---------------------
+📄 server.js
+---------------------
+const express = require('express');
+const app = express();
+const userRoutes = require('./routes/user.route');
+
+app.use(express.json());
+app.use('/users', userRoutes);
+
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`🚀 Server chạy tại http://localhost:${PORT}`);
+});
+
+---------------------
+📄 routes/user.route.js
+---------------------
+const express = require('express');
+const router = express.Router();
+const userController = require('../controllers/user.controller');
+
+router.get('/', userController.getAllUsers);
+router.post('/', userController.createUser);
+
+module.exports = router;
+
+---------------------
+📄 controllers/user.controller.js
+---------------------
+let users = [];
+
+exports.getAllUsers = (req, res) => {
+  res.json(users);
+};
+
+exports.createUser = (req, res) => {
+  const { name, email } = req.body;
+  const newUser = { id: users.length + 1, name, email };
+  users.push(newUser);
+  res.status(201).json(newUser);
+};
+
+---------------------
+📌 Hướng dẫn test:
+---------------------
+1. Cài express nếu chưa có:
+   npm install express
+
+2. Chạy:
+   node server.js
+
+3. Gửi request bằng Postman hoặc curl:
+   - GET  http://localhost:3000/users
+   - POST http://localhost:3000/users
+     Body (JSON):
+     {
+       "name": "Trung",
+       "email": "trung@example.com"
+     }

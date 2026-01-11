@@ -1,0 +1,44 @@
+# Ngữ cảnh 2: Một bài viết thuộc về một người dùng (user-post)
+
+🧠 Model (Ý nghĩa dữ liệu & quan hệ)
+- Mỗi bài viết (post) được tạo bởi một người dùng (user).
+- Quan hệ giữa bảng users và posts là **1-nhiều**:
+  - 1 user có thể có nhiều post.
+  - Mỗi post chỉ thuộc về 1 user.
+- Cần tạo bảng `posts` có khóa ngoại `user_id` tham chiếu đến bảng `users`.
+
+🛠️ Controller (SQL)
+
+-- Bảng người dùng (nếu chưa có)
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(100) UNIQUE NOT NULL
+);
+
+-- Bảng bài viết có quan hệ đến người dùng
+CREATE TABLE posts (
+  id SERIAL PRIMARY KEY,
+  title TEXT NOT NULL,
+  content TEXT,
+  user_id INTEGER NOT NULL REFERENCES users(id),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Thêm người dùng
+INSERT INTO users (name, email) VALUES ('Trung Đinh', 'trung@example.com');
+
+-- Thêm bài viết gắn với user_id = 1
+INSERT INTO posts (title, content, user_id)
+VALUES ('Giới thiệu PostgreSQL', 'Bài viết này nói về PostgreSQL...', 1);
+
+-- Truy vấn bài viết kèm tên tác giả
+SELECT posts.id, posts.title, users.name AS author
+FROM posts
+JOIN users ON posts.user_id = users.id;
+
+📘 Ghi chú:
+- `user_id INTEGER REFERENCES users(id)`: khóa ngoại liên kết đến bảng `users`
+- `JOIN`: dùng để truy vấn dữ liệu từ nhiều bảng liên quan
+- `NOT NULL`: đảm bảo mỗi bài viết phải có người tạo
+

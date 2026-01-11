@@ -1,0 +1,102 @@
+<!-- ==========================
+Advanced HTML Text Features
+========================== -->
+
+<!-- 1. Trích dẫn khối (Blockquote) -->
+<!-- Dùng cho trích dẫn dài nhiều đoạn -->
+
+<p>Đây là một đoạn giới thiệu:</p>
+<blockquote cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote">
+  <p>
+    Thẻ <strong>&lt;blockquote&gt;</strong> dùng để đánh dấu đoạn văn là trích dẫn dài.
+  </p>
+</blockquote>
+
+<!-- 2. Trích dẫn ngắn nội dòng (Inline Quote) -->
+<!-- Dùng thẻ <q> cho trích dẫn ngắn trong một dòng -->
+
+<p>
+  Thẻ <code>&lt;q&gt;</code> được 
+  <q cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q">
+    dùng cho trích dẫn ngắn không cần xuống dòng.
+  </q>
+</p>
+
+<!-- 3. Ghi nguồn trích dẫn bằng <cite> -->
+<p>
+  Theo <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote">
+    <cite>Trang MDN về blockquote</cite>
+  </a>:
+</p>
+
+<!-- 4. Viết tắt và chữ viết tắt (Abbreviation) -->
+<p>
+  Chúng ta dùng <abbr title="HyperText Markup Language">HTML</abbr> để xây dựng trang web.
+</p>
+<p>
+  Ví dụ khác: <abbr title="Reverend">Rev.</abbr> Green là ai đó trong truyện.
+</p>
+
+<!-- 5. Địa chỉ liên hệ (Contact Information) -->
+<address>
+  <p>
+    Chris Mills<br />
+    Manchester<br />
+    The Grim North<br />
+    UK
+  </p>
+  <ul>
+    <li>Tel: 01234 567 890</li>
+    <li>Email: me@grim-north.co.uk</li>
+  </ul>
+</address>
+
+<!-- 6. Chỉ số trên (sup) và dưới (sub) -->
+<p>Sinh nhật tôi là ngày 25<sup>th</sup> tháng 5.</p>
+<p>Công thức cafein: C<sub>8</sub>H<sub>10</sub>N<sub>4</sub>O<sub>2</sub></p>
+<p>Nếu x<sup>2</sup> = 9 thì x = ±3</p>
+
+<!-- 7. Mã lập trình (Code and Output) -->
+<!-- Giữ nguyên định dạng bằng <pre> + <code> -->
+
+<pre><code>const para = document.querySelector('p');
+para.onclick = function() {
+  alert('Stop poking me!');
+}
+</code></pre>
+
+<!-- Biến số và phím bấm -->
+<p>
+  Trong ví dụ trên, <var>para</var> đại diện cho phần tử đoạn văn.
+</p>
+<p>Nhấn <kbd>Ctrl</kbd> + <kbd>A</kbd> để chọn tất cả nội dung.</p>
+
+<pre>
+$ <kbd>ping mozilla.org</kbd>
+<samp>
+PING mozilla.org (63.245.215.20): 56 data bytes
+64 bytes from 63.245.215.20: icmp_seq=0 ttl=40 time=158.233 ms
+</samp>
+</pre>
+
+<!-- 8. Ngày và giờ (Machine-readable time) -->
+
+<!-- Ngày đơn -->
+<time datetime="2025-06-10">10 tháng 6, 2025</time>
+
+<!-- Chỉ năm và tháng -->
+<time datetime="2025-06">Tháng 6, 2025</time>
+
+<!-- Chỉ giờ -->
+<time datetime="19:30">19:30</time>
+
+<!-- Ngày + giờ -->
+<time datetime="2025-06-10T19:30">19:30, ngày 10 tháng 6, 2025</time>
+
+<!-- Ngày + giờ + múi giờ -->
+<time datetime="2025-06-10T19:30+07:00">
+  19:30 giờ Việt Nam (UTC+7)
+</time>
+
+<!-- Tuần cụ thể -->
+<time datetime="2025-W24">Tuần thứ 24 của năm 2025</time>

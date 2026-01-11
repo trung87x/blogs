@@ -1,0 +1,106 @@
+
+### Làm Việc Với Các Form
+
+**Làm việc với form trong Express**
+Form là một phần quan trọng trong việc tương tác với người dùng. Trong bài học này, chúng ta sẽ học cách làm việc với các form trong Express, bao gồm việc tạo form, xử lý dữ liệu gửi từ form và hiển thị các thông báo lỗi khi cần thiết. Chúng ta sẽ sử dụng Pug làm template engine để hiển thị dữ liệu và thông báo.
+
+**Bước 1: Tạo Form để Nhập Dữ Liệu**
+Trước khi xử lý dữ liệu, bạn cần phải tạo một form mà người dùng có thể sử dụng để nhập liệu. Dưới đây là một ví dụ về form dùng để tạo một cuốn sách mới trong thư viện.
+
+**Ví dụ về Form tạo sách mới (Pug template)**:
+```pug
+extends layout
+
+block content
+  h1= title
+  form(action='/catalog/book/create', method='POST')
+    label(for='title') Title:
+    input(type='text', id='title', name='title', required)
+    label(for='author') Author:
+    input(type='text', id='author', name='author', required)
+    label(for='genre') Genre:
+    input(type='text', id='genre', name='genre', required)
+    button(type='submit') Create Book
+```
+
+**Bước 2: Xử lý Dữ Liệu POST từ Form**
+Khi người dùng gửi form, dữ liệu sẽ được gửi lên server theo phương thức `POST`. Bạn có thể sử dụng Express để xử lý dữ liệu này và lưu vào cơ sở dữ liệu.
+
+**Ví dụ về xử lý dữ liệu từ form (Controller)**:
+```javascript
+const Book = require("../models/book");
+
+exports.book_create_post = asyncHandler(async (req, res, next) => {
+  const book = new Book({
+    title: req.body.title,
+    author: req.body.author,
+    genre: req.body.genre,
+  });
+
+  await book.save();
+  res.redirect("/catalog/books");
+});
+```
+
+Trong ví dụ này, khi người dùng gửi form, chúng ta tạo một đối tượng `Book` mới và lưu nó vào cơ sở dữ liệu. Sau đó, chúng ta chuyển hướng người dùng đến trang danh sách sách.
+
+**Bước 3: Xử lý Lỗi trong Form**
+Khi người dùng nhập dữ liệu không hợp lệ, ví dụ như để trống các trường yêu cầu, chúng ta cần hiển thị thông báo lỗi. Bạn có thể sử dụng các hàm xác thực của Mongoose để kiểm tra dữ liệu và hiển thị thông báo lỗi nếu có.
+
+**Ví dụ về xử lý lỗi khi dữ liệu không hợp lệ**:
+```javascript
+exports.book_create_post = asyncHandler(async (req, res, next) => {
+  const book = new Book({
+    title: req.body.title,
+    author: req.body.author,
+    genre: req.body.genre,
+  });
+
+  try {
+    await book.save();
+    res.redirect("/catalog/books");
+  } catch (err) {
+    res.render("book_form", { title: "Create Book", book: book, errors: err.errors });
+  }
+});
+```
+
+**Bước 4: Xử lý Form Cập Nhật và Xóa**
+Cùng với việc tạo mới, bạn cũng có thể xử lý các form cập nhật và xóa trong ứng dụng của mình. Dưới đây là ví dụ về cách xử lý form cập nhật:
+
+**Ví dụ về form cập nhật**:
+```pug
+extends layout
+
+block content
+  h1= title
+  form(action='/catalog/book/' + book._id + '/update', method='POST')
+    label(for='title') Title:
+    input(type='text', id='title', name='title', value=book.title, required)
+    label(for='author') Author:
+    input(type='text', id='author', name='author', value=book.author, required)
+    label(for='genre') Genre:
+    input(type='text', id='genre', name='genre', value=book.genre, required)
+    button(type='submit') Update Book
+```
+
+**Xử lý cập nhật trong controller**:
+```javascript
+exports.book_update_post = asyncHandler(async (req, res, next) => {
+  const book = await Book.findById(req.params.id);
+
+  if (!book) {
+    return res.status(404).send("Book not found");
+  }
+
+  book.title = req.body.title;
+  book.author = req.body.author;
+  book.genre = req.body.genre;
+
+  await book.save();
+  res.redirect("/catalog/book/" + book._id);
+});
+```
+
+**Tóm tắt**
+Trong bài học này, bạn đã học cách tạo và xử lý các form trong Express. Chúng ta đã tìm hiểu cách xử lý dữ liệu từ form, xử lý lỗi khi dữ liệu không hợp lệ và cách sử dụng các form để tạo, cập nhật và xóa dữ liệu. Form là một phần quan trọng trong việc tương tác với người dùng và cung cấp giao diện để người dùng gửi dữ liệu đến server.

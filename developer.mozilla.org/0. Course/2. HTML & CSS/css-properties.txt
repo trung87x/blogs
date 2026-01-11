@@ -1,0 +1,120 @@
+
+# CSS Properties
+
+## 1. CSS Box Model
+
+CSS Box Model là một khái niệm quan trọng giúp bạn hiểu cách các phần tử HTML được cấu trúc và hiển thị. Mỗi phần tử HTML được xem như một hộp gồm 4 phần chính:
+
+- **Content**: Nội dung chính của phần tử.
+- **Padding**: Khoảng cách giữa nội dung và viền.
+- **Border**: Đường viền bao quanh phần tử.
+- **Margin**: Khoảng cách giữa phần tử này và phần tử khác.
+
+### Ví dụ về CSS Box Model:
+```css
+div {
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+  border: 5px solid black;
+  margin: 20px;
+}
+```
+- **padding** tạo khoảng cách từ nội dung đến viền.
+- **border** giúp bạn tạo viền cho phần tử.
+- **margin** dùng để tạo khoảng cách giữa phần tử này và các phần tử khác【128†source】.
+
+---
+
+## 2. Các thuộc tính màu sắc trong CSS
+
+CSS cho phép bạn thay đổi màu sắc của nhiều phần tử khác nhau trong trang web.
+
+- **background-color**: Dùng để thay đổi màu nền của phần tử.
+- **color**: Dùng để thay đổi màu chữ của phần tử.
+
+### Ví dụ về cách sử dụng màu sắc:
+```css
+body {
+  background-color: ivory;
+}
+
+h1 {
+  color: whitesmoke;
+}
+```
+CSS cũng hỗ trợ sử dụng mã màu Hex để chỉ định màu sắc như: `#5D3A9B`【125†source】.
+
+---
+
+## 3. CSS Font Properties
+
+### font-size:
+Được dùng để xác định kích thước của chữ trong CSS. Các đơn vị phổ biến bao gồm `px`, `em`, và `rem`.
+
+### font-weight:
+Quy định độ đậm nhạt của chữ. Ví dụ, bạn có thể sử dụng:
+```css
+h1 {
+  font-weight: bold;
+}
+```
+
+### font-family:
+Dùng để chỉ định kiểu phông chữ cho văn bản.
+```css
+p {
+  font-family: "Times New Roman", serif;
+}
+```
+Bạn có thể sử dụng phông chữ tùy chỉnh từ Google Fonts【126†source】.
+
+---
+
+## 4. CSS Color Properties
+
+### color:
+Thuộc tính này dùng để thay đổi màu chữ trong một phần tử.
+```css
+h2 {
+  color: #5D3A9B;
+}
+```
+
+### background-color:
+Dùng để thay đổi màu nền cho phần tử.
+```css
+body {
+  background-color: red;
+}
+```
+
+Bạn có thể sử dụng bảng màu được định sẵn hoặc mã màu Hex để điều chỉnh màu sắc【125†source】.
+
+---
+
+## 5. CSS Layout Properties
+
+Các thuộc tính bố cục giúp bạn sắp xếp các phần tử trên trang web một cách gọn gàng và dễ nhìn.
+
+### text-align:
+Dùng để căn chỉnh văn bản, với các giá trị như `left`, `right`, `center`, và `justify`.
+
+### width và height:
+Dùng để thiết lập kích thước cho phần tử, bạn có thể sử dụng các đơn vị như `px`, `%`, `em`, `rem`【126†source】【128†source】.
+
+---
+
+## 6. CSS Border and Padding
+
+- **border**: Xác định độ dày, kiểu và màu của đường viền.
+- **padding**: Khoảng cách giữa nội dung và viền.
+
+### Ví dụ:
+```css
+div {
+  border: 5px solid black;
+  padding: 20px;
+}
+```
+

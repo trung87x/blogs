@@ -1,0 +1,42 @@
+📦 Ngữ cảnh #11: Tạo chỉ mục để tăng tốc / đảm bảo unique (MongoDB + Mongoose)
+
+🧠 Model (Ý nghĩa)
+- Chỉ mục (index) giúp truy vấn nhanh hơn (tăng tốc độ tìm kiếm)
+- Có thể đảm bảo tính duy nhất (unique) cho các trường quan trọng như `email`, `username`
+- Cực kỳ cần thiết trong các ứng dụng có nhiều bản ghi
+
+🛠️ Controller (Công cụ / Câu lệnh)
+- Dùng `schema.index()` để tạo chỉ mục tùy chỉnh
+- Hoặc `{ unique: true }` trực tiếp trong định nghĩa field
+
+🧪 Example: models/User.js
+const mongoose = require('mongoose');
+const userSchema = new mongoose.Schema({
+  name: String,
+  email: {
+    type: String,
+    required: true,
+    unique: true, // Đảm bảo email không trùng
+    match: /.+\@.+\..+/ // Validate định dạng
+  },
+  username: {
+    type: String,
+    unique: true
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  }
+});
+
+// Tạo chỉ mục tổng hợp cho hiệu năng hoặc logic nâng cao
+userSchema.index({ email: 1 });
+userSchema.index({ username: 1 }, { unique: true });
+
+module.exports = mongoose.model('User', userSchema);
+
+📝 Ghi chú:
+- MongoDB sẽ tự tạo chỉ mục `_id` mặc định
+- Chỉ mục giúp tăng hiệu năng truy vấn nhưng chiếm dung lượng ổ đĩa
+- Nếu đổi cấu trúc `index`, cần xóa collection hoặc dùng `dropIndex` trước
+- Có thể xem chỉ mục hiện tại bằng Mongo shell: `db.users.getIndexes()`

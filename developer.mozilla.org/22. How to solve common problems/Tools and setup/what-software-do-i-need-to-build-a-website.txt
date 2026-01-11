@@ -1,0 +1,56 @@
+1. Phần mềm cần thiết để xây dựng website
+Bài viết này liệt kê các phần mềm cần thiết khi bạn chỉnh sửa, tải lên hoặc xem một website.
+
+**Tiền đề:** Bạn nên đã hiểu sự khác biệt giữa các trang web, website, máy chủ web và công cụ tìm kiếm.
+
+**Mục tiêu:** Học về các thành phần phần mềm cần thiết khi bạn muốn chỉnh sửa, tải lên hoặc xem một website.
+
+**Tóm tắt**
+Hầu hết các phần mềm cần thiết cho phát triển web đều có thể tải xuống miễn phí. Chúng tôi sẽ cung cấp một vài liên kết trong bài viết này.
+
+Bạn sẽ cần các công cụ để:
+
+- Tạo và chỉnh sửa các trang web
+- Tải tệp lên máy chủ web
+- Xem website của bạn
+
+Hầu hết các hệ điều hành đều mặc định có trình soạn thảo văn bản và trình duyệt, bạn có thể sử dụng để xem website. Do đó, bạn thường chỉ cần phần mềm để chuyển tệp lên máy chủ web.
+
+**Tạo và chỉnh sửa các trang web**
+Để tạo và chỉnh sửa một website, bạn cần một trình soạn thảo văn bản. Trình soạn thảo văn bản tạo và chỉnh sửa các tệp văn bản không định dạng. Các định dạng khác, như RTF, cho phép bạn thêm định dạng như đậm hoặc gạch chân, nhưng những định dạng này không phù hợp cho việc viết các trang web. Bạn nên cân nhắc kỹ lưỡng khi chọn trình soạn thảo văn bản, vì bạn sẽ sử dụng nó rất nhiều khi xây dựng website.
+
+Tất cả các hệ điều hành máy tính để bàn đều đi kèm với một trình soạn thảo văn bản cơ bản. Những trình soạn thảo này đều khá đơn giản, nhưng thiếu các tính năng đặc biệt cho việc lập trình trang web. Nếu bạn muốn một cái gì đó phức tạp hơn, có rất nhiều công cụ của bên thứ ba có sẵn. Các trình soạn thảo của bên thứ ba thường đi kèm với các tính năng bổ sung, bao gồm tô màu cú pháp, tự động hoàn thành, phần collapsible và tìm kiếm mã. Dưới đây là một danh sách ngắn về các trình soạn thảo:
+
+| Hệ điều hành | Trình soạn thảo tích hợp sẵn | Trình soạn thảo của bên thứ ba |
+| --- | --- | --- |
+| Windows | Notepad | Notepad++, Visual Studio Code, Web Storm, Brackets, ShiftEdit, Sublime Text |
+| macOS | TextEdit | TextWrangler, Visual Studio Code, Brackets, ShiftEdit, Sublime Text |
+| Linux | Vi (All UNIX), GEdit (GNOME), Kate (KDE), LeafPad (Xfce), Emacs, VIM | Visual Studio Code, Brackets, ShiftEdit, Sublime Text |
+| ChromeOS | Text | ShiftEdit |
+
+**Tải tệp lên web**
+Khi website của bạn đã sẵn sàng cho việc công khai, bạn cần tải các trang web của mình lên máy chủ web. Bạn có thể mua không gian lưu trữ trên máy chủ từ các nhà cung cấp khác nhau (xem "How much does it cost to do something on the web?"). Khi bạn đã chọn nhà cung cấp dịch vụ, họ sẽ gửi cho bạn thông tin truy cập, thường là một URL SFTP, tên người dùng, mật khẩu và các thông tin khác cần thiết để kết nối với máy chủ của họ. Tuy nhiên, FTP hiện nay khá cũ và các hệ thống tải tệp khác đang trở nên phổ biến, như RSync và Git/GitHub.
+
+Lưu ý: FTP là không an toàn. Bạn nên đảm bảo rằng nhà cung cấp lưu trữ của bạn cho phép sử dụng kết nối bảo mật, chẳng hạn như SFTP hoặc RSync qua SSH.
+
+**Phần mềm FTP miễn phí cơ bản**
+Dưới đây là một danh sách ngắn các phần mềm SFTP miễn phí cơ bản:
+
+| Hệ điều hành | Phần mềm FTP |
+| --- | --- |
+| Windows | WinSCP, Moba Xterm, FileZilla (Tất cả hệ điều hành) |
+| Linux | Nautilus/Files (GNOME), Dolphin (KDE) |
+| macOS | Cyberduck |
+| ChromeOS | ShiftEdit (Tất cả hệ điều hành) |
+
+**Kiểm tra website**
+Có rất nhiều trình duyệt web có sẵn. Khi phát triển một website, bạn nên kiểm tra ít nhất với những trình duyệt chính sau đây trên cả nền tảng máy tính để bàn và di động, để đảm bảo website của bạn hoạt động cho hầu hết mọi người:
+
+- Mozilla Firefox
+- Google Chrome
+- Apple Safari
+
+Nếu bạn đang nhắm đến một nhóm người dùng cụ thể (ví dụ: nền tảng kỹ thuật hoặc khu vực địa lý), bạn có thể cần phải kiểm tra thêm với các trình duyệt khác, như UC Browser hoặc Opera Mini.
+
+**Kiểm tra trên nhiều trình duyệt**
+Kiểm tra trở nên phức tạp vì một số trình duyệt chỉ chạy trên các hệ điều hành nhất định. Đặc biệt, Apple Safari chạy trên iOS, iPadOS và macOS. Tốt nhất bạn nên tận dụng các dịch vụ như Browsershots hoặc Browserstack. Browsershots tạo ảnh chụp màn hình website của bạn khi chạy trên các trình duyệt khác nhau. Browserstack cung cấp cho bạn quyền truy cập từ xa vào các máy ảo, giúp bạn kiểm tra website trong môi trường phổ biến và trên các hệ điều hành khác nhau.

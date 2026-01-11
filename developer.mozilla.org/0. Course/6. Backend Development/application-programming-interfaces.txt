@@ -1,0 +1,98 @@
+
+1. API là gì?
+API (Application Programming Interface) là giao diện lập trình ứng dụng, cung cấp quy tắc và giao thức giúp các phần mềm tương tác với nhau. API giúp truyền tải dữ liệu giữa các hệ thống hoặc ứng dụng mà không cần phải can thiệp trực tiếp vào mã nguồn của chúng.
+
+Ứng dụng vào công việc:
+- API là công cụ quan trọng giúp các ứng dụng giao tiếp với nhau, đặc biệt trong các ứng dụng web, di động, và các hệ thống phân tán.
+
+---
+
+2. Các Loại API Phổ Biến
+Có nhiều loại API, bao gồm:
+- **REST API**: Được sử dụng rộng rãi trong phát triển web, tuân theo chuẩn HTTP.
+- **GraphQL**: Một API linh hoạt cho phép truy vấn chính xác dữ liệu cần thiết.
+- **SOAP**: API cũ hơn, sử dụng XML, chủ yếu được sử dụng trong các hệ thống doanh nghiệp.
+- **gRPC**: API hiệu suất cao sử dụng giao thức nhị phân.
+
+Ứng dụng vào công việc:
+- Hiểu và lựa chọn loại API phù hợp giúp bạn xây dựng các hệ thống hiệu quả hơn, đặc biệt khi làm việc với dữ liệu phức tạp hoặc yêu cầu hiệu suất cao.
+
+---
+
+3. Sử Dụng API với Axios
+**Axios** là một thư viện JavaScript giúp bạn gửi yêu cầu HTTP dễ dàng, hỗ trợ các phương thức như GET, POST, PUT, DELETE. Axios còn hỗ trợ `async/await` giúp việc viết mã trở nên gọn gàng và dễ hiểu hơn.
+
+Ứng dụng vào công việc:
+- Sử dụng **Axios** trong ứng dụng Node.js hoặc JavaScript để gửi yêu cầu đến API và xử lý phản hồi.
+
+Ví dụ với **GET** yêu cầu API:
+```javascript
+const axios = require('axios');
+
+async function fetchData() {
+  try {
+    const response = await axios.get('https://api.example.com/data');
+    console.log(response.data);
+  } catch (error) {
+    console.error("Lỗi khi GET:", error);
+  }
+}
+fetchData();
+```
+
+---
+
+4. Xác Thực API (API Authentication)
+**Xác thực API** giúp bảo vệ tài nguyên và chỉ cho phép người dùng hoặc ứng dụng có quyền truy cập vào dữ liệu. Các phương thức xác thực phổ biến gồm:
+- **Basic Authentication**: Xác thực với username và password.
+- **API Key**: Cung cấp một khóa API trong header hoặc dưới dạng tham số truy vấn.
+- **Token-Based Authentication (OAuth2, JWT)**: Sử dụng mã token để xác thực và phân quyền.
+
+Ứng dụng vào công việc:
+- Đảm bảo an toàn và bảo mật khi giao tiếp với các API yêu cầu xác thực hoặc phân quyền truy cập.
+
+---
+
+5. Các Phương Thức HTTP trong API
+API thường sử dụng các phương thức HTTP để thực hiện các tác vụ CRUD (Create, Read, Update, Delete):
+- **GET**: Lấy dữ liệu từ máy chủ.
+- **POST**: Gửi dữ liệu mới lên máy chủ.
+- **PUT/PATCH**: Cập nhật dữ liệu hiện có.
+- **DELETE**: Xóa dữ liệu khỏi máy chủ.
+
+Ứng dụng vào công việc:
+- Bạn cần hiểu cách sử dụng các phương thức này để tương tác với các API trong quá trình phát triển ứng dụng.
+
+---
+
+6. Xử Lý Lỗi Khi Gửi Yêu Cầu API
+Khi làm việc với API, xử lý lỗi là rất quan trọng. Bạn có thể gặp phải các lỗi HTTP như **404 (Not Found)**, **500 (Server Error)**, hoặc các lỗi liên quan đến dữ liệu không hợp lệ.
+
+Ứng dụng vào công việc:
+- **Axios** giúp dễ dàng xử lý lỗi khi gửi yêu cầu API. Bạn có thể kiểm tra mã trạng thái HTTP và xử lý lỗi dựa trên mã trạng thái hoặc thông báo lỗi.
+
+Ví dụ:
+```javascript
+async function fetchData() {
+  try {
+    const response = await axios.get('https://api.example.com/data');
+    console.log(response.data);
+  } catch (error) {
+    if (error.response) {
+      console.error("Lỗi từ server:", error.response.status);
+    } else {
+      console.error("Lỗi khác:", error.message);
+    }
+  }
+}
+fetchData();
+```
+
+---
+
+Tổng kết:
+- **API** là công cụ mạnh mẽ giúp các ứng dụng giao tiếp và trao đổi dữ liệu.
+- **REST API** sử dụng các phương thức như GET, POST, PUT, DELETE để thao tác với dữ liệu.
+- **Axios** giúp gửi yêu cầu API một cách đơn giản và dễ dàng xử lý lỗi.
+- **API Authentication** bảo vệ các tài nguyên API bằng cách xác thực người dùng hoặc ứng dụng.
+- Hiểu và sử dụng các **phương thức HTTP** trong API giúp xây dựng các hệ thống hiệu quả và bảo mật hơn.

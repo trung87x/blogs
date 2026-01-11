@@ -1,0 +1,91 @@
+TỔNG QUAN VỀ ACCESSIBILITY
+==========================
+
+1. Accessibility là gì?
+- Là thực hành xây dựng website để **mọi người đều có thể sử dụng**, bao gồm người khuyết tật, người lớn tuổi, người dùng di động, người có kết nối mạng chậm...
+- Tương tự như việc **có dốc xe lăn** ở tòa nhà, website cũng nên đảm bảo **người khiếm thị, khiếm thính, hoặc suy giảm nhận thức** có thể tiếp cận.
+- Accessibility:
+  + Là **đạo đức** và **quyền con người**
+  + Là **yêu cầu pháp lý** ở nhiều quốc gia
+  + Mang lại **SEO tốt hơn**, **tăng khả năng sử dụng**, **mở rộng đối tượng người dùng**
+
+2. Các loại khuyết tật chính cần quan tâm
+
+== a. Khiếm thị ==
+- Bao gồm: mù hoàn toàn, thị lực yếu, mù màu
+- Dùng công cụ:
+  + Screen reader: JAWS, NVDA, VoiceOver, TalkBack
+  + Zoom, độ tương phản cao
+- Cần: alt ảnh, HTML semantic, điều hướng bằng bàn phím
+
+== b. Khiếm thính ==
+- Bao gồm người điếc hoàn toàn hoặc nghe kém
+- Cần:
+  + Phụ đề thủ công cho video
+  + Transcript cho audio
+  + Nội dung đơn giản, rõ ràng (do ảnh hưởng đến ngôn ngữ học)
+
+== c. Khuyết tật vận động ==
+- Bao gồm: liệt, run tay, mất điều khiển cơ, già yếu, không có chuột
+- Cần:
+  + Truy cập **hoàn toàn bằng bàn phím**
+  + Phím tắt, vùng focus rõ ràng
+  + Điều khiển lớn, dễ nhấn
+
+== d. Suy giảm nhận thức ==
+- Bao gồm: ADHD, tự kỷ, trí nhớ kém, khó đọc viết, trầm cảm...
+- Cần:
+  + Nội dung dễ hiểu, ngắn gọn
+  + Giao diện nhất quán
+  + Giảm yếu tố gây xao nhãng
+  + Quá trình đơn giản, chia từng bước rõ ràng
+  + Biểu mẫu dễ nhập và sửa lỗi
+
+3. Làm sao để áp dụng accessibility hiệu quả?
+
+- **Không để đến cuối mới nghĩ đến truy cập** → nên thiết kế từ đầu.
+- Thử nghiệm sớm và liên tục:
+  + Kiểm tra bằng công cụ tự động (WCAG checker, Lighthouse)
+  + Dùng thử với screen reader và bàn phím
+  + Kiểm tra: link có rõ nghĩa không? ảnh có alt không? điều hướng có mượt không?
+
+- Nếu có nội dung khó truy cập (VD: biểu đồ 3D), hãy:
+  + Cung cấp phiên bản thay thế (VD: bảng dữ liệu)
+  + Hoặc cân nhắc loại bỏ nếu không cần thiết
+
+- **Công khai chính sách accessibility**:
+  + Đăng accessibility statement trên website
+  + Chủ động tiếp nhận phản hồi và cải thiện
+
+4. Guidelines & Luật pháp
+
+- WCAG (Web Content Accessibility Guidelines):
+  + 4 nguyên tắc: Có thể cảm nhận – Có thể thao tác – Dễ hiểu – Vững chắc
+  + Nên bắt đầu từ [WCAG at a Glance](https://www.w3.org/WAI/WCAG21/quickref/)
+
+- Luật ở các quốc gia:
+  + US: Section 508 (Rehabilitation Act)
+  + EU: EN 301 549
+  + UK: Accessibility Regulations 2018
+  + Úc: Disability Discrimination Act
+  + Việt Nam: chưa rõ luật cụ thể, nhưng vẫn nên áp dụng WCAG
+
+- Có thể **chịu trách nhiệm pháp lý** nếu trang không thể truy cập được.
+
+5. Accessibility API
+- Trình duyệt dùng API đặc biệt để cung cấp thông tin truy cập cho phần mềm hỗ trợ (screen reader).
+- Một số API:
+  + Windows: MSAA, IAccessible2
+  + macOS: NSAccessibility
+  + Android: Accessibility framework
+  + iOS: UIAccessibility
+
+→ WAI-ARIA có thể bổ sung thông tin ngữ nghĩa nếu HTML chưa đủ (xem bài riêng về ARIA)
+
+= KẾT LUẬN =
+- Accessibility giúp **mọi người đều dùng được** sản phẩm.
+- Đừng đợi đến cuối mới kiểm thử truy cập.
+- Giao diện tốt cho người khuyết tật thường cũng tốt cho tất cả người dùng.
+- "Design for everyone" không chỉ là triết lý – nó là trách nhiệm.
+
+= HẾT =

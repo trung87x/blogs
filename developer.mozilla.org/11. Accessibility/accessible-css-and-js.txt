@@ -1,0 +1,115 @@
+HƯỚNG DẪN CSS & JAVASCRIPT HỖ TRỢ TRUY CẬP WEB
+==============================================
+
+1. CSS: Cách viết CSS thân thiện với người dùng khuyết tật
+
+1.1. Sử dụng đúng thẻ HTML semantically
+- Không "ngụy trang" thẻ (VD: đừng dùng <div> rồi CSS nó như <button>)
+- Người dùng (và trình đọc màn hình) dựa vào cấu trúc HTML chuẩn để điều hướng
+
++ Ví dụ đúng:
+  <h1>Tiêu đề</h1>
+  <p>Nội dung</p>
+  <ul><li>Danh sách</li></ul>
+
+1.2. Kích thước, màu chữ, và khoảng cách hợp lý
+- Font-size rõ ràng (VD: 1.6rem), line-height tối thiểu 1.5
+- Headings phải nổi bật hơn nội dung thường
+- Danh sách trông phải như danh sách (có dấu đầu dòng, thụt lề…)
+
++ Gợi ý CSS:
+  h1 { font-size: 2.5rem; font-weight: bold; }
+  p, li { line-height: 1.5; font-size: 1.6rem; }
+
+1.3. Tương phản màu
+- Dùng [WebAIM Color Contrast Checker] để đảm bảo nền và chữ đủ tương phản
+- Không dùng màu làm dấu hiệu duy nhất (VD: thêm dấu * bên cạnh ô bắt buộc)
+
+1.4. Liên kết (links)
+- Nên giữ:
+  + Con trỏ chuột dạng "pointer"
+  + Hiệu ứng focus (outline, màu thay đổi)
+- Tránh: xóa underline hoặc không có hiệu ứng hover/focus
+
++ Ví dụ CSS đúng:
+  a:focus, a:hover { outline: 2px dotted #444; }
+
+1.5. Biểu mẫu (form)
+- Luôn dùng <label for="..."> để trình đọc màn hình hiểu đúng
+- Giữ hiệu ứng focus mặc định của input (viền xanh, đổ bóng…)
+- Không dùng `display: none` để ẩn nhãn vì nó ẩn cả với trình đọc
+
+1.6. Ẩn nội dung đúng cách
+- Tránh dùng `display: none` hoặc `visibility: hidden` nếu vẫn muốn trình đọc thấy nội dung
+- Dùng `position: absolute; left: -9999px;` là cách phổ biến để "ẩn nhưng không ẩn"
+
+1.7. Cho phép người dùng ghi đè CSS
+- Người khiếm thị có thể tự tăng font hoặc đổi màu (Stylus, Stylish…)
+- Đảm bảo layout không vỡ khi phóng to font
+
+---
+
+2. JavaScript: Làm sao để JS không phá vỡ khả năng truy cập?
+
+2.1. Ưu tiên HTML có sẵn
+- Dùng đúng thẻ: <button>, <a>, <input> thay vì "div + JS"
+
++ Không nên: 
+  <div onclick="..."> → KHÔNG truy cập được bằng bàn phím
+
++ Nên dùng:
+  <button onclick="..."> → có thể dùng Enter, Tab, Space
+
+2.2. Thêm tương tác bàn phím (keyboard)
+- Nếu dùng JS tạo tương tác bằng chuột, cần thêm sự kiện cho bàn phím
+
++ Ví dụ: Hiển thị ảnh lớn khi hover/focus
+
+  js:
+    imgThumb.onmouseover = showImg;
+    imgThumb.onmouseout = hideImg;
+    imgThumb.onfocus = showImg;
+    imgThumb.onblur = hideImg;
+
+  html:
+    <img src="thumb.jpg" tabindex="0">
+
+2.3. JavaScript unobtrusive (không xâm phạm)
+- Tính năng chính nên hoạt động kể cả khi JS bị tắt
+- JS chỉ nên dùng để nâng cấp trải nghiệm
+
++ Ví dụ: xác thực biểu mẫu phía client
+
+  html:
+    <label for="name">Tên:</label>
+    <input id="name" name="name">
+
+  js:
+    form.onsubmit = validate;
+    function validate(e) {
+      if (input.value === "") {
+        hiển thị lỗi;
+        e.preventDefault();
+      }
+    }
+
+  + Dùng `aria-live`, `role="alert"` để screen reader đọc nội dung lỗi cập nhật
+  + Nên có cả xác thực phía server (backup)
+
+2.4. Tránh lạm dụng JavaScript
+- Không render toàn bộ HTML bằng JS
+- Tránh dùng JS để thay thế CSS hoặc nội dung cơ bản
+- Với nội dung phức tạp (VD: game canvas) nên chấp nhận giới hạn và hỗ trợ ở mức có thể (keyboard, độ tương phản…)
+
+---
+
+3. Checklist CSS & JS hỗ trợ truy cập
+- [x] CSS dùng đúng thẻ semantic HTML
+- [x] Font đủ lớn, line-height tốt
+- [x] Màu có độ tương phản cao
+- [x] Link và input giữ outline, pointer
+- [x] Biểu mẫu có nhãn <label>
+- [x] Dùng tabindex và sự kiện bàn phím nếu cần
+- [x] JS không thay thế hoàn toàn tính năng cơ bản
+- [x] Có thông báo lỗi (role="alert") rõ ràng khi dùng JS
+- [x] Nội dung không bị ẩn khỏi trình đọc (trừ khi cố ý)

@@ -1,0 +1,32 @@
+
+Tổng quan
+MDN Learn Web Development là một tài nguyên học tập miễn phí, nhằm dạy các kỹ năng cơ bản cho lập trình viên front-end, giúp học viên phát triển những kỹ năng để có thể làm việc lâu dài trong ngành công nghiệp web hiện nay. Nội dung của tài liệu này bao gồm các chủ đề về HTML, CSS, JavaScript, và các công cụ lập trình web, đi kèm với các bài học về thực tiễn tốt nhất như khả năng truy cập, thiết kế đáp ứng, và tối ưu hóa hiệu suất.
+
+Mục tiêu
+Chương trình học hướng đến các đối tượng học viên bao gồm:
+- Sinh viên: Các sinh viên muốn tìm kiếm một công việc trong ngành công nghệ, hoặc những người muốn cải thiện kỹ năng lập trình web của mình.
+- Giáo viên: Họ có thể sử dụng tài liệu này để thiết kế các chương trình học hoặc kế hoạch giảng dạy.
+- Nhà phát triển hiện tại: Các lập trình viên web muốn nâng cao kỹ năng và cập nhật các công nghệ mới.
+
+Nội dung khóa học
+Các chủ đề được bao quát trong lộ trình học này bao gồm:
+- Kỹ năng kỹ thuật cơ bản: HTML, CSS, và JavaScript cơ bản.
+- Thực hành tốt: Bao gồm khả năng truy cập, thiết kế đáp ứng, và lý thuyết thiết kế giao diện người dùng (UI).
+- Công cụ chính: Các framework và kiểm soát phiên bản.
+- Kỹ năng mềm: Kỹ năng tư duy, hợp tác, và các kỹ năng quan trọng khác trong công việc.
+- Kiến thức về môi trường phát triển: Hệ thống máy tính, quản lý tệp, duyệt web, dòng lệnh cơ bản, và trình chỉnh sửa mã.
+
+Những gì không được bao phủ
+Lộ trình này không đi sâu vào các chủ đề như:
+- Các nền tảng phía máy chủ hoặc cơ sở dữ liệu.
+- Các chủ đề về DevOps (như nền tảng đám mây hoặc công cụ container hóa).
+- Thiết kế đồ họa phức tạp.
+- Các vai trò như quản lý sản phẩm hoặc nghiên cứu.
+
+Cách thức học
+MDN cung cấp khóa học này miễn phí cho bất kỳ ai muốn học. Nội dung được cập nhật thường xuyên và công ty sẽ thông báo thay đổi mỗi năm.
+
+Câu hỏi thường gặp
+- Tại sao Scrimba là đối tác của MDN? MDN đã thực hiện một cuộc đánh giá toàn diện về các khóa học của Scrimba và đảm bảo chúng đáp ứng các tiêu chuẩn của MDN.
+- MDN chia sẻ dữ liệu người dùng với Scrimba không? MDN rất chú trọng đến quyền riêng tư và chỉ chia sẻ dữ liệu người dùng khi họ tương tác với nội dung của Scrimba.
+- Scrimba có cung cấp chứng chỉ sau khi hoàn thành khóa học không? Có, Scrimba cung cấp chứng chỉ hoàn thành khóa học cho học viên khi hoàn thành chương trình Frontend Developer Career Path.

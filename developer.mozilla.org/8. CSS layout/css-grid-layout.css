@@ -1,0 +1,128 @@
+/* =====================
+   BỐ CỤC LƯỚI TRONG CSS
+   ===================== */
+
+/* === 1. CSS GRID LÀ GÌ? === */
+/*
+- Là hệ thống bố cục 2 chiều (rows và columns) hiện đại.
+- Giúp tổ chức giao diện rõ ràng, linh hoạt, dễ canh chỉnh.
+- Có thể điều chỉnh khoảng cách giữa các hàng/cột (gutters).
+*/
+
+/* === 2. BẮT ĐẦU VỚI display: grid === */
+.container {
+  display: grid;
+}
+/*
+- Các phần tử con trực tiếp (grid items) sẽ nằm trong lưới.
+- Mặc định ban đầu là 1 cột → các phần tử vẫn nằm dọc.
+*/
+
+/* === 3. ĐỊNH NGHĨA CỘT BẰNG grid-template-columns === */
+.container {
+  grid-template-columns: 200px 200px 200px; /* 3 cột cố định */
+}
+/*
+- Có thể dùng đơn vị px, %, fr...
+- 1fr = 1 phần chia đều trong không gian còn lại.
+*/
+
+/* === 4. SỬ DỤNG fr ĐỂ TẠO GRID LINH HOẠT === */
+.container {
+  grid-template-columns: 2fr 1fr 1fr; /* cột đầu chiếm gấp đôi */
+}
+
+/* === 5. KHOẢNG CÁCH GIỮA CÁC TRACK === */
+.container {
+  gap: 20px;         /* viết tắt của row-gap + column-gap */
+  row-gap: 20px;
+  column-gap: 30px;
+}
+
+/* === 6. repeat() – LẶP TRACK TỰ ĐỘNG === */
+.container {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* === 7. GRID NGẦM (IMPLICIT) & RÕ RÀNG (EXPLICIT) === */
+.container {
+  grid-template-columns: repeat(3, 1fr); /* explicit: rõ ràng */
+  grid-auto-rows: 100px;                 /* implicit: sinh ra tự động */
+}
+
+/* === 8. minmax() – GIỚI HẠN KÍCH THƯỚC TRACK === */
+.container {
+  grid-auto-rows: minmax(50px, auto); /* cao ít nhất 50px, nhưng co giãn */
+}
+
+/* === 9. TẠO GRID TỰ ĐỘNG FIT VỚI KHUNG === */
+.container {
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+/*
+- auto-fit: tạo cột tối đa có thể trong khung
+- minmax: đảm bảo tối thiểu 230px, tối đa chia đều
+*/
+
+/* === 10. CĂN VỊ TRÍ PHẦN TỬ BẰNG GRID LINES === */
+header {
+  grid-column: 1 / 3; /* từ line 1 đến line 3 */
+  grid-row: 1;
+}
+main {
+  grid-column: 2;
+  grid-row: 2;
+}
+aside {
+  grid-column: 1;
+  grid-row: 2;
+}
+footer {
+  grid-column: 1 / 3;
+  grid-row: 3;
+}
+
+/* === 11. SỬ DỤNG grid-template-areas (GỢI HÌNH) === */
+.container {
+  grid-template-areas:
+    "header header"
+    "sidebar content"
+    "footer footer";
+}
+header { grid-area: header; }
+aside  { grid-area: sidebar; }
+main   { grid-area: content; }
+footer { grid-area: footer; }
+
+/* === 12. GRID LỒNG NHAU & SUBGRID === */
+main {
+  display: grid;
+  grid-template-rows: 4fr 3fr 3fr;
+}
+.subgrid {
+  display: grid;
+  grid-template-columns: subgrid; /* kế thừa từ cha */
+  grid-template-rows: 2fr 1fr;
+}
+
+/* === 13. GRID 12 CỘT (FRAMEWORK MẪU) === */
+.container {
+  grid-template-columns: repeat(12, 1fr);
+}
+main {
+  grid-column: 4 / 13;
+}
+aside {
+  grid-column: 1 / 4;
+}
+footer {
+  grid-column: 1 / 13;
+}
+
+/* ==============================================================
+   TÓM TẮT:
+   - CSS Grid = hệ thống layout mạnh mẽ theo hàng và cột
+   - Có thể kết hợp fixed + responsive + auto-fit
+   - Hỗ trợ grid line, grid area và nesting
+   - Không cần framework ngoài nếu nắm vững các khái niệm trên
+   ============================================================== */

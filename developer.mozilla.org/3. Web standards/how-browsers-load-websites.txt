@@ -1,0 +1,59 @@
+TRÌNH DUYỆT HOẠT ĐỘNG NHƯ THẾ NÀO KHI TẢI WEBSITE
+===================================================
+
+1. MỤC TIÊU
+- Hiểu quy trình trình duyệt tải và hiển thị website.
+- Nắm vai trò của HTML, CSS, JavaScript trong quá trình hiển thị (render).
+- Biết khái niệm: DOM, render tree, paint, accessibility tree.
+
+2. KHI TRUY CẬP MỘT TRANG WEB, TRÌNH DUYỆT SẼ:
+- Gửi các yêu cầu HTTP tới server.
+- Nhận lại các tệp:
+  + HTML: nội dung và cấu trúc trang.
+  + CSS: định dạng, màu sắc, font, layout...
+  + JS: tương tác, xử lý động.
+  + Ảnh, video, audio, SVG, PDF...
+
+→ Sau đó bắt đầu quá trình **render (hiển thị)**.
+
+3. BƯỚC 1: XỬ LÝ HTML → TẠO DOM
+<p>
+  Let's use:
+  <span>HTML</span>
+  <span>CSS</span>
+  <span>JavaScript</span>
+</p>
+
+DOM sinh ra:
+P
+├─ "Let's use:"
+├─ SPAN → "HTML"
+├─ SPAN → "CSS"
+└─ SPAN → "JavaScript"
+
+- Mỗi thẻ HTML → 1 node trong DOM Tree.
+- DOM là cấu trúc dạng cây lưu trong bộ nhớ trình duyệt.
+
+4. BƯỚC 2: PHÂN TÍCH CSS → TẠO RENDER TREE
+span {
+  border: 1px solid black;
+  background-color: lime;
+}
+
+- Trình duyệt chọn các node phù hợp → áp dụng style.
+- Kết quả: các `<span>` có viền đen, nền xanh lá.
+- Render tree xây dựng từ DOM + CSS → sau đó mới **paint (vẽ)** ra màn hình.
+
+5. BƯỚC 3: XỬ LÝ JAVASCRIPT
+const spans = document.querySelectorAll("span");
+spans.forEach((span) => {
+  const reversed = span.textContent.split("").reverse().join("");
+  span.textContent = reversed;
+});
+
+- JS được chạy sau khi DOM tạo xong.
+- Trong ví dụ trên: đảo ngược từng từ trong `<span>` → "HTML" thành "LMTH", v.v.
+
+6. BƯỚC 4: XÂY DỰNG CÂY HỖ TRỢ TRUY CẬP (ACCESSIBILITY TREE)
+- Dựa trên DOM → tạo ra cấu trúc giúp screen reader truy cập nội dung.
+- Hỗ trợ người khiếm thị hoặc không thể đọc màn hình trực tiếp.

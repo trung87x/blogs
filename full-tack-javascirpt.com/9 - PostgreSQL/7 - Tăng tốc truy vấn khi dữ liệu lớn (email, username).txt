@@ -1,0 +1,38 @@
+# Ngữ cảnh 7: Tăng tốc truy vấn khi dữ liệu lớn (email, username)
+
+🧠 Model (Ý nghĩa dữ liệu & quan hệ)
+- Khi bảng có hàng chục ngàn đến hàng triệu bản ghi, việc tìm kiếm theo `email`, `username` sẽ chậm.
+- Giải pháp: tạo chỉ mục (`INDEX`) cho các cột hay được tìm kiếm, sắp xếp hoặc JOIN.
+
+🛠️ Controller (SQL)
+
+-- Tạo bảng users
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(100) UNIQUE NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tạo chỉ mục cho cột email (nếu chưa có UNIQUE INDEX mặc định)
+CREATE INDEX idx_users_email ON users(email);
+
+-- Tạo chỉ mục cho cột name (tìm kiếm tên nhanh hơn)
+CREATE INDEX idx_users_name ON users(name);
+
+-- Truy vấn người dùng theo email
+SELECT * FROM users WHERE email = 'trung@example.com';
+
+-- Truy vấn người dùng theo tên (LIKE)
+SELECT * FROM users WHERE name ILIKE '%trung%';
+
+-- Kiểm tra hiệu suất truy vấn
+EXPLAIN ANALYZE SELECT * FROM users WHERE email = 'trung@example.com';
+
+📘 Ghi chú:
+- `CREATE INDEX`: tạo chỉ mục thường (không UNIQUE)
+- `UNIQUE INDEX`: được tự động tạo khi dùng `UNIQUE`
+- `EXPLAIN ANALYZE`: đo chi tiết hiệu suất thực tế của truy vấn
+- Tạo index cho các cột thường dùng trong: WHERE, JOIN, ORDER BY
+- Không nên tạo quá nhiều index → làm chậm INSERT/UPDATE
+

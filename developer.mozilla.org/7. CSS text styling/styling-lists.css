@@ -1,0 +1,107 @@
+/* ========================
+   TRANG TRÍ DANH SÁCH HTML
+   ======================== */
+
+/* === 1. KIỂU DANH SÁCH === */
+/*
+Có 3 loại danh sách:
+- ul (unordered list): danh sách không thứ tự (•)
+- ol (ordered list): danh sách có thứ tự (1., 2., 3.)
+- dl (description list): danh sách định nghĩa (dt + dd)
+*/
+
+/* === 2. MẶC ĐỊNH TRÌNH DUYỆT CHO LIST === */
+/*
+- ul, ol: margin trên/dưới là 16px (1em), padding-left là 40px (2.5em)
+- dl: margin trên/dưới là 16px; dd có margin-left: 40px
+- li: không có margin/padding mặc định
+*/
+
+/* === 3. STYLE DANH SÁCH CƠ BẢN === */
+html {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 10px;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+ul, ol, dl, p {
+  font-size: 1.5rem;
+}
+
+li, p, dd, dt {
+  line-height: 1.5;
+}
+
+dt {
+  font-weight: bold;
+}
+
+/* === 4. THUỘC TÍNH list-style-* === */
+/*
+- list-style-type: kiểu ký hiệu (disc, square, circle, upper-roman, lower-alpha,...)
+- list-style-position: inside | outside
+- list-style-image: dùng ảnh làm bullet
+*/
+
+/* Ví dụ: đánh số La Mã, hiển thị bullet bên trong dòng */
+ol {
+  list-style-type: upper-roman;
+  list-style-position: inside;
+}
+
+/* Dùng ảnh thay cho bullet trong ul */
+ul {
+  list-style-type: none;
+  padding-left: 2rem;
+}
+
+ul li {
+  padding-left: 2rem;
+  background-image: url(star.svg);
+  background-position: 0 0;
+  background-size: 1.6rem 1.6rem;
+  background-repeat: no-repeat;
+}
+
+/* === 5. list-style SHORTHAND === */
+/* Có thể gộp ba thuộc tính thành một dòng */
+ul {
+  list-style: square url(example.png) inside;
+}
+/* thứ tự không quan trọng */
+
+/* === 6. ĐIỀU KHIỂN SỐ ĐẾM TRONG OL === */
+
+/* Bắt đầu từ số 4 */
+/* <ol start="4">...</ol> */
+
+/* Đếm ngược */
+/* <ol start="4" reversed>...</ol> */
+
+/* Gán giá trị cụ thể từng item */
+/* <ol>
+  <li value="2">...</li>
+  <li value="4">...</li>
+</ol> */
+
+/* ⚠️ Dù dùng kiểu chữ (lower-alpha, etc.), giá trị vẫn là số */
+
+/* === 7. MẸO STYLE DANH SÁCH === */
+/*
+- Giữ line-height đồng nhất với đoạn văn để cân bằng dọc (vertical rhythm)
+- Dùng padding để căn vị trí bullet đúng vị trí
+- Dùng background-image thay vì list-style-image để dễ kiểm soát kích thước & vị trí
+- Nên reset margin/padding mặc định nếu cần đồng bộ toàn bộ layout
+*/
+
+/* =========================================================
+   TÓM TẮT:
+   - ul, ol, dl đều có cách style riêng và có thể can thiệp bằng CSS
+   - list-style-type / -image / -position là ba thuộc tính quan trọng
+   - Có thể dùng icon tùy biến hoặc ký hiệu khác cho bullet
+   - ol có thể đếm ngược, đổi định dạng, hoặc set giá trị cụ thể
+   - Duy trì line-height, spacing và alignment giúp bảng rõ ràng hơn
+   ========================================================= */

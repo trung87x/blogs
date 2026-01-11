@@ -1,0 +1,102 @@
+
+1. Tổng Quan về Dòng Lệnh Unix
+Dòng lệnh Unix là một cách giao tiếp giữa người dùng và hệ điều hành, cho phép bạn điều khiển máy tính bằng các lệnh văn bản thay vì giao diện đồ họa.
+
+Ứng dụng vào công việc:
+- Dòng lệnh Unix giúp bạn làm việc với hệ thống một cách nhanh chóng và hiệu quả, đặc biệt khi cần quản lý tệp, thư mục và thực thi các tác vụ tự động.
+- Nó rất hữu ích khi bạn làm việc với các máy chủ hoặc môi trường phát triển yêu cầu sự chính xác và tốc độ.
+
+---
+
+2. Tạo và Quản Lý Tệp với Dòng Lệnh
+Một số lệnh cơ bản để tạo và quản lý tệp trong dòng lệnh:
+- **mkdir**: Tạo thư mục mới.
+- **touch**: Tạo tệp mới.
+- **rm**: Xóa tệp.
+- **mv**: Di chuyển hoặc đổi tên tệp.
+
+Ứng dụng vào công việc:
+- Quản lý tệp và thư mục là một kỹ năng quan trọng trong việc làm việc với các hệ thống Unix hoặc Linux. Bạn có thể dễ dàng tạo, di chuyển và xóa các tệp, thư mục bằng dòng lệnh.
+
+Ví dụ:
+```bash
+mkdir new_folder
+touch new_file.txt
+rm old_file.txt
+mv old_name.txt new_name.txt
+```
+
+---
+
+3. Điều Hướng Thư Mục với Dòng Lệnh
+Điều hướng qua các thư mục trong hệ thống file Unix bằng lệnh:
+- **cd**: Di chuyển vào thư mục.
+- **ls**: Liệt kê các tệp và thư mục.
+- **pwd**: Hiển thị đường dẫn thư mục hiện tại.
+
+Ứng dụng vào công việc:
+- Điều hướng thư mục là một kỹ năng thiết yếu khi làm việc với các tệp và dự án trong môi trường dòng lệnh. Bạn sẽ thường xuyên sử dụng các lệnh này để truy cập các tệp và thư mục cần thiết.
+
+Ví dụ:
+```bash
+cd Documents
+ls -a
+pwd
+```
+
+---
+
+4. Quản Lý Quyền Truy Cập Tệp
+Các lệnh để thay đổi quyền truy cập của tệp:
+- **chmod**: Thay đổi quyền tệp.
+- **chown**: Thay đổi chủ sở hữu tệp.
+
+Ứng dụng vào công việc:
+- Trong các hệ thống Unix, việc quản lý quyền truy cập tệp là rất quan trọng để bảo mật dữ liệu. Bạn sẽ cần sử dụng các lệnh này để thiết lập quyền cho các tệp và thư mục.
+
+Ví dụ:
+```bash
+chmod 755 my_file.txt
+chown user:user my_file.txt
+```
+
+---
+
+5. Các Lệnh Xử Lý Quy Trình
+Dòng lệnh Unix cho phép bạn kiểm soát các quy trình đang chạy trên hệ thống:
+- **ps**: Liệt kê các quy trình đang chạy.
+- **top**: Hiển thị các quy trình sử dụng tài nguyên.
+- **kill**: Dừng một quy trình.
+
+Ứng dụng vào công việc:
+- Quản lý quy trình là cần thiết khi bạn muốn kiểm soát các tác vụ đang chạy trên hệ thống hoặc giải quyết các vấn đề hiệu suất.
+
+Ví dụ:
+```bash
+ps aux
+top
+kill <process_id>
+```
+
+---
+
+6. Scripting và Tự Động Hóa
+Scripting Unix giúp tự động hóa các tác vụ và quy trình:
+- **Bash script**: Viết script để tự động hóa các tác vụ hàng ngày, như sao lưu dữ liệu hoặc cập nhật hệ thống.
+
+Ứng dụng vào công việc:
+- Bạn có thể sử dụng scripting để tự động hóa các tác vụ lập đi lập lại, giúp tiết kiệm thời gian và giảm thiểu lỗi thủ công.
+
+Ví dụ script đơn giản:
+```bash
+#!/bin/bash
+echo "Starting backup process..."
+cp -r /home/user/documents /backup
+echo "Backup complete!"
+```
+
+---
+
+Tổng kết:
+- Dòng lệnh Unix cung cấp một cách mạnh mẽ để quản lý hệ thống và thực hiện các tác vụ nhanh chóng và hiệu quả.
+- Bạn có thể sử dụng các lệnh cơ bản như `mkdir`, `cd`, `ls`, và `chmod` để quản lý tệp và thư mục, cũng như viết các script để tự động hóa công việc.

@@ -1,0 +1,67 @@
+📌 Cornell Notes - What is HTML?
+
+📌 Topic/Title:
+
+HTML là gì?
+
+🔎 Keywords/Questions:
+
+HTML là gì?
+
+HTML có thể hoạt động độc lập không?
+
+"Hypertext" và "Markup Language" có nghĩa là gì?
+
+HTML sử dụng thẻ (tags) như thế nào?
+
+📝 Notes:
+
+HTML là gì?
+
+HTML (HyperText Markup Language) là ngôn ngữ đánh dấu dùng để xác định nội dung và cấu trúc của trang web.
+
+Trang web đầu tiên do Tim Berners-Lee tạo ra chỉ sử dụng HTML.
+
+HTML có thể hoạt động độc lập, không cần CSS hay JavaScript.
+
+Ý nghĩa của Hypertext (Siêu văn bản)
+
+Hypertext là văn bản có siêu liên kết (hyperlinks) kết nối đến các tài liệu khác.
+
+Các liên kết này giúp dẫn đến các trang HTML khác, tạo thành hệ thống trang web.
+
+Ví dụ: Trang web đầu tiên trên thế giới chứa rất nhiều siêu liên kết màu xanh.
+
+Ý nghĩa của Markup Language (Ngôn ngữ đánh dấu)
+
+Markup giúp xác định các phần khác nhau của văn bản.
+
+Ví dụ trong tiếng Anh:
+
+Dấu ngoặc kép ("") giúp nhận biết câu trích dẫn.
+
+Gạch dưới, tô đậm giúp nhấn mạnh phần quan trọng.
+
+Trong HTML, thẻ (tags) được dùng để đánh dấu nội dung.
+
+HTML Tags (Thẻ HTML)
+
+Thẻ HTML dùng để xác định loại nội dung trên trang web.
+
+Một số thẻ cơ bản:
+
+Tiêu đề (h1 - h6) → Định dạng tiêu đề.
+
+Đoạn văn (p) → Xác định nội dung văn bản.
+
+Trình duyệt đọc các thẻ HTML và hiển thị nội dung theo định dạng phù hợp.
+
+Không cần ghi nhớ tất cả thẻ HTML ngay
+
+HTML có rất nhiều thẻ, nhưng chỉ cần biết các thẻ quan trọng nhất.
+
+Trong khóa học, các thẻ sẽ được giới thiệu khi cần thiết.
+
+📌 Summary:
+
+HTML (HyperText Markup Language) là ngôn ngữ đánh dấu, dùng để tạo nội dung và cấu trúc của trang web. HTML có thể hoạt động độc lập và sử dụng thẻ (tags) như h1, p để định dạng nội dung. Các trang web đầu tiên chỉ sử dụng HTML và siêu liên kết (hypertext) giúp kết nối các trang với nhau.

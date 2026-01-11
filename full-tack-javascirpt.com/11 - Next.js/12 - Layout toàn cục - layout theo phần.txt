@@ -1,0 +1,82 @@
+🧠 Model 12: Layout toàn cục / layout theo phần
+--------------------------------------------------
+• Vai trò: Tái sử dụng bố cục (layout) cho toàn site hoặc từng phần cụ thể.
+• Controller: Dùng layout.js trong Next.js App Router, hỗ trợ lồng layout.
+
+📘 Ngữ cảnh #12: Dùng layout toàn cục & layout riêng cho từng phần
+---------------------------------------------------------------------
+
+📁 1. Cấu trúc thư mục layout:
+
+```
+/app
+  /layout.tsx             ← Layout toàn cục (Header, Footer)
+  /admin
+    /layout.tsx           ← Layout riêng cho admin
+    /page.tsx
+  /user
+    /layout.tsx           ← Layout riêng cho user
+    /page.tsx
+```
+
+🧱 2. Layout toàn cục: `app/layout.tsx`
+
+```tsx
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body>
+        <header>🌐 HEADER TOÀN CỤC</header>
+        <main>{children}</main>
+        <footer>🔻 FOOTER TOÀN CỤC</footer>
+      </body>
+    </html>
+  )
+}
+```
+
+🧱 3. Layout riêng cho admin: `app/admin/layout.tsx`
+
+```tsx
+export default function AdminLayout({ children }) {
+  return (
+    <div>
+      <nav>🔐 MENU ADMIN</nav>
+      <section>{children}</section>
+    </div>
+  )
+}
+```
+
+🧱 4. Layout riêng cho user: `app/user/layout.tsx`
+
+```tsx
+export default function UserLayout({ children }) {
+  return (
+    <div>
+      <nav>👤 MENU USER</nav>
+      <section>{children}</section>
+    </div>
+  )
+}
+```
+
+📄 5. Trang nội dung dùng layout:
+
+```tsx
+// app/user/page.tsx
+export default function UserPage() {
+  return <p>Đây là khu vực người dùng</p>
+}
+```
+
+💡 Lưu ý:
+- Mỗi `layout.tsx` sẽ bao quanh tất cả các `page.tsx` bên trong thư mục đó.
+- Layout có thể **lồng nhau**: layout toàn cục > layout user > page.
+- Dùng để tách UI theo role, theo khu vực, theo giao diện...
+
+✅ Kết luận:
+- Next.js App Router hỗ trợ layout lồng nhau một cách tự nhiên.
+- Giúp tái sử dụng và quản lý cấu trúc giao diện rõ ràng hơn.
+- Thích hợp khi cần layout khác nhau cho admin, user, landing...
+

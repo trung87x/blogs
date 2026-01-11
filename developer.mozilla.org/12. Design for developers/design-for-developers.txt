@@ -1,0 +1,73 @@
+THIẾT KẾ DÀNH CHO LẬP TRÌNH VIÊN
+================================
+
+1. Mục tiêu
+- Giúp lập trình viên hiểu tư duy thiết kế mà không cần trở thành designer.
+- Biết cách đọc hiểu yêu cầu thiết kế, đặt mình vào vị trí người dùng, cải thiện UI trong portfolio.
+- Front-end thường phải xử lý phần thiết kế mà không được hướng dẫn rõ.
+
+2. Yêu cầu đầu vào
+- Đã biết HTML và CSS cơ bản.
+- Có thể thực hành trên JSBin, Glitch nếu không có công cụ cài đặt cục bộ.
+
+---
+
+3. Các bài học chính
+
+a. Nguyên lý thiết kế cơ bản (UI Design Fundamentals)
++ Kiến thức chính:
+  - Tương phản (contrast)
+  - Kiểu chữ (typography)
+  - Thứ tự thị giác (visual hierarchy)
+  - Tỉ lệ (scale)
+  - Căn lề (alignment)
+  - Khoảng trắng (whitespace)
+  - Màu sắc (color theory)
+  - Sử dụng hình ảnh
+
++ Thực hành:
+  - Làm lại một trang đơn giản theo các nguyên lý trên
+  - Tạo tiêu đề rõ ràng, chữ dễ đọc, khoảng cách hợp lý
+
+b. Thiết kế lấy người dùng làm trung tâm (User-Centered Design)
++ Kiến thức chính:
+  - Mọi thứ làm ra là cho người dùng
+  - Nghiên cứu người dùng, thử nghiệm với họ
+  - Thiết kế tiếp cận sớm cho accessibility
+  - Hiểu về **design patterns phổ biến**:
+    * Dark mode
+    * Breadcrumbs (mẩu vụn điều hướng)
+    * Cards
+    * Modal
+    * Infinite scroll
+    * Lazy registration
+    * Progressive disclosure (hiển thị từng bước)
+    * Progress bar trong form
+
++ Thực hành:
+  - Dùng 1 pattern quen thuộc (VD: modal) và thử code lại bằng HTML + CSS
+  - Đảm bảo hỗ trợ bàn phím và screen reader (VD: `aria-modal`, `tabindex`)
+
+c. Thiết kế toàn diện (Inclusive Design)
++ Nguyên tắc:
+  - Thiết kế cho đa dạng người dùng ngay từ đầu
+  - Giao diện dễ hiểu, dễ thao tác, không loại trừ người có giới hạn khả năng
+
+d. Hiểu yêu cầu thiết kế (Design Briefs)
++ Kiến thức chính:
+  - Giao tiếp bằng ngôn ngữ thiết kế (spacing, layout, UI pattern…)
+  - Biết cách đọc hiểu yêu cầu từ file thiết kế (Figma…)
+  - Tái hiện giao diện đúng theo bản thiết kế, hiểu “dụng ý” của designer
+
++ Thực hành:
+  - Mở một file thiết kế Figma → chuyển thành HTML/CSS
+  - So sánh kết quả với thiết kế gốc → đánh giá chênh lệch
+
+---
+
+4. Tài liệu tham khảo đề xuất:
+- Web Style Guide – Patrick J. Lynch & Sarah Horton
+- Practical Typography – Matthew Butterick
+- Learn UI Design Fundamentals – Scrimba Course
+- Designing for the Web – Mark Boulton
+- Visual UI rules – Anthony Hobday, Adham Dannaway

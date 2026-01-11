@@ -1,0 +1,89 @@
+
+### Triển Khai Ứng Dụng Của Chúng Ta
+
+**Triển khai ứng dụng là gì?**
+Sau khi phát triển xong ứng dụng, bước tiếp theo là triển khai ứng dụng lên môi trường sản xuất, nơi người dùng có thể truy cập và sử dụng ứng dụng của bạn. Triển khai ứng dụng bao gồm việc tạo bản dựng (build) sản phẩm, kiểm tra chất lượng mã nguồn, và đưa ứng dụng lên một địa chỉ trực tuyến để công chúng có thể truy cập.
+
+**Quy trình triển khai ứng dụng**
+Triển khai ứng dụng web có thể được chia thành các bước sau:
+1. **Tạo bản dựng sản phẩm (Build Process)**: Biến đổi mã nguồn và các tài nguyên khác thành một bản dựng tối ưu để sử dụng trên môi trường sản xuất.
+2. **Đẩy mã lên GitHub**: Lưu trữ mã nguồn của bạn trên GitHub, giúp quản lý và chia sẻ mã với nhóm phát triển.
+3. **Sử dụng GitHub Actions**: Tự động hóa quá trình xây dựng và triển khai ứng dụng khi có thay đổi mã nguồn.
+
+**Tạo bản dựng sản phẩm với Vite**
+Vite là công cụ xây dựng (build tool) giúp tối ưu hóa và tạo bản dựng cho ứng dụng của bạn. Nó tự động tối ưu hóa mã, làm sạch mã thừa, và giảm dung lượng tải trang. Bạn có thể sử dụng lệnh `npm run build` để tạo bản dựng cho sản phẩm.
+
+**Ví dụ về quá trình build**:
+```bash
+npm run build
+```
+Sau khi chạy lệnh trên, Vite sẽ tạo một thư mục `dist` chứa tất cả các tệp cần thiết cho ứng dụng. Đây là các tệp tối ưu và sẵn sàng cho môi trường sản xuất.
+
+**Đẩy mã lên GitHub**
+Trước khi triển khai, mã của bạn cần được đẩy lên GitHub. Điều này giúp bạn quản lý mã nguồn và triển khai ứng dụng dễ dàng hơn.
+
+**Các bước đẩy mã lên GitHub**:
+1. **Khởi tạo Git**:
+```bash
+git init
+```
+
+2. **Thêm các thay đổi vào Git**:
+```bash
+git add .
+```
+
+3. **Commit các thay đổi**:
+```bash
+git commit -m "initial commit"
+```
+
+4. **Đẩy mã lên GitHub**:
+```bash
+git push origin main
+```
+
+**Sử dụng GitHub Actions cho Triển Khai**
+GitHub Actions giúp tự động hóa quy trình triển khai ứng dụng của bạn. Mỗi lần bạn đẩy mã lên GitHub, một hành động (action) sẽ được kích hoạt để xây dựng và triển khai mã của bạn lên GitHub Pages hoặc một dịch vụ hosting khác.
+
+**Ví dụ về file GitHub Action**:
+```yaml
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+```
+
+**Kiểm tra ứng dụng của bạn**
+Trước khi triển khai, hãy đảm bảo rằng bạn đã kiểm tra ứng dụng của mình để tránh lỗi. Việc kiểm tra có thể bao gồm các bước như:
+1. **Kiểm tra cú pháp mã**: Sử dụng ESLint để kiểm tra cú pháp và quy chuẩn mã.
+2. **Kiểm tra chức năng**: Thực hiện các bài kiểm tra đơn vị và kiểm tra tích hợp để đảm bảo rằng ứng dụng hoạt động như mong đợi.
+
+**Tóm tắt**
+Triển khai ứng dụng là bước cuối cùng trong quy trình phát triển web. Sử dụng công cụ như Vite, GitHub Actions, và GitHub Pages giúp quá trình triển khai trở nên dễ dàng và tự động hóa. Đảm bảo rằng bạn đã kiểm tra mã của mình và sử dụng quy trình triển khai thích hợp để đưa ứng dụng lên môi trường sản xuất một cách an toàn và hiệu quả.

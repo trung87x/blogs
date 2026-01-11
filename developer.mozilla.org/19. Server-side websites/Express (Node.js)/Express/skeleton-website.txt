@@ -1,0 +1,95 @@
+
+### Tạo Website Cơ Bản (Skeleton Website)
+
+**Giới thiệu về Skeleton Website**
+Trong bài hướng dẫn này, chúng ta sẽ tạo một website cơ bản (skeleton website) bằng cách sử dụng công cụ **Express Application Generator**. Website này sẽ là nền tảng để bạn phát triển các tính năng cụ thể của ứng dụng sau này.
+
+**Công cụ Express Application Generator**
+Công cụ này giúp bạn tạo một ứng dụng Express cơ bản với cấu trúc thư mục sẵn có, bao gồm các file và thư mục cho routes, views, public, v.v. Bạn sẽ tạo ra website "Local Library" từ công cụ này và bổ sung các tính năng cụ thể cho thư viện.
+
+**Bước 1: Cài đặt Express Generator**
+Trước tiên, bạn cần cài đặt **Express Generator** bằng npm (Node Package Manager):
+
+```bash
+npm install express-generator -g
+```
+
+Sau khi cài đặt xong, bạn có thể tạo một ứng dụng mới bằng cách chạy lệnh:
+
+```bash
+express express-locallibrary-tutorial --view=pug
+```
+
+Lệnh này sẽ tạo ra thư mục `express-locallibrary-tutorial` chứa cấu trúc ứng dụng cơ bản, sử dụng **Pug** làm template engine.
+
+**Bước 2: Cài đặt các phụ thuộc**
+Khi đã tạo ứng dụng, bạn cần cài đặt tất cả các phụ thuộc từ file `package.json`:
+
+```bash
+cd express-locallibrary-tutorial
+npm install
+```
+
+**Bước 3: Chạy ứng dụng**
+Sau khi cài đặt xong, bạn có thể khởi động ứng dụng. Dưới đây là cách chạy ứng dụng trên các hệ điều hành khác nhau:
+
+- Trên **Linux/macOS**:
+
+```bash
+DEBUG=express-locallibrary-tutorial:* npm start
+```
+
+- Trên **Windows Command Prompt**:
+
+```bash
+SET DEBUG=express-locallibrary-tutorial:* & npm start
+```
+
+- Trên **Windows PowerShell**:
+
+```bash
+$ENV:DEBUG = "express-locallibrary-tutorial:*"; npm start
+```
+
+Khi ứng dụng đã chạy, bạn có thể mở trình duyệt và truy cập vào `http://localhost:3000` để xem giao diện mặc định của Express.
+
+**Cấu trúc của ứng dụng**
+Sau khi tạo xong ứng dụng, bạn sẽ thấy cấu trúc thư mục sau:
+
+```
+express-locallibrary-tutorial
+    app.js
+    /bin
+        www
+    package.json
+    /public
+        /images
+        /javascripts
+        /stylesheets
+    /routes
+        index.js
+        users.js
+    /views
+        error.pug
+        index.pug
+        layout.pug
+```
+
+**Các thư mục và file quan trọng**:
+1. **app.js**: Đây là tệp chính cấu hình và khởi tạo ứng dụng Express.
+2. **routes/**: Chứa các tệp định nghĩa các route của ứng dụng.
+3. **views/**: Chứa các template (ví dụ: Pug templates) để render giao diện.
+4. **public/**: Chứa các tệp tĩnh như ảnh, JavaScript, và CSS.
+
+**Bước 4: Xử lý Routes**
+Routes là các đường dẫn trong ứng dụng. Ví dụ, trong tệp `routes/index.js`, bạn có thể định nghĩa các route để hiển thị nội dung.
+
+**Ví dụ về route trong `index.js`**:
+```javascript
+router.get("/", (req, res, next) => {
+  res.render("index", { title: "Express" });
+});
+```
+
+**Tóm tắt**
+Bằng cách sử dụng **Express Application Generator**, bạn đã tạo ra một ứng dụng Express cơ bản với cấu trúc sẵn có. Ứng dụng này có thể được mở rộng thêm các tính năng, ví dụ như thêm sách vào thư viện, xử lý form, và kết nối với cơ sở dữ liệu. Hãy tiếp tục phát triển ứng dụng này theo các yêu cầu của dự án.

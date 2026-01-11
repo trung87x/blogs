@@ -1,0 +1,47 @@
+1. Tính khả dụng trên web (Web Accessibility)
+Bài viết này giới thiệu các khái niệm cơ bản về tính khả dụng trên web.
+
+**Tiền đề:** Không yêu cầu kiến thức trước.
+
+**Mục tiêu:** Học về tính khả dụng và lý do tại sao nó quan trọng.
+
+**Tóm tắt**
+Do các hạn chế về thể chất hoặc kỹ thuật, có thể khách truy cập của bạn không thể trải nghiệm trang web của bạn như bạn mong muốn. Trong bài viết này, chúng tôi đưa ra các nguyên tắc chung về tính khả dụng và giải thích một số quy tắc.
+
+**Đi sâu hơn**
+Tính khả dụng: nguyên tắc chung
+Ban đầu, chúng ta có thể liên tưởng tính khả dụng với các hạn chế tiêu cực. Tòa nhà này phải dễ tiếp cận, do đó phải tuân theo các quy định về chiều rộng cửa, kích thước nhà vệ sinh và vị trí thang máy.
+
+Đây là cách nghĩ hạn hẹp về tính khả dụng. Hãy nghĩ về nó như một cách tuyệt vời để trao quyền cho mọi người và phục vụ nhiều khách hàng hơn. Những người ở Brazil có thể làm gì với trang web của bạn nếu trang web đó chỉ có tiếng Anh? Những người sử dụng điện thoại thông minh có thể duyệt một trang web nặng nề, lộn xộn được thiết kế cho màn hình máy tính để bàn lớn và băng thông không giới hạn không? Họ sẽ chuyển sang trang web khác. Nói chung, chúng ta phải nghĩ về sản phẩm của mình từ quan điểm của tất cả khách hàng mục tiêu và điều chỉnh sao cho phù hợp. Do đó, tính khả dụng.
+
+**Tính khả dụng trên web**
+Trong ngữ cảnh cụ thể của web, tính khả dụng có nghĩa là bất kỳ ai cũng có thể hưởng lợi từ nội dung của bạn, bất kể khuyết tật, vị trí, hạn chế kỹ thuật hay hoàn cảnh khác.
+
+Ví dụ về video:
+
+**Khiếm thính (Hearing impairment)**
+Làm thế nào để người khiếm thính có thể hưởng lợi từ một video? Bạn cần cung cấp phụ đề — hoặc tốt hơn nữa, một bản sao đầy đủ của văn bản.
+
+Cũng cần đảm bảo rằng người dùng có thể điều chỉnh âm lượng phù hợp với nhu cầu của họ.
+
+**Khiếm thị (Visual impairment)**
+Một lần nữa, cung cấp một bản sao văn bản mà người dùng có thể tham khảo mà không cần phải phát video, và mô tả âm thanh (một giọng nói ngoài màn hình mô tả những gì đang diễn ra trong video).
+
+**Khả năng tạm dừng (Pausing capacity)**
+Người dùng có thể gặp khó khăn trong việc hiểu ai đó trong video. Hãy để họ tạm dừng video để đọc phụ đề hoặc xử lý thông tin.
+
+**Khả năng sử dụng bàn phím (Keyboard capacity)**
+Hãy để người dùng có thể di chuyển vào và ra khỏi video, phát video và tạm dừng video mà không bị "mắc kẹt" trong video.
+
+**Các nguyên tắc cơ bản về tính khả dụng trên web**
+Một số điều cần thiết cho tính khả dụng cơ bản trên web bao gồm:
+
+- Mỗi khi trang web của bạn cần một hình ảnh để truyền đạt ý nghĩa, hãy bao gồm văn bản thay thế cho người khiếm thị hoặc những người có kết nối chậm.
+- Đảm bảo rằng tất cả người dùng có thể điều khiển giao diện đồ họa (như menu gập lại) chỉ bằng bàn phím (ví dụ: với phím Tab và phím Return).
+- Cung cấp một thuộc tính rõ ràng chỉ định ngôn ngữ của nội dung của bạn, để màn hình đọc có thể đọc văn bản của bạn một cách chính xác.
+- Đảm bảo rằng người dùng có thể di chuyển đến tất cả các widget trên trang chỉ với bàn phím mà không bị "mắc kẹt". (Ít nhất hãy để họ Tab vào và ra.)
+
+Và đó chỉ là sự khởi đầu.
+
+**Các nhà vô địch tính khả dụng**
+Từ năm 1999, W3C đã vận hành một nhóm làm việc có tên Sáng kiến Tính khả dụng Web (WAI), quảng bá tính khả dụng thông qua các hướng dẫn, tài liệu hỗ trợ và các tài nguyên quốc tế.

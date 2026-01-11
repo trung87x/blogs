@@ -1,0 +1,73 @@
+
+# Flexbox
+
+## 1. CSS Flexbox - Dự Án Bảng Giá (Pricing Table)
+
+### Mục tiêu:
+Tạo một bảng giá với ba gói dịch vụ bằng cách sử dụng Flexbox. Các gói sẽ được căn giữa và tự động điều chỉnh khi thay đổi kích thước màn hình.
+
+### Các bước thực hiện:
+1. **Tạo khung bố cục bảng giá**: Mỗi gói sẽ bao gồm tiêu đề, giá, tính năng và nút "Chọn gói".
+2. **Căn giữa bảng giá**: Sử dụng `display: flex` để căn giữa bảng giá theo chiều ngang và dọc, với `height: 100vh` để chiếm toàn bộ chiều cao màn hình.
+3. **Căn chỉnh các gói giá**: Sử dụng `flex: 1` để đảm bảo các thẻ giá có cùng kích thước.
+4. **Làm bảng giá responsive**: Dùng **Media Queries** để chuyển đổi bố cục từ hàng ngang sang hàng dọc khi màn hình thu nhỏ .
+
+---
+
+## 2. Flexbox và Cách Sử Dụng
+
+### Flexbox là gì?
+Flexbox là một phương pháp hiện đại giúp sắp xếp bố cục trang web một cách linh hoạt, thay thế các phương pháp cũ như bảng (`table`), `float` và `absolute positioning`.
+
+### Các thuộc tính chính của Flexbox:
+- **display: flex**: Kích hoạt Flexbox trên container.
+- **justify-content**: Căn chỉnh các phần tử theo chiều ngang.
+- **align-items**: Căn chỉnh các phần tử theo chiều dọc.
+- **gap**: Tạo khoảng cách giữa các phần tử【241†source】.
+
+### Sự khác biệt giữa `display: flex` và `display: inline-flex`:
+- **display: flex**: Container chiếm toàn bộ chiều rộng có sẵn.
+- **display: inline-flex**: Container chỉ chiếm diện tích vừa đủ với nội dung【241†source】.
+
+---
+
+## 3. Thuộc tính flex-direction trong Flexbox
+
+### **flex-direction** giúp xác định hướng sắp xếp các phần tử con trong Flexbox:
+- **row** (mặc định): Sắp xếp theo hàng ngang.
+- **column**: Sắp xếp theo cột dọc.
+
+### **Trục chính (main axis)** và **Trục chéo (cross axis)**:
+- Khi `flex-direction: row`, trục chính là chiều ngang.
+- Khi `flex-direction: column`, trục chính là chiều dọc【242†source】.
+
+---
+
+## 4. CSS Flexbox – Cách Tạo Bố Cục Linh Hoạt
+
+### **Sắp xếp thứ tự với `order`**:
+`order` giúp thay đổi thứ tự của các phần tử mà không thay đổi HTML. Các phần tử có `order: 1` sẽ được đẩy xuống cuối, và `order: -1` sẽ đẩy lên đầu.
+
+### **justify-content**:
+Căn chỉnh các phần tử theo trục chính (ngang hoặc dọc), với các giá trị như `center`, `space-between`, `space-around`【243†source】.
+
+### **align-items và align-content**:
+- **align-items**: Căn chỉnh phần tử theo trục chéo (vertical alignment).
+- **align-content**: Căn chỉnh các dòng khi sử dụng `flex-wrap`【243†source】.
+
+### **Căn chỉnh một mục riêng lẻ bằng `align-self`**:
+Dùng `align-self` để căn chỉnh một phần tử con cụ thể, bỏ qua `align-items`【243†source】.
+
+---
+
+## 5. **Flexbox – Điều Chỉnh Kích Thước Các Mục**
+
+### **Thuật toán xác định kích thước**:
+Flexbox xác định kích thước phần tử dựa trên `flex-basis`, `width`, `min-width`, và `max-width`.
+
+### **flex-grow và flex-shrink**:
+- **flex-grow**: Giúp phần tử mở rộng để chiếm không gian trống.
+- **flex-shrink**: Giúp phần tử thu nhỏ khi không đủ không gian【244†source】.
+
+### **Sử dụng viết tắt `flex`**:
+- `flex: 1;` giúp phần tử tự mở rộng và thu nhỏ, chia đều không gian【244†source】.

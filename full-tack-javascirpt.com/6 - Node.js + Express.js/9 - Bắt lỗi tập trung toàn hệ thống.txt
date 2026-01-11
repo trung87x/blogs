@@ -1,0 +1,77 @@
+[Ngữ cảnh #9] Bắt lỗi tập trung toàn hệ thống (MVC)
+
+🎯 Mục tiêu:
+- Gom toàn bộ lỗi (logic, truy vấn DB, không tìm thấy route...) về 1 nơi
+- Tránh trùng lặp `try/catch` khắp nơi
+- Tăng khả năng debug, log lỗi
+
+📁 Cấu trúc:
+backend-mvc/
+├── server.js
+├── middlewares/
+│   └── error.middleware.js
+├── routes/
+│   └── user.route.js
+├── controllers/
+│   └── user.controller.js
+
+---------------------
+📄 middlewares/error.middleware.js
+---------------------
+const errorHandler = (err, req, res, next) => {
+  console.error('🔥 Lỗi:', err.stack);
+  res.status(err.status || 500).json({
+    error: err.message || 'Có lỗi xảy ra từ server!'
+  });
+};
+
+module.exports = errorHandler;
+
+---------------------
+📄 controllers/user.controller.js
+---------------------
+exports.getUser = (req, res, next) => {
+  try {
+    // Ví dụ lỗi giả lập
+    throw new Error('Không tìm thấy người dùng!');
+  } catch (err) {
+    next(err); // đẩy lỗi xuống middleware lỗi
+  }
+};
+
+---------------------
+📄 routes/user.route.js
+---------------------
+const express = require('express');
+const router = express.Router();
+const userController = require('../controllers/user.controller');
+
+router.get('/user', userController.getUser);
+
+module.exports = router;
+
+---------------------
+📄 server.js
+---------------------
+const express = require('express');
+const app = express();
+const userRoutes = require('./routes/user.route');
+const errorHandler = require('./middlewares/error.middleware');
+
+app.use(express.json());
+app.use('/', userRoutes);
+
+// Middleware xử lý lỗi đặt sau tất cả routes
+app.use(errorHandler);
+
+// Khởi động
+app.listen(3000, () => {
+  console.log('🚀 Server chạy tại http://localhost:3000');
+});
+
+---------------------
+📌 Ghi chú:
+---------------------
+- `next(err)` giúp Express chuyển lỗi xuống middleware cuối
+- Có thể gắn thêm `err.status = 404` trước khi `next(err)`
+- Dùng `errorHandler` để log ra file / gửi về monitoring service nếu cần

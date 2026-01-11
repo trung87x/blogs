@@ -1,0 +1,119 @@
+📌 Cornell Notes - HTML Paragraph Elements
+
+📌 Topic/Title:
+
+Phần tử đoạn văn và phần tử trống trong HTML
+
+🔎 Keywords/Questions:
+
+Phần tử đoạn văn (<p>) trong HTML là gì?
+
+Phần tử trống (void elements) là gì?
+
+Sự khác biệt giữa <hr /> và <br />?
+
+Khi nào nên sử dụng phần tử ngắt (<br />) thay vì đoạn văn (<p>) mới?
+
+📝 Notes:
+
+1. Phần tử đoạn văn (<p>)
+
+Dùng để xác định đoạn văn trong HTML.
+
+Mỗi đoạn văn nên được đặt trong một thẻ <p> riêng biệt.
+
+Ví dụ:
+
+<p>Đây là một đoạn văn.</p>
+<p>Đây là một đoạn văn khác.</p>
+
+
+2. Phần tử trống (Void Elements)
+
+Là những phần tử không có nội dung bên trong.
+
+Không cần thẻ đóng (</tag>), nhưng có thể viết với dấu gạch chéo / trước > theo tiêu chuẩn HTML cũ.
+
+Ví dụ:
+
+<hr />  <!-- Thẻ đường kẻ ngang -->
+<br />  <!-- Thẻ xuống dòng -->
+
+
+3. Phần tử <hr /> (Horizontal Rule) - Đường kẻ ngang
+
+Dùng để tạo đường kẻ ngang phân tách nội dung.
+
+Ví dụ sử dụng:
+
+<p>Đoạn văn thứ nhất</p>
+<hr />
+<p>Đoạn văn thứ hai</p>
+
+
+Hiển thị: Một đường kẻ ngang xuất hiện giữa hai đoạn văn.
+
+4. Phần tử <br /> (Line Break) - Ngắt dòng
+
+Dùng để xuống dòng trong cùng một đoạn văn.
+
+Không nên dùng <br /> để ngăn cách hai đoạn văn khác nhau, thay vào đó hãy dùng <p> mới.
+
+Ví dụ sử dụng:
+
+<p>Đây là một bài thơ:<br />
+Hàng 1<br />
+Hàng 2<br />
+Hàng 3</p>
+
+
+Hiển thị:
+
+Đây là một bài thơ:
+Hàng 1
+Hàng 2
+Hàng 3
+
+
+Khi nào dùng <br />?
+
+Trong địa chỉ (để xuống dòng nhưng vẫn trong cùng một đoạn).
+
+Trong bài thơ (văn bản cần giữ nguyên định dạng).
+
+5. Quy tắc quan trọng khi sử dụng phần tử trống
+
+Không dùng <br /> để tạo khoảng cách giữa các đoạn văn → Thay vào đó, hãy dùng <p>.
+
+Chỉ có một cách viết đúng: <br />, không phải <br> theo tiêu chuẩn HTML cũ.
+
+Khi nhìn thấy hai đoạn văn tách biệt, hãy sử dụng <p>, không nên dùng <br /> nhiều lần.
+
+6. Thực hành: Định dạng nội dung với phần tử trống
+
+Yêu cầu:
+
+Tạo tên nhà thơ bằng <h1>.
+
+Định dạng địa chỉ nhà thơ trong một đoạn văn nhưng xuống dòng với <br />.
+
+Dùng <hr /> để phân tách nội dung.
+
+Giải pháp:
+
+<h1>William Blake</h1>
+<p>Soho, London<br />
+United Kingdom</p>
+<hr />
+<p>William Blake là một nhà thơ, họa sĩ và nhà khắc kim nổi tiếng của Anh.</p>
+
+
+📌 Summary:
+
+Sử dụng <p> cho đoạn văn.
+
+Sử dụng <br /> để ngắt dòng trong cùng một đoạn, không phải để chia đoạn.
+
+Dùng <hr /> để tạo đường phân cách giữa các phần nội dung.
+
+Không lạm dụng <br />, nên dùng <p> thay thế khi cần tách nội dung.

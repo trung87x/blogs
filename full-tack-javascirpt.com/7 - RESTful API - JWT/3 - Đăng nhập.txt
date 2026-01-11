@@ -1,0 +1,103 @@
+===========================================
+🧩 Ngữ cảnh #3: Đăng nhập người dùng
+===========================================
+
+🧠 Mô hình (Model) – Ý nghĩa:
+Đăng nhập là quá trình xác thực người dùng dựa trên email và password.
+
+Nếu đúng → tạo JWT token để ghi nhận user đăng nhập.  
+Nếu sai → trả lỗi, không cấp quyền truy cập.
+
+---
+
+🛠️ Controller – Các bước xử lý:
+1. Nhận POST request với email & password
+2. Tìm user theo email trong MongoDB
+3. So sánh password người dùng nhập với password đã hash trong DB
+4. Nếu đúng → tạo JWT Token
+5. Gửi phản hồi thành công (gồm token)
+6. Nếu sai → trả lỗi 401
+
+---
+
+📦 Cài đặt thư viện:
+npm install bcrypt jsonwebtoken
+
+---
+
+📄 File: routes/auth.js (nối tiếp phần đăng ký)
+-------------------------------------------------
+const jwt = require('jsonwebtoken');
+
+router.post('/login', async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    // 1. Kiểm tra email có tồn tại
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(401).json({ message: 'Email hoặc mật khẩu không đúng' });
+    }
+
+    // 2. So sánh mật khẩu
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(401).json({ message: 'Email hoặc mật khẩu không đúng' });
+    }
+
+    // 3. Tạo JWT Token
+    const token = jwt.sign(
+      { userId: user._id, email: user.email },
+      'SECRET_KEY', // nên dùng biến môi trường
+      { expiresIn: '1h' }
+    );
+
+    // 4. Trả phản hồi
+    res.json({
+      message: 'Đăng nhập thành công',
+      token
+    });
+
+  } catch (err) {
+    res.status(500).json({ message: 'Lỗi server', error: err.message });
+  }
+});
+
+---
+
+🧪 Test API:
+- URL: POST http://localhost:3000/api/auth/login
+- Body JSON:
+{
+  "email": "trung@example.com",
+  "password": "123456"
+}
+
+- Kết quả thành công:
+{
+  "message": "Đăng nhập thành công",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6..."
+}
+
+---
+
+📌 GHI CHÚ QUAN TRỌNG:
+
+✅ Không so sánh mật khẩu bằng toán tử `==`  
+→ Luôn dùng `bcrypt.compare(plain, hashed)`
+
+✅ Không trả lỗi rõ ràng như “email sai” hay “mật khẩu sai” riêng biệt  
+→ Gộp lại chung: "Email hoặc mật khẩu không đúng"  
+→ Giúp tránh dò email hợp lệ
+
+✅ Token nên lưu ở:
+- `localStorage`: dễ thao tác, nhưng dễ bị XSS
+- `HTTP-only cookie`: an toàn hơn, tránh XSS
+
+✅ Không ghi 'SECRET_KEY' trực tiếp trong mã nguồn  
+→ Sử dụng `.env` + `dotenv`
+
+---
+
+✅ Bạn đã sẵn sàng để tiếp tục:
+👉 Ngữ cảnh #4: Middleware xác thực JWT token?

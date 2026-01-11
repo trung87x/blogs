@@ -1,0 +1,118 @@
+/* =================================
+   CÁCH TRANG TRÍ LIÊN KẾT TRONG CSS
+   ================================= */
+
+/* === 1. VAI TRÒ CỦA LIÊN KẾT MẶC ĐỊNH === */
+/*
+  - Mặc định, trình duyệt hiển thị liên kết như sau:
+    + Chưa truy cập: màu xanh (blue), có gạch chân.
+    + Đã truy cập: màu tím (purple).
+    + Khi rê chuột: con trỏ thành hình bàn tay.
+    + Khi nhấn giữ (active): màu đỏ (red).
+    + Khi focus (tab vào): có đường viền bao quanh.
+  - Những kiểu này giúp người dùng dễ nhận biết và tương tác.
+*/
+
+/* === 2. CÁC PSEUDO-CLASS QUAN TRỌNG CHO LINK === */
+/*
+  a:link     → liên kết chưa truy cập
+  a:visited  → liên kết đã truy cập
+  a:focus    → được focus (tab hoặc bằng JS)
+  a:hover    → đang được rê chuột vào
+  a:active   → đang được nhấn giữ (trước khi chuyển trang)
+*/
+
+/* ⚠️ Ghi nhớ thứ tự để áp dụng đúng:
+   LoVe Fears HAte
+   a:link → a:visited → a:focus → a:hover → a:active
+*/
+
+/* === 3. STYLE LINK CƠ BẢN === */
+a {
+  outline-color: transparent;
+}
+
+a:link {
+  color: #6900ff;
+}
+
+a:visited {
+  color: #a5c300;
+}
+
+a:focus {
+  text-decoration: none;
+  background: #bae498;
+}
+
+a:hover {
+  text-decoration: none;
+  background: #cdfeaa;
+}
+
+a:active {
+  background: #6900ff;
+  color: #cdfeaa;
+}
+
+/* === 4. THÊM ICON VÀO LINK NGOÀI === */
+a[href^="http"]::after {
+  content: "";
+  display: inline-block;
+  width: 0.8em;
+  height: 0.8em;
+  margin-left: 0.25em;
+
+  background-size: 100%;
+  background-image: url("external-link-52.png");
+}
+/*
+  - ::after tạo phần tử ảo sau link
+  - Chọn link ngoài qua a[href^="http"] (bắt đầu bằng http)
+  - Sử dụng em để icon scale theo kích thước text
+*/
+
+/* === 5. STYLING LINKS NHƯ BUTTON === */
+.container {
+  display: flex;
+  gap: 0.625%;
+}
+
+.container a {
+  flex: 1;
+  text-decoration: none;
+  outline-color: transparent;
+  text-align: center;
+  line-height: 3;
+  color: black;
+}
+
+.container a:link,
+.container a:visited,
+.container a:focus {
+  background: palegoldenrod;
+  color: black;
+}
+
+.container a:hover {
+  background: orange;
+}
+
+.container a:active {
+  background: darkred;
+  color: white;
+}
+/*
+  - Flexbox giúp các link phân chia đều chiều rộng
+  - line-height tạo chiều cao và căn giữa văn bản
+  - Có thể dùng cho menu điều hướng hoặc tab chuyển trang
+*/
+
+/* === 6. TÓM TẮT === */
+/*
+- Link mặc định hữu ích, đừng loại bỏ hoàn toàn mà không thay thế cách nhận biết.
+- Pseudo-classes giúp tạo trải nghiệm tương tác thân thiện.
+- Có thể tùy biến mạnh với icon, màu nền, hiệu ứng hover/focus/active.
+- Nên giữ logic người dùng quen thuộc (màu khác nhau giữa đã truy cập và chưa truy cập).
+*/
+

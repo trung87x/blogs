@@ -1,0 +1,98 @@
+📌 Cornell Notes - HTML Heading Elements
+
+📌 Topic/Title:
+
+Phần tử tiêu đề trong HTML
+
+🔎 Keywords/Questions:
+
+Phần tử tiêu đề (Heading Elements) trong HTML là gì?
+
+Sự khác biệt giữa thẻ và phần tử trong HTML?
+
+Cách sử dụng các thẻ h1 - h6 đúng cách?
+
+Quy tắc quan trọng khi sử dụng tiêu đề HTML?
+
+📝 Notes:
+
+Giới thiệu về phần tử tiêu đề trong HTML
+
+Thẻ tiêu đề (Heading Tags) dùng để tạo tiêu đề trong trang web.
+
+Có 6 cấp độ tiêu đề: h1 → h6.
+
+h1 là tiêu đề quan trọng nhất (lớn nhất).
+
+h6 là tiêu đề ít quan trọng nhất (nhỏ nhất).
+
+Cú pháp:
+
+<h1>Tiêu đề cấp 1</h1>
+<h2>Tiêu đề cấp 2</h2>
+<h3>Tiêu đề cấp 3</h3>
+<h4>Tiêu đề cấp 4</h4>
+<h5>Tiêu đề cấp 5</h5>
+<h6>Tiêu đề cấp 6</h6>
+
+
+Không có thẻ h7, h6 là cấp tiêu đề nhỏ nhất có sẵn.
+
+Thẻ vs Phần tử trong HTML
+
+Thẻ (Tags): Chỉ phần mở <h1> và đóng </h1> của một phần tử.
+
+Phần tử (Element): Bao gồm cả thẻ mở, thẻ đóng và nội dung bên trong.
+
+Ví dụ:
+
+<h1>Xin chào thế giới</h1>
+
+
+Thẻ mở: <h1>
+
+Thẻ đóng: </h1>
+
+Phần tử: <h1>Xin chào thế giới</h1>
+
+Tại sao cần tiêu đề trong HTML?
+
+Giúp tạo cấu trúc nội dung, giống như mục lục trong sách.
+
+h1 → h6 thể hiện mức độ quan trọng của nội dung.
+
+Ví dụ:
+
+h1 → Tựa đề sách
+
+h2 → Chương chính
+
+h3 → Tiểu mục bên trong chương
+
+h4 - h6 → Các chi tiết nhỏ hơn
+
+Quy tắc quan trọng khi sử dụng tiêu đề HTML
+
+Chỉ có một thẻ h1 trên mỗi trang → H1 thể hiện nội dung chính của trang.
+
+Không bỏ qua cấp độ tiêu đề → Không nên nhảy từ h1 xuống h3 mà không có h2.
+
+Tiêu đề giúp tăng cường SEO → Công cụ tìm kiếm sử dụng tiêu đề để hiểu nội dung trang web.
+
+Thực hành tạo tiêu đề trong VS Code
+
+Tải xuống tài nguyên khóa học và giải nén trước khi sử dụng.
+
+Mở thư mục dự án trong VS Code.
+
+Sử dụng Live Preview để xem kết quả.
+
+Nguồn tài liệu tham khảo thêm
+
+Mozilla Developer Network (MDN): Tài liệu chính thức về HTML.
+
+Google Chrome DevTools: Kiểm tra và thử nghiệm mã HTML trực tiếp trên trình duyệt.
+
+📌 Summary:
+
+Tiêu đề HTML (h1 - h6) giúp tạo cấu trúc nội dung và tăng khả năng đọc của trang web. h1 là tiêu đề quan trọng nhất và chỉ nên có một thẻ h1 trong mỗi trang. Cần sử dụng tiêu đề theo thứ tự đúng để đảm bảo tính logic và hỗ trợ SEO.

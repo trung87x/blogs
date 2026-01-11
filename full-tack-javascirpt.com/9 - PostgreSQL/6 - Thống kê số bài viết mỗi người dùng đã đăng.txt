@@ -1,0 +1,49 @@
+# Ngữ cảnh 6: Thống kê số bài viết mỗi người dùng đã đăng
+
+🧠 Model (Ý nghĩa dữ liệu & quan hệ)
+- Mỗi người dùng có thể có nhiều bài viết (quan hệ 1-nhiều).
+- Cần đếm số lượng bài viết tương ứng với từng người dùng.
+- Dùng `GROUP BY` để nhóm theo người dùng, dùng `COUNT(*)` để đếm.
+
+🛠️ Controller (SQL)
+
+-- Bảng users
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(100) UNIQUE NOT NULL
+);
+
+-- Bảng posts
+CREATE TABLE posts (
+  id SERIAL PRIMARY KEY,
+  title TEXT,
+  content TEXT,
+  user_id INTEGER REFERENCES users(id)
+);
+
+-- Thêm dữ liệu mẫu
+INSERT INTO users (name, email) VALUES
+  ('Trung', 'trung@example.com'),
+  ('Lan', 'lan@example.com');
+
+INSERT INTO posts (title, content, user_id) VALUES
+  ('Bài 1', '...', 1),
+  ('Bài 2', '...', 1),
+  ('Bài 3', '...', 2);
+
+-- Truy vấn thống kê số bài viết theo người dùng
+SELECT
+  users.name,
+  COUNT(posts.id) AS total_posts
+FROM users
+LEFT JOIN posts ON users.id = posts.user_id
+GROUP BY users.id, users.name
+ORDER BY total_posts DESC;
+
+📘 Ghi chú:
+- `LEFT JOIN`: để thống kê cả người dùng chưa có bài viết (sẽ ra 0)
+- `COUNT(posts.id)`: đếm số bài viết
+- `GROUP BY`: nhóm theo người dùng
+- `ORDER BY total_posts DESC`: sắp xếp từ nhiều bài viết đến ít
+

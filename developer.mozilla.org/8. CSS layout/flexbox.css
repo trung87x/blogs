@@ -1,0 +1,136 @@
+/* ==========================
+   BỐ CỤC LINH HOẠT MỘT CHIỀU
+   ========================== */
+
+/* === 1. FLEXBOX LÀ GÌ? === */
+/*
+- Hệ thống bố cục một chiều: theo hàng (row) hoặc cột (column).
+- Cho phép phần tử co giãn (flex) để tận dụng không gian hiệu quả.
+- Tự động căn giữa, giãn đều, xếp cột cùng chiều cao,...
+*/
+
+/* === 2. KHÁI NIỆM CƠ BẢN === */
+/*
+- flex container: phần tử cha có display: flex
+- flex items: các phần tử con trực tiếp trong container
+- main axis: trục chính (mặc định là chiều ngang)
+- cross axis: trục chéo (vuông góc với main)
+*/
+
+/* === 3. KHAI BÁO CƠ BẢN === */
+section {
+  display: flex; /* biến <section> thành flex container */
+}
+
+/* === 4. HƯỚNG SẮP XẾP – flex-direction === */
+section {
+  flex-direction: row;        /* mặc định */
+  flex-direction: column;     /* xếp dọc */
+  flex-direction: row-reverse;
+  flex-direction: column-reverse;
+}
+
+/* === 5. XỬ LÝ TRÀN DÒNG – flex-wrap === */
+section {
+  flex-wrap: wrap;            /* xuống dòng nếu tràn */
+}
+
+/* === 6. flex-flow – VIẾT TẮT === */
+section {
+  flex-flow: row wrap;        /* gộp direction + wrap */
+}
+
+/* === 7. CHIA TỶ LỆ – flex === */
+article {
+  flex: 1;                    /* chia đều không gian */
+}
+article:nth-of-type(3) {
+  flex: 2;                    /* phần tử thứ 3 chiếm gấp đôi */
+}
+/*
+→ Tổng: 1 + 1 + 2 = 4 phần. Mỗi item chiếm tương ứng.
+*/
+
+/* Có thể thêm kích thước tối thiểu */
+article {
+  flex: 1 100px;              /* grow: 1, basis: 100px */
+}
+article:nth-of-type(3) {
+  flex: 2 100px;
+}
+
+/* === 8. CĂN CHỈNH TRÊN TRỤC CHÉO – align-items === */
+div {
+  align-items: center;        /* căn giữa dọc */
+}
+/* Các giá trị khác:
+   - stretch (default)
+   - flex-start
+   - flex-end
+   - baseline
+*/
+
+/* === 9. CĂN CHỈNH TRÊN TRỤC CHÍNH – justify-content === */
+div {
+  justify-content: space-around;
+}
+/* Các giá trị:
+   - flex-start (default)
+   - flex-end
+   - center
+   - space-between
+   - space-around
+   - space-evenly
+*/
+
+/* === 10. CĂN RIÊNG PHẦN TỬ – align-self === */
+button:first-child {
+  align-self: flex-end;
+}
+
+/* === 11. THAY ĐỔI THỨ TỰ – order === */
+button:first-child {
+  order: 1;      /* hiển thị sau các item có order thấp hơn */
+}
+button:last-child {
+  order: -1;     /* đẩy lên đầu */
+}
+
+/* === 12. FLEXBOX LỒNG NHAU === */
+section {
+  display: flex;
+}
+article:nth-of-type(3) {
+  display: flex;
+  flex-flow: column;
+}
+article:nth-of-type(3) div:first-child {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+button {
+  flex: 1 auto;
+  margin: 5px;
+}
+
+/* === 13. GHI NHỚ CÁC THUỘC TÍNH CHÍNH === */
+/*
+- display: flex
+- flex-direction
+- flex-wrap
+- flex-flow
+- flex (grow shrink basis)
+- justify-content
+- align-items
+- align-self
+- order
+*/
+
+/* ============================================================
+   TÓM TẮT:
+   - Flexbox = bố cục 1 chiều (hàng hoặc cột)
+   - Tự động căn chỉnh, co giãn, chia đều không gian
+   - Dễ học, dễ dùng → cực kỳ hữu ích cho responsive design
+   ============================================================ */

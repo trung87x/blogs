@@ -1,0 +1,43 @@
+CODE EDITORS
+============
+
+1. CHỨC NĂNG CƠ BẢN CỦA CODE EDITOR
+- Mở và chỉnh sửa tệp:
+  + Cho phép mở mọi tệp mã dễ dàng, tránh mở nhầm bằng ứng dụng khác.
+  + Nếu cần, bạn có thể gán đuôi tệp mở mặc định bằng trình soạn thảo.
+
+- Tô màu cú pháp (Syntax Highlighting):
+  + Hiển thị phần tử mã bằng màu sắc riêng biệt.
+  + Giúp dễ đọc và phát hiện lỗi nhanh hơn.
+  + Dùng thử: mở VS Code, tạo file `.js`, dán đoạn mã và quan sát màu sắc.
+
+- Gợi ý mã (Code Completion):
+  + Gợi ý đoạn mã tiếp theo khi bạn gõ lệnh.
+  + VS Code có thể tự điền các đoạn mẫu như `function`, `document.`...
+  + Tiết kiệm thời gian viết và tránh lỗi cú pháp.
+
+- Hỗ trợ sửa lỗi (Debugging):
+  + VS Code tự phát hiện lỗi cú pháp.
+  + Gợi ý cách sửa lỗi khi di chuột vào đoạn bị gạch chân.
+  + Ví dụ: phân biệt `name` và `Name`, thiếu dấu `"` hoặc dấu `)`...
+
+- Tìm kiếm và thay thế (Search & Replace):
+  + Cho phép tìm từ khóa trong toàn bộ tệp.
+  + Hỗ trợ thay thế hàng loạt bằng thao tác nhanh.
+  + Truy cập qua menu `Edit > Find` hoặc `Edit > Replace`.
+
+2. CÀI ĐẶT TIỆN ÍCH MỞ RỘNG (EXTENSIONS)
+- Trình soạn thảo hiện đại như VS Code cho phép cài thêm extension để:
+  + Hỗ trợ thêm ngôn ngữ mới, chức năng gợi ý, kiểm tra lỗi...
+  + Thêm công cụ như Git, server cục bộ...
+  + Tùy biến giao diện, chủ đề màu sắc.
+  + Gợi ý mã thông minh bằng AI.
+
+- Hành động:
+  a. Mở VS Code, vào menu `View > Extensions`.
+  b. Tìm "Prettier - Code Formatter".
+  c. Nhấn `Install` để cài đặt.
+  d. Vào Settings:
+     - Tìm "Default Formatter" → chọn Prettier.
+     - Bật "Format On Save".
+

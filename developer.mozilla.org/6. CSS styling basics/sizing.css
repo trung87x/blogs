@@ -1,0 +1,105 @@
+/* ====================
+   KÍCH THƯỚC TRONG CSS
+   ==================== */
+
+/* === 1. INTRINSIC SIZE – Kích thước tự nhiên (nội tại) === */
+/*
+  - Một số phần tử như <img> có kích thước sẵn từ file (intrinsic size)
+  - Ví dụ: ảnh PNG có width/height từ metadata
+  - Nếu không thay đổi bằng CSS, trình duyệt hiển thị đúng kích thước đó
+*/
+
+img {
+  border: 5px solid darkblue;
+}
+
+/*
+  - Ngược lại, <div> không có nội dung → không có kích thước
+  - Thêm nội dung vào sẽ làm nó hiển thị đúng theo nội dung
+*/
+
+.box {
+  border: 5px solid darkblue;
+  /* nếu không có nội dung → chỉ là 1 đường viền mỏng */
+}
+
+/* === 2. EXTRINSIC SIZE – Kích thước do CSS đặt ra === */
+
+.box {
+  width: 200px;
+  height: 100px;
+}
+/*
+  - Đặt width/height cụ thể → thành kích thước cưỡng bức (extrinsic)
+  - Nếu nội dung vượt quá kích thước → xảy ra overflow
+*/
+
+/* === 3. PERCENTAGES – Kích thước theo phần trăm === */
+
+.box {
+  width: 50%;
+}
+/*
+  - 50% của chiều rộng phần tử cha
+  - Cẩn thận khi cha không có chiều rộng xác định
+*/
+
+/* === 4. PERCENTAGE MARGIN & PADDING === */
+
+.box {
+  width: 200px;
+  margin: 10%;
+  padding: 10%;
+}
+/*
+  - Dù là margin-top, margin-left… thì 10% luôn dựa vào chiều rộng phần tử cha
+  - Không dựa vào height như bạn có thể nghĩ
+*/
+
+/* === 5. MIN/MAX SIZE === */
+
+.box {
+  min-height: 100px;
+  max-width: 300px;
+}
+/*
+  - min-height: chiều cao tối thiểu → có thể cao hơn nếu nội dung vượt
+  - max-width: giới hạn không vượt quá → dùng để tránh ảnh bị giãn quá
+*/
+
+/* === 6. MAX-WIDTH DÙNG VỚI ẢNH RESPONSIVE === */
+
+img {
+  max-width: 100%;
+}
+/*
+  - Giữ nguyên kích thước ảnh nhỏ, chỉ thu nhỏ nếu vượt quá container
+  - Không làm ảnh bị giãn gây mờ/pixelated
+*/
+
+/* === 7. VIEWPORT UNITS === */
+
+.box {
+  width: 20vw;   /* 20% chiều rộng viewport */
+  height: 20vh;  /* 20% chiều cao viewport */
+  font-size: 10vh; /* chữ cao 10% chiều cao màn hình */
+}
+/*
+  - 1vw = 1% chiều rộng trình duyệt
+  - 1vh = 1% chiều cao trình duyệt
+  - Hữu ích cho phần tử full màn hình như hero section
+*/
+
+/* Ví dụ:
+   - width: 100vw → chiều ngang full màn hình
+   - height: 100vh → chiều cao full màn hình
+*/
+
+/* ==========================================================
+   TỔNG KẾT:
+   - intrinsic size: từ chính nội dung hoặc ảnh
+   - extrinsic size: từ CSS ép kích thước
+   - % tính theo chiều rộng phần tử cha (kể cả margin/padding)
+   - min-/max- giúp linh hoạt với nội dung thay đổi
+   - vw/vh cực hữu ích cho thiết kế responsive hiện đại
+   ========================================================== */

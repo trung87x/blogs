@@ -1,0 +1,24 @@
+DEALING WITH FILES
+==================
+
+1. CÁCH ĐẶT TÊN FILE
+- Tên file gồm 2 phần: tên và phần mở rộng (extension)
+  + Ví dụ: `index.html` → `index` là tên, `.html` là extension
+- Không nên đổi hoặc xóa extension
+- Trên Windows, nên bật chế độ hiển thị đuôi file
+
+- Quy tắc đặt tên tốt:
+  + Viết thường toàn bộ
+  + Không dùng khoảng trắng
+  + Dùng dấu `-` thay cho khoảng trắng: `my-file.html`
+  + Tránh các ký tự lạ và tên dài phức tạp
+
+2. ĐƯỜNG DẪN TỆP (FILE PATHS)
+- Để một file sử dụng file khác, cần dẫn đường (file path) chính xác
+
+3. QUY TẮC CHUNG VỀ ĐƯỜNG DẪN
+- Tệp cùng thư mục: `filename.ext`
+- Trong thư mục con: `subfolder/filename.ext`
+- Trong thư mục cha: `../filename.ext`
+- Kết hợp: `../images/photo.jpg` hoặc `../sub1/sub2/file.js`
+

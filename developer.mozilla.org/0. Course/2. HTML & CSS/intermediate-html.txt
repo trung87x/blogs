@@ -1,0 +1,98 @@
+
+# Intermediate HTML
+
+## 1. Lồng nhau (Nesting) và Thụt lề (Indentation)
+
+### Lồng nhau trong HTML
+Lồng nhau là quá trình đặt một phần tử HTML bên trong một phần tử HTML khác. Điều này giúp tổ chức dữ liệu một cách rõ ràng và phân cấp. Ví dụ, bạn có thể lồng danh sách không có thứ tự vào danh sách có thứ tự:
+```html
+<ul>
+  <li>Mục 1</li>
+  <li>Mục 2
+    <ul>
+      <li>Mục 2a</li>
+      <li>Mục 2b</li>
+    </ul>
+  </li>
+  <li>Mục 3</li>
+</ul>
+```
+
+### Tại sao thụt lề quan trọng?
+Thụt lề giúp mã dễ đọc và dễ kiểm tra lỗi cú pháp. Trong HTML, việc thụt lề đúng cách giúp dễ dàng xác định phần tử con và duy trì cấu trúc rõ ràng【77†source】.
+
+---
+
+## 2. Thẻ Liên Kết và Siêu Liên Kết trong HTML
+
+### Thẻ <a>
+Thẻ <a> trong HTML dùng để tạo siêu liên kết, giúp kết nối các trang web khác nhau. Cấu trúc cơ bản của thẻ <a> như sau:
+```html
+<a href="https://www.example.com">Truy cập trang web</a>
+```
+- **href**: Thuộc tính này chỉ định URL đích của liên kết.
+- **target="_blank"**: Mở liên kết trong một tab mới.
+
+### Tạo danh sách các liên kết
+Bạn có thể tạo danh sách liên kết bằng các thẻ <ol> và <ul>:
+```html
+<h1>5 trang web yêu thích</h1>
+<ol>
+  <li><a href="https://www.youtube.com" target="_blank">YouTube</a></li>
+  <li><a href="https://www.reddit.com" target="_blank">Reddit</a></li>
+  <li><a href="https://www.wikipedia.org" target="_blank">Wikipedia</a></li>
+  <li><a href="https://www.github.com" target="_blank">GitHub</a></li>
+  <li><a href="https://www.stackoverflow.com" target="_blank">Stack Overflow</a></li>
+</ol>
+```
+Lệnh này tạo một danh sách các liên kết được sắp xếp theo thứ tự【78†source】.
+
+---
+
+## 3. Dự Án HTML: Birthday Invite
+
+### Mục tiêu của dự án
+Dự án này giúp bạn thực hành các kỹ năng HTML bằng cách tạo một trang web thiệp mời sinh nhật. Trang web này sẽ bao gồm các phần tử như tiêu đề, hình ảnh, danh sách đồ cần mang theo, và liên kết Google Maps.
+
+### Các thẻ HTML cần sử dụng
+- **<h1>, <h2>, <h3>**: Thẻ tiêu đề, mô tả các phần quan trọng của lời mời.
+- **<img>**: Chèn hình ảnh minh họa.
+- **<ul>, <li>**: Danh sách đồ cần mang theo.
+- **<a>**: Liên kết đến Google Maps để chỉ đường【75†source】.
+
+---
+
+## 4. Thực hành nâng cao với HTML
+
+### Tạo danh sách lồng nhau
+Danh sách lồng nhau (nested lists) là kỹ thuật quan trọng giúp bạn tổ chức thông tin tốt hơn, ví dụ:
+```html
+<ul>
+  <li>A</li>
+  <li>B
+    <ol>
+      <li>B1</li>
+      <li>B2
+        <ul>
+          <li>B2a
+            <ul>
+              <li>B2aa</li>
+              <li>B2ab</li>
+            </ul>
+          </li>
+          <li>B2b</li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+</ul>
+```
+Lồng nhiều loại danh sách giúp bạn mô phỏng các cấu trúc phân cấp hiệu quả【77†source】.
+
+---
+
+## 5. Lợi Ích của việc Sử Dụng HTML Tốt
+
+- **Tạo trang web dễ đọc**: Thụt lề và lồng các thẻ giúp mã nguồn dễ đọc và dễ bảo trì.
+- **Cộng tác dễ dàng**: HTML rõ ràng và cấu trúc giúp các lập trình viên khác có thể dễ dàng hiểu và tiếp tục công việc.
+- **Tạo nội dung tương tác**: Các thẻ liên kết, danh sách, và hình ảnh giúp bạn tạo nội dung phong phú và dễ sử dụng cho người truy cập.

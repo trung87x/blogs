@@ -1,0 +1,28 @@
+
+1. Thêm bóng đổ cho hộp (Box Shadows)
+Bóng đổ là một tính năng thiết kế phổ biến giúp các phần tử nổi bật trên trang của bạn. Trong CSS, bóng đổ cho các hộp phần tử được tạo ra bằng thuộc tính `box-shadow` (nếu bạn muốn thêm bóng đổ cho chính văn bản, bạn cần sử dụng `text-shadow`).
+
+Thuộc tính `box-shadow` nhận các giá trị sau:
+
+- Độ lệch theo trục X
+- Độ lệch theo trục Y
+- Bán kính mờ
+- Bán kính lan rộng
+- Màu sắc
+- Từ khóa `inset`
+
+Trong ví dụ dưới đây, chúng ta đã đặt độ lệch trục X và Y là 5px, bán kính mờ là 10px và bán kính lan rộng là 2px. Tôi sử dụng màu đen bán trong suốt cho bóng đổ. Hãy thử thay đổi các giá trị khác nhau để xem bóng đổ thay đổi như thế nào.
+
+```html
+<div class="wrapper">
+  <button class="shadow">box-shadow</button>
+</div>
+```
+
+```css
+.shadow {
+  box-shadow: 5px 5px 10px 2px rgb(0 0 0 / 0.8);
+}
+```
+
+Lưu ý: Trong ví dụ này, chúng ta không sử dụng từ khóa `inset`, điều này có nghĩa là bóng đổ sẽ là bóng rơi mặc định với hộp nằm trên bóng đổ. Bóng đổ `inset` sẽ xuất hiện bên trong hộp, giống như nội dung bị đẩy lùi vào trong trang.

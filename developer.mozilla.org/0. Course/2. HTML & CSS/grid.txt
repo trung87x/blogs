@@ -1,0 +1,78 @@
+
+# CSS Grid
+
+## 1. Mondrian Painting
+
+Dự án này giúp bạn thực hành CSS Grid bằng cách tái tạo một bức tranh Mondrian nổi tiếng của Piet Mondrian chỉ bằng HTML và CSS.
+
+### Các bước thực hiện:
+1. **Tạo HTML**: Sử dụng các div để đại diện cho các khối màu.
+2. **Tạo CSS Grid**: Sử dụng các thuộc tính grid-template-columns, grid-template-rows, và grid-gap để tạo lưới.
+3. **Định vị các ô màu**: Sử dụng grid-column và grid-row để điều chỉnh kích thước và vị trí các ô.
+4. **Căn giữa toàn bộ lưới**: Dùng Flexbox để căn giữa lưới trên trang【261†source】.
+
+---
+
+## 2. Display: Grid
+
+### CSS Grid là gì?
+CSS Grid là một hệ thống bố cục hai chiều giúp sắp xếp nội dung trên trang web dễ dàng hơn, phù hợp với các bố cục phức tạp như bảng và các lưới.
+
+### Cách thiết lập một lưới Grid:
+1. **Khai báo Grid Container**:
+   ```css
+   .container {
+     display: grid;
+   }
+   ```
+2. **Xác định số cột và hàng**:
+   ```css
+   .container {
+     display: grid;
+     grid-template-columns: 1fr 2fr;
+     grid-template-rows: 1fr 1fr;
+     gap: 10px;
+   }
+   ```
+3. **Ứng dụng CSS Grid trong bàn cờ**:
+   ```css
+   .chessboard {
+     display: grid;
+     grid-template-columns: repeat(8, 100px);
+     grid-template-rows: repeat(8, 100px);
+     width: 800px;
+   }
+   ```
+
+---
+
+## 3. Grid Sizing
+
+### Các cách định kích thước trong CSS Grid:
+1. **Kích thước cố định** (px, rem).
+2. **Sử dụng auto**: Cột hoặc hàng mở rộng hoặc thu hẹp theo nội dung.
+3. **Sử dụng đơn vị fr**: Định tỷ lệ kích thước các hàng và cột.
+4. **Sử dụng minmax()**: Đặt kích thước tối thiểu và tối đa cho cột hoặc hàng【263†source】.
+
+---
+
+## 4. Grid Placement
+
+### Cách đặt phần tử vào vị trí mong muốn:
+1. **Sử dụng grid-column và grid-row**:
+   ```css
+   .item {
+     grid-column: span 2;
+     grid-row: span 2;
+   }
+   ```
+2. **Sử dụng grid-area để định vị nhanh chóng**:
+   ```css
+   .item {
+     grid-area: 1 / 2 / 3 / 4;
+   }
+   ```
+
+### Chồng phần tử lên nhau:
+Sử dụng z-index để kiểm soát thứ tự các phần tử trong lưới【264†source】.
+

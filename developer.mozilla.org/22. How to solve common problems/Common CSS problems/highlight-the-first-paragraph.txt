@@ -1,0 +1,35 @@
+
+1. Cách làm nổi bật đoạn văn đầu tiên trong một container
+Trong hướng dẫn này, bạn sẽ tìm hiểu cách làm nổi bật đoạn văn đầu tiên trong một container.
+
+**Tạo kiểu cho đoạn văn đầu tiên**
+Bạn có thể muốn làm cho đoạn văn đầu tiên lớn hơn và đậm hơn. Bạn có thể thêm một lớp (class) cho đoạn văn đầu tiên và chọn nó theo cách đó, nhưng sử dụng một pseudo-class selector sẽ linh hoạt hơn — điều này có nghĩa là bạn có thể nhắm mục tiêu đoạn văn dựa trên vị trí của nó trong tài liệu, và bạn sẽ không phải di chuyển lớp đó nếu thứ tự nguồn thay đổi.
+
+**Sử dụng pseudo-class**
+Pseudo-class hoạt động như thể bạn đã áp dụng một lớp; tuy nhiên, thay vì sử dụng selector lớp, CSS sẽ chọn phần tử dựa trên cấu trúc tài liệu. Có rất nhiều pseudo-classes khác nhau có thể chọn các phần tử khác nhau. Trong trường hợp này, chúng ta sẽ sử dụng `:first-child`. Điều này sẽ chọn phần tử là phần tử con đầu tiên của một phần tử cha.
+
+```html
+<div class="wrapper">
+  <p>
+    Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion
+    daikon amaranth tatsoi tomatillo melon azuki bean garlic.
+  </p>
+
+  <p>
+    Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette
+    tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato.
+    Dandelion cucumber earthnut pea peanut soko zucchini.
+  </p>
+</div>
+```
+
+```css
+.wrapper p:first-child {
+  font-weight: bold;
+  font-size: 130%;
+}
+```
+
+Bạn có thể thử thay đổi `:first-child` thành `:last-child` trong ví dụ trực tiếp trên, và bạn sẽ chọn đoạn văn cuối cùng.
+
+Mỗi khi bạn cần nhắm mục tiêu một thứ gì đó trong tài liệu của mình, bạn có thể kiểm tra xem liệu một trong các pseudo-classes có thể làm điều đó cho bạn không.

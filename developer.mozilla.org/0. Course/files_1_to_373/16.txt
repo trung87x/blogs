@@ -1,0 +1,103 @@
+📌 Cornell Notes - [Project] Movie Ranking
+
+📌 Topic/Title:
+
+Dự án xếp hạng phim yêu thích bằng HTML
+
+🔎 Keywords/Questions:
+
+Mục tiêu của dự án Movie Ranking là gì?
+
+Những phần tử HTML nào cần sử dụng?
+
+Làm thế nào để hiển thị danh sách các bộ phim yêu thích?
+
+Cách tổ chức nội dung HTML để tạo trang web xếp hạng phim?
+
+📝 Notes:
+
+1. Mô tả dự án
+
+Tạo một trang web xếp hạng phim yêu thích.
+
+Sử dụng HTML cơ bản để hiển thị danh sách phim theo định dạng đúng.
+
+Yêu cầu hiển thị ít nhất 3 bộ phim yêu thích với mô tả lý do thích.
+
+Tận dụng kiến thức đã học về thẻ tiêu đề, đoạn văn và các phần tử trống.
+
+2. Cấu trúc của trang web xếp hạng phim
+
+Thành phần Mô tả Thẻ HTML sử dụng
+
+Tiêu đề trang Tên trang web <h1>
+
+Phụ đề "Danh sách 3 bộ phim yêu thích" <h2>
+
+Đường kẻ ngang Ngăn cách tiêu đề và nội dung <hr />
+
+Tên phim Tên của từng bộ phim <h3>
+
+Mô tả phim Lý do tại sao thích bộ phim <p>
+
+3. Mã HTML mẫu cho dự án
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Xếp hạng phim yêu thích</title>
+</head>
+<body>
+
+    <h1>Những bộ phim hay nhất mọi thời đại</h1>
+    <h2>Top 3 bộ phim yêu thích của tôi</h2>
+    <hr />
+
+    <h3>Spirited Away</h3>
+    <p>Một bộ anime tuyệt đẹp với cốt truyện sáng tạo và đầy cảm xúc.</p>
+
+    <h3>Ex Machina</h3>
+    <p>Phim khoa học viễn tưởng xuất sắc về AI và nhận thức con người.</p>
+
+    <h3>Drive</h3>
+    <p>Bộ phim hành động mang phong cách nghệ thuật với diễn xuất đỉnh cao của Ryan Gosling.</p>
+
+</body>
+</html>
+
+4. Hướng dẫn thực hiện dự án
+
+Tạo tệp HTML mới → Lưu tên là index.html.
+
+Thêm tiêu đề (<h1>) → Ghi rõ chủ đề trang web.
+
+Thêm phụ đề (<h2>) → Định nghĩa danh sách phim.
+
+Thêm đường kẻ ngang (<hr />) → Ngăn cách nội dung.
+
+Danh sách phim:
+
+Mỗi bộ phim sử dụng thẻ <h3>.
+
+Thêm mô tả phim bằng thẻ <p>.
+
+Lưu tệp và xem trước trong trình duyệt.
+
+5. Mở rộng & Tùy chỉnh
+
+Thêm nhiều phim hơn vào danh sách.
+
+Sử dụng danh sách có thứ tự (<ol>) để sắp xếp phim theo xếp hạng.
+
+Thêm ảnh (<img>) của phim để làm trang sinh động hơn.
+
+Dùng CSS để trang trí giao diện (sẽ học sau).
+
+📌 Summary:
+
+Dự án Movie Ranking giúp ôn tập kiến thức HTML cơ bản như tiêu đề (<h1>, <h2>, <h3>), đoạn văn (<p>), đường kẻ ngang (<hr />).
+
+Cấu trúc trang web đơn giản nhưng hiệu quả để hiển thị danh sách phim yêu thích.
+
+Có thể tùy chỉnh nội dung để cá nhân hóa dự án bằng cách thêm ảnh, danh sách hoặc CSS.

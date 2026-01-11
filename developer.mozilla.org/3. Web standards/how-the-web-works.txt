@@ -1,0 +1,45 @@
+INTERNET VẬN HÀNH NHƯ THẾ NÀO KHI TRUY CẬP TRANG WEB
+=======================================================
+
+1. MỤC TIÊU
+- Hiểu quá trình khi người dùng gõ URL vào trình duyệt.
+- Nắm vai trò của DNS, HTTP, TCP/IP, địa chỉ IP, trình duyệt, máy chủ.
+
+2. THÀNH PHẦN THAM GIA
+- **Client**: thiết bị người dùng (laptop, điện thoại, trình duyệt).
+- **Server**: máy chủ lưu trữ và gửi nội dung trang web.
+- **DNS**: "danh bạ" để tìm địa chỉ IP của website.
+- **HTTP**: giao thức truyền nội dung giữa client ↔ server.
+- **TCP/IP**: giao thức mạng giúp gói dữ liệu đi từ A đến B.
+
+3. TÓM TẮT QUY TRÌNH TRUY CẬP TRANG WEB
+a. Người dùng nhập địa chỉ web (VD: mozilla.org)
+b. Trình duyệt truy vấn DNS → tìm ra địa chỉ IP tương ứng
+c. Trình duyệt gửi HTTP request tới server
+d. Server phản hồi bằng HTTP response (status code + nội dung)
+e. Trình duyệt nhận file HTML + CSS + JS → lắp ráp và hiển thị
+
+4. CÁC THÀNH PHẦN TRONG URL
+Ví dụ:
+https://developer.mozilla.org/en-US/
+
+- `https`: giao thức bảo mật
+- `developer.mozilla.org`: domain + subdomain
+- `/en-US/`: đường dẫn tới tài nguyên cụ thể
+
+5. GÓI DỮ LIỆU (PACKETS)
+- Dữ liệu gửi qua mạng được chia nhỏ thành nhiều **packet**.
+- Mỗi packet đi đường riêng → đến đích rồi được lắp lại.
+- Nếu gói bị lỗi → chỉ cần gửi lại 1 phần, tiết kiệm hơn gửi lại cả file.
+
+6. HTTP STATUS CODES PHỔ BIẾN
+- `200 OK`: thành công
+- `301`: chuyển hướng vĩnh viễn
+- `403`: bị cấm truy cập
+- `404`: không tìm thấy trang
+- `503`: server lỗi hoặc bảo trì
+
+7. MẸO THỰC HÀNH NHANH
+- Truy cập https://nslookup.io → gõ tên miền → xem địa chỉ IP.
+- Dán IP vào trình duyệt → thử truy cập trang.
+- Dùng công cụ như DevTools (F12) → tab Network → xem chi tiết HTTP request/response.

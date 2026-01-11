@@ -1,0 +1,127 @@
+
+# Intermediate CSS
+
+## 1. CSS Flag Project
+
+Dự án này giúp bạn học cách tạo hình ảnh lá cờ Lào chỉ bằng HTML và CSS mà không cần sử dụng hình ảnh. Bạn sẽ áp dụng các kỹ thuật định vị (position), màu sắc (background-color), và CSS Selectors để tạo ra một bố cục hoàn chỉnh.
+
+### Bố cục của lá cờ Lào:
+- **Nền đỏ**: Hình chữ nhật bao trùm toàn bộ lá cờ.
+- **Dải màu xanh lam**: Hình chữ nhật nhỏ hơn nằm ở trung tâm.
+- **Vòng tròn trắng**: Nằm chính giữa dải màu xanh.
+
+### Các bước thực hiện:
+1. **Tạo nền cờ** (màu đỏ):
+   ```css
+   .flag {
+     width: 900px;
+     height: 600px;
+     background-color: #ce1126;
+     position: relative;
+   }
+   ```
+
+2. **Tạo dải xanh ở trung tâm**:
+   ```css
+   .flag > div {
+     width: 100%;
+     height: 300px;
+     background-color: #002868;
+     position: absolute;
+     top: 150px;
+   }
+   ```
+
+3. **Tạo vòng tròn trắng**:
+   ```css
+   .flag > div > div {
+     width: 200px;
+     height: 200px;
+     background-color: #ffffff;
+     border-radius: 50%;
+     position: absolute;
+     top: 50px;
+     left: 350px;
+   }
+   ```
+
+---
+
+## 2. CSS Cascade and Specificity
+
+### CSS Cascade:
+CSS Cascade giúp trình duyệt quyết định quy tắc nào được áp dụng khi có nhiều quy tắc CSS nhắm vào cùng một phần tử. Quy tắc sau sẽ ghi đè quy tắc trước nếu cùng nhắm đến một thuộc tính.
+
+### Tính đặc hiệu (Specificity):
+- **ID** > **Class** > **Element**
+- **!important** có thể ghi đè mọi quy tắc CSS khác.
+
+### Ví dụ về tính đặc hiệu:
+```css
+#unique-text { color: red; } /* ID có độ ưu tiên cao nhất */
+.text-blue { color: blue; }  /* Class có độ ưu tiên thấp hơn ID */
+p { color: green; }         /* Element có độ ưu tiên thấp nhất */
+```
+
+---
+
+## 3. Combining CSS Selectors
+
+Kết hợp CSS Selectors giúp tối ưu hóa mã CSS và tránh trùng lặp không cần thiết.
+
+### Các kiểu kết hợp CSS Selectors:
+- **Bộ chọn nhóm (Group Selector)**: Áp dụng cùng kiểu cho nhiều phần tử.
+  ```css
+  h1, h2, p { color: blue; }
+  ```
+
+- **Bộ chọn con (>)**: Chọn các phần tử con trực tiếp của phần tử cha.
+  ```css
+  div > p { color: red; }
+  ```
+
+- **Bộ chọn hậu duệ (descendant selector)**: Chọn tất cả phần tử con bên trong phần tử cha.
+  ```css
+  div p { color: green; }
+  ```
+
+---
+
+## 4. CSS Positioning
+
+### Các loại định vị trong CSS:
+- **position: static**: Giá trị mặc định, không thay đổi vị trí.
+- **position: relative**: Định vị dựa trên vị trí ban đầu của phần tử.
+- **position: absolute**: Định vị dựa trên phần tử cha gần nhất có `position: relative`.
+- **position: fixed**: Phần tử cố định với cửa sổ trình duyệt, không thay đổi khi cuộn trang.
+
+### Sử dụng z-index:
+`z-index` giúp kiểm soát thứ tự chồng lên nhau của các phần tử.
+```css
+div {
+  position: absolute;
+  z-index: 10;
+}
+```
+
+---
+
+## 5. CSS Box Model
+
+CSS Box Model xác định cách các phần tử được bố trí và kích thước trên trang web. Mỗi phần tử HTML bao gồm:
+- **Content**: Nội dung chính của phần tử.
+- **Padding**: Khoảng cách giữa nội dung và viền.
+- **Border**: Đường viền bao quanh phần tử.
+- **Margin**: Khoảng cách giữa phần tử và các phần tử khác.
+
+### Ví dụ về Box Model:
+```css
+div {
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+  border: 5px solid black;
+  margin: 20px;
+}
+```
+

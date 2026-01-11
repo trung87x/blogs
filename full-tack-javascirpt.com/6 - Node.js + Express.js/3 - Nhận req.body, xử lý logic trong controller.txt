@@ -1,0 +1,53 @@
+[Ngữ cảnh #3] Nhận req.body, xử lý logic trong controller
+
+📄 server.js (không đổi)
+- Đảm bảo có dòng:
+  app.use(express.json());
+
+📄 routes/user.route.js (không đổi)
+router.post('/', userController.createUser);
+
+📄 controllers/user.controller.js (đã cập nhật)
+
+let users = [];
+
+exports.getAllUsers = (req, res) => {
+  res.json(users);
+};
+
+exports.createUser = (req, res) => {
+  const { name, email } = req.body;
+
+  // Kiểm tra dữ liệu
+  if (!name || !email) {
+    return res.status(400).json({ error: 'Vui lòng nhập đủ name và email' });
+  }
+
+  // Kiểm tra trùng email
+  const existed = users.find(user => user.email === email);
+  if (existed) {
+    return res.status(409).json({ error: 'Email đã tồn tại' });
+  }
+
+  // Tạo mới user
+  const newUser = { id: users.length + 1, name, email };
+  users.push(newUser);
+
+  res.status(201).json(newUser);
+};
+
+📌 Test:
+- POST http://localhost:3000/users
+  Body:
+  {
+    "name": "Trung",
+    "email": "trung@example.com"
+  }
+
+- Nếu thiếu name/email → lỗi 400
+- Nếu email đã tồn tại → lỗi 409
+- Nếu hợp lệ → trả về user mới
+
+💡 Lưu ý:
+- express.json() là middleware để đọc body dạng JSON
+- req.body dùng trong POST để lấy dữ liệu client gửi lên

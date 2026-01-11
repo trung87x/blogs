@@ -1,0 +1,17 @@
+1. Khái niệm Kiểm thử đa trình duyệt  
+Kiểm thử đa trình duyệt là quá trình đảm bảo rằng một trang web hiển thị và hoạt động đúng trên các trình duyệt và thiết bị khác nhau. Điều này quan trọng vì người dùng có thể sử dụng các trình duyệt khác nhau, từ cũ đến mới, và các thiết bị với phần cứng khác nhau như điện thoại, máy tính bảng, máy tính để bàn...
+
+2. Tại sao vấn đề đa trình duyệt xảy ra?  
+Các vấn đề có thể xảy ra do:  
+- Trình duyệt có lỗi hoặc triển khai tính năng khác nhau: Các trình duyệt vẫn có sự khác biệt trong việc hỗ trợ các tính năng web.  
+- Hỗ trợ tính năng khác nhau: Mỗi trình duyệt có thể hỗ trợ các tính năng công nghệ ở mức độ khác nhau, nhất là khi sử dụng các tính năng mới hoặc với trình duyệt cũ.  
+- Giới hạn của thiết bị: Trang web có thể hiển thị khác nhau tùy theo kích thước màn hình hay cấu hình của từng thiết bị.
+
+3. Quy trình kiểm thử đa trình duyệt  
+Các bước cần thực hiện:  
+- Lập kế hoạch ban đầu: Xác định trình duyệt và thiết bị mục tiêu.  
+- Phát triển và kiểm thử: Chia trang web thành các phần nhỏ, phát triển và kiểm thử trên các trình duyệt khác nhau.  
+- Sửa lỗi: Sau khi phát hiện lỗi, sửa chữa và kiểm thử lại để đảm bảo không có vấn đề mới.
+
+4. Báo cáo lỗi  
+Khi phát hiện lỗi trong quá trình kiểm thử, bạn cần báo cáo để giúp nhà phát triển khắc phục. Các hệ thống báo cáo lỗi phổ biến có thể sử dụng như Bugzilla, Chrome, Safari, Opera...

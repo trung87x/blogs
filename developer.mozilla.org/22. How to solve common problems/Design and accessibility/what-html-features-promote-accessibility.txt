@@ -1,0 +1,69 @@
+
+1. Các tính năng HTML giúp cải thiện khả năng truy cập (Accessibility)
+Bài viết này mô tả các tính năng cụ thể của HTML nên được sử dụng để làm cho trang web dễ truy cập hơn đối với người dùng có các khuyết tật khác nhau.
+
+**Văn bản liên kết (Link text)**
+Nếu bạn có một liên kết mà không tự mô tả được, hoặc đích đến của liên kết cần được giải thích chi tiết hơn, bạn có thể thêm thông tin vào liên kết bằng cách sử dụng thuộc tính `aria-label` hoặc `aria-labelledby`.
+
+```html
+<p>
+  I'm really bad at writing link text.
+  <a
+    href="inept.html"
+    aria-label="Why I'm rubbish at writing link text: An explanation and an apology."
+    >Click here</a
+  >
+  to find out more.
+</p>
+<p>
+  I'm really <span id="incompetence">bad at writing link text</span>.
+  <a href="inept.html" aria-labelledby="incompetence">Click here</a> to find out
+  more.
+</p>
+```
+
+Lưu ý: Thường xuyên, tốt hơn là viết văn bản liên kết hữu ích:
+
+```html
+<p>
+  I wrote a
+  <a href="capable.html">blog post about how good I am at writing link text</a>.
+</p>
+```
+
+**Skip Links (Liên kết bỏ qua)**
+Để hỗ trợ việc di chuyển qua tab, bạn có thể cung cấp một liên kết bỏ qua cho phép người dùng nhảy qua các phần của trang web. Điều này giúp người dùng bàn phím có thể nhanh chóng bỏ qua các nội dung điều hướng lặp lại và đi thẳng đến nội dung chính của trang:
+
+```html
+<header>
+  <h1>The Heading</h1>
+  <a href="#content">Skip to content</a>
+</header>
+
+<nav>
+  <!-- navigation stuff -->
+</nav>
+
+<section id="content">
+  <!--your content -->
+</section>
+```
+
+**Thuộc tính Alt cho hình ảnh**
+Mỗi hình ảnh đều nên có thuộc tính `alt`. Nếu hình ảnh chỉ mang tính trang trí và không thêm ý nghĩa vào nội dung hoặc ngữ cảnh của tài liệu, thuộc tính `alt` vẫn cần có mặt nhưng để trống. Bạn cũng có thể thêm `role="presentation"`. Các hình ảnh khác nên bao gồm thuộc tính `alt` cung cấp văn bản thay thế mô tả hình ảnh theo cách hữu ích cho những người không thể nhìn thấy hình ảnh. Hãy nghĩ về cách bạn sẽ mô tả hình ảnh cho một người không thể tải hình ảnh của bạn: đó là thông tin bạn nên đưa vào giá trị của thuộc tính `alt`.
+
+```html
+<!-- decorative image -->
+<img alt="" src="blueswish.png" role="presentation" />
+<img
+  alt="The Open Web Docs logo: Carle the book worm smiling"
+  src="carle.svg"
+  role="img" />
+```
+
+**Thuộc tính ARIA role**
+Mặc định, tất cả các phần tử ngữ nghĩa trong HTML đã có một role; ví dụ, `<input type="radio">` có role là radio. Các phần tử không phải ngữ nghĩa trong HTML không có role. Các ARIA roles có thể được sử dụng để mô tả các phần tử không tồn tại tự nhiên trong HTML, chẳng hạn như một widget tablist. Roles cũng rất hữu ích cho các phần tử mới mà chưa được hỗ trợ đầy đủ bởi trình duyệt. Ví dụ, khi sử dụng hình ảnh SVG, bạn nên thêm `role="img"` vào thẻ mở, vì có một lỗi VoiceOver SVG không thông báo đúng các hình ảnh SVG.
+
+```html
+<img src="mdn.svg" alt="MDN logo" role="img" />
+```

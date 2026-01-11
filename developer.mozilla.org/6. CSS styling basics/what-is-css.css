@@ -1,0 +1,75 @@
+/* ==========
+   CSS LÀ GÌ?
+   ========== */
+
+/* === 1. MỤC ĐÍCH CỦA CSS === */
+/*
+- CSS (Cascading Style Sheets) dùng để trình bày (style) nội dung HTML.
+- HTML dùng để cấu trúc nội dung, còn CSS để định hình giao diện (màu sắc, bố cục, font...).
+- Trình duyệt có style mặc định → CSS giúp tùy biến theo ý muốn.
+- Trình duyệt (Chrome, Firefox, Safari,...) còn gọi là user agents.
+*/
+
+/* === 2. CÁCH CSS HOẠT ĐỘNG === */
+/*
+- Khi truy cập trang web:
+   1. HTML được trình duyệt phân tích → tạo DOM tree
+   2. CSS được tải về và phân loại selector
+   3. Trình duyệt áp dụng CSS lên DOM → tạo render tree
+   4. Kết quả hiển thị trên màn hình
+*/
+
+/* === 3. CÚ PHÁP CSS CƠ BẢN === */
+
+/* Ví dụ */
+h1 {
+  color: red;
+  font-size: 2.5em;
+}
+/*
+- Selector: h1 → phần tử được áp dụng style
+- Khối khai báo { ... }: chứa các thuộc tính và giá trị
+- Thuộc tính (property): color, font-size,...
+- Giá trị (value): red, 2.5em,...
+*/
+
+/* Một stylesheet có thể có nhiều rule: */
+p {
+  color: aqua;
+  padding: 5px;
+  background: midnightblue;
+}
+
+/* === 4. VÍ DỤ KẾT HỢP VỚI HTML === */
+/* HTML: */
+/* 
+<h1>CSS is great</h1>
+<p>You can style text.</p>
+<p>And create layouts and special effects.</p> 
+*/
+
+
+/* CSS: (đã nêu ở trên) → sẽ áp dụng style cho cả 3 phần tử */
+
+/* === 5. MẸO HỌC THÊM === */
+/*
+- Có thể tra cứu nhanh thuộc tính trên MDN:
+  Tìm “mdn css color” hoặc “mdn font-size” trên Google.
+- Xem module CSS như “Backgrounds and Borders” để học theo nhóm thuộc tính.
+- Có thể dùng trình biên tập như Playground hoặc CodePen để thử nghiệm.
+*/
+
+/* === 6. CÁC CÁCH THÊM CSS VÀO HTML === */
+/*
+1. External: file .css riêng, dùng <link>
+2. Internal: viết trong <style> trong <head>
+3. Inline: viết trực tiếp trong thuộc tính style (ít dùng)
+*/
+
+/* === 7. TỔNG KẾT === */
+/*
+- HTML chỉ là cấu trúc, không kiểm soát hình thức.
+- CSS định nghĩa giao diện: màu sắc, bố cục, font, hiệu ứng,...
+- Cú pháp CSS = selector + { property: value; }
+- Nắm vững cách áp dụng CSS → làm chủ thiết kế web
+*/

@@ -1,0 +1,48 @@
+# Ngữ cảnh 3: Thêm mới người dùng, sửa thông tin, xoá khỏi hệ thống
+
+🧠 Model (Ý nghĩa dữ liệu & quan hệ)
+- Thao tác CRUD (Create - Read - Update - Delete) với bảng `users`:
+  - Thêm người dùng mới vào hệ thống.
+  - Cập nhật thông tin (tên, email, trạng thái...).
+  - Xoá người dùng khỏi hệ thống.
+- Là chức năng cốt lõi trong mọi hệ thống có quản lý tài khoản.
+
+🛠️ Controller (SQL)
+
+-- Tạo bảng người dùng (nếu chưa có)
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(100) UNIQUE NOT NULL,
+  is_active BOOLEAN DEFAULT true,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Thêm người dùng mới
+INSERT INTO users (name, email)
+VALUES ('Nguyễn Văn A', 'a@example.com');
+
+-- Xem tất cả người dùng
+SELECT * FROM users;
+
+-- Cập nhật tên và trạng thái của người dùng
+UPDATE users
+SET name = 'Nguyễn Văn B', is_active = false
+WHERE id = 1;
+
+-- Cập nhật email (phải đảm bảo không trùng)
+UPDATE users
+SET email = 'b@example.com'
+WHERE id = 1;
+
+-- Xoá người dùng khỏi hệ thống
+DELETE FROM users
+WHERE id = 1;
+
+📘 Ghi chú:
+- `INSERT INTO`: thêm dữ liệu mới
+- `SELECT * FROM`: truy vấn toàn bộ
+- `UPDATE`: cập nhật bản ghi (có điều kiện WHERE)
+- `DELETE`: xoá bản ghi (có điều kiện WHERE)
+- Cẩn thận khi dùng `DELETE` không kèm `WHERE` → sẽ xoá toàn bộ bảng
+

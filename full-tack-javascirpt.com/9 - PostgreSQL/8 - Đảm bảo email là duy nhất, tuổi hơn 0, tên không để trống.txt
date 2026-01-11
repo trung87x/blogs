@@ -1,0 +1,41 @@
+# Ngữ cảnh 8: Đảm bảo email là duy nhất, tuổi > 0, tên không để trống
+
+🧠 Model (Ý nghĩa dữ liệu & quan hệ)
+- Đảm bảo tính toàn vẹn dữ liệu ở mức cơ sở dữ liệu:
+  - Email không được trùng nhau (UNIQUE)
+  - Tuổi phải lớn hơn 0 (CHECK)
+  - Tên bắt buộc phải có (NOT NULL)
+
+🛠️ Controller (SQL)
+
+-- Tạo bảng users với các ràng buộc
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,               -- Không được để trống
+  age INTEGER CHECK (age > 0),              -- Phải lớn hơn 0
+  email VARCHAR(100) UNIQUE NOT NULL,       -- Không trùng và không null
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Thử thêm người dùng hợp lệ
+INSERT INTO users (name, age, email)
+VALUES ('Trung Đinh', 28, 'trung@example.com');
+
+-- ❌ Lỗi: tên bị null
+INSERT INTO users (age, email)
+VALUES (30, 'user1@example.com');
+
+-- ❌ Lỗi: tuổi <= 0
+INSERT INTO users (name, age, email)
+VALUES ('User 2', -5, 'user2@example.com');
+
+-- ❌ Lỗi: email trùng
+INSERT INTO users (name, age, email)
+VALUES ('User 3', 25, 'trung@example.com');
+
+📘 Ghi chú:
+- `NOT NULL`: bắt buộc phải có giá trị
+- `UNIQUE`: không được phép trùng lặp giá trị trong toàn bảng
+- `CHECK`: giới hạn logic cho dữ liệu đầu vào
+- Những ràng buộc này nên đặt ngay trong lúc thiết kế bảng để tránh lỗi logic ở tầng ứng dụng
+

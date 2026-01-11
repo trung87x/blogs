@@ -1,0 +1,32 @@
+
+### Xây Dựng Một Business Case Cho Hiệu Suất Web
+
+**Tại sao hiệu suất web lại quan trọng với doanh nghiệp?**
+Chúng ta đã thảo luận về tầm quan trọng của hiệu suất web và các cách tối ưu hóa hiệu suất web. Tuy nhiên, làm thế nào để thuyết phục khách hàng hoặc ban quản lý để họ ưu tiên và đầu tư vào hiệu suất? Trong bài viết này, chúng ta sẽ thảo luận về cách xây dựng một business case rõ ràng để thuyết phục những người ra quyết định thực hiện đầu tư vào hiệu suất web.
+
+**Hiệu suất web và lợi ích kinh doanh**
+Hiệu suất web tốt sẽ cải thiện trải nghiệm người dùng và qua đó thúc đẩy doanh thu. Nếu không ưu tiên hiệu suất web, doanh nghiệp có thể mất đi khách hàng và doanh thu. Bài viết này giải thích cách các chỉ số kinh doanh có liên quan trực tiếp đến trải nghiệm hiệu suất web của người dùng và cách áp dụng thiết kế dịch vụ để nâng cao trải nghiệm người dùng về hiệu suất web.
+
+**Cách xây dựng một business case cho hiệu suất web**
+Để thuyết phục người ra quyết định, bạn cần chỉ ra rằng việc đầu tư vào hiệu suất web không chỉ tốt cho người dùng mà còn giúp tăng trưởng doanh thu và cải thiện sự trung thành của khách hàng. Hiệu suất web tác động trực tiếp đến các chỉ số quan trọng như tỷ lệ chuyển đổi, thời gian người dùng dành trên trang, và chỉ số sự hài lòng của khách hàng.
+
+**Performance Budgets (Ngân sách hiệu suất)**
+Đặt ngân sách hiệu suất giúp bạn đảm bảo rằng nhóm phát triển luôn duy trì hiệu suất tối ưu và ngăn ngừa các vấn đề về hiệu suất xảy ra trong quá trình phát triển. Ngân sách hiệu suất là một tập hợp các giới hạn, chẳng hạn như số lượng yêu cầu HTTP tối đa, tổng kích thước của tất cả tài sản tải xuống, FPS tối thiểu trên một thiết bị cụ thể, v.v.
+
+Ngân sách hiệu suất giúp đội ngũ phát triển bảo vệ hiệu suất tối ưu cho người dùng, đồng thời cho phép doanh nghiệp mở rộng thị trường và cung cấp trải nghiệm người dùng tùy chỉnh.
+
+**Các chỉ số hiệu suất (KPIs)**
+Việc đặt các chỉ số hiệu suất chính (KPIs) như các mục tiêu có thể làm nổi bật các mục tiêu hiệu suất và mục tiêu kinh doanh. KPIs có thể bao gồm các chỉ số quan trọng đo lường tác động của trải nghiệm người dùng và hiệu suất lên các mục tiêu kinh doanh. Đây là một cách để chứng minh lợi ích của việc ưu tiên hiệu suất.
+
+**Một số KPIs cần xem xét**:
+1. **Tỷ lệ chuyển đổi**: Tỷ lệ phần trăm người dùng thực hiện một hành động mong muốn, chẳng hạn như hoàn tất giao dịch hoặc đăng ký nhận bản tin. Khi một trang web tải chậm, người dùng có thể không hoàn tất tác vụ của mình, dẫn đến tỷ lệ chuyển đổi thấp.
+2. **Thời gian trên trang**: Thời gian trung bình mà người dùng dành cho trang web của bạn. Khi trang web có hiệu suất kém, người dùng có thể bỏ qua trang nhanh chóng, điều này dẫn đến thời gian trên trang thấp.
+3. **Chỉ số quảng bá ròng (NPS)**: NPS là một chỉ số đo lường sự trung thành của khách hàng đối với thương hiệu, sản phẩm hoặc dịch vụ của bạn. Trải nghiệm hiệu suất kém có thể làm giảm sự trung thành của khách hàng và gây ảnh hưởng tiêu cực đến danh tiếng thương hiệu.
+
+**Các bước xây dựng business case cho hiệu suất web**
+1. **Liên kết giữa hiệu suất và mục tiêu kinh doanh**: Cần phải chỉ ra rằng hiệu suất web không chỉ là vấn đề kỹ thuật, mà là một yếu tố quyết định đối với doanh thu, tỷ lệ chuyển đổi, và sự trung thành của khách hàng.
+2. **Chọn KPIs phù hợp**: Đặt các KPIs như tỷ lệ chuyển đổi, thời gian trên trang, và NPS để chứng minh giá trị của việc cải thiện hiệu suất web. Những KPIs này sẽ giúp bạn chứng minh rằng đầu tư vào hiệu suất có thể mang lại lợi ích tài chính cho doanh nghiệp.
+3. **Sử dụng số liệu và dữ liệu**: Sử dụng các công cụ đo lường hiệu suất và các chỉ số thực tế để cho thấy hiệu suất web hiện tại và tác động của nó đến người dùng và doanh thu. Điều này sẽ giúp bạn có cơ sở vững chắc để thuyết phục ban quản lý hoặc khách hàng đầu tư vào hiệu suất.
+
+**Tóm tắt**
+Việc xây dựng một business case mạnh mẽ cho hiệu suất web có thể giúp bạn thuyết phục ban quản lý hoặc khách hàng của mình hiểu được tầm quan trọng của việc ưu tiên hiệu suất. Đặt các KPIs rõ ràng và liên kết hiệu suất web với mục tiêu kinh doanh giúp bạn dễ dàng chứng minh giá trị của việc đầu tư vào hiệu suất và nhận được sự đồng thuận từ các bên liên quan.

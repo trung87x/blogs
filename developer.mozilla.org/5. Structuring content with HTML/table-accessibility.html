@@ -1,0 +1,96 @@
+<!-- ==========================
+Table Accessibility in HTML
+========================== -->
+
+<!-- 1. <caption>: tiêu đề bảng -->
+<table>
+  <caption>Dinosaurs in the Jurassic period</caption>
+  <!-- các dòng bảng -->
+</table>
+
+<!-- Giúp người dùng hiểu nhanh bảng nói về gì, đặc biệt hữu ích cho trình đọc màn hình -->
+
+<!-- 2. <thead>, <tbody>, <tfoot>: tổ chức cấu trúc bảng -->
+<table>
+  <thead>
+    <tr>
+      <th>Purchase</th>
+      <th>Location</th>
+      <th>Date</th>
+      <th>Evaluation</th>
+      <th>Cost (€)</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <th scope="row">Haircut</th>
+      <td>Hairdresser</td>
+      <td>12/09</td>
+      <td>Great idea</td>
+      <td>30</td>
+    </tr>
+  </tbody>
+
+  <tfoot>
+    <tr>
+      <td colspan="4">SUM</td>
+      <td>30</td>
+    </tr>
+  </tfoot>
+</table>
+
+<!-- Giúp chia rõ phần đầu bảng, thân bảng, chân bảng (tốt cho in ấn, CSS, đọc màn hình) -->
+
+<!-- 3. scope attribute -->
+<!-- Dùng với <th> để xác định nó là tiêu đề cho cột hay hàng -->
+
+<!-- scope="col" -->
+<th scope="col">Cost (€)</th>
+
+<!-- scope="row" -->
+<th scope="row">Haircut</th>
+
+<!-- scope="colgroup" (đầu nhóm cột) -->
+<th colspan="3" scope="colgroup">Clothes</th>
+
+<!-- scope="rowgroup" (đầu nhóm hàng) -->
+<th rowspan="2" scope="rowgroup">The Netherlands</th>
+
+<!-- 4. id và headers: liên kết cụ thể giữa ô tiêu đề và dữ liệu -->
+<thead>
+  <tr>
+    <th id="clothes" colspan="3">Clothes</th>
+  </tr>
+  <tr>
+    <th id="trousers" headers="clothes">Trousers</th>
+    <th id="skirts" headers="clothes">Skirts</th>
+    <th id="dresses" headers="clothes">Dresses</th>
+  </tr>
+</thead>
+
+<tbody>
+  <tr>
+    <th id="belgium" rowspan="2">Belgium</th>
+    <th id="antwerp" headers="belgium">Antwerp</th>
+    <td headers="belgium antwerp clothes trousers">56</td>
+    <td headers="belgium antwerp clothes skirts">22</td>
+    <td headers="belgium antwerp clothes dresses">43</td>
+  </tr>
+</tbody>
+
+<!-- Dùng khi cần độ chính xác cao, cho phép liên kết mỗi <td> với nhiều <th> -->
+
+<!-- 5. Styling với CSS -->
+<style>
+  tbody {
+    font-size: 95%;
+    font-style: italic;
+  }
+
+  tfoot {
+    font-weight: bold;
+  }
+</style>
+
+<!-- Tận dụng <thead>, <tbody>, <tfoot> để áp dụng CSS cụ thể -->

@@ -1,0 +1,163 @@
+
+# JavaScript Nâng Cao và Thao Tác DOM
+
+JavaScript nâng cao mở rộng khả năng xử lý các sự kiện và tương tác động với trang web. Trong bài viết này, chúng ta sẽ tìm hiểu về các khái niệm như callback functions, event listeners, hàm bậc cao, cũng như cách thao tác với các sự kiện bàn phím và chuột trong JavaScript.
+
+## 1. Callback Functions và Sự Kiện
+
+### Callback Function là gì?
+Callback function là một hàm được truyền làm đối số cho một hàm khác và được thực thi sau khi hàm đó hoàn thành công việc của mình. Điều này giúp chương trình thực hiện các thao tác một cách bất đồng bộ, xử lý sự kiện hay làm việc với dữ liệu theo cách linh hoạt.
+
+Ví dụ:
+```javascript
+function greet(name, callback) {
+    console.log("Hello, " + name);
+    callback();
+}
+
+function goodbye() {
+    console.log("Goodbye!");
+}
+
+greet("Alice", goodbye);
+```
+Kết quả: 
+```
+Hello, Alice
+Goodbye!
+```
+
+### addEventListener và Sự Kiện
+`addEventListener` là một phương thức giúp lắng nghe các sự kiện như nhấn nút, nhấn phím, hoặc thay đổi trạng thái của các phần tử trên trang web.
+
+Ví dụ về nhấn phím:
+```javascript
+document.addEventListener("keypress", function(event) {
+    console.log("Phím đã được nhấn:", event.key);
+});
+```
+
+## 2. Event Listener trong JavaScript
+
+### Sử Dụng addEventListener
+Để lắng nghe sự kiện, bạn có thể sử dụng `addEventListener()`. Phương thức này giúp trang web phản hồi lại các sự kiện người dùng, như nhấp chuột hoặc nhập phím.
+
+Ví dụ:
+```javascript
+document.querySelector("button").addEventListener("click", function() {
+    alert("Nút đã được nhấp!");
+});
+```
+- **Tại sao không dùng dấu ngoặc đơn khi truyền hàm vào addEventListener?**
+    Khi bạn truyền hàm vào `addEventListener()`, bạn chỉ cần chỉ định tên hàm mà không cần dấu ngoặc đơn, để tránh gọi hàm ngay lập tức.
+
+### Thêm Event Listener vào Nhiều Nút
+Dùng `querySelectorAll()` để chọn tất cả các phần tử và sử dụng vòng lặp để thêm sự kiện vào mỗi nút.
+```javascript
+document.querySelectorAll(".drum").forEach(function(button) {
+    button.addEventListener("click", function() {
+        console.log("Nút đã được nhấp!");
+    });
+});
+```
+
+## 3. Hàm Bậc Cao (Higher Order Functions)
+
+### Hàm Bậc Cao là gì?
+Hàm bậc cao là hàm có thể nhận một hàm khác làm đối số hoặc trả về một hàm mới. Điều này rất hữu ích trong việc làm việc với các sự kiện hoặc xử lý dữ liệu.
+
+Ví dụ:
+```javascript
+function add(a, b) {
+    return a + b;
+}
+
+function calculator(num1, num2, operatorFunction) {
+    return operatorFunction(num1, num2);
+}
+
+console.log(calculator(4, 5, add)); // Output: 9
+```
+
+### Ứng dụng với addEventListener
+Khi bạn truyền một hàm vào `addEventListener()`, bạn đang sử dụng một hàm bậc cao để xử lý sự kiện khi người dùng nhấn vào nút.
+
+```javascript
+document.querySelector("button").addEventListener("click", function() {
+    console.log("Nút đã được nhấp!");
+});
+```
+
+## 4. Phát Âm Thanh và Xử Lý Sự Kiện
+
+### Phát Âm Thanh với new Audio()
+Để phát âm thanh trong JavaScript, bạn có thể sử dụng đối tượng `Audio()`.
+
+Ví dụ:
+```javascript
+var sound = new Audio("sounds/tom-1.mp3");
+sound.play();
+```
+
+### Kết Nối Âm Thanh với Nút
+Khi nhấn vào các nút trên trang web, âm thanh tương ứng sẽ được phát.
+
+```javascript
+document.querySelectorAll(".drum").forEach(function(button) {
+    button.addEventListener("click", function() {
+        var buttonInnerHTML = this.innerHTML;
+        makeSound(buttonInnerHTML);
+    });
+});
+
+function makeSound(key) {
+    switch (key) {
+        case "w":
+            var sound = new Audio("sounds/tom-1.mp3");
+            sound.play();
+            break;
+        // Các trường hợp khác
+    }
+}
+```
+
+### Thêm Hình Nền cho Nút
+Bạn có thể thay đổi hình nền cho các nút để tạo sự liên kết trực quan với âm thanh.
+
+```css
+.w {
+    background-image: url("images/tom1.png");
+}
+```
+
+## 5. Hiểu Thêm về Đối Tượng (Objects) và Phương Thức trong JavaScript
+
+### Đối Tượng trong JavaScript
+Đối tượng trong JavaScript là tập hợp các thuộc tính và phương thức. Bạn có thể tạo đối tượng và truy cập các thuộc tính của nó như sau:
+```javascript
+var person = {
+    name: "Alice",
+    age: 30,
+    greet: function() {
+        console.log("Hello, " + this.name);
+    }
+};
+person.greet(); // Output: Hello, Alice
+```
+
+### Phương Thức trong Đối Tượng
+Phương thức là các hàm gắn liền với đối tượng và thực hiện các hành động.
+
+```javascript
+var person = {
+    name: "Alice",
+    greet: function() {
+        console.log("Hello, " + this.name);
+    }
+};
+person.greet(); // Output: Hello, Alice
+```
+
+## Kết luận
+
+Bài viết này đã giới thiệu về JavaScript nâng cao và cách thao tác với DOM, bao gồm việc sử dụng callback functions, event listeners, và thao tác với đối tượng và phương thức. Các kỹ thuật này giúp bạn tạo ra các trang web động và tương tác, tăng cường trải nghiệm người dùng và dễ dàng quản lý mã nguồn.

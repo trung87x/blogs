@@ -1,0 +1,32 @@
+
+# Capstone Project 2 - Personal Site
+
+## Mục tiêu của dự án
+
+Dự án này nhằm mục tiêu xây dựng một website cá nhân để giới thiệu về kỹ năng, kinh nghiệm và sở thích. Website này sẽ được thiết kế với giao diện đẹp, dễ điều hướng và chỉ sử dụng HTML, CSS (không có JavaScript).
+
+## Các phần quan trọng cần có
+
+1. **Hero Section**: Giới thiệu ngắn gọn về bản thân.
+2. **Resume Page**: Liệt kê học vấn, kinh nghiệm làm việc, kỹ năng.
+3. **Project Showcase**: Hiển thị các dự án đã thực hiện.
+4. **About Me**: Thông tin thêm về sở thích và bản thân.
+5. **Contact Me**: Cung cấp thông tin liên hệ.
+
+## Yêu cầu kỹ thuật
+
+- HTML phải hợp lệ, tuân thủ chuẩn **semantic markup**.
+- CSS phải có tổ chức, tuân theo quy tắc đặt tên tốt.
+- Website phải **responsive**, hiển thị tốt trên nhiều thiết bị.
+- Hình ảnh phải có **alt text** để đảm bảo khả năng tiếp cận.
+
+## Thời gian thực hiện
+
+1. **Hour 1**: Thu thập nội dung, lên ý tưởng thiết kế, tạo wireframe.
+2. **Hour 2-3**: Viết HTML, CSS, kiểm tra trên nhiều trình duyệt và thiết bị.
+3. **Hour 4**: Hoàn thiện thiết kế, chỉnh sửa nội dung, tối ưu hiệu suất.
+4. **Hour 5**: Xuất bản website, chia sẻ nhận feedback, chỉnh sửa lần cuối.
+
+## Summary
+
+Dự án này giúp tạo một website cá nhân chỉ sử dụng HTML và CSS, thể hiện thông tin cá nhân và các dự án đã làm. Website cần có thiết kế đẹp, dễ sử dụng và đáp ứng trên nhiều thiết bị. Yêu cầu kỹ thuật bao gồm **semantic HTML**, tổ chức **CSS tốt**, và tối ưu trải nghiệm người dùng. Thời gian thực hiện khoảng 5 giờ, bao gồm từ lên ý tưởng, viết code, kiểm tra và triển khai.

@@ -1,0 +1,89 @@
+
+### UI Pseudo-Classes
+
+**Pseudo-classes là gì?**
+Pseudo-classes trong CSS giúp chọn các phần tử trong trạng thái cụ thể mà không cần phải thay đổi cấu trúc HTML. Chúng rất hữu ích trong việc styling các form controls, giúp thay đổi giao diện của chúng khi người dùng tương tác, ví dụ như khi họ nhấn nút, khi một trường nhập liệu có focus, hoặc khi dữ liệu nhập vào không hợp lệ.
+
+**Các pseudo-classes phổ biến trong form styling**:
+1. **`:hover`**: Chọn phần tử khi nó được hover bởi con trỏ chuột.
+2. **`:focus`**: Chọn phần tử khi nó đang có focus (ví dụ khi người dùng nhấn vào trường nhập liệu).
+3. **`:active`**: Chọn phần tử khi nó đang được kích hoạt (ví dụ khi nút đang được nhấn hoặc khi phím Enter đang được nhấn).
+4. **`:required` và `:optional`**: Chọn phần tử có thuộc tính `required` và `optional`, giúp xác định các trường bắt buộc hoặc không bắt buộc trong form.
+5. **`:valid` và `:invalid`**: Chọn các trường form có dữ liệu hợp lệ hoặc không hợp lệ dựa trên các ràng buộc xác thực.
+6. **`:checked`**: Chọn các checkbox hoặc radio button đã được chọn.
+7. **`:disabled` và `:enabled`**: Chọn các phần tử bị vô hiệu hóa hoặc có thể tương tác.
+8. **`:read-only` và `:read-write`**: Chọn các trường đọc chỉ hoặc có thể chỉnh sửa.
+9. **`:indeterminate`**: Chọn trạng thái không xác định của checkbox hoặc radio button.
+
+**Ví dụ về sử dụng pseudo-classes**:
+- **`:required` và `:optional`**:
+```css
+input:required {
+  border: 2px solid red;
+}
+
+input:optional {
+  border: 2px dashed green;
+}
+```
+
+- **`:invalid` và `:valid`**:
+```css
+input:invalid {
+  border: 2px solid red;
+}
+
+input:valid {
+  border: 2px solid green;
+}
+```
+
+- **`:checked`**:
+```css
+input[type="checkbox"]:checked {
+  background-color: green;
+}
+```
+
+**Các ví dụ nâng cao**:
+1. **Sử dụng pseudo-classes với `::before` và `::after`** để thêm nội dung vào form:
+```css
+input:required + span::after {
+  content: "Required";
+  color: white;
+  background-color: black;
+  padding: 5px;
+  position: absolute;
+  top: -20px;
+}
+```
+
+2. **Styling các nút radio và checkbox với `::before`**:
+```css
+input[type="radio"]::before {
+  content: " ";
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: red;
+  transition: all 0.3s ease-in;
+}
+
+input[type="radio"]:checked::before {
+  background-color: green;
+}
+```
+
+**Sử dụng pseudo-classes trong các trạng thái form**:
+- **`:focus-within`**: Chọn phần tử khi nó hoặc bất kỳ phần tử con nào trong đó có focus.
+- **`:focus-visible`**: Chọn phần tử khi nó được focus bởi bàn phím (không phải chuột).
+
+**Ví dụ sử dụng `:focus-within`**:
+```css
+form:focus-within {
+  border: 2px solid blue;
+}
+```
+
+**Tóm tắt**:
+Pseudo-classes là công cụ mạnh mẽ để styling các form controls trong các trạng thái khác nhau. Chúng giúp cải thiện trải nghiệm người dùng bằng cách cung cấp phản hồi trực quan khi người dùng tương tác với form. Bạn có thể sử dụng các pseudo-classes như `:valid`, `:invalid`, `:focus`, và `:checked` để kiểm soát giao diện của các trường form một cách linh hoạt.

@@ -1,0 +1,51 @@
+🧠 Ngữ cảnh #7: Phân quyền (Role-based Access Control – RBAC)
+→ Chỉ cho phép những người dùng có quyền phù hợp (VD: "admin") mới truy cập được các route nhạy cảm.
+
+📁 Gợi ý vị trí file:
+- File: middlewares/authorizeRole.js
+
+// middlewares/authorizeRole.js
+function authorizeRole(...allowedRoles) {
+  return (req, res, next) => {
+    const user = req.user;
+
+    if (!user || !allowedRoles.includes(user.role)) {
+      return res.status(403).json({ message: 'Access denied: insufficient permissions' });
+    }
+
+    next();
+  };
+}
+
+module.exports = authorizeRole;
+
+// ===============================
+// Sử dụng middleware phân quyền
+// ===============================
+
+// routes/adminRoutes.js
+const express = require('express');
+const router = express.Router();
+const verifyToken = require('../middlewares/verifyToken');
+const authorizeRole = require('../middlewares/authorizeRole');
+
+router.get('/dashboard', verifyToken, authorizeRole('admin'), (req, res) => {
+  res.json({ message: 'Welcome to admin dashboard', user: req.user });
+});
+
+module.exports = router;
+
+// ===============================
+// 📌 Ghi chú quan trọng:
+// ===============================
+// - Middleware verifyToken phải chạy TRƯỚC authorizeRole (vì req.user cần có)
+// - Trong JWT payload (khi đăng nhập) phải có thông tin `role`, ví dụ:
+//     {
+//       id: '123',
+//       email: 'user@example.com',
+//       role: 'admin'
+//     }
+//
+// - Có thể dùng authorizeRole cho nhiều quyền:
+//     authorizeRole('admin', 'moderator')
+// - Nếu user không có quyền phù hợp → trả về lỗi 403

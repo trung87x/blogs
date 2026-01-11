@@ -1,0 +1,76 @@
+/* ===========================
+   GIỚI THIỆU BỐ CỤC TRONG CSS
+   =========================== */
+
+/* === 1. MỤC TIÊU BÀI HỌC === */
+/*
+- Hiểu cách trình duyệt sắp xếp nội dung mặc định (normal flow)
+- Nhận diện các phương pháp bố cục hiện đại trong CSS
+- Biết sử dụng: display, float, position, Flexbox, Grid...
+*/
+
+/* === 2. NORMAL FLOW – DÒNG CHẢY BÌNH THƯỜNG === */
+/*
+- Là cách trình duyệt sắp xếp phần tử HTML khi chưa có CSS can thiệp
+- Block elements: nằm dọc, mỗi phần tử chiếm 1 dòng
+- Inline elements: nằm cùng hàng với text khác nếu còn chỗ
+- Ưu điểm: đảm bảo nội dung có thể đọc được ở mọi thiết bị
+*/
+
+/* === 3. BOX MODEL – MÔ HÌNH HỘP === */
+/*
+- Tổng kích thước của 1 phần tử = content + padding + border
+- Block-level element: chiếm 100% chiều ngang cha
+- Inline-level element: chỉ vừa đủ chứa nội dung
+- Để thay đổi behavior, dùng display: block hoặc inline-block
+*/
+
+/* === 4. COLLAPSING MARGIN – GỘP LỀ (MARGIN) === */
+/*
+- Nếu 2 phần tử block liền nhau có margin trên/dưới, chúng sẽ gộp lại
+- Lề lớn hơn được giữ lại, lề nhỏ hơn bị bỏ
+- Chỉ áp dụng theo chiều dọc (vertical)
+*/
+
+/* === 5. VÍ DỤ NORMAL FLOW === */
+/*
+<h1>Basic document flow</h1>
+<p>Đây là block element, xuống dòng.</p>
+<p>Chiều ngang 100% cha, cao theo nội dung.</p>
+<p>Cách nhau bằng margin (đã gộp nếu liên tiếp).</p>
+<p>
+  Inline <span>như cái này</span> không xuống dòng trừ khi hết chỗ
+  <img src="..." /> cũng là inline nhưng có thể set width/height
+</p>
+*/
+
+/* === 6. OVERRIDING NORMAL FLOW – CAN THIỆP BỐ CỤC === */
+/*
+- display: thay đổi cách hiển thị mặc định (block, inline, inline-block,...)
+- float: đẩy phần tử sang trái/phải để text quấn quanh
+- position: định vị phần tử chính xác (static, relative, absolute, fixed)
+- Flexbox: bố cục 1 chiều
+- Grid: bố cục 2 chiều
+*/
+
+/* === 7. RESPONSIVE DESIGN – GIAO DIỆN PHẢN HỒI === */
+/*
+- Không phải layout system, mà là kỹ thuật dùng media queries
+- Áp dụng layout khác nhau theo độ rộng/màn hình thiết bị
+- Dùng cùng Flex/Grid để thích nghi nhiều loại màn hình
+*/
+
+/* === 8. KỸ THUẬT BỐ CỤC KHÁC === */
+/*
+- Table layout: display: table cho non-table element
+- Multi-column: tách nội dung thành nhiều cột như báo giấy
+- Không thường dùng bằng Flex/Grid nên sẽ không đi sâu trong module này
+*/
+
+/* === 9. TÓM TẮT === */
+/*
+- Bắt đầu với HTML có cấu trúc rõ ràng và normal flow tốt
+- Hiểu khi nào cần can thiệp để tạo bố cục phức tạp hơn
+- Biết lựa chọn giữa display, float, position, Flexbox, Grid
+- Responsive design dùng media queries, không phải layout tool
+*/

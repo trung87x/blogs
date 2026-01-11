@@ -1,0 +1,94 @@
+HỖ TRỢ TRUY CẬP TRÊN THIẾT BỊ DI ĐỘNG
+=====================================
+
+1. Tình hình hiện tại
+- Android/iOS đều tích hợp sẵn screen reader:
+  + Android: TalkBack
+  + iOS: VoiceOver
+- Trình duyệt di động hỗ trợ tốt WAI-ARIA
+- Cần đảm bảo:
+  + Kiểm soát bằng cảm ứng (thay vì chuột/bàn phím)
+  + Giao diện responsive, dễ đọc, dễ thao tác
+  + Tối ưu nhập liệu (form ngắn gọn, chọn nhanh)
+
+2. TalkBack (Android)
+- Bật tại menu Accessibility (vị trí thay đổi tùy máy)
+- Điều hướng:
+  + Vuốt trái/phải: chuyển điều khiển
+  + Nhấn 1 lần: chọn & đọc
+  + Nhấn 2 lần: kích hoạt
+  + Vuốt lên-phải: mở menu ngữ cảnh (Rotor)
+  + Vuốt xuống-trái: menu toàn cục
+- Trình duyệt: có thể chọn chế độ "Headings", "Links", "Form Controls" để duyệt theo vùng
+- Tắt TalkBack: quay lại menu và tắt switch
+
+3. VoiceOver (iOS)
+- Bật: Settings > Accessibility > VoiceOver
+- Điều hướng:
+  + Vuốt trái/phải: chuyển mục
+  + Nhấn 2 lần: kích hoạt
+  + Vuốt 3 ngón: cuộn
+  + Vuốt 2 ngón: hành động nhanh
+- Rotor: xoay 2 ngón như đồng hồ để chuyển chế độ duyệt (Tiêu đề, Liên kết, Điều khiển, Tốc độ đọc...)
+
++ Gợi ý thử nghiệm:
+  - Mở bbc.co.uk → dùng Rotor chọn "Headings" → vuốt lên/xuống để chuyển mục
+
+4. Control Mechanisms (Cơ chế điều khiển)
+- Dùng sự kiện độc lập thiết bị: `click` tốt hơn `mousedown`, `touchstart`...
++ Ví dụ:
+  div.onclick = ... ✅
+  div.onmousedown = ... ❌ (không hoạt động với touch/keyboard)
+
+- Gợi ý:
+  + Dùng `touchstart`, `onclick`, `keydown` kết hợp để hỗ trợ đa thiết bị
+
+5. Responsive Design
+- Dùng media queries, flexbox, và `viewport`:
+  <meta name="viewport" content="width=device-width; user-scalable=yes">
+
+- Hình ảnh:
+  + Thiết bị nhỏ → tải ảnh nhẹ
+  + Màn hình retina → ảnh độ phân giải cao hoặc SVG
+
+6. Menu di động (hamburger)
+- Nút menu phải truy cập được qua:
+  + Bàn phím
+  + Cảm ứng
+- Khi mở menu → che/ẩn nội dung còn lại để không gây nhầm lẫn
+
+7. Tối ưu nhập liệu
+- Giảm thao tác gõ: dùng `<select>` thay vì `<input>` nếu có thể
++ Ví dụ:
+  <select name="job">
+    <option>Giáo viên</option>
+    <option>Luật sư</option>
+    <option>Khác</option>
+  </select>
+
+- Dùng type phù hợp để hiển thị bàn phím tương ứng:
+  + `type="email"` → bàn phím có dấu @
+  + `type="tel"` → bàn phím số
+  + `type="date"` → picker chọn ngày
+
+8. Không chặn zoom
++ Sai:
+  <meta name="viewport" content="width=device-width; user-scalable=no">
++ Đúng:
+  <meta name="viewport" content="width=device-width; user-scalable=yes">
+
+- Zoom rất quan trọng với người khiếm thị
+
+---
+
+= CHECKLIST MOBILE ACCESSIBILITY =
+- [x] Hỗ trợ điều hướng cảm ứng với TalkBack/VoiceOver
+- [x] Không dùng sự kiện chỉ dành cho chuột
+- [x] Responsive: giao diện phù hợp màn nhỏ
+- [x] Không chặn zoom
+- [x] Menu điều hướng dễ truy cập
+- [x] Tối ưu nhập liệu bằng loại input phù hợp
+- [x] Dùng SVG cho biểu tượng sắc nét
+- [x] Thử nghiệm bằng screen reader thật trên thiết bị
+
+= HẾT =

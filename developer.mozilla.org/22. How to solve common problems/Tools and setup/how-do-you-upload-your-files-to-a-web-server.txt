@@ -1,0 +1,74 @@
+
+1. Cách tải tệp lên máy chủ web
+Bài viết này hướng dẫn bạn cách xuất bản website của mình trực tuyến bằng cách sử dụng các công cụ chuyển tệp.
+
+**Tiền đề:** Bạn phải hiểu về máy chủ web và cách thức hoạt động của tên miền. Bạn cũng cần biết cách thiết lập một môi trường cơ bản và cách viết một trang web đơn giản.
+
+**Mục tiêu:** Học cách tải tệp lên máy chủ bằng các công cụ chuyển tệp khác nhau.
+
+**Tóm tắt**
+Nếu bạn đã xây dựng một trang web đơn giản (xem các nguyên tắc HTML cơ bản trong ví dụ), bạn sẽ có thể muốn đưa nó lên mạng, trên một máy chủ web. Trong bài viết này, chúng tôi sẽ thảo luận cách làm điều đó, sử dụng các tùy chọn có sẵn như SFTP clients, RSync và GitHub.
+
+**SFTP**
+Có rất nhiều SFTP client khác nhau. Ví dụ của chúng tôi sẽ sử dụng FileZilla, vì nó miễn phí và có sẵn cho Windows, macOS và Linux. Để cài đặt FileZilla, hãy truy cập trang tải xuống FileZilla, nhấp vào nút Tải về lớn và sau đó cài đặt từ tệp trình cài đặt theo cách thông thường.
+
+Lưu ý: Tất nhiên, có nhiều lựa chọn khác. Xem công cụ xuất bản cho thông tin chi tiết.
+
+Mở ứng dụng FileZilla; bạn sẽ thấy giao diện người dùng như hình dưới đây.
+
+**Đăng nhập**
+Trong ví dụ này, chúng ta sẽ giả sử rằng nhà cung cấp dịch vụ lưu trữ của chúng ta (dịch vụ lưu trữ máy chủ HTTP) là công ty "Example Hosting Provider", với URL trông như thế này: mypersonalwebsite.examplehostingprovider.net.
+
+Chúng tôi vừa mở một tài khoản và nhận được thông tin này từ họ:
+
+Chúc mừng bạn đã mở tài khoản tại Example Hosting Provider.
+
+Tài khoản của bạn là: demozilla
+
+Website của bạn sẽ có thể truy cập tại: demozilla.examplehostingprovider.net
+
+Để xuất bản trang web lên tài khoản này, vui lòng kết nối qua SFTP với các thông tin sau:
+
+- Máy chủ SFTP: sftp://demozilla.examplehostingprovider.net
+- Tên người dùng: demozilla
+- Mật khẩu: quickbrownfox
+- Cổng: 5548
+
+Để xuất bản trang web, hãy đặt các tệp của bạn vào thư mục Public/htdocs.
+
+**Xuất bản lên máy chủ**
+Trước tiên, chúng ta sẽ kiểm tra http://demozilla.examplehostingprovider.net/ — như bạn có thể thấy, hiện tại không có gì ở đó.
+
+Bây giờ, để kết nối client SFTP với máy chủ từ xa, hãy làm theo các bước sau:
+
+- Chọn File > Site Manager… từ menu chính.
+- Trong cửa sổ Site Manager, nhấn nút New Site, sau đó điền tên site là demozilla.
+- Điền thông tin máy chủ SFTP mà nhà cung cấp dịch vụ của bạn đã cung cấp trong trường Host.
+- Trong phần Logon Type, chọn Normal, sau đó điền tên người dùng và mật khẩu vào các trường tương ứng.
+- Điền cổng và các thông tin khác.
+
+Bây giờ nhấn Connect để kết nối với máy chủ SFTP.
+
+**Tải lên máy chủ**
+Hướng dẫn của nhà cung cấp dịch vụ của chúng ta nói rằng "Để xuất bản trên web, hãy đặt các tệp của bạn vào thư mục Public/htdocs." Bạn cần điều hướng đến thư mục này trong cửa sổ bên phải. Đây thực sự là thư mục gốc của website của bạn — nơi các tệp `index.html` và các tài nguyên khác của bạn sẽ được đặt.
+
+Khi bạn đã tìm thấy thư mục từ xa đúng, để tải lên các tệp của mình, bạn chỉ cần kéo và thả chúng từ cửa sổ bên trái vào cửa sổ bên phải.
+
+**Kiểm tra website**
+Bây giờ, bạn có thể quay lại trang web của mình (ví dụ: http://demozilla.examplehostingprovider.net/) trong trình duyệt để kiểm tra xem website đã trực tuyến chưa.
+
+**Rsync**
+Rsync là công cụ đồng bộ tệp từ cục bộ đến máy chủ từ xa, thường có sẵn trên hầu hết các hệ thống dựa trên Unix (macOS và Linux), nhưng cũng có các phiên bản cho Windows.
+
+Đây được xem là công cụ nâng cao hơn so với SFTP, vì mặc định nó được sử dụng trên dòng lệnh. Một lệnh cơ bản trông như thế này:
+
+```bash
+rsync [-options] SOURCE user@x.x.x.x:DESTINATION
+```
+
+**GitHub**
+GitHub cho phép bạn xuất bản website qua GitHub Pages (gh-pages).
+
+Chúng tôi đã đề cập đến các nguyên tắc cơ bản khi sử dụng GitHub Pages trong bài viết "Publishing your website" từ hướng dẫn "Getting started with the Web", vì vậy chúng tôi không sẽ lặp lại tất cả ở đây.
+
+Tuy nhiên, bạn cần biết rằng bạn cũng có thể lưu trữ website trên GitHub, nhưng sử dụng tên miền tùy chỉnh với nó. Xem "Using a custom domain with GitHub Pages" để có hướng dẫn chi tiết.

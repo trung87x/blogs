@@ -1,0 +1,49 @@
+📌 Cornell Notes - Download the Required Software
+
+📌 Topic/Title:
+
+Cài đặt phần mềm cần thiết cho lập trình
+
+🔎 Keywords/Questions:
+
+Tại sao cần Visual Studio Code?
+
+Những phần mở rộng nào nên cài đặt?
+
+Tại sao cần Google Chrome?
+
+📝 Notes:
+
+Cài đặt Visual Studio Code (VS Code)
+
+Phần mềm miễn phí từ Microsoft dùng để viết code.
+
+Link tải: VS Code
+
+Lưu ý: Trước đây khóa học sử dụng Atom Editor, nhưng hiện tại GitHub đã dừng hỗ trợ Atom. Học viên nên dùng VS Code thay thế.
+
+Cài đặt các tiện ích mở rộng (Extensions) cho VS Code
+
+Extensions giúp mở rộng chức năng của VS Code.
+
+Cần cài đặt:
+
+Live Preview (Xem trước trực tiếp trang web)
+
+Prettier (Tự động định dạng mã nguồn)
+
+vscode-icons (Hiển thị biểu tượng tệp tin đẹp hơn)
+
+Cách cài đặt: Nhấn vào link tiện ích → Nhấn nút "Install" để tự động cài vào VS Code.
+
+Cài đặt Google Chrome
+
+Trình duyệt miễn phí của Google.
+
+Dù dùng trình duyệt khác, nên cài Chrome vì có bộ công cụ dành cho lập trình viên hữu ích.
+
+Link tải: Google Chrome
+
+📌 Summary:
+
+Để bắt đầu lập trình, cần cài đặt Visual Studio Code làm trình soạn thảo chính, bổ sung các tiện ích mở rộng hữu ích, và sử dụng Google Chrome để hỗ trợ phát triển web.

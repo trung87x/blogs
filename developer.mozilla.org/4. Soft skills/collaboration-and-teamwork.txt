@@ -1,0 +1,69 @@
+KỸ NĂNG HỢP TÁC & LÀM VIỆC NHÓM TRONG LẬP TRÌNH WEB
+====================================================
+
+1. LÀM VIỆC VỚI NGƯỜI KHÁC
+- Đối xử lịch sự, tôn trọng và đồng cảm.
+- Hỗ trợ bạn bè cùng học để nâng cao kiến thức chung.
+- Lắng nghe, chia sẻ, và tránh tạo áp lực không cần thiết.
+
+2. THAM GIA CỘNG ĐỒNG
+- Tham gia nhóm Discord, Slack, diễn đàn lập trình (VD: freeCodeCamp, MDN, Libera.Chat, Scrimba).
+- Lợi ích:
+  + Làm quen bạn bè, đối tác, nhà tuyển dụng.
+  + Học mẹo lập trình, tài nguyên mới, giải đáp lỗi nhanh.
+  + Tập giải thích code, nâng kỹ năng giao tiếp kỹ thuật.
+
+- Gợi ý:
+  + Tìm Meetup tại địa phương (Meetup.com, Eventbrite).
+  + Tham gia sự kiện kỹ thuật (confs.tech) hoặc xin làm tình nguyện viên để được vào miễn phí.
+
+3. GIÚP ĐỠ VÀ HỎI ĐÚNG CÁCH
+- Cách giúp:
+  + Gợi ý nơi tra cứu, chia sẻ snippet mẫu, lắng nghe đồng đội giải thích (hiệu ứng "rubber duck").
+  + Tích cực hỗ trợ bạn bè thay vì chờ giảng viên/senior.
+  + Thực hành peer-review và phản hồi code rõ ràng, tích cực.
+
+- Cách hỏi:
+  + Nêu rõ bạn đang làm gì, lỗi ở đâu, đã thử những gì.
+  + Gợi ý tổ chức các buổi hỏi – đáp giữa nhóm bạn học với nhau.
+
+4. CÔNG KHAI VÀ CHIA SẺ CÔNG VIỆC
+- Đăng code lên GitHub/GitLab, viết blog chia sẻ giải pháp, kinh nghiệm.
+- Lợi ích:
+  + Nhận phản hồi, cải thiện tư duy.
+  + Giúp người khác học theo.
+  + Tạo hồ sơ năng lực cá nhân (portfolio).
+
+5. THAM GIA DỰ ÁN MÃ NGUỒN MỞ (OPEN SOURCE)
+- Góp công sức sửa lỗi, cải tiến tính năng cho các dự án đang hoạt động.
+- Gợi ý:
+  + Tham gia dự án của MDN trên GitHub.
+  + Đọc tài liệu hướng dẫn dự án trước khi gửi PR.
+  + Viết lời giải thích rõ ràng cho mỗi thay đổi (pull request).
+
+6. LÀM VIỆC NHÓM CHUYÊN NGHIỆP
+- Mỗi người nắm vai trò khác nhau → cùng chịu trách nhiệm kết quả.
+- Lập kế hoạch: phân công việc, timeline, đo hiệu quả.
+- Giao tiếp cởi mở, báo cáo sớm khi có trục trặc.
+- Thực hiện phản hồi code, kiểm thử, và cải tiến liên tục.
+
+7. ĐÁNH GIÁ & PHẢN HỒI (PEER REVIEW)
+- Người đánh giá:
+  + Đưa góp ý trung thực, nhưng tích cực.
+  + Nên hỏi thêm vài câu về ý định và giải pháp của người viết code.
+- Người được đánh giá:
+  + Không cá nhân hoá góp ý.
+  + Tập trung vào bài học nhận được.
+
+8. ĐỪNG SỢ THẤT BẠI – HÃY THỬ NGHIỆM!
+- Thất bại là 1 phần bình thường trong học tập.
+- Mẹo:
+  + Tạo nhóm hỗ trợ an toàn, không chê bai sai sót.
+  + Tham gia cộng đồng để cùng học – cùng sửa lỗi.
+  + Thiết kế chấm điểm linh hoạt (cho giáo viên): tính quá trình, sáng tạo chứ không chỉ kết quả.
+  + Tổ chức các buổi show-n-tell hoặc retrospective sau mỗi dự án nhỏ để cùng rút kinh nghiệm.
+
+9. GỢI Ý ÔN TẬP
+- Viết 1 bài chia sẻ nhỏ về quá trình học/lỗi từng gặp.
+- Tham gia thử thách 1 tuần giúp đỡ 1 người mỗi ngày trong cộng đồng học tập.
+- Tự tổ chức 1 buổi peer-review trong nhóm bạn học.

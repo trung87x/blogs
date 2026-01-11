@@ -1,0 +1,37 @@
+1. Vấn đề với HTML và CSS  
+Một số vấn đề với HTML và CSS xuất phát từ việc cả hai ngôn ngữ này khá đơn giản, và thường các nhà phát triển không chú trọng đến việc viết mã sao cho chuẩn mực, hiệu quả, và mô tả đúng mục đích của các tính năng trên trang. Trong trường hợp xấu nhất, JavaScript được sử dụng để tạo ra toàn bộ nội dung và kiểu dáng của trang web, điều này làm cho trang web trở nên không thể truy cập và hiệu suất kém.
+
+2. Khắc phục các vấn đề tổng quát  
+Bắt đầu bằng cách kiểm tra mã HTML và CSS của bạn có được viết đúng cú pháp và không có lỗi. Nếu bạn không quen với việc gỡ lỗi HTML/CSS, bạn nên tham khảo các bài viết hướng dẫn cơ bản về vấn đề này.
+
+3. Xác thực mã  
+Xác thực HTML bao gồm việc đảm bảo rằng tất cả các thẻ của bạn được đóng đúng cách, bạn đang sử dụng doctype và các thẻ đúng mục đích. Một dịch vụ hữu ích là W3C Markup Validation Service.
+
+CSS cũng có quy trình xác thực tương tự, cần kiểm tra tên thuộc tính và giá trị đã chính xác chưa, không thiếu dấu ngoặc nhọn và các vấn đề khác.
+
+4. Sử dụng Linters  
+Linters có thể giúp phát hiện lỗi và cảnh báo về các thực hành xấu trong CSS và các ngôn ngữ khác. Ví dụ, bạn có thể sử dụng Dirty Markup để phát hiện lỗi HTML, CSS và JavaScript.
+
+5. Công cụ phát triển trình duyệt  
+Các công cụ phát triển trong trình duyệt giúp xác định lỗi, đặc biệt là với CSS. Ví dụ, trong Firefox, công cụ kiểm tra CSS sẽ hiển thị các khai báo không được áp dụng và hiển thị một biểu tượng cảnh báo.
+
+6. Các vấn đề phổ biến với trình duyệt  
+Một vấn đề phổ biến là các trình duyệt không hỗ trợ đầy đủ các tính năng mới, ví dụ như các tính năng HTML5 và CSS3 chưa được hỗ trợ đồng bộ trên tất cả các trình duyệt.
+
+7. Hành vi dự phòng trong HTML  
+Một số vấn đề có thể được giải quyết bằng cách sử dụng các cơ chế dự phòng tự nhiên trong HTML. Ví dụ, nếu một trình duyệt không hỗ trợ thẻ `<video>` hoặc `<audio>`, bạn có thể thêm nội dung thay thế giữa các thẻ để người dùng vẫn có thể truy cập được.
+
+8. Hành vi dự phòng trong CSS  
+CSS có thể xử lý các tình huống mà một số khai báo không được trình duyệt hỗ trợ. Trình duyệt sẽ bỏ qua các khai báo không hiểu mà không gây lỗi cho toàn bộ trang.
+
+9. Các vấn đề về CSS Prefixes  
+CSS Prefixes (tiền tố) được sử dụng khi trình duyệt thử nghiệm các tính năng CSS chưa chính thức. Ví dụ, Firefox sử dụng -moz- và các trình duyệt khác như Chrome, Safari, Opera sử dụng -webkit-. Bạn cần kiểm tra xem liệu tiền tố có cần thiết và nên tránh việc chỉ sử dụng tiền tố của một trình duyệt duy nhất.
+
+10. Vấn đề về thiết kế đáp ứng (Responsive Design)  
+Thiết kế đáp ứng đảm bảo trang web phù hợp với nhiều loại thiết bị, từ màn hình lớn đến thiết bị di động. Các vấn đề về độ phân giải và tốc độ internet có thể khiến việc tải hình ảnh lớn trên thiết bị di động gặp khó khăn, vì vậy cần áp dụng các kỹ thuật như `srcset` và `sizes` cho thẻ `<img>`.
+
+11. Tìm kiếm sự trợ giúp  
+Các nguồn hỗ trợ phổ biến gồm Mozilla Developer Network (MDN), Stack Overflow, và caniuse.com. Những trang này cung cấp thông tin về hỗ trợ trình duyệt cho các tính năng cụ thể.
+
+Tóm tắt  
+Bài viết này cung cấp cho bạn cái nhìn tổng quan về các vấn đề phổ biến với HTML và CSS, cùng với cách khắc phục chúng.

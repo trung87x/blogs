@@ -1,0 +1,143 @@
+/* ===============
+   BẮT ĐẦU VỚI CSS
+   =============== */
+
+/* 1. Cách thêm CSS vào HTML
+   -------------------------- */
+/* External stylesheet (phổ biến nhất):
+   <link rel="stylesheet" href="styles.css" />
+*/
+
+/* Internal stylesheet:
+   <style>
+     p { color: purple; }
+   </style>
+*/
+
+/* Inline style:
+   <span style="color: purple; font-weight: bold">text</span>
+   ⚠️ Không khuyến khích dùng vì khó bảo trì */
+
+/* 2. Selector cơ bản
+   ------------------- */
+h1 {
+  color: red; /* chọn theo tên thẻ (type selector) */
+}
+
+p,
+li {
+  color: green; /* chọn nhiều selector cùng lúc */
+}
+
+.special {
+  color: orange;
+  font-weight: bold;
+}
+/* class selector bắt đầu bằng dấu chấm (.) */
+
+li em {
+  color: rebeccapurple;
+}
+/* descendant selector – chọn <em> bên trong <li> */
+
+h1 + p {
+  font-size: 200%;
+}
+/* next-sibling selector – <p> ngay sau <h1> */
+
+p span {
+  color: red;
+}
+/* span nằm trong đoạn văn sẽ được tô đỏ */
+
+/* 3. Pseudo-class – chọn theo trạng thái
+   ---------------------------------------- */
+a:link {
+  color: pink;
+}
+a:visited {
+  color: green;
+}
+a:hover {
+  text-decoration: none;
+}
+/* Có thể thêm: :active, :focus, :target, ... */
+
+/* 4. Selector phức hợp – kết hợp nhiều lớp
+   ---------------------------------------- */
+h1 + p .special {
+  color: yellow;
+  background-color: black;
+  padding: 5px;
+}
+/* chọn phần tử có class=special nằm trong <p> sau <h1> */
+
+/* 5. CSS Functions
+   ----------------- */
+/* calc(): thực hiện phép tính trong CSS */
+.box {
+  width: calc(90% - 30px);
+  background-color: rebeccapurple;
+  color: white;
+}
+
+/* transform: sử dụng rotate(), scale(), ... */
+.box {
+  transform: rotate(0.8turn);
+}
+
+/* background-image: dùng gradient */
+.box {
+  background-image: linear-gradient(red, blue);
+}
+
+/* color: dùng rgb(), hsl() */
+p {
+  color: rgb(255, 100, 100);
+}
+
+/* 6. @rules – quy tắc đặc biệt
+   ----------------------------- */
+@media (min-width: 30em) {
+  body {
+    background-color: blue;
+  }
+}
+/* áp dụng khi cửa sổ trình duyệt >= 30em */
+
+/* 7. Shorthand – rút gọn thuộc tính
+   ---------------------------------- */
+padding: 10px 15px 15px 5px;
+/* tương đương:
+   padding-top: 10px;
+   padding-right: 15px;
+   padding-bottom: 15px;
+   padding-left: 5px;
+*/
+
+background: red url(bg.png) 10px 10px repeat-x fixed;
+/* tương đương với:
+   background-color, image, position, repeat, attachment
+*/
+
+/* 8. CSS Comments
+   ---------------- */
+body {
+  /* Đây là phần style cơ bản */
+  font-family: sans-serif;
+}
+
+/* 9. Whitespace – khoảng trắng
+   ----------------------------- */
+/* Cần thiết để code dễ đọc:
+   Đúng: margin: 0 auto;
+   Sai:  margin:0auto; => lỗi!
+*/
+
+/* =============================
+   TỔNG KẾT:
+   - CSS có thể gắn vào HTML theo 3 cách
+   - Học cách dùng selector: tag, class, trạng thái, tổ hợp
+   - Biết áp dụng calc(), @media, pseudo-classes
+   - Viết CSS sạch sẽ, có comment và khoảng trắng hợp lý
+   ============================= */

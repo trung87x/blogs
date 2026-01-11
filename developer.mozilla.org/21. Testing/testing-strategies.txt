@@ -1,0 +1,42 @@
+1. Chọn trình duyệt và thiết bị để kiểm thử  
+Vì bạn không thể kiểm thử tất cả các kết hợp trình duyệt và thiết bị, điều quan trọng là đảm bảo trang web của bạn hoạt động trên những trình duyệt và thiết bị quan trọng nhất. Các trình duyệt và thiết bị có thể phân loại theo mức độ hỗ trợ:  
+- **A-grade**: Trình duyệt hiện đại/phổ biến, kiểm thử kỹ lưỡng và cung cấp hỗ trợ đầy đủ.  
+- **B-grade**: Trình duyệt cũ/kém khả năng, kiểm thử và cung cấp trải nghiệm cơ bản với thông tin và dịch vụ cốt lõi.  
+- **C-grade**: Trình duyệt hiếm/lạ, không kiểm thử nhưng giả định rằng chúng có khả năng hỗ trợ, cung cấp toàn bộ trang web với các phương pháp dự phòng.
+
+2. Dự đoán trình duyệt phổ biến của đối tượng người dùng  
+Dựa trên nhân khẩu học người dùng, bạn có thể dự đoán trình duyệt phổ biến của họ:  
+- **Trình duyệt A-grade**: Chrome, Firefox, Safari, Edge (Windows/Mac); Safari iOS cho iPhone/iPad; Android stock browser và các phiên bản gần nhất của Chrome, Firefox trên Android và iOS.  
+- **Trình duyệt B-grade**: Opera Mini, các trình duyệt ít hỗ trợ tính năng mạnh mẽ.  
+- **Trình duyệt C-grade**: Các trình duyệt ít phổ biến hoặc lỗi thời.
+
+3. Sử dụng công cụ phân tích  
+Sử dụng công cụ phân tích như Google Analytics để xác định trình duyệt và hệ điều hành mà người dùng đang sử dụng.
+
+4. Các yếu tố cần xem xét khác  
+- **Truy cập dễ dàng**: Đảm bảo trang web của bạn đáp ứng yêu cầu truy cập cơ bản cho người có nhu cầu đặc biệt.  
+- **Tính di động**: Nếu sản phẩm của bạn nhắm vào thị trường di động, ưu tiên kiểm thử trên các trình duyệt di động.
+
+5. Bảng hỗ trợ cuối cùng  
+- **A-grade**: Chrome, Firefox, Safari, Edge (hai phiên bản gần nhất), iOS Safari, Android stock browser và các trình duyệt phổ biến cho Android.  
+- **B-grade**: Opera Mini.  
+- **C-grade**: Opera và các trình duyệt niche hiện đại.
+
+6. Khi nào bạn sẽ kiểm thử?  
+Khi có tính năng mới trong mã của bạn cần kiểm thử, hãy viết ra yêu cầu kiểm thử cần đạt được để tính năng được chấp nhận.
+
+7. Thiết lập phòng thí nghiệm kiểm thử  
+Lựa chọn kiểm thử với thiết bị thực tế và môi trường mô phỏng:  
+- **Thiết bị thực tế**: Các thiết bị như máy Mac, Windows, điện thoại và máy tính bảng Android/iOS với các trình duyệt phổ biến.  
+- **Emulators**: Chương trình mô phỏng cho phép kiểm thử mà không cần thiết bị phần cứng thực tế.  
+- **Máy ảo**: Các ứng dụng máy ảo giúp kiểm thử trên các hệ điều hành và thiết bị khác nhau mà không cần phần cứng thực tế.
+
+8. Kiểm thử tự động và công cụ thương mại  
+Công cụ tự động như **Selenium** giúp tự động hóa kiểm thử trên nhiều trình duyệt. Các công cụ thương mại như **Sauce Labs**, **Browser Stack**, **LambdaTest** cung cấp dịch vụ kiểm thử tự động mà không cần thiết lập phức tạp.
+
+9. Kiểm thử người dùng  
+Nếu có nhóm người dùng sẵn sàng, bạn có thể yêu cầu họ kiểm thử tính năng mới và báo cáo kết quả.
+
+10. Lời khuyên  
+- Sử dụng chế độ duyệt web riêng biệt để tránh các tiện ích mở rộng ảnh hưởng đến kết quả kiểm thử.  
+- Kiểm thử trên các thiết bị di động giá rẻ để đảm bảo hiệu suất tốt cho các thiết bị này.

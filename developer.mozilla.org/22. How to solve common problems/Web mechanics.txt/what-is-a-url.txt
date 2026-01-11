@@ -1,0 +1,102 @@
+
+1. Tên miền là gì và cách thức hoạt động của nó
+Bài viết này giải thích tên miền là gì, cách thức hoạt động của nó và tại sao nó lại quan trọng.
+
+**Tiền đề:** Trước tiên bạn cần biết cách Internet hoạt động và hiểu các URL là gì.
+
+**Mục tiêu:** Học về tên miền, cách chúng hoạt động và lý do tại sao chúng lại quan trọng.
+
+**Tóm tắt**
+Tên miền là một phần quan trọng trong cơ sở hạ tầng Internet. Chúng cung cấp một địa chỉ dễ đọc cho bất kỳ máy chủ web nào có sẵn trên Internet.
+
+Bất kỳ máy tính nào kết nối Internet cũng có thể được truy cập thông qua Địa chỉ IP công cộng, có thể là địa chỉ IPv4 (ví dụ, 192.0.2.172) hoặc địa chỉ IPv6 (ví dụ, 2001:db8:8b73:0000:0000:8a2e:0370:1337).
+
+Máy tính có thể xử lý những địa chỉ này dễ dàng, nhưng con người lại gặp khó khăn khi muốn biết ai đang vận hành máy chủ hoặc dịch vụ mà website cung cấp. Địa chỉ IP rất khó nhớ và có thể thay đổi theo thời gian.
+
+Để giải quyết tất cả những vấn đề đó, chúng ta sử dụng các địa chỉ dễ đọc cho con người gọi là tên miền.
+
+**Đi sâu hơn**
+**Cấu trúc của tên miền**
+Tên miền có cấu trúc đơn giản gồm một vài phần (có thể chỉ một phần, hai phần, ba phần…), được phân cách bằng dấu chấm và đọc từ phải sang trái:
+
+**Phân tích tên miền MDN**
+
+Mỗi phần trong đó cung cấp thông tin cụ thể về toàn bộ tên miền.
+
+- **TLD (Top-Level Domain)**.
+  TLDs cho người dùng biết mục đích chung của dịch vụ đằng sau tên miền. Các TLD chung nhất (.com, .org, .net) không yêu cầu dịch vụ web phải đáp ứng bất kỳ tiêu chí cụ thể nào, nhưng một số TLD có chính sách nghiêm ngặt hơn để rõ ràng mục đích của chúng. Ví dụ:
+    - Các TLD địa phương như .us, .fr hoặc .se có thể yêu cầu dịch vụ được cung cấp bằng một ngôn ngữ nhất định hoặc được lưu trữ ở một quốc gia cụ thể — chúng phải chỉ ra một tài nguyên trong ngôn ngữ hoặc quốc gia đó.
+    - Các TLD chứa .gov chỉ được phép sử dụng bởi các cơ quan chính phủ.
+    - TLD .edu chỉ dành cho các tổ chức giáo dục và học thuật.
+  TLDs có thể chứa cả ký tự đặc biệt cũng như ký tự latinh. Độ dài tối đa của một TLD là 63 ký tự, mặc dù phần lớn thường dài khoảng 2–3 ký tự.
+
+  Danh sách đầy đủ các TLD được duy trì bởi ICANN.
+
+- **Label (hoặc thành phần)**
+  Các nhãn là những gì theo sau TLD. Một nhãn là một chuỗi ký tự không phân biệt chữ hoa/thường từ một đến 63 ký tự, chỉ chứa các chữ cái A đến Z, chữ số 0 đến 9 và ký tự '-' (không thể là ký tự đầu tiên hoặc cuối cùng trong nhãn). `a`, `97`, và `hello-strange-person-16-how-are-you` đều là các nhãn hợp lệ.
+
+  Nhãn nằm ngay trước TLD còn được gọi là **Secondary Level Domain (SLD)**.
+
+Tên miền có thể có nhiều nhãn (hoặc thành phần). Việc có ba nhãn không phải là bắt buộc để hình thành một tên miền. Ví dụ, `informatics.ed.ac.uk` là một tên miền hợp lệ. Đối với bất kỳ tên miền nào bạn sở hữu (ví dụ, `mozilla.org`), bạn có thể tạo "subdomains" với nội dung khác nhau cho mỗi tên miền đó, như `developer.mozilla.org`, `support.mozilla.org` hoặc `bugzilla.mozilla.org`.
+
+**Mua tên miền**
+**Ai sở hữu một tên miền?**
+Bạn không thể "mua" tên miền. Điều này để đảm bảo rằng những tên miền không sử dụng cuối cùng có thể được sử dụng lại bởi người khác. Nếu mọi tên miền đều bị mua, website sẽ nhanh chóng đầy rẫy các tên miền không sử dụng và không thể được sử dụng.
+
+Thay vào đó, bạn trả tiền để có quyền sử dụng tên miền trong một hoặc nhiều năm. Bạn có thể gia hạn quyền của mình, và việc gia hạn sẽ được ưu tiên hơn các đơn xin của người khác. Nhưng bạn không bao giờ sở hữu tên miền đó.
+
+Các công ty được gọi là **registrars** sử dụng các **domain name registries** để theo dõi thông tin kỹ thuật và hành chính kết nối bạn với tên miền của bạn.
+
+Lưu ý: Với một số tên miền, có thể không phải registrar chịu trách nhiệm theo dõi. Ví dụ, mọi tên miền dưới .fire đều do Amazon quản lý.
+
+**Tìm kiếm tên miền có sẵn**
+Để tìm hiểu xem một tên miền có sẵn không, bạn có thể:
+
+- Truy cập vào website của một registrar tên miền. Hầu hết chúng đều cung cấp dịch vụ "whois" giúp bạn kiểm tra xem tên miền có sẵn hay không.
+
+Hoặc nếu bạn sử dụng hệ thống có shell tích hợp, hãy nhập lệnh whois vào đó, như sau cho tên miền `mozilla.org`:
+
+```bash
+whois mozilla.org
+```
+
+Điều này sẽ xuất ra thông tin như sau:
+
+```bash
+Domain Name:MOZILLA.ORG
+Domain ID: D1409563-LROR
+Creation Date: 1998-01-24T05:00:00Z
+Updated Date: 2013-12-08T01:16:57Z
+Registry Expiry Date: 2015-01-23T05:00:00Z
+Sponsoring Registrar:MarkMonitor Inc. (R37-LROR)
+Sponsoring Registrar IANA ID: 292
+WHOIS Server:
+Referral URL:
+Domain Status: clientDeleteProhibited
+Domain Status: clientTransferProhibited
+Domain Status: clientUpdateProhibited
+Registrant ID:mmr-33684
+Registrant Name:DNS Admin
+Registrant Organization:Mozilla Foundation
+Registrant Street: 650 Castro St Ste 300
+Registrant City:Mountain View
+Registrant State/Province:CA
+Registrant Postal Code:94041
+Registrant Country:US
+Registrant Phone:+1.6509030800
+```
+
+**Đăng ký tên miền**
+Quá trình đăng ký tên miền khá đơn giản:
+
+- Truy cập website của một registrar.
+- Thường sẽ có nút "Get a domain name" nổi bật. Nhấp vào đó.
+- Điền vào form với tất cả các thông tin cần thiết. Đặc biệt, hãy chắc chắn rằng bạn không viết sai tên miền bạn muốn. Khi đã thanh toán, bạn không thể thay đổi nữa!
+- Registrar sẽ thông báo khi tên miền được đăng ký thành công. Trong vài giờ, tất cả các máy chủ DNS sẽ nhận được thông tin DNS của bạn.
+
+Lưu ý: Trong quá trình này, registrar sẽ yêu cầu bạn cung cấp địa chỉ thực của bạn. Hãy chắc chắn điền đúng, vì trong một số quốc gia, registrar có thể yêu cầu đóng tên miền nếu họ không thể cung cấp địa chỉ hợp lệ.
+
+**Làm mới DNS**
+Các cơ sở dữ liệu DNS được lưu trữ trên mỗi máy chủ DNS toàn cầu, và tất cả các máy chủ này tham chiếu đến một số máy chủ đặc biệt gọi là "máy chủ tên chính thức" hoặc "máy chủ DNS cấp cao" — đây là các máy chủ chủ quản của hệ thống.
+
+Mỗi khi registrar của bạn tạo hoặc cập nhật thông tin cho một tên miền, thông tin đó phải được làm mới trong mỗi cơ sở dữ liệu DNS. Mỗi máy chủ DNS biết về tên miền đó lưu trữ thông tin trong một thời gian trước khi tự động hết hạn và được làm mới (máy chủ DNS sẽ yêu cầu một máy chủ chủ quản và lấy thông tin cập nhật từ đó). Do đó, mất một khoảng thời gian để các máy chủ DNS nhận được thông tin cập nhật.

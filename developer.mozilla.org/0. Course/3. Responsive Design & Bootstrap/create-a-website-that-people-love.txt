@@ -1,0 +1,55 @@
+
+# Web Design School - Create a Website that People Love
+
+## 1. Tầm Quan Trọng Của Thiết Kế Web
+
+Thiết kế web không chỉ liên quan đến chức năng của trang web mà còn ảnh hưởng trực tiếp đến trải nghiệm người dùng (UX). Người dùng sẽ quyết định có tiếp tục sử dụng trang web của bạn hay không trong vòng vài giây đầu tiên khi họ truy cập. Một trang web thiết kế tốt sẽ tạo cảm giác tin cậy và dễ sử dụng, trong khi một trang web thiết kế kém có thể làm mất khách hàng tiềm năng.
+
+### Yếu tố của một trang web thiết kế tốt:
+- **Chức năng dễ dàng sử dụng**.
+- **Bố cục rõ ràng, dễ hiểu**.
+- **Tính năng và giao diện tương thích với nhiều thiết bị (mobile-friendly)**.
+- **Tạo ấn tượng đầu tiên mạnh mẽ**【291†source】.
+
+## 2. Nguyên Tắc Thiết Kế Web Tốt
+
+### 1. Đơn Giản Hóa (Simplicity)
+Trang web càng đơn giản, càng dễ sử dụng. Các trang web phức tạp và khó sử dụng có thể làm người dùng bỏ cuộc ngay lập tức.
+
+### 2. Tính Nhất Quán (Consistency)
+Thiết kế phải nhất quán về bố cục, màu sắc và kiểu chữ, tạo ra một trải nghiệm liền mạch cho người dùng.
+
+### 3. Tạo Lý Thuyết Màu Sắc (Color Theory)
+- **Màu sắc** có sức mạnh lớn trong việc truyền tải cảm xúc và ảnh hưởng đến cảm nhận người dùng về thương hiệu【292†source】【293†source】.
+
+## 3. Lý Thuyết Màu Sắc (Colour Theory)
+
+Lý thuyết màu sắc là nghệ thuật phối hợp các màu sắc để tạo ra một thiết kế hài hòa. Mỗi màu sắc có thể tạo ra những cảm xúc khác nhau, vì vậy việc chọn màu sắc đúng là rất quan trọng trong thiết kế web.
+
+### Các màu sắc phổ biến và ý nghĩa:
+- **Màu đỏ**: Năng lượng, tình yêu, cường độ.
+- **Màu xanh lá cây**: Tươi mới, thiên nhiên, an toàn.
+- **Màu xanh dương**: Sự ổn định, tin cậy, thanh thản【293†source】.
+
+## 4. Typography - Kiểu Chữ Và Phông Chữ
+
+Typography là nghệ thuật chọn và sắp xếp phông chữ để tạo sự rõ ràng, dễ đọc và dễ hiểu. Việc chọn phông chữ có thể tác động đến nhận thức của người dùng về thương hiệu.
+
+### Các nhóm phông chữ chính:
+- **Serif**: Truyền thống, uy tín, thích hợp cho các ngành nghề như báo chí, pháp lý.
+- **Sans-Serif**: Hiện đại, dễ đọc, phổ biến trong thiết kế web.
+- **Script**: Nghệ thuật, sang trọng, thích hợp cho các trang web thời trang【294†source】.
+
+## 5. UX (Trải Nghiệm Người Dùng) và UI (Giao Diện Người Dùng)
+
+### UI:
+- Tập trung vào giao diện và các yếu tố trực quan như nút bấm, thanh điều hướng, biểu tượng.
+
+### UX:
+- Tạo ra trải nghiệm người dùng dễ dàng và thú vị, bao gồm việc đơn giản hóa giao diện, cải thiện tính nhất quán và giảm thiểu sự rối mắt.
+
+## 6. Bố Cục Và Khoảng Trắng
+
+Bố cục rõ ràng và có sự phân chia hợp lý sẽ giúp người dùng dễ dàng tiếp cận thông tin trên trang web. Khoảng trắng (Whitespace) giúp làm cho giao diện trở nên dễ chịu, chuyên nghiệp và dễ dàng điều hướng【295†source】.
+
+---

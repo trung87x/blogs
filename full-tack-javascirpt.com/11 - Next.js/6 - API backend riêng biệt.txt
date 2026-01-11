@@ -1,0 +1,57 @@
+🧠 Model 6: API backend riêng biệt trong Next.js
+---------------------------------------------------
+• Vai trò: Tạo backend API nội bộ trong dự án Next.js (RESTful).
+• Controller:
+  - Tạo file trong `app/api/` để định nghĩa các route API như `/api/products`, `/api/user/[id]`.
+  - Sử dụng `Request`, `Response` tương tự Node.js.
+
+🌐 Ngữ cảnh #6: Tạo API `/api/products` trả về danh sách sản phẩm JSON
+-------------------------------------------------------------------------
+• Mục tiêu: Giả lập backend trả danh sách sản phẩm để frontend fetch.
+• Phù hợp khi cần API dùng chung cho cả SSR, CSR, SSG hoặc từ ứng dụng mobile.
+
+📁 Cấu trúc thư mục:
+
+app/
+├── api/
+│   └── products/
+│       └── route.ts
+└── search/
+    └── page.tsx
+
+✏️ Mã nguồn:
+
+// app/api/products/route.ts
+import { NextResponse } from 'next/server'
+
+export async function GET() {
+  const products = [
+    { id: 1, name: 'MacBook Pro', price: 2000 },
+    { id: 2, name: 'iPhone 15', price: 1200 },
+    { id: 3, name: 'iPad Air', price: 800 },
+  ]
+  return NextResponse.json(products)
+}
+
+✅ Sử dụng ở client (CSR):
+
+// fetch từ client (VD: trong useEffect)
+fetch('/api/products')
+  .then(res => res.json())
+  .then(data => console.log(data))
+
+✅ Sử dụng ở server (SSR, SSG):
+
+// trong getServerSideProps hoặc fetch trong async component
+const res = await fetch('http://localhost:3000/api/products')
+const products = await res.json()
+
+✅ Kết quả:
+- API `/api/products` hoạt động giống backend thật.
+- Dùng được cho cả SSR, SSG, CSR.
+- Có thể xử lý GET, POST, PUT, DELETE như Express.
+
+🎯 Ghi nhớ:
+- Mỗi file `route.ts` trong `app/api/` tương đương 1 route.
+- Các HTTP method như `GET`, `POST` là export riêng biệt.
+- Đây là cách Next.js tích hợp backend mà không cần Express.

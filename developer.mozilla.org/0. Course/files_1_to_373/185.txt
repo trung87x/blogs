@@ -1,0 +1,61 @@
+📌 Cornell Notes - Install Git Bash on Windows
+
+📌 Topic/Title:
+
+Cài đặt Git Bash trên Windows
+
+🔎 Keywords/Questions:
+
+Git Bash là gì?
+
+Làm thế nào để cài đặt Git Bash trên Windows?
+
+VS Code có thể sử dụng Git Bash làm terminal mặc định không?
+
+Làm thế nào để thiết lập Git Bash làm shell mặc định trong VS Code?
+
+📝 Notes:
+
+Git Bash là gì?
+
+Git Bash là một công cụ dòng lệnh giúp sử dụng Git trên Windows.
+
+Mac đã có sẵn Bash nên không cần cài đặt thêm.
+
+Cách cài đặt Git Bash trên Windows
+
+Truy cập trang web gitforwindows.org để tải Git SCM.
+
+Mở trình cài đặt và chọn Có để bắt đầu cài đặt.
+
+Đồng ý với điều khoản bằng cách nhấp vào Tiếp theo.
+
+Chọn thư mục cài đặt Git.
+
+Khi trình cài đặt hỏi về các thành phần cần cài đặt, đảm bảo rằng Git Bash được chọn.
+
+Nhấp Tiếp theo liên tục để giữ các tùy chọn mặc định và hoàn tất cài đặt.
+
+Kiểm tra Git Bash sau khi cài đặt
+
+Mở VS Code.
+
+Vào menu trên cùng → Thiết bị đầu cuối (Terminal) → Nhà ga mới (New Terminal).
+
+Nhấn vào biểu tượng dấu cộng (+) và chọn Git Bash.
+
+Nếu thấy dấu $ trong Terminal, nghĩa là Git Bash đã hoạt động.
+
+Thiết lập Git Bash làm terminal mặc định trong VS Code
+
+Vào Xem (View) → Bảng lệnh (Command Palette).
+
+Tìm Chọn Cấu hình Mặc định (Select Default Profile).
+
+Chọn Git Bash.
+
+Mỗi lần mở terminal mới trong VS Code, Git Bash sẽ là terminal mặc định.
+
+📌 Summary:
+
+Git Bash là một công cụ giúp chạy lệnh Git trên Windows. Việc cài đặt Git Bash bao gồm tải Git SCM từ trang web chính thức, chạy trình cài đặt và chọn Git Bash trong quá trình cài đặt. Sau khi cài đặt, có thể sử dụng Git Bash trong VS Code và thiết lập nó làm terminal mặc định để tiện làm việc.

@@ -1,0 +1,75 @@
+📌 Cornell Notes - Understanding the Command Line
+
+📌 Topic/Title:
+
+Tìm hiểu về Dòng lệnh (Command Line)
+
+🔎 Keywords/Questions:
+
+Shell là gì?
+
+Kernel và Shell khác nhau như thế nào?
+
+Giao diện đồ họa (GUI) và Giao diện dòng lệnh (CLI) có gì khác biệt?
+
+Tại sao sử dụng dòng lệnh thay vì giao diện đồ họa?
+
+Bash là gì và tại sao nó quan trọng?
+
+📝 Notes:
+
+Shell và Kernel là gì?
+
+Kernel là lõi của hệ điều hành, giao tiếp trực tiếp với phần cứng.
+
+Shell là giao diện giúp người dùng tương tác với Kernel.
+
+Có hai loại Shell:
+
+Giao diện đồ họa (GUI): Finder, File Explorer.
+
+Giao diện dòng lệnh (CLI): Terminal, Command Prompt.
+
+Bash là gì?
+
+Bash (Bourne Again Shell) là một trình thông dịch dòng lệnh trên hệ thống Unix.
+
+Các hệ điều hành như Linux, macOS đều dựa trên Unix, nên Bash phổ biến trong phát triển phần mềm.
+
+Windows không dùng Unix, mà dựa trên DOS và PowerShell.
+
+Tại sao sử dụng dòng lệnh thay vì GUI?
+
+Kiểm soát tốt hơn: CLI giúp bạn thao tác nhanh và chi tiết hơn GUI.
+
+Tốc độ cao hơn:
+
+Tạo thư mục trong Finder: nhiều bước (Mở Finder → Chọn vị trí → Nhấp chuột phải → Chọn New Folder → Nhập tên).
+
+Tạo thư mục bằng CLI: chỉ cần chạy mkdir Music.
+
+Hiển thị toàn bộ dữ liệu:
+
+Finder ẩn một số tệp hệ thống.
+
+CLI có thể hiển thị các tệp ẩn bằng lệnh ls -a.
+
+Ví dụ thao tác nhanh với dòng lệnh
+
+Tạo thư mục: mkdir NewFolder.
+
+Hiển thị tệp ẩn: ls -a.
+
+Điều hướng giữa thư mục: cd FolderName.
+
+Ứng dụng của dòng lệnh trong lập trình
+
+Git và Quản lý phiên bản: CLI được sử dụng phổ biến để làm việc với Git.
+
+Tạo, xóa, di chuyển tệp nhanh chóng.
+
+Chạy chương trình trên máy chủ Linux.
+
+📌 Summary:
+
+Shell là giao diện giúp người dùng giao tiếp với Kernel. Có hai loại giao diện: GUI (Finder, Explorer) và CLI (Terminal, Bash). CLI có nhiều ưu điểm hơn GUI vì giúp thao tác nhanh hơn và kiểm soát toàn bộ hệ thống. Bash là một Shell quan trọng trong môi trường Unix và được dùng nhiều trong lập trình, đặc biệt là Git và quản lý phiên bản.

@@ -1,0 +1,82 @@
+🧠 Model 14: 404, 500 và xử lý lỗi toàn cục
+--------------------------------------------------
+• Vai trò: Hiển thị trang lỗi thân thiện khi người dùng truy cập sai URL (404) hoặc khi server xảy ra lỗi (500).
+• Controller: Tạo file `not-found.tsx` và `error.tsx` trong thư mục `app/` để Next.js tự động dùng khi xảy ra lỗi.
+
+📘 Ngữ cảnh #14: Xử lý lỗi 404 và 500 trong ứng dụng Next.js
+-------------------------------------------------------------------
+
+❌ 1. Trang 404 tùy chỉnh → `app/not-found.tsx`
+
+```tsx
+// app/not-found.tsx
+export default function NotFound() {
+  return (
+    <div className="text-center mt-20">
+      <h1 className="text-4xl font-bold text-red-500">404 - Không tìm thấy trang</h1>
+      <p className="mt-4">Vui lòng kiểm tra lại đường dẫn hoặc quay về trang chủ.</p>
+    </div>
+  )
+}
+```
+
+➡️ Khi bạn dùng `notFound()` trong page → Next.js sẽ redirect sang trang này:
+
+```tsx
+import { notFound } from 'next/navigation'
+
+export default async function Page({ params }) {
+  const data = await fetchData(params.id)
+  if (!data) return notFound()
+  return <div>{data.name}</div>
+}
+```
+
+💥 2. Trang lỗi 500 tùy chỉnh → `app/error.tsx`
+
+```tsx
+// app/error.tsx
+'use client'
+
+import { useEffect } from 'react'
+
+export default function Error({ error, reset }: { error: Error; reset: () => void }) {
+  useEffect(() => {
+    console.error('Lỗi xảy ra:', error)
+  }, [error])
+
+  return (
+    <div className="text-center mt-20">
+      <h1 className="text-3xl font-bold text-red-600">500 - Có lỗi xảy ra</h1>
+      <p className="mt-4">{error.message}</p>
+      <button onClick={() => reset()} className="mt-6 px-4 py-2 bg-blue-500 text-white rounded">
+        Thử lại
+      </button>
+    </div>
+  )
+}
+```
+
+🛡️ 3. Kích hoạt khi component bị lỗi:
+
+Ví dụ trong 1 page, lỗi bất kỳ sẽ tự động redirect đến `error.tsx`.
+
+❓ Bonus: Tạo error boundary riêng cho từng phần
+
+```tsx
+// app/dashboard/error.tsx
+export default function DashboardError({ error }) {
+  return <p>Lỗi riêng cho dashboard: {error.message}</p>
+}
+```
+
+✅ Ưu điểm:
+- Cải thiện UX khi lỗi xảy ra.
+- Có thể log lỗi về server.
+- Tùy biến giao diện từng lỗi theo module.
+
+📌 Kết luận:
+- Dùng `notFound.tsx` để hiển thị lỗi 404 → hỗ trợ SEO & UX.
+- Dùng `error.tsx` để xử lý lỗi 500 → tránh sập trắng trang.
+- Có thể phân vùng error từng phần riêng biệt.
+

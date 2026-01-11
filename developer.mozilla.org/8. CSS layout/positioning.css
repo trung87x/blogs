@@ -1,0 +1,113 @@
+/* =========================
+   ĐỊNH VỊ PHẦN TỬ TRONG CSS
+   ========================= */
+
+/* === 1. TỔNG QUAN === */
+/*
+- Cho phép đưa phần tử ra khỏi dòng chảy bình thường (normal flow)
+- Hữu ích để tạo bố cục UI nổi, dính, popup, tooltip, menu cố định,...
+- Các giá trị: static | relative | absolute | fixed | sticky
+- Các thuộc tính liên quan: top, bottom, left, right, z-index
+*/
+
+/* === 2. static – VỊ TRÍ MẶC ĐỊNH === */
+.positioned {
+  position: static;
+  background: yellow;
+}
+/*
+- Là mặc định ban đầu
+- Không thay đổi vị trí, vẫn nằm trong normal flow
+*/
+
+/* === 3. relative – VỊ TRÍ TƯƠNG ĐỐI === */
+.positioned {
+  position: relative;
+  top: 30px;
+  left: 30px;
+}
+/*
+- Phần tử vẫn giữ nguyên trong flow
+- Nhưng có thể di chuyển bằng top, left, right, bottom
+- Không ảnh hưởng đến vị trí các phần tử khác
+*/
+
+/* === 4. absolute – VỊ TRÍ TUYỆT ĐỐI === */
+.positioned {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+/*
+- Loại phần tử ra khỏi normal flow
+- Vị trí phụ thuộc vào ancestor gần nhất có position (relative | absolute | fixed)
+- Nếu không có → gốc là viewport (html)
+*/
+
+/* === 5. ĐỊNH NGỮ CẢNH POSITIONING === */
+body {
+  position: relative;
+}
+/*
+- Dùng để đặt phần tử con absolute theo body
+- Nếu không có, element sẽ bám theo viewport
+*/
+
+/* === 6. z-index – THỨ TỰ CHỒNG LÊN NHAU === */
+p:nth-of-type(1) {
+  position: absolute;
+  z-index: 1;
+}
+/*
+- Dùng để sắp xếp lớp hiển thị (trục z)
+- Giá trị cao hơn sẽ hiển thị phía trên
+- Mặc định là auto (ngầm định là 0)
+- Không áp dụng cho phần tử không được định vị (positioned)
+*/
+
+/* === 7. fixed – VỊ TRÍ CỐ ĐỊNH TRONG VIEWPORT === */
+h1 {
+  position: fixed;
+  top: 0;
+  width: 500px;
+  margin-top: 0;
+  background: white;
+  padding: 10px;
+}
+/*
+- Gắn chặt vào viewport
+- Luôn hiển thị ở vị trí đó kể cả khi cuộn trang
+- Thường dùng cho menu cố định, thanh tiêu đề,...
+*/
+
+/* === 8. sticky – VỪA RELATIVE VỪA FIXED === */
+dt {
+  position: sticky;
+  top: 0;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  margin: 1em 0;
+}
+/*
+- Khi chưa cuộn → behave như relative
+- Khi scroll đến vị trí “top” → behave như fixed
+- Phải có ancestor có cơ chế cuộn (overflow)
+*/
+
+/* === 9. MẸO & GHI NHỚ === */
+/*
+- static: mặc định, không định vị
+- relative: định vị nhẹ nhàng, không phá vỡ flow
+- absolute: định vị tuyệt đối, tách khỏi flow
+- fixed: cố định trong viewport
+- sticky: dính vào mép viewport khi scroll đến
+- z-index: kiểm soát chồng lớp hiển thị
+*/
+
+/* ============================================================
+   TÓM TẮT:
+   - Sử dụng positioning để tạo các hiệu ứng giao diện như popup, menu nổi,...
+   - Tuyệt đối tránh dùng positioning cho bố cục chính → dùng Flex/Grid
+   - Hãy luôn kiểm tra ngữ cảnh (context) khi dùng absolute
+   ============================================================ */

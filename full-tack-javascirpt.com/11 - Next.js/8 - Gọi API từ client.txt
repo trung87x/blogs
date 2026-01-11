@@ -1,0 +1,92 @@
+🧠 Model 8: Gọi API từ client (Client-Side Rendering - CSR)
+------------------------------------------------------------
+• Vai trò: Truy xuất dữ liệu sau khi trang đã render trên trình duyệt.
+• Controller: Dùng `fetch()` trong `useEffect()` từ component React.
+
+🌐 Ngữ cảnh #8: Hiển thị danh sách sản phẩm từ API `/api/products`
+--------------------------------------------------------------------
+• Mục tiêu: Fetch danh sách sản phẩm từ backend (API route) sau khi trang được render.
+
+🧱 1. API có sẵn (đã làm ở Ngữ cảnh #7):
+
+```ts
+// app/api/products/route.ts
+export async function GET() {
+  const products = await prisma.product.findMany()
+  return NextResponse.json(products)
+}
+```
+
+🎨 2. Component: Gọi API từ client và hiển thị dữ liệu
+
+```tsx
+'use client'
+
+import { useEffect, useState } from 'react'
+
+type Product = {
+  id: number
+  name: string
+  price: number
+}
+
+export default function ProductList() {
+  const [products, setProducts] = useState<Product[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    fetch('/api/products')
+      .then(res => res.json())
+      .then(data => {
+        setProducts(data)
+        setLoading(false)
+      })
+      .catch(err => {
+        console.error('Failed to fetch products:', err)
+        setLoading(false)
+      })
+  }, [])
+
+  if (loading) return <p>Đang tải sản phẩm...</p>
+
+  return (
+    <ul>
+      {products.map(product => (
+        <li key={product.id}>
+          {product.name} - {product.price}₫
+        </li>
+      ))}
+    </ul>
+  )
+}
+```
+
+📌 3. Tích hợp vào trang chính `app/page.tsx`:
+
+```tsx
+import ProductList from './ProductList'
+
+export default function HomePage() {
+  return (
+    <main>
+      <h1>Sản phẩm nổi bật</h1>
+      <ProductList />
+    </main>
+  )
+}
+```
+
+✅ Kết quả:
+- Khi người dùng mở trang, React gọi API `/api/products`.
+- Loading UI hiển thị trong khi đợi dữ liệu.
+- Danh sách sản phẩm được render sau khi fetch xong.
+
+📚 Ghi nhớ:
+- CSR thích hợp cho dữ liệu thay đổi thường xuyên.
+- Dùng `useEffect()` đảm bảo gọi API sau khi component mount.
+- Có thể kết hợp `useSWR` để caching, revalidation, v.v.
+
+🧠 Mở rộng:
+- Hiển thị thông báo lỗi nếu fetch thất bại.
+- Thêm pagination, lọc sản phẩm theo giá, tên, v.v.
+- Kết hợp với loading skeleton thay vì dòng chữ "Đang tải..."

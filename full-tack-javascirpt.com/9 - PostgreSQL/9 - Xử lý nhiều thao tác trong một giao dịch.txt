@@ -1,0 +1,50 @@
+# Ngữ cảnh 9: Xử lý nhiều thao tác trong một giao dịch (tạo user + log + gửi mail)
+
+🧠 Model (Ý nghĩa dữ liệu & quan hệ)
+- Giao dịch (transaction) đảm bảo **tính toàn vẹn** và **atomicity**:
+  - Nhiều thao tác xảy ra cùng lúc.
+  - Nếu 1 thao tác thất bại → tất cả bị huỷ.
+- Ví dụ: Tạo người dùng → Ghi log → (Gửi mail từ backend, giả lập).
+
+🛠️ Controller (SQL)
+
+-- Tạo bảng users
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(100) UNIQUE NOT NULL
+);
+
+-- Tạo bảng logs để ghi lịch sử hành động
+CREATE TABLE logs (
+  id SERIAL PRIMARY KEY,
+  action TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Giao dịch mẫu: tạo user + ghi log
+BEGIN;
+
+-- Bước 1: Thêm người dùng
+INSERT INTO users (name, email)
+VALUES ('Trung Đinh', 'trung@example.com');
+
+-- Bước 2: Ghi log
+INSERT INTO logs (action)
+VALUES ('Tạo người dùng: Trung Đinh');
+
+-- Gửi mail giả lập (ví dụ thực hiện trong backend Node.js)
+-- console.log("📧 Đã gửi email đến trung@example.com")
+
+-- Nếu mọi thứ OK
+COMMIT;
+
+-- Nếu có lỗi ở bất kỳ bước nào → huỷ toàn bộ
+ROLLBACK;
+
+📘 Ghi chú:
+- `BEGIN` → bắt đầu giao dịch
+- `COMMIT` → xác nhận giao dịch thành công
+- `ROLLBACK` → huỷ giao dịch nếu có lỗi
+- Trong thực tế, xử lý backend sẽ thực hiện logic gửi mail, rollback khi gặp lỗi ở bước bất kỳ
+

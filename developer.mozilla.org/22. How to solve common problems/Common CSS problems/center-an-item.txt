@@ -1,0 +1,32 @@
+
+1. Cách căn giữa một phần tử
+Trong hướng dẫn này, bạn sẽ tìm hiểu cách căn giữa một phần tử bên trong một phần tử khác, cả theo chiều ngang và chiều dọc.
+
+**Căn giữa một hộp (Center a box)**
+Để căn giữa một hộp bên trong một hộp khác bằng CSS, bạn sẽ cần sử dụng các thuộc tính căn giữa hộp CSS trên phần tử chứa. Vì các thuộc tính căn giữa này chưa được hỗ trợ trên các layout block và inline, bạn sẽ cần biến phần tử cha thành một container flex hoặc grid để bật tính năng sử dụng căn giữa.
+
+Trong ví dụ dưới đây, chúng ta đã đặt `display: flex;` cho phần tử cha, sau đó đặt `justify-content: center` để căn giữa theo chiều ngang và `align-items: center` để căn giữa theo chiều dọc.
+
+```html
+<div class="wrapper">
+  <div class="box">center me!</div>
+</div>
+```
+
+```css
+.wrapper {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box {
+  background-color: rgb(69 164 181);
+  border-radius: 5px;
+  padding: 10px;
+  color: #fff;
+}
+```
+
+Lưu ý: Bạn có thể sử dụng kỹ thuật này để căn giữa một hoặc nhiều phần tử bên trong một phần tử khác. Trong ví dụ trên, bạn có thể thử thay đổi các giá trị cho `justify-content` và `align-items` thành bất kỳ giá trị hợp lệ nào.

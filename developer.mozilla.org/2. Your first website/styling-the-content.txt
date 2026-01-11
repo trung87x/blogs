@@ -1,0 +1,133 @@
+TRANG TRÍ NỘI DUNG TRANG WEB BẰNG CSS
+======================================
+
+1. MỤC TIÊU
+- Làm đẹp trang web bằng cách áp dụng CSS.
+- Hiểu cú pháp, cách liên kết CSS vào HTML, và chỉnh kiểu cho các phần tử như: màu, font, căn lề, đường viền…
+
+2. LIÊN KẾT CSS VÀO HTML
+a. Tạo thư mục `styles` và file `style.css`
+b. Ghi đoạn CSS test:
+p {
+  color: red;
+}
+
+c. Gắn vào `<head>` của HTML:
+<link href="styles/style.css" rel="stylesheet" />
+
++ Mẹo: Nếu đoạn văn màu đỏ hiển thị thì CSS đã được áp dụng thành công.
+
+3. CÚ PHÁP CSS CƠ BẢN
+selector {
+  property: value;
+}
+
+Ví dụ nhiều thuộc tính:
+p {
+  color: red;
+  width: 500px;
+  border: 1px solid black;
+}
+
++ Ghi nhớ:
+  - Mỗi dòng kết thúc bằng `;`
+  - Dấu `{}` bao quanh nhóm thuộc tính (declarations)
+  - Có thể chọn nhiều phần tử cùng lúc:
+
+h1, p, .my-class, #my-id {
+  color: blue;
+}
+
+4. CÀI FONT GOOGLE VÀ ĐỔI KIỂU CHỮ
+a. Gắn link vào `<head>`:
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+
+b. Áp dụng vào CSS:
+html {
+  font-family: "Roboto", sans-serif;
+  font-size: 10px;
+}
+
+c. Định kiểu chữ cho phần tử cụ thể:
+h1 {
+  font-size: 60px;
+  text-align: center;
+}
+
+p, li {
+  font-size: 16px;
+  line-height: 2;
+  letter-spacing: 1px;
+}
+
+5. MÀU NỀN TRANG VÀ THÂN TRANG
+html {
+  background-color: #00539f;
+}
+
+body {
+  width: 600px;
+  margin: 0 auto;
+  background-color: #ff9500;
+  padding: 0 20px 20px 20px;
+  border: 5px solid black;
+}
+
++ Ghi chú:
+  - `margin: 0 auto`: căn giữa nội dung theo chiều ngang
+  - `padding`: tạo khoảng cách bên trong
+  - `border`: đường viền trang trí
+
+6. ĐỔI KIỂU TIÊU ĐỀ TRANG
+h1 {
+  margin: 0;
+  padding: 20px 0;
+  color: #00539f;
+  text-shadow: 3px 3px 1px black;
+}
+
++ Gợi ý:
+  - `text-shadow`: đổ bóng cho chữ
+  - Xoá khoảng trắng không mong muốn bằng `margin: 0`
+
+7. CĂN GIỮA HÌNH ẢNH
+img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
++ Giải thích:
+  - `img` mặc định là inline → cần `display: block` để dùng được `margin: auto`
+  - `max-width: 100%`: giúp ảnh tự co lại cho vừa nội dung
+
+8. GHI NHỚ HỘP BOX MODEL
+Mỗi phần tử HTML là một “hộp” gồm 4 vùng:
+
+- `content` (nội dung)
+- `padding` (khoảng cách bên trong)
+- `border` (viền)
+- `margin` (khoảng cách ngoài cùng)
+
+→ Kiểu mẫu:
+
+.element {
+  width: 300px;
+  padding: 10px;
+  border: 2px solid gray;
+  margin: 20px;
+}
+
+9. GỢI Ý ÔN TẬP
+- Tự viết lại 1 trang HTML cơ bản có:
+  + Tiêu đề, đoạn văn, danh sách, hình ảnh
+- Trang trí lại theo đúng hướng dẫn trên:
+  + Font Google
+  + Căn giữa ảnh
+  + Màu nền + viền + bóng chữ
+
+10. NHẬN XÉT CUỐI
+- CSS không khó nhưng phải luyện nhiều để nhớ thuộc tính.
+- Bắt đầu từ những gì **đơn giản, trực quan** như:
+  + `color`, `font-size`, `background`, `margin`, `padding`
+- Mỗi lần chỉnh sửa → lưu → refresh trình duyệt để xem kết quả.

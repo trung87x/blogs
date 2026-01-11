@@ -1,0 +1,163 @@
+
+## **12. Quản Lý Trạng Thái Toàn Cục trong React**
+
+### **Context API**
+Context API trong React giúp bạn chia sẻ trạng thái toàn cục giữa các thành phần mà không cần phải truyền props qua nhiều cấp.
+
+- **Cách tạo context:**
+```jsx
+const MyContext = React.createContext();
+```
+
+- **Cung cấp giá trị cho context:**
+```jsx
+<MyContext.Provider value={someValue}>
+  <App />
+</MyContext.Provider>
+```
+
+- **Sử dụng context trong thành phần con:**
+```jsx
+const MyComponent = () => {
+  const contextValue = useContext(MyContext);
+  return <div>{contextValue}</div>;
+};
+```
+
+### **Redux**
+Redux là thư viện quản lý trạng thái phổ biến dùng trong React. Nó giúp quản lý và cập nhật trạng thái ứng dụng một cách dễ dàng, đặc biệt là trong các ứng dụng lớn.
+
+- **Các khái niệm chính của Redux:**
+  - **Store**: Lưu trữ trạng thái của ứng dụng.
+  - **Action**: Định nghĩa những thay đổi cần thực hiện đối với trạng thái.
+  - **Reducer**: Xử lý các actions và thay đổi trạng thái của ứng dụng.
+  - **Dispatch**: Phương thức gửi actions đến Redux store.
+
+- **Cấu trúc đơn giản của Redux:**
+```js
+// Action
+const increment = () => ({ type: "INCREMENT" });
+
+// Reducer
+const counterReducer = (state = 0, action) => {
+  switch (action.type) {
+    case "INCREMENT":
+      return state + 1;
+    default:
+      return state;
+  }
+};
+
+// Store
+const store = createStore(counterReducer);
+```
+
+- **Sử dụng Redux trong React:**
+```jsx
+import { useDispatch, useSelector } from 'react-redux';
+
+const Counter = () => {
+  const count = useSelector(state => state);
+  const dispatch = useDispatch();
+
+  return (
+    <div>
+      <h1>{count}</h1>
+      <button onClick={() => dispatch(increment())}>Increment</button>
+    </div>
+  );
+};
+```
+
+## **13. React Router: Quản Lý Điều Hướng trong Ứng Dụng React**
+
+### **Cài đặt và cấu hình React Router**
+React Router giúp bạn quản lý điều hướng trong các ứng dụng React một cách dễ dàng.
+
+- **Cài đặt React Router:**
+```bash
+npm install react-router-dom
+```
+
+- **Cấu hình Routes:**
+```jsx
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+function App() {
+  return (
+    <Router>
+      <Switch>
+        <Route path="/home" component={Home} />
+        <Route path="/about" component={About} />
+      </Switch>
+    </Router>
+  );
+}
+```
+
+- **Sử dụng Link để điều hướng:**
+```jsx
+import { Link } from 'react-router-dom';
+
+function Navigation() {
+  return (
+    <nav>
+      <Link to="/home">Home</Link>
+      <Link to="/about">About</Link>
+    </nav>
+  );
+}
+```
+
+## **14. Quản Lý API trong React**
+
+### **Fetch API với React**
+React kết hợp với các API như RESTful API hoặc GraphQL giúp bạn dễ dàng lấy dữ liệu và sử dụng trong ứng dụng.
+
+- **Sử dụng `fetch()` để lấy dữ liệu:**
+```jsx
+useEffect(() => {
+  fetch('https://api.example.com/data')
+    .then(response => response.json())
+    .then(data => setData(data));
+}, []);
+```
+
+### **Axios - Thư viện Fetch API phổ biến:**
+```bash
+npm install axios
+```
+- **Sử dụng Axios để gọi API:**
+```jsx
+import axios from 'axios';
+
+useEffect(() => {
+  axios.get('https://api.example.com/data')
+    .then(response => setData(response.data));
+}, []);
+```
+
+## **15. Kiểm Thử trong React**
+
+### **React Testing Library và Jest**
+Jest là công cụ kiểm thử phổ biến được sử dụng trong React, kết hợp với React Testing Library để kiểm tra các thành phần React.
+
+- **Cài đặt Jest và React Testing Library:**
+```bash
+npm install --save-dev jest @testing-library/react
+```
+
+- **Viết bài kiểm thử đơn giản:**
+```jsx
+import { render, screen } from '@testing-library/react';
+import App from './App';
+
+test('renders learn react link', () => {
+  render(<App />);
+  const linkElement = screen.getByText(/learn react/i);
+  expect(linkElement).toBeInTheDocument();
+});
+```
+
+## **16. Tối Ưu Hóa Hiệu Suất trong React**
+Sử dụng **React.memo**, **useMemo**, **useCallback** giúp tối ưu hóa hiệu suất, tránh việc re-render không cần thiết.

@@ -1,0 +1,81 @@
+MÔ HÌNH TIÊU CHUẨN WEB & CÁC NGUYÊN LÝ NỀN TẢNG
+==================================================
+
+1. CÔNG NGHỆ CHÍNH CỦA WEB
+- HTML: cấu trúc và ngữ nghĩa nội dung.
+- CSS: định dạng và bố cục trang.
+- JavaScript: hành vi tương tác, động.
+- APIs: cho phép JS điều khiển phần cứng/web nâng cao.
+
++ Ví dụ:
+<h1>Đây là tiêu đề chính</h1>
+<p>Đoạn văn mô tả.</p>
+<img src="cat.jpg" alt="Ảnh con mèo" />
+
+p {
+  color: red;
+}
+
+let p = document.querySelector("p");
+p.textContent = "Chúng tôi đã thay đổi nội dung!";
+
+2. CÁC TỔ CHỨC TIÊU CHUẨN WEB
+- W3C: chuẩn hoá HTML, CSS, Web APIs.
+- WHATWG: duy trì HTML Living Standard (HTML hiện đại).
+- TC39/ECMA: tiêu chuẩn ECMAScript (JS).
+- Khronos: chuẩn WebGL (đồ họa 3D).
+
++ Quy trình ra chuẩn:
+  a. Ai đó phát hiện nhu cầu.
+  b. Viết đề xuất + demo → tạo hứng thú.
+  c. Trình bày trước nhóm chuyên trách (ví dụ CSS WG).
+  d. Thử nghiệm trên trình duyệt.
+  e. Viết specs + kiểm thử + lấy phản hồi.
+  f. Được thông qua → trở thành chuẩn chính thức.
+
+3. NGUYÊN LÝ NỀN TẢNG CỦA WEB
+- Mở (Open):
+  + Ai cũng được dùng, không độc quyền.
+  + Không bị phụ thuộc bằng sáng chế, bản quyền.
+  + Nhiều công ty cùng đóng góp phát triển.
+
+- Truy cập được & tương thích (Accessible & Interoperable):
+  + Hỗ trợ người khuyết tật (screen reader, điều hướng bàn phím...).
+  + Website phải hiển thị giống nhau trên nhiều trình duyệt.
+
+- Không phá vỡ web cũ (Don't break the web):
+  + Công nghệ mới phải tương thích ngược.
+  + Trình duyệt mới không làm website cũ bị lỗi.
+
+4. CÔNG NGHỆ KHÁC
+- HTTP: truyền dữ liệu client ↔ server.
+- SVG: đồ họa vector.
+- MathML: công thức toán học.
+- Server-side: xử lý động (Python, PHP, Node.js...)
+  + Không phải web standards, nhưng đóng vai trò lớn trong hệ thống.
+
+5. PHÂN BIỆT FILE TĨNH VÀ FILE ĐỘNG
+- Tĩnh (static): HTML gốc, không thay đổi khi tải.
+- Động (dynamic): HTML sinh ra từ mã server → thay đổi theo người dùng.
+
+6. CÁC THỰC HÀNH TỐT KHI VIẾT WEB
+- Progressive enhancement:
+  + Ưu tiên chức năng cốt lõi → nâng cấp dần nếu trình duyệt hỗ trợ.
+
+- Cross-browser compatibility:
+  + Viết code chạy ổn trên nhiều trình duyệt.
+
+- Tách các lớp:
+  + HTML (nội dung), CSS (kiểu dáng), JS (hành vi) tách riêng file.
+
+- Responsive design:
+  + Giao diện co giãn theo thiết bị: PC, tablet, mobile...
+
+- Performance:
+  + Web tải nhanh, nhẹ, ít dữ liệu.
+
+- Internationalization (i18n):
+  + Hỗ trợ nhiều ngôn ngữ, văn hoá, kiểu chữ.
+
+- Privacy & Security:
+  + Bảo vệ thông tin người dùng, không thu thập dữ liệu không cần thiết.

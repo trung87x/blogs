@@ -1,0 +1,48 @@
+
+### Tối Ưu Hóa Media: Hình Ảnh
+
+**Tại sao tối ưu hóa media lại quan trọng?**
+Hình ảnh và video chiếm hơn 70% dung lượng tải xuống của một website trung bình. Do đó, việc giảm thiểu dung lượng tệp và tối ưu hóa chúng sẽ cải thiện đáng kể hiệu suất tải trang. Thực tế, loại bỏ các tệp media không cần thiết và giảm kích thước tệp là một trong những bước đơn giản nhưng hiệu quả để tối ưu hóa hiệu suất trang web.
+
+**Các vấn đề liên quan đến dung lượng tệp media**
+Khi người dùng truy cập vào một trang web, hình ảnh và video chiếm phần lớn băng thông tải trang. Một phần lớn người dùng vẫn sử dụng các gói dữ liệu hạn chế hoặc mạng chậm, vì vậy việc tải nhanh hình ảnh và video là rất quan trọng.
+
+Bên cạnh đó, bộ nhớ của thiết bị di động cũng là một yếu tố cần cân nhắc, vì nhiều thiết bị có RAM hạn chế, việc tải hình ảnh và video sẽ cần được quản lý tốt.
+
+**Tối ưu hóa việc tải hình ảnh**
+Mặc dù hình ảnh chiếm phần lớn băng thông tải trang, ảnh hưởng của việc tải hình ảnh đến hiệu suất tải trang thực tế không lớn như nhiều người nghĩ, vì nội dung văn bản của trang được tải trước và người dùng có thể nhìn thấy hình ảnh khi chúng đang tải dần. Tuy nhiên, để có một trải nghiệm người dùng tốt, việc hình ảnh được tải càng sớm càng tốt vẫn là rất quan trọng.
+
+**Chiến lược tải hình ảnh**
+Một trong những cải tiến lớn nhất đối với hầu hết các website là **lazy-loading** (tải lười biếng) hình ảnh bên dưới vùng nhìn thấy (below the fold). Thay vì tải tất cả hình ảnh ngay khi trang được tải, chỉ tải các hình ảnh mà người dùng sẽ thấy khi cuộn xuống trang. Trình duyệt hiện đại hỗ trợ tính năng này thông qua thuộc tính `loading="lazy"` trên thẻ `<img>`, và bạn cũng có thể sử dụng các thư viện JavaScript để thực hiện tính năng này.
+
+**Tối ưu hóa định dạng hình ảnh**
+Ngoài việc lazy-load, bạn cũng cần phải kiểm tra định dạng hình ảnh bạn đang sử dụng:
+- **Đã chọn định dạng tệp tối ưu chưa?**
+- **Đã nén hình ảnh tốt chưa?**
+- **Đang tải đúng kích thước hình ảnh?**
+
+**Định dạng tối ưu**
+Định dạng hình ảnh tối ưu thường phụ thuộc vào loại hình ảnh:
+- **SVG**: Định dạng SVG thích hợp cho hình ảnh có ít màu sắc và không phải là hình ảnh thực tế (photo-realistic). Đây là lựa chọn tuyệt vời cho logo, biểu đồ, và biểu tượng.
+- **PNG**: Nếu hình ảnh là bitmap (như logo hay biểu tượng), PNG sẽ là sự lựa chọn thay thế cho SVG. PNG có khả năng hỗ trợ độ trong suốt, nhưng nó có thể có dung lượng tệp lớn nếu bạn không tối ưu hóa nó đúng cách.
+
+**Các định dạng nén khác**:
+- **WebP**: Đây là lựa chọn tuyệt vời cho cả hình ảnh tĩnh và hình ảnh động. WebP có khả năng nén tốt hơn PNG hoặc JPEG với hỗ trợ độ trong suốt, khung hình động, và độ sâu màu cao. WebP được hỗ trợ bởi tất cả các trình duyệt chính trừ Safari phiên bản 14 trở xuống.
+- **AVIF**: Là một định dạng nén hình ảnh hiệu quả hơn WebP, nhưng chưa được hỗ trợ rộng rãi như WebP. Tuy nhiên, AVIF hiện đã được hỗ trợ trên các trình duyệt Chrome, Edge, Opera, và Firefox.
+
+**Tối ưu hóa tải hình ảnh và video**
+Để phục vụ hình ảnh phù hợp với độ phân giải của thiết bị, bạn có thể sử dụng các thẻ `<picture>` và `<source>` để cung cấp các hình ảnh có kích thước khác nhau cho các thiết bị có độ phân giải khác nhau.
+
+**Ví dụ về sử dụng thẻ `<picture>` và `<source>`**:
+```html
+<picture>
+  <source type="image/webp" srcset="image.webp" />
+  <img src="image.jpg" alt="Image description" />
+</picture>
+```
+
+**Tối ưu hóa video**
+Video là loại media thứ hai chiếm băng thông lớn trên các website. Tương tự như hình ảnh, video cũng cần được tối ưu hóa, chẳng hạn như sử dụng các định dạng video hiện đại và nén video để giảm dung lượng tệp.
+
+**Kết luận**
+Tối ưu hóa hình ảnh và video là một trong những bước quan trọng nhất để cải thiện hiệu suất trang web. Bạn cần đảm bảo rằng bạn sử dụng định dạng tệp tối ưu, nén tệp đúng cách, và tải hình ảnh và video một cách thông minh để tiết kiệm băng thông và bộ nhớ. Các công cụ như WebP, AVIF, và lazy-loading là những kỹ thuật hiệu quả để giảm ảnh hưởng của media đến hiệu suất tải trang.

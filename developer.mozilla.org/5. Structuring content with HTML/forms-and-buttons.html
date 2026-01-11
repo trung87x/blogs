@@ -1,0 +1,139 @@
+<!-- ==========================
+Forms and Buttons in HTML
+========================== -->
+
+<!-- 1. Nút bấm cơ bản -->
+<button>Nhấn tôi</button>
+
+<!-- Dùng JavaScript để làm nút có hành vi -->
+<!--
+const btn = document.querySelector("button");
+btn.addEventListener("click", () => {
+  btn.textContent = "YOU CLICKED ME!! ❤️";
+  setTimeout(() => {
+    btn.textContent = "Press me";
+  }, 1000);
+});
+-->
+
+<!-- 2. Form cơ bản -->
+<form action="./submit_page" method="get">
+  <h2>Đăng ký nhận tin</h2>
+  <p>
+    <label for="name">Tên (bắt buộc):</label>
+    <input type="text" name="name" id="name" required />
+  </p>
+  <p>
+    <label for="email">Email (bắt buộc):</label>
+    <input type="email" name="email" id="email" required />
+  </p>
+  <p>
+    <button>Đăng ký</button>
+  </p>
+</form>
+
+<!-- 3. Các loại nút -->
+<button type="submit">Gửi form</button>
+<button type="reset">Xóa tất cả</button>
+<button type="button">Chỉ là nút bình thường</button>
+
+<!-- 4. Một số kiểu input phổ biến -->
+<input type="text" placeholder="Tên" />
+<input type="email" placeholder="Email" />
+<input type="password" placeholder="Mật khẩu" />
+<input type="number" />
+<input type="color" />
+<input type="tel" />
+
+<!-- 5. Gán nhãn (label) -->
+<label for="username">Tên đăng nhập:</label>
+<input id="username" name="username" type="text" />
+
+<!-- Hoặc dùng kiểu lồng (implicit label) -->
+<label>
+  Email:
+  <input name="email" type="email" required />
+</label>
+
+<!-- 6. Sử dụng fieldset và legend để nhóm -->
+<fieldset>
+  <legend>Chọn loại phòng:</legend>
+  <input type="radio" name="room" id="eco" value="economy" checked />
+  <label for="eco">Phòng thường</label>
+
+  <input type="radio" name="room" id="sup" value="superior" />
+  <label for="sup">Phòng cao cấp</label>
+
+  <input type="radio" name="room" id="pen" value="penthouse" disabled />
+  <label for="pen">Penthouse</label>
+</fieldset>
+
+<!-- 7. Checkbox -->
+<fieldset>
+  <legend>Chọn lớp học:</legend>
+  <input type="checkbox" id="yoga" name="yoga" />
+  <label for="yoga">Yoga</label>
+
+  <input type="checkbox" id="coffee" name="coffee" />
+  <label for="coffee">Pha cà phê</label>
+</fieldset>
+
+<!-- 8. Select (dropdown menu) -->
+<label for="transport">Bạn đến bằng gì?</label>
+<select id="transport" name="transport">
+  <option value="">--Chọn phương tiện--</option>
+  <option value="bus">Xe buýt</option>
+  <option value="bike">Xe đạp</option>
+  <option value="walk">Đi bộ</option>
+</select>
+
+<!-- 9. Textarea (nội dung nhiều dòng) -->
+<label for="comments">Góp ý thêm:</label>
+<textarea id="comments" name="comments" rows="4" cols="30"></textarea>
+
+<!-- 10. Validation cơ bản -->
+<!-- required: bắt buộc nhập -->
+<!-- type="email": phải đúng định dạng email -->
+<!-- value="..." để đặt giá trị mặc định -->
+
+<!-- 11. Disabled: khóa input không cho chọn -->
+<input type="text" value="Không chỉnh sửa" disabled />
+
+<!-- 12. Accessibility (truy cập dễ dàng) -->
+<!-- - Sử dụng thẻ <label> đúng cách -->
+<!-- - Dùng thẻ có ngữ nghĩa như <button>, <input> -->
+<!-- - Không nên dùng <div> giả làm nút -->
+
+<!-- 13. Form đầy đủ hơn -->
+<form action="./payment_page" method="get">
+  <h2>Đăng ký tham dự sự kiện</h2>
+  <fieldset>
+    <legend>Chọn phòng khách sạn:</legend>
+    <input type="radio" name="hotel" id="room1" value="economy" checked />
+    <label for="room1">Thường</label>
+
+    <input type="radio" name="hotel" id="room2" value="superior" />
+    <label for="room2">Cao cấp</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Chọn lớp học:</legend>
+    <input type="checkbox" id="class1" name="yoga" />
+    <label for="class1">Yoga</label>
+  </fieldset>
+
+  <p>
+    <label for="transport">Bạn đến bằng gì:</label>
+    <select id="transport" name="transport">
+      <option value="">--Chọn--</option>
+      <option value="bus">Xe buýt</option>
+    </select>
+  </p>
+
+  <p>
+    <label for="note">Ghi chú:</label>
+    <textarea id="note" name="note" rows="3" cols="30"></textarea>
+  </p>
+
+  <button>Tiếp tục thanh toán</button>
+</form>

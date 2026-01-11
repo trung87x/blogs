@@ -1,0 +1,74 @@
+1. Cấu trúc cơ bản
+Áp dụng cơ bản nhất của HTML là cấu trúc tài liệu. Nếu bạn mới làm quen với HTML, bạn nên bắt đầu từ đây.
+
+- Cách tạo một tài liệu HTML cơ bản
+- Cách chia một trang web thành các phần logic
+- Cách thiết lập cấu trúc hợp lý cho các tiêu đề và đoạn văn
+
+2. Semantics cấp độ văn bản cơ bản
+HTML cung cấp thông tin ngữ nghĩa cho tài liệu, vì vậy HTML trả lời nhiều câu hỏi bạn có thể có về cách truyền tải thông điệp tốt nhất trong tài liệu của mình.
+
+- Cách tạo danh sách các mục với HTML
+- Cách nhấn mạnh hoặc làm nổi bật nội dung
+- Cách chỉ ra rằng văn bản quan trọng
+- Cách hiển thị mã máy tính với HTML
+- Cách chú thích hình ảnh và đồ họa
+- Cách đánh dấu các từ viết tắt và làm cho chúng dễ hiểu
+- Cách thêm trích dẫn và trích dẫn vào trang web
+- Cách định nghĩa các thuật ngữ với HTML
+
+3. Liên kết (Hyperlinks)
+Một trong những lý do chính của HTML là làm cho việc điều hướng dễ dàng với các liên kết, có thể sử dụng theo nhiều cách khác nhau:
+
+- Cách tạo một liên kết
+- Cách tạo một mục lục với HTML
+
+4. Hình ảnh & đa phương tiện
+- Cách thêm hình ảnh vào một trang web
+- Cách thêm nội dung video vào một trang web
+
+5. Lập trình & kiểu dáng
+HTML chỉ thiết lập cấu trúc tài liệu. Để giải quyết các vấn đề về trình bày, bạn sử dụng CSS, hoặc sử dụng scripting để làm cho trang của bạn trở nên tương tác.
+
+- Cách sử dụng CSS trong một trang web
+- Cách sử dụng JavaScript trong một trang web
+
+6. Nội dung nhúng
+- Cách nhúng một trang web vào trang web khác
+
+7. Vấn đề không phổ biến hoặc nâng cao
+HTML rất phong phú và cung cấp các tính năng nâng cao để giải quyết các vấn đề phức tạp. Những bài viết này giúp bạn giải quyết những tình huống ít gặp hơn mà bạn có thể gặp phải.
+
+**Biểu mẫu (Forms)**
+Biểu mẫu là một cấu trúc HTML phức tạp được tạo ra để gửi dữ liệu từ một trang web đến một máy chủ web.
+
+- Cách tạo một biểu mẫu web đơn giản
+- Cách cấu trúc một biểu mẫu web
+
+**Thông tin dạng bảng (Tabular information)**
+Một số thông tin cần được tổ chức thành bảng với các cột và hàng. Đây là một trong những cấu trúc HTML phức tạp nhất và việc thành thạo nó không dễ dàng.
+
+- Cách tạo một bảng dữ liệu
+- Cách làm bảng HTML có thể truy cập
+
+**Biểu diễn dữ liệu (Data representation)**
+- Cách biểu diễn các giá trị số và mã với HTML — xem Superscript và Subscript, và biểu diễn mã máy tính.
+- Cách sử dụng các thuộc tính dữ liệu
+
+**Semantics văn bản nâng cao (Advanced text semantics)**
+- Cách kiểm soát việc ngắt dòng trong HTML
+- Cách đánh dấu các thay đổi (văn bản đã thêm và xóa) — xem các phần tử <ins> và <del>.
+
+**Hình ảnh & đa phương tiện nâng cao**
+- Cách thêm hình ảnh phản hồi vào một trang web
+- Cách thêm hình ảnh vector vào một trang web
+- Cách thêm bản đồ nóng (hit map) lên một hình ảnh
+
+**Quốc tế hóa (Internationalization)**
+HTML không chỉ dành cho một ngôn ngữ. Nó cung cấp các công cụ để xử lý các vấn đề quốc tế hóa phổ biến.
+
+- Cách thêm nhiều ngôn ngữ vào một trang web
+- Cách hiển thị thời gian và ngày tháng với HTML
+
+**Hiệu suất (Performance)**
+- Cách viết các trang HTML tải nhanh

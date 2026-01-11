@@ -1,0 +1,121 @@
+
+### Sử Dụng Cơ Sở Dữ Liệu Với Mongoose
+
+**Mongoose là gì?**
+Mongoose là một công cụ Object Document Mapper (ODM) cho MongoDB, giúp bạn làm việc với cơ sở dữ liệu MongoDB trong môi trường Node.js. Mongoose cho phép bạn tạo, đọc, cập nhật và xóa dữ liệu MongoDB thông qua các đối tượng JavaScript. Mongoose giúp làm việc với MongoDB dễ dàng hơn bằng cách cung cấp các tính năng như mô hình hóa dữ liệu, xác thực, và các query nâng cao.
+
+**Cài đặt Mongoose**
+Để sử dụng Mongoose, bạn cần cài đặt nó trong dự án Node.js của mình. Bạn có thể cài đặt Mongoose qua npm (Node Package Manager):
+
+```bash
+npm install mongoose
+```
+
+**Kết nối tới MongoDB**
+Trước khi sử dụng Mongoose, bạn cần kết nối ứng dụng Node.js của mình với cơ sở dữ liệu MongoDB. Bạn có thể kết nối tới cơ sở dữ liệu MongoDB đang chạy trên máy chủ hoặc sử dụng MongoDB Atlas (một dịch vụ MongoDB đám mây).
+
+```javascript
+const mongoose = require("mongoose");
+
+const mongoDB = "mongodb://127.0.0.1/my_database";
+mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
+
+mongoose.connection.on("connected", () => {
+  console.log("Mongoose is connected to " + mongoDB);
+});
+```
+
+**Tạo Schema và Model**
+Mongoose cho phép bạn định nghĩa dữ liệu trong MongoDB dưới dạng schema, sau đó biên dịch schema thành model. Mỗi model sẽ đại diện cho một collection trong MongoDB.
+
+**Ví dụ về Schema và Model**:
+```javascript
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+
+// Định nghĩa schema
+const authorSchema = new Schema({
+  first_name: { type: String, required: true },
+  last_name: { type: String, required: true },
+  birth_date: { type: Date },
+  death_date: { type: Date }
+});
+
+// Biên dịch schema thành model
+const Author = mongoose.model("Author", authorSchema);
+```
+
+**Xử lý các dữ liệu trong MongoDB**
+Sau khi tạo model, bạn có thể sử dụng các phương thức của Mongoose để thao tác với cơ sở dữ liệu. Dưới đây là một số phương thức phổ biến:
+
+1. **Tạo bản ghi mới (Create)**:
+```javascript
+const author = new Author({
+  first_name: "John",
+  last_name: "Doe",
+  birth_date: new Date("1980-01-01")
+});
+author.save((err) => {
+  if (err) console.log(err);
+  console.log("Author saved!");
+});
+```
+
+2. **Tìm bản ghi (Find)**:
+```javascript
+Author.find({ last_name: "Doe" }, (err, authors) => {
+  if (err) console.log(err);
+  console.log(authors);
+});
+```
+
+3. **Cập nhật bản ghi (Update)**:
+```javascript
+Author.findOneAndUpdate(
+  { first_name: "John" },
+  { $set: { last_name: "Smith" } },
+  (err, result) => {
+    if (err) console.log(err);
+    console.log(result);
+  }
+);
+```
+
+4. **Xóa bản ghi (Delete)**:
+```javascript
+Author.deleteOne({ first_name: "John" }, (err) => {
+  if (err) console.log(err);
+  console.log("Author deleted!");
+});
+```
+
+**Mongoose Virtuals**
+Mongoose cung cấp một tính năng gọi là **virtuals**, cho phép bạn tạo các trường không được lưu trữ trong cơ sở dữ liệu nhưng có thể sử dụng như các thuộc tính bình thường trong ứng dụng.
+
+**Ví dụ về Mongoose Virtuals**:
+```javascript
+authorSchema.virtual("fullName").get(function () {
+  return this.first_name + " " + this.last_name;
+});
+```
+
+**Phương thức Static và Instance trong Mongoose**
+1. **Static Methods**: Các phương thức static có thể được gọi trực tiếp trên model.
+2. **Instance Methods**: Các phương thức instance có thể được gọi trên các bản ghi cụ thể.
+
+**Ví dụ về Static Method**:
+```javascript
+authorSchema.statics.findByName = function (name, callback) {
+  return this.find({ first_name: name }, callback);
+};
+```
+
+**Ví dụ về Instance Method**:
+```javascript
+authorSchema.methods.fullName = function () {
+  return this.first_name + " " + this.last_name;
+};
+```
+
+**Tóm tắt**
+Mongoose là một công cụ mạnh mẽ giúp bạn làm việc với cơ sở dữ liệu MongoDB trong Node.js. Với Mongoose, bạn có thể dễ dàng tạo các schema và model, và thực hiện các thao tác như tạo, đọc, cập nhật và xóa dữ liệu. Thêm vào đó, Mongoose cung cấp các tính năng như virtuals, static methods, và instance methods giúp bạn dễ dàng làm việc với dữ liệu và cung cấp khả năng mở rộng linh hoạt cho ứng dụng của mình.

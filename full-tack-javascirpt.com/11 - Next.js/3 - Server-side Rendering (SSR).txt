@@ -1,0 +1,54 @@
+🧠 Model 3: Server-side Rendering (SSR) trong Next.js
+------------------------------------------------------
+• Vai trò: Render nội dung trên server trước khi gửi HTML về client.
+• Controller:
+  - Với App Router: fetch dữ liệu ngay trong Server Component.
+  - Với Pages Router (truyền thống): dùng `getServerSideProps()`.
+  - Ưu tiên App Router nếu bạn dùng thư mục `app/`.
+
+🌐 Ngữ cảnh #3: Trang `/admin` hiển thị danh sách user từ server
+----------------------------------------------------------------
+• Mục tiêu: Fetch danh sách user từ server trong lúc render – đảm bảo nội dung sẵn sàng cho SEO hoặc auth.
+• Giả sử API lấy dữ liệu: `https://jsonplaceholder.typicode.com/users`
+
+📁 Cấu trúc thư mục:
+
+app/
+└── admin/
+    └── page.tsx
+
+✏️ Mã nguồn:
+
+// app/admin/page.tsx
+async function getUsers() {
+  const res = await fetch('https://jsonplaceholder.typicode.com/users', {
+    // ⛔ Không cache – luôn lấy bản mới nhất từ server mỗi lần truy cập
+    cache: 'no-store'
+  })
+  return res.json()
+}
+
+export default async function AdminPage() {
+  const users = await getUsers()
+
+  return (
+    <main className="p-6">
+      <h1 className="text-2xl font-bold">🔐 Khu vực Admin</h1>
+      <p>Danh sách người dùng được render từ server:</p>
+      <ul className="list-disc pl-6 mt-4">
+        {users.map((user: any) => (
+          <li key={user.id}>{user.name} – {user.email}</li>
+        ))}
+      </ul>
+    </main>
+  )
+}
+
+✅ Kết quả:
+- Dữ liệu được render hoàn toàn trên server trước khi gửi đến trình duyệt.
+- Tốt cho SEO, tốc độ tải lần đầu, và bảo mật (có thể kiểm tra auth từ server).
+- Phù hợp cho dashboard, admin, dữ liệu cá nhân...
+
+🎯 Ghi nhớ:
+- Trong App Router, chỉ cần dùng `async function` và `fetch()` ngay trong component.
+- Không cần `getServerSideProps()` như Pages Router.

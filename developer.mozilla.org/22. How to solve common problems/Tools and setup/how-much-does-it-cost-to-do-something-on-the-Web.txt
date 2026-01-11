@@ -1,0 +1,98 @@
+Dưới đây là nội dung bài về **chi phí khi xây dựng website**:
+
+```
+1. Chi phí khi xây dựng website
+Tham gia vào việc tạo dựng website không hề rẻ như bạn nghĩ. Bài viết này sẽ thảo luận về những gì bạn có thể phải chi trả và lý do tại sao.
+
+**Tiền đề:** Bạn nên đã hiểu về phần mềm cần thiết, sự khác biệt giữa trang web và website, và tên miền là gì.
+
+**Mục tiêu:** Xem xét toàn bộ quy trình tạo website và tìm hiểu chi phí cho từng bước.
+
+**Tóm tắt**
+Khi khởi tạo một website, bạn có thể chi trả rất ít, hoặc chi phí có thể tăng vọt. Bài viết này sẽ thảo luận về chi phí của mọi thứ, và cách bạn nhận được những gì bạn trả (hoặc không trả).
+
+**Phần mềm**
+**Trình soạn thảo văn bản**
+Bạn có thể đã có một trình soạn thảo văn bản: ví dụ, Notepad trên Windows, Gedit trên Linux, TextEdit trên Mac. Bạn sẽ dễ dàng hơn khi viết mã nếu chọn một trình soạn thảo có màu sắc mã hóa, kiểm tra cú pháp và hỗ trợ bạn với cấu trúc mã.
+
+Nhiều trình soạn thảo là miễn phí, ví dụ như Brackets, Bluefish, TextWrangler, Eclipse, NetBeans, và Visual Studio Code. Một số trình soạn thảo, như Sublime Text, bạn có thể thử miễn phí trong một thời gian dài, nhưng sẽ được khuyến khích trả tiền. Một số, như PhpStorm, có thể có giá từ vài chục đến 200 đô la, tùy thuộc vào gói bạn mua. Một số khác, như Microsoft Visual Studio, có thể có giá hàng trăm, thậm chí hàng nghìn đô la; mặc dù Visual Studio Community là miễn phí cho các nhà phát triển cá nhân hoặc dự án mã nguồn mở.
+
+**Trình soạn thảo hình ảnh**
+Hệ thống của bạn có thể đã bao gồm một trình soạn thảo hình ảnh, như Paint trên Windows, Eye of GNOME trên Ubuntu, Preview trên Mac. Các chương trình này khá hạn chế, bạn sẽ sớm cần một trình soạn thảo mạnh mẽ hơn để thêm lớp, hiệu ứng và nhóm các hình ảnh lại với nhau.
+
+Trình soạn thảo có thể miễn phí (GIMP, Paint.NET), giá vừa phải (PaintShop Pro, dưới $100), hoặc hàng trăm đô la (Adobe Photoshop).
+
+Bạn có thể sử dụng bất kỳ cái nào, vì chúng sẽ có chức năng tương tự, mặc dù một số lại rất toàn diện mà bạn sẽ không bao giờ sử dụng hết mọi tính năng của chúng.
+
+**Trình soạn thảo đa phương tiện**
+Nếu bạn muốn bao gồm video hoặc âm thanh vào website của mình, bạn có thể nhúng các dịch vụ trực tuyến (ví dụ YouTube, Vimeo, hoặc Dailymotion), hoặc bao gồm video của riêng bạn.
+
+Với tệp âm thanh, bạn có thể tìm phần mềm miễn phí (Audacity, Wavosaur), hoặc trả tiền lên đến vài trăm đô la (Sound Forge, Adobe Audition). Tương tự, phần mềm chỉnh sửa video có thể miễn phí (PiTiVi, OpenShot cho Linux, iMovie cho Mac), dưới 100 đô la (Adobe Premiere Elements), hoặc vài trăm đô la (Adobe Premiere Pro, Avid Media Composer, Final Cut Pro).
+
+**Công cụ xuất bản**
+Bạn cũng cần một cách để tải tệp lên: từ ổ cứng của bạn đến máy chủ web từ xa. Để làm điều này, bạn có thể sử dụng một công cụ xuất bản như SFTP client, RSync, hoặc Git/GitHub.
+
+Mỗi hệ điều hành đều bao gồm một SFTP client, là một phần của trình quản lý tệp của hệ điều hành. Windows Explorer, Nautilus (trình quản lý tệp phổ biến trên Linux), và Finder trên Mac đều bao gồm chức năng này. Tuy nhiên, nhiều người chọn các SFTP client chuyên dụng để hiển thị các thư mục cục bộ hoặc từ xa song song và lưu mật khẩu máy chủ.
+
+**Trình duyệt**
+Bạn có thể đã có một trình duyệt hoặc có thể tải một trình duyệt miễn phí. Nếu cần, bạn có thể tải Firefox hoặc Google Chrome.
+
+**Truy cập web**
+Máy tính / modem
+Bạn cần một máy tính. Chi phí có thể thay đổi rất nhiều, tùy thuộc vào ngân sách của bạn và nơi bạn sống. Để xuất bản một trang web cơ bản, bạn chỉ cần một máy tính cơ bản có thể mở trình soạn thảo và trình duyệt web, vì vậy mức chi phí ban đầu có thể rất thấp.
+
+Tất nhiên, bạn sẽ cần một máy tính mạnh mẽ hơn nếu bạn muốn tạo các thiết kế phức tạp, chỉnh sửa ảnh, hoặc tạo ra các tệp âm thanh và video.
+
+**ISP Access**
+Đảm bảo rằng bạn có băng thông đủ lớn:
+
+Truy cập băng thông thấp có thể đủ để hỗ trợ một website "đơn giản": hình ảnh kích thước hợp lý, văn bản, một số CSS và JavaScript. Điều đó có thể tốn vài chục đô la, bao gồm phí thuê modem.
+Ngược lại, bạn sẽ cần một kết nối băng thông cao, như DSL, cáp hoặc kết nối quang, nếu bạn muốn một website nâng cao với hàng trăm tệp, hoặc nếu bạn muốn cung cấp các tệp video/âm thanh nặng trực tiếp từ máy chủ web của mình. Điều này có thể có giá giống như truy cập băng thông thấp, lên tới vài trăm đô la mỗi tháng cho các nhu cầu chuyên nghiệp hơn.
+
+**Lưu trữ**
+Hiểu về băng thông
+Các nhà cung cấp dịch vụ lưu trữ tính phí bạn theo mức độ băng thông website của bạn tiêu thụ. Điều này phụ thuộc vào số lượng người truy cập và các robot tìm kiếm web truy cập nội dung của bạn trong một thời gian nhất định, và dung lượng mà nội dung của bạn chiếm. Đây là lý do tại sao người ta thường lưu trữ video của mình trên các dịch vụ chuyên dụng như YouTube, Dailymotion và Vimeo.
+
+Ví dụ, nhà cung cấp của bạn có thể có gói dịch vụ bao gồm đến vài nghìn lượt truy cập mỗi ngày, với mức băng thông "hợp lý". Tuy nhiên, bạn cần cẩn thận vì điều này được định nghĩa khác nhau từ nhà cung cấp dịch vụ này sang nhà cung cấp khác. Hãy nhớ rằng dịch vụ lưu trữ cá nhân đáng tin cậy, có trả phí, có thể có giá khoảng mười đến mười lăm đô la mỗi tháng.
+
+Lưu ý: Không có khái niệm "băng thông không giới hạn". Nếu bạn tiêu thụ một lượng băng thông khổng lồ, bạn sẽ phải trả một khoản tiền lớn.
+
+**Tên miền**
+Tên miền của bạn phải được mua qua nhà cung cấp tên miền (registrar). Nhà cung cấp dịch vụ lưu trữ của bạn cũng có thể là một registrar (ví dụ: Ionos, Gandi là cả nhà cung cấp dịch vụ lưu trữ và đăng ký tên miền). Tên miền thường có giá từ $5-15 mỗi năm. Chi phí này thay đổi tùy theo:
+
+- Các nghĩa vụ địa phương: tên miền cấp cao của một số quốc gia có thể đắt hơn vì mỗi quốc gia có các mức giá khác nhau.
+- Các dịch vụ liên quan đến tên miền: một số nhà cung cấp dịch vụ đăng ký cung cấp bảo vệ chống thư rác bằng cách ẩn địa chỉ bưu điện và email của bạn sau các địa chỉ của họ: địa chỉ bưu điện có thể được cung cấp theo dạng "care of" của nhà đăng ký và email của bạn có thể bị ẩn qua bí danh của nhà đăng ký.
+
+**Lưu trữ tự quản vs. Lưu trữ "gói"**
+Khi bạn muốn xuất bản một website, bạn có thể làm mọi thứ tự mình: thiết lập cơ sở dữ liệu (nếu cần), Hệ thống quản lý nội dung (CMS) như WordPress, Dotclear, spip, v.v., tải lên các mẫu có sẵn hoặc mẫu tự tạo.
+
+Bạn có thể sử dụng môi trường của nhà cung cấp dịch vụ lưu trữ của mình, với giá khoảng mười đến mười lăm đô la mỗi tháng, hoặc đăng ký trực tiếp với dịch vụ lưu trữ chuyên dụng có các CMS được đóng gói sẵn (ví dụ: WordPress, Tumblr, Blogger). Đối với cái sau, bạn sẽ không phải trả tiền, nhưng có thể ít kiểm soát hơn về mẫu mã và các tùy chọn khác.
+
+**Lưu trữ miễn phí vs. Lưu trữ trả phí**
+Bạn có thể hỏi, tại sao tôi phải trả tiền cho việc lưu trữ khi có rất nhiều dịch vụ miễn phí?
+
+Bạn có thể tự do hơn khi trả tiền. Website của bạn là của bạn, và bạn có thể dễ dàng di chuyển từ nhà cung cấp dịch vụ lưu trữ này sang nhà cung cấp khác.
+Các dịch vụ lưu trữ miễn phí có thể thêm quảng cáo vào nội dung của bạn, ngoài tầm kiểm soát của bạn.
+Tốt hơn là bạn nên chọn lưu trữ trả phí thay vì dựa vào lưu trữ miễn phí, vì bạn có thể dễ dàng chuyển các tệp của mình và thời gian hoạt động (uptime) được đảm bảo bởi hầu hết các dịch vụ trả phí. Hầu hết các nhà cung cấp dịch vụ lưu trữ cung cấp giảm giá lớn để bắt đầu.
+
+Một số người chọn cách tiếp cận hỗn hợp. Ví dụ, blog chính của họ trên một nhà cung cấp lưu trữ trả phí với tên miền đầy đủ, và nội dung ngẫu nhiên, ít chiến lược, trên dịch vụ lưu trữ miễn phí.
+
+**Công ty thiết kế website chuyên nghiệp và dịch vụ lưu trữ**
+Nếu bạn muốn một website chuyên nghiệp, bạn có thể sẽ yêu cầu một công ty thiết kế web làm giúp bạn.
+
+Tại đây, chi phí phụ thuộc vào nhiều yếu tố, chẳng hạn như:
+
+- Đây là một website đơn giản với vài trang văn bản? Hay là một website phức tạp, dài hàng nghìn trang?
+- Bạn có muốn cập nhật thường xuyên không? Hay website sẽ là một trang tĩnh?
+- Website phải kết nối với cơ sở dữ liệu IT của công ty bạn để lấy nội dung (ví dụ: dữ liệu nội bộ)?
+- Bạn có muốn tính năng mới lạ, đang phổ biến không? Vào thời điểm viết bài này, khách hàng đang tìm kiếm các trang đơn với parallax phức tạp.
+- Bạn có cần công ty thiết kế giúp nghĩ ra câu chuyện người dùng hoặc giải quyết các vấn đề UX phức tạp không? Ví dụ, tạo chiến lược thu hút người dùng, hoặc thử nghiệm A/B để chọn một giải pháp trong số nhiều ý tưởng.
+
+Và đối với dịch vụ lưu trữ, bạn cần cân nhắc các lựa chọn sau:
+
+- Bạn có muốn các máy chủ dư thừa, trong trường hợp máy chủ của bạn gặp sự cố không?
+- Độ tin cậy 95% có đủ không, hay bạn cần dịch vụ chuyên nghiệp, hoạt động 24/7?
+- Bạn có muốn các máy chủ chuyên dụng cực kỳ phản hồi nhanh, hay có thể chấp nhận máy chủ chia sẻ chậm hơn?
+
+Tùy thuộc vào cách bạn trả lời những câu hỏi này, website của bạn có thể có giá từ hàng nghìn đến hàng trăm nghìn đô la.
+```

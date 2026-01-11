@@ -1,0 +1,44 @@
+📦 Ngữ cảnh #2: Thêm dữ liệu ban đầu / Đăng ký User (MongoDB + Mongoose)
+
+🧠 Model (Ý nghĩa)
+- Khi người dùng mới đăng ký, ta cần tạo 1 bản ghi mới trong collection `users`.
+- Đây là thao tác "Create" cơ bản và phổ biến nhất trong mọi ứng dụng có đăng nhập.
+
+🛠️ Controller (Công cụ / Câu lệnh)
+- `User.create(data)` → tạo mới nhanh chóng
+- `new User(data).save()` → cho phép xử lý bổ sung trước khi lưu (ví dụ hash password)
+- Thường dùng trong route POST `/register` hoặc `/signup`
+
+🧪 Example (routes/authRoute.js)
+const express = require('express');
+const bcrypt = require('bcrypt');
+const User = require('../models/User');
+const router = express.Router();
+
+router.post('/register', async (req, res) => {
+  try {
+    const { name, email, password } = req.body;
+
+    // Kiểm tra trùng email
+    const existing = await User.findOne({ email });
+    if (existing) return res.status(400).json({ error: 'Email already exists' });
+
+    // Hash password trước khi lưu
+    const hashed = await bcrypt.hash(password, 10);
+
+    // Tạo user mới
+    const user = await User.create({ name, email, password: hashed });
+
+    res.status(201).json({ message: 'User registered', userId: user._id });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+module.exports = router;
+
+📝 Ghi chú:
+- Nên kiểm tra trùng email trước khi tạo (`findOne`)
+- Dùng `bcrypt.hash()` để bảo mật mật khẩu
+- Trả về `user._id` thay vì toàn bộ user để tránh lộ thông tin nhạy cảm
+- Có thể xử lý hash password bằng `schema.pre('save')` nếu dùng `new User().save()`

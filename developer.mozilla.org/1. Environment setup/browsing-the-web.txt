@@ -1,0 +1,51 @@
+BROWSING THE WEB
+================
+
+1. CÁC KHÁI NIỆM CƠ BẢN
+- Web page (trang web): Tài liệu HTML hiển thị trên trình duyệt. Có thể chứa:
+  + Thông tin định dạng (CSS)
+  + Tập lệnh (JavaScript)
+  + Hình ảnh, âm thanh, video
+- Website: Tập hợp các trang web liên kết với nhau, chia sẻ cùng tên miền.
+- Web server: Máy tính lưu trữ các trang web và gửi chúng đến trình duyệt khi được yêu cầu.
+- Web service: Phần mềm cung cấp chức năng/dữ liệu qua internet. Ví dụ:
+  + Dịch vụ đăng nhập
+  + Nén ảnh
+  + Dự báo thời tiết
+- Search engine (công cụ tìm kiếm): Trang web giúp bạn tìm các trang web khác. Ví dụ: Google, Bing, DuckDuckGo.
+
+2. CÁCH TÌM KIẾM THÔNG TIN
+- Với kiến thức:
+  + Tìm theo từ khóa tính năng (ví dụ: `fetch()`, `box model`, `video element`) trên MDN.
+- Với vấn đề cụ thể:
+  + Tìm theo câu hỏi trên StackOverflow hoặc Google.
+  + Ví dụ: `how to print fibonacci sequence in JavaScript`
+
+- Hành động:
+  a. Thử tra cứu một số từ khóa kỹ thuật.
+  b. Tìm cách giải bài toán lập trình cụ thể.
+
+3. SỬ DỤNG AI ĐỂ TÌM KIẾM
+- AI có thể giúp:
+  + Tìm lỗi trong đoạn mã.
+  + Tối ưu đoạn mã.
+  + Gợi ý cách tiếp cận giải quyết vấn đề.
+- AI có thể:
+  + Trả lời sai hoặc mâu thuẫn.
+  + Trích thông tin lỗi từ nguồn cũ hoặc không chính xác.
+- Lời khuyên:
+  + Bạn vẫn cần hiểu logic và vai trò của đoạn mã.
+  + Luôn kiểm tra lại kết quả AI trả về.
+  + Học cách tự giải quyết trước khi tra cứu để rèn tư duy.
+- Công cụ phổ biến: ChatGPT, Gemini, Copilot
+- Hành động:
+  a. Thử đưa một đoạn mã lỗi vào AI và hỏi lỗi nằm ở đâu.
+  b. Thử yêu cầu AI viết lại một đoạn mã ngắn sao cho tối ưu hơn.
+
+4. MẸO TÌM KIẾM HIỆU QUẢ
+- Một số cú pháp tìm kiếm nâng cao:
+  + `"exact phrase"` → tìm đúng cụm từ
+  + `term1 -term2` → loại trừ từ khóa thứ hai
+  + `intitle:term` → tìm từ trong tiêu đề
+  + `term1 OR term2` → tìm 1 trong 2 từ (chỉ Google hỗ trợ tốt)
+

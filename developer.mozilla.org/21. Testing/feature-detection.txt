@@ -1,0 +1,100 @@
+
+1. Kiểm tra tính năng (Feature Detection)  
+Kiểm tra tính năng liên quan đến việc kiểm tra xem trình duyệt có hỗ trợ một đoạn mã nhất định hay không và chạy mã khác nhau tùy thuộc vào việc nó có được hỗ trợ hay không. Điều này giúp tránh việc các trình duyệt không hỗ trợ tính năng gặp sự cố hoặc lỗi, đảm bảo trải nghiệm người dùng mượt mà hơn.
+
+2. Khái niệm kiểm tra tính năng  
+Ý tưởng của kiểm tra tính năng là kiểm tra xem trình duyệt hiện tại có hỗ trợ tính năng đó hay không và sau đó điều kiện chạy mã phù hợp. Điều này đảm bảo tính năng hoạt động bình thường trên cả trình duyệt hỗ trợ và không hỗ trợ tính năng đó. Nếu không kiểm tra tính năng, các tính năng không được hỗ trợ có thể làm trang web bị lỗi hoặc không hiển thị đúng.
+
+Ví dụ (Geolocation API):
+```js
+if ("geolocation" in navigator) {
+  navigator.geolocation.getCurrentPosition((position) => {
+    // Hiển thị vị trí trên bản đồ
+  });
+} else {
+  // Cung cấp bản đồ tĩnh như một phương án thay thế
+}
+```
+
+3. Viết các bài kiểm tra tính năng của riêng bạn  
+Bạn có thể viết các bài kiểm tra tính năng cho cả CSS và JavaScript.
+
+**Ví dụ với CSS:**
+Kiểm tra hỗ trợ Subgrid trong CSS:
+```html
+<link href="basic-styling.css" rel="stylesheet" />
+<link class="conditional" href="grid-layout.css" rel="stylesheet" />
+```
+Trong JavaScript:
+```js
+const conditional = document.querySelector(".conditional");
+if (CSS.supports("grid-template-columns", "subgrid")) {
+  conditional.setAttribute("href", "subgrid-layout.css");
+}
+```
+
+Hoặc, sử dụng `@supports` trong CSS:
+```css
+@supports (grid-template-columns: subgrid) {
+  main {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(4, minmax(100px, auto));
+  }
+  .item {
+    display: grid;
+    grid-column: 2 / 7;
+    grid-row: 2 / 4;
+    grid-template-columns: subgrid;
+    grid-template-rows: repeat(3, 80px);
+  }
+}
+```
+
+4. Kiểm tra tính năng trong JavaScript  
+- **Kiểm tra sự tồn tại của các phương thức trong đối tượng**: Kiểm tra xem một phương thức hoặc thuộc tính có tồn tại trong đối tượng hay không.
+Ví dụ (Geolocation):
+```js
+if ("geolocation" in navigator) {
+  // Geolocation API được hỗ trợ
+}
+```
+
+- **Kiểm tra tính năng của phần tử trong DOM**: Tạo phần tử bằng `Document.createElement()` và kiểm tra sự tồn tại của thuộc tính.
+Ví dụ (Canvas):
+```js
+function supports_canvas() {
+  return !!document.createElement("canvas").getContext;
+}
+
+if (supports_canvas()) {
+  // Vẽ trên canvas
+}
+```
+Lưu ý: `!!` được sử dụng để đảm bảo giá trị trả về là boolean.
+
+- **Kiểm tra giá trị trả về của phương thức**: Kiểm tra xem phương thức trả về giá trị gì khi được gọi.
+
+- **Kiểm tra giá trị thuộc tính của phần tử**: Kiểm tra xem giá trị của thuộc tính được gán vào phần tử có được duy trì hay không.
+
+5. Media Queries trong JavaScript  
+`window.matchMedia()` cho phép bạn kiểm tra media query trong JavaScript. Bạn có thể áp dụng các chức năng khác nhau tùy theo kích thước màn hình.
+
+Ví dụ:
+```js
+if (window.matchMedia("(max-width: 480px)").matches) {
+  // Thực hiện JavaScript cho màn hình nhỏ
+}
+```
+
+Ví dụ áp dụng thư viện JavaScript Brick cho màn hình nhỏ:
+```html
+<link href="dist/brick.css" rel="stylesheet" media="all and (max-width: 480px)" />
+```
+
+Sử dụng `matchMedia()` trong JavaScript để chỉ chạy các chức năng khi màn hình nhỏ:
+```js
+if (window.matchMedia("(max-width: 480px)").matches) {
+  deck.shuffleTo(1);
+}
+```

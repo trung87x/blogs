@@ -1,0 +1,44 @@
+/* =======================
+   CSS ATTRIBUTE SELECTORS
+   ======================= */
+
+/* 1. [attr] - Chọn phần tử có thuộc tính */
+li[class] {
+  /* Chọn mọi <li> có class */
+}
+
+/* 2. [attr="value"] - Giá trị chính xác */
+li[class="a"] {
+  background-color: yellow;
+  /* Chỉ chọn <li> có class chính xác là "a" */
+}
+
+/* 3. [attr~="value"] - Có giá trị trong danh sách cách nhau bằng dấu cách */
+li[class~="a"] {
+  color: red;
+  /* Chọn <li class="a"> và <li class="a b"> */
+}
+
+/* 4. [attr|="value"] - Giá trị đúng hoặc bắt đầu bằng value- (dùng cho lang) */
+div[lang|="en"] {
+  font-style: italic;
+  /* Chọn lang="en" hoặc lang="en-US" */
+}
+
+/* 5. [attr^="value"] - Giá trị bắt đầu bằng chuỗi */
+li[class^="a"] {
+  font-size: 120%;
+  /* Chọn class="a", class="ab", v.v. */
+}
+
+/* 6. [attr$="value"] - Giá trị kết thúc bằng chuỗi */
+li[class$="a"] {
+  background-color: lightblue;
+  /* Chọn class="a", class="bca" */
+}
+
+/* 7. [attr*="value"] - Giá trị chứa chuỗi ở bất kỳ đâu */
+li[class*="a"] {
+  border: 1px solid red;
+  /* Chọn mọi class chứa "a" như "a", "ab", "bca", "bcabc" */
+}

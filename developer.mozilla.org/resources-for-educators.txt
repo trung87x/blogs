@@ -1,0 +1,32 @@
+
+1. Tài nguyên cho các giáo viên
+Các giáo viên có thể sử dụng phần "Learn web development" của MDN như một hướng dẫn khi tạo ra các chương trình học, đơn vị giảng dạy, và các tiêu chí đánh giá cho các khóa học đại học, khóa học trường cao đẳng, khóa học lập trình, hoặc tương tự. Mỗi bài viết bao gồm phần "Learning outcomes" ở đầu, chi tiết các chủ đề được dạy trong bài viết đó.
+
+Nhóm MDN cam kết xem xét tài liệu trong phần "Learn web development" hàng năm để đảm bảo nó luôn cập nhật với các thực tiễn phát triển web hiện đại. Bằng cách xây dựng các khóa học dựa trên tài liệu này, giáo viên có thể đảm bảo việc giảng dạy của họ luôn cập nhật.
+
+Trang này cung cấp các hướng dẫn và tài nguyên giúp dễ dàng điều chỉnh nội dung học của MDN cho việc giảng dạy của bạn.
+
+**Chọn phạm vi thích hợp**
+Các mô-đun cốt lõi của chúng tôi bao gồm các khái niệm cơ bản về các tiêu chuẩn web, HTML, CSS, JavaScript, khả năng truy cập, lý thuyết thiết kế và kiểm soát phiên bản. Chúng tôi tin rằng các chủ đề này là tối thiểu mà mọi lập trình viên web mới nên biết trước khi bắt đầu vào ngành công nghiệp này.
+
+Tuy nhiên, bạn có thể có thêm yêu cầu về các chủ đề cho khóa học của mình, trong trường hợp đó bạn có thể:
+
+- Cân nhắc đưa vào một số mục tiêu học tập từ các mô-đun "Getting started", như kỹ năng mềm như làm việc nhóm, nghiên cứu, và kỹ thuật phỏng vấn xin việc, và làm quen với bộ công cụ phát triển web điển hình.
+- Mở rộng phạm vi công nghệ trong các mô-đun cốt lõi với một số phần mở rộng. Chúng tôi sẽ cố gắng xuất bản thêm các phần mở rộng theo thời gian. Bạn có thể xem xét viết phần mở rộng của riêng bạn và đóng góp chúng cho chương trình giảng dạy để những người khác có thể hưởng lợi. Liên hệ với chúng tôi nếu bạn có phần mở rộng muốn gửi!
+
+**Sử dụng lộ trình học hiệu quả**
+Khi giảng dạy học sinh, rất quan trọng để cung cấp cho họ một lộ trình rõ ràng qua các chủ đề mà họ cần học, với các mục tiêu học tập rõ ràng và các bài kiểm tra thường xuyên để đảm bảo họ đang đi đúng hướng.
+
+Các mô-đun cốt lõi của chúng tôi cung cấp một lộ trình để theo dõi qua các yếu tố cơ bản của phát triển web front-end và bao gồm các phần "Test your skills" và các bài viết thử thách.
+
+Bạn có thể đưa học sinh của mình theo lộ trình đã được cung cấp như vậy, hoặc bạn có thể muốn tùy chỉnh nó cho phù hợp với nhu cầu của mình bằng cách:
+
+- Thêm các bài kiểm tra/kỳ thi đánh giá của riêng bạn tại các điểm thích hợp. Chúng tôi khuyến nghị đánh giá học sinh bằng cách kết hợp kiểm tra lý thuyết dựa trên kỳ thi, và các dự án thực tế để học sinh có thể áp dụng kiến thức của họ vào thực tế.
+- Nhóm các mục tiêu học tập khác nhau. Ví dụ, bạn có thể muốn bắt đầu với các cơ bản về cấu trúc tài liệu HTML, sau đó tiếp tục nhanh chóng với các nguyên tắc cơ bản của CSS như mô hình hộp và kiểu dáng văn bản. Trong bước tiếp theo, bạn có thể giới thiệu các tính năng HTML phức tạp hơn như hình ảnh và trường mẫu, tăng cường CSS với một số flexbox và media queries, và giới thiệu một số scripting DOM cơ bản.
+- Cung cấp cho học sinh một kho lưu trữ chứa các dự án của họ có thể được xuất bản như một portfolio để chứng minh kỹ năng của họ cho nhà tuyển dụng tiềm năng.
+
+Bạn cũng có thể xem xét sử dụng một giải pháp tích hợp sẵn như khóa học video tương tác. Chúng tôi khuyến nghị "The Frontend Developer Career Path" từ đối tác học tập của chúng tôi, Scrimba, dạy tất cả các mục tiêu học tập trong chương trình giảng dạy MDN Core và nhiều hơn nữa.
+
+Lưu ý: Scrimba cung cấp nhiều gói cấp phép khác nhau — xem Scrimba cho Nhóm.
+
+The Frontend Developer Career Path có các bài học và thử thách tương tác vui nhộn, các giáo viên có kiến thức, và một cộng đồng hỗ trợ; mục tiêu là cung cấp cho học sinh tất cả những gì họ cần để có được công việc lập trình viên junior đầu tiên. Nhiều thành phần của khóa học có sẵn dưới dạng các phiên bản miễn phí độc lập.

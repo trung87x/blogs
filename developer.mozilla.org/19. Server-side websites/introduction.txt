@@ -1,0 +1,43 @@
+
+### Giới Thiệu Về Các Website Phía Server
+
+**Lập trình phía server là gì?**
+Lập trình phía server là việc viết mã chạy trên máy chủ web, xử lý các yêu cầu từ người dùng, và gửi phản hồi trở lại trình duyệt của họ. Các ứng dụng web hiện đại có thể chia thành hai phần: phía client (trình duyệt web) và phía server (máy chủ web). Trong khi các ứng dụng phía client chủ yếu xử lý giao diện người dùng và tương tác với dữ liệu, ứng dụng phía server xử lý logic, truy vấn cơ sở dữ liệu, và quản lý các yêu cầu và phản hồi.
+
+**Lợi ích của lập trình phía server**
+Lập trình phía server cho phép bạn xử lý và lưu trữ dữ liệu một cách an toàn, cũng như tạo ra nội dung động có thể được cá nhân hóa cho người dùng. Các lợi ích của lập trình phía server bao gồm:
+- **Cung cấp nội dung động**: Các trang web có thể thay đổi nội dung được hiển thị dựa trên yêu cầu của người dùng hoặc thông tin họ đã nhập.
+- **Tính cá nhân hóa**: Cho phép tạo các trang web với các tính năng như gợi ý sản phẩm hoặc lịch sử mua hàng, mang lại trải nghiệm người dùng tốt hơn.
+- **Tính bảo mật cao**: Dữ liệu quan trọng và nhạy cảm như mật khẩu, thẻ tín dụng và thông tin tài khoản người dùng thường được xử lý và lưu trữ an toàn trên máy chủ.
+
+**Sự khác biệt giữa lập trình phía client và phía server**
+Lập trình phía client và phía server có những khác biệt rõ ràng:
+- **Lập trình phía client**: Chạy trên trình duyệt của người dùng, chủ yếu chịu trách nhiệm xử lý giao diện người dùng (UI), tương tác với người dùng và hiển thị nội dung.
+- **Lập trình phía server**: Chạy trên máy chủ và chủ yếu chịu trách nhiệm xử lý dữ liệu, lưu trữ, và trả về phản hồi đến phía client.
+
+**Công nghệ sử dụng cho lập trình phía server**
+Lập trình phía server có thể sử dụng nhiều ngôn ngữ khác nhau, bao gồm:
+- **PHP**: Là một trong những ngôn ngữ phổ biến nhất cho lập trình web phía server.
+- **Python**: Dùng với các framework như Django và Flask để phát triển các ứng dụng web mạnh mẽ.
+- **Node.js**: Cho phép sử dụng JavaScript phía server, mang lại sự đồng nhất cho toàn bộ ứng dụng.
+- **Ruby**: Dùng với framework Ruby on Rails, giúp tăng tốc quá trình phát triển web.
+
+**Cách hoạt động của các trang web động**
+Trang web động được tạo ra bằng cách chèn dữ liệu từ cơ sở dữ liệu vào các mẫu HTML. Điều này giúp giảm tải cho máy chủ và cho phép quản lý dữ liệu hiệu quả hơn so với trang web tĩnh.
+
+**Ví dụ về trang web động**:
+Khi người dùng truy cập vào một trang web động, trình duyệt sẽ gửi một yêu cầu đến máy chủ, máy chủ sẽ truy vấn cơ sở dữ liệu, lấy dữ liệu cần thiết và kết hợp chúng vào một mẫu HTML. Kết quả trả về là một trang HTML đầy đủ, có thể bao gồm văn bản, hình ảnh và các yếu tố khác.
+
+**Cấu trúc của một ứng dụng web động**:
+1. **Client**: Gửi yêu cầu HTTP đến máy chủ.
+2. **Web Server**: Nhận yêu cầu và gửi đến mã xử lý phía server.
+3. **Server-side Code**: Xử lý yêu cầu, truy vấn cơ sở dữ liệu và trả về dữ liệu cần thiết.
+4. **Database**: Lưu trữ thông tin mà ứng dụng cần truy vấn (chẳng hạn như thông tin người dùng, sản phẩm, bài viết, v.v.).
+
+**Ví dụ về công nghệ máy chủ (Server-side Technologies)**:
+- **Express (Node.js)**: Là một framework cho Node.js, giúp bạn dễ dàng xây dựng các ứng dụng web.
+- **Django (Python)**: Framework mạnh mẽ cho Python giúp bạn tạo ra các ứng dụng web một cách nhanh chóng và hiệu quả.
+- **Ruby on Rails**: Framework của Ruby, rất phổ biến trong việc phát triển ứng dụng web với mô hình MVC.
+
+**Tóm tắt**
+Lập trình phía server cung cấp khả năng xử lý dữ liệu mạnh mẽ và linh hoạt, giúp tạo ra các ứng dụng web động và cá nhân hóa trải nghiệm người dùng. Bằng cách sử dụng các ngôn ngữ và framework khác nhau, các nhà phát triển có thể xây dựng các ứng dụng web phức tạp với các tính năng như cơ sở dữ liệu, xác thực người dùng và quản lý trạng thái ứng dụng.

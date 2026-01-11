@@ -1,0 +1,98 @@
+
+### Gửi Dữ Liệu Form
+
+**Gửi dữ liệu form là gì?**
+Khi người dùng đã nhập và xác thực dữ liệu form trên client, bước tiếp theo là gửi dữ liệu đó đến máy chủ. Bài viết này sẽ giải thích về cách dữ liệu form được gửi đi và các phương thức HTTP liên quan. Chúng ta cũng sẽ xem xét các vấn đề bảo mật khi gửi dữ liệu form.
+
+**Kiến trúc Client/Server**
+Cơ chế hoạt động của Web dựa trên mô hình client/server. Một client (thường là trình duyệt web) gửi yêu cầu đến máy chủ (thường là các máy chủ web như Apache, Nginx, IIS) qua giao thức HTTP. Máy chủ sẽ xử lý yêu cầu và trả về kết quả.
+
+**Thuộc tính `action` của thẻ `<form>`**
+Thuộc tính `action` xác định nơi dữ liệu sẽ được gửi đến. Đây là URL nơi máy chủ sẽ xử lý dữ liệu form. Nếu không có thuộc tính `action`, dữ liệu sẽ được gửi đến URL của trang chứa form.
+
+**Ví dụ về `action`**:
+```html
+<form action="https://example.com">
+  <!-- form fields here -->
+</form>
+```
+Khi không chỉ định `action`, dữ liệu sẽ được gửi đến trang hiện tại.
+
+**Thuộc tính `method` của thẻ `<form>`**
+Thuộc tính `method` xác định phương thức HTTP sẽ được sử dụng để gửi dữ liệu. Hai phương thức phổ biến nhất là `GET` và `POST`.
+
+1. **GET**: Dữ liệu được gửi qua URL, và dữ liệu sẽ hiển thị trên thanh địa chỉ của trình duyệt.
+2. **POST**: Dữ liệu được gửi trong phần thân của yêu cầu HTTP, giúp bảo mật dữ liệu hơn.
+
+**Ví dụ về phương thức GET**:
+```html
+<form action="http://www.foo.com" method="GET">
+  <input name="say" value="Hi" />
+  <input name="to" value="Mom" />
+  <button>Send my greetings</button>
+</form>
+```
+Dữ liệu sẽ được gửi dưới dạng `?say=Hi&to=Mom` trong URL.
+
+**Ví dụ về phương thức POST**:
+```html
+<form action="http://www.foo.com" method="POST">
+  <input name="say" value="Hi" />
+  <input name="to" value="Mom" />
+  <button>Send my greetings</button>
+</form>
+```
+Dữ liệu sẽ không xuất hiện trong URL mà sẽ được gửi trong phần thân yêu cầu.
+
+**Bảo mật khi gửi dữ liệu form**
+- **Không gửi dữ liệu nhạy cảm qua GET**: Dữ liệu nhạy cảm như mật khẩu không nên được gửi qua phương thức GET vì nó sẽ xuất hiện trong thanh địa chỉ của trình duyệt.
+- **Sử dụng phương thức POST cho dữ liệu lớn**: Phương thức GET có giới hạn độ dài URL, trong khi POST không có hạn chế như vậy.
+
+**Nhận dữ liệu trên máy chủ**
+Khi máy chủ nhận được yêu cầu từ form, dữ liệu sẽ được gửi dưới dạng các cặp tên/giá trị. Các cách tiếp cận để truy cập dữ liệu này sẽ phụ thuộc vào nền tảng phát triển bạn đang sử dụng.
+
+**Ví dụ với PHP**:
+```php
+<?php
+  $say = htmlspecialchars($_POST["say"]);
+  $to = htmlspecialchars($_POST["to"]);
+  echo $say, " ", $to;
+?>
+```
+
+**Ví dụ với Python (Flask)**:
+```python
+from flask import Flask, render_template, request
+
+app = Flask(__name__)
+
+@app.route('/hello', methods=['GET', 'POST'])
+def hello():
+    return render_template('greeting.html', say=request.form['say'], to=request.form['to'])
+
+if __name__ == "__main__":
+    app.run()
+```
+
+**Gửi tệp tin qua form**
+Để gửi tệp tin, bạn cần sử dụng `enctype="multipart/form-data"` trong form và phương thức POST. Đây là phương thức duy nhất có thể gửi dữ liệu nhị phân (tệp tin).
+
+**Ví dụ gửi tệp tin**:
+```html
+<form method="POST" action="upload.php" enctype="multipart/form-data">
+  <label for="file">Choose a file</label>
+  <input type="file" id="file" name="file" />
+  <button>Send the file</button>
+</form>
+```
+
+**Các vấn đề bảo mật khi gửi dữ liệu form**
+Mỗi lần gửi dữ liệu tới máy chủ, bạn cần phải xem xét vấn đề bảo mật. Các form trên website dễ bị lợi dụng bởi các cuộc tấn công, như **SQL injection** hoặc **XSS (Cross-Site Scripting)**.
+
+**Các biện pháp bảo vệ cơ bản**:
+1. **Kiểm tra và làm sạch dữ liệu nhập**: Tránh các ký tự nguy hiểm có thể gây hại cho ứng dụng của bạn.
+2. **Giới hạn dữ liệu gửi đi**: Hạn chế kích thước dữ liệu để tránh tấn công DoS (Denial of Service).
+3. **Cấm tải các tệp không mong muốn**: Chỉ cho phép tải lên các tệp đã được xác nhận là an toàn.
+
+**Tóm tắt**:
+Gửi dữ liệu form là bước quan trọng trong việc thu thập thông tin người dùng. Việc chọn phương thức gửi dữ liệu phù hợp (GET hoặc POST) và hiểu về bảo mật khi gửi dữ liệu sẽ giúp ứng dụng của bạn an toàn và hoạt động hiệu quả. Luôn luôn thực hiện kiểm tra và xác thực dữ liệu cả ở phía client và phía server.

@@ -1,0 +1,117 @@
+
+1. Tạo Máy Chủ Express Đầu Tiên với Node.js
+Mục đích:
+Học cách thiết lập một máy chủ web cơ bản với Express.js, một framework nhẹ nhàng trên Node.js, giúp bạn xử lý yêu cầu HTTP dễ dàng hơn.
+
+Cách áp dụng vào công việc:
+- Ứng dụng thực tế: Khi bạn cần tạo một API hoặc máy chủ đơn giản để phục vụ dữ liệu hoặc ứng dụng frontend, Express.js sẽ giúp bạn tối ưu hóa việc thiết lập server nhanh chóng.
+- Ví dụ: Tạo một API cho dự án của bạn để trả về dữ liệu từ cơ sở dữ liệu hoặc xử lý yêu cầu HTTP từ frontend.
+
+Các bước thực hiện:
+1. Tạo thư mục và khởi tạo dự án Node.js:
+   mkdir express-server  
+   cd express-server  
+   npm init -y  
+   npm install express  
+2. Tạo tệp index.js và viết mã tạo máy chủ với Express:
+   import express from "express";  
+   const app = express();  
+   const PORT = 3000;  
+   app.get("/", (req, res) => res.send("Hello World!"));  
+   app.listen(PORT, () => console.log(`Server running on port ${PORT}`));  
+3. Khởi động máy chủ:
+   node index.js
+
+Ứng dụng vào công việc:
+- Khi triển khai một ứng dụng nhỏ hoặc thử nghiệm với các tính năng mới.
+- Cấu hình API và máy chủ backend trong môi trường phát triển.
+
+---
+
+2. Middleware trong Express.js
+Mục đích:
+Hiểu về middleware để kiểm soát luồng dữ liệu trong ứng dụng. Middleware có thể làm nhiều việc như xác thực, xử lý lỗi, phân tích dữ liệu từ biểu mẫu, v.v.
+
+Cách áp dụng vào công việc:
+- Ứng dụng thực tế: Middleware sẽ giúp bạn xử lý các yêu cầu và phân tích dữ liệu như xác thực người dùng trước khi cho phép truy cập vào các API bảo mật.
+- Ví dụ: Kiểm tra token JWT hoặc mật khẩu trước khi cho phép người dùng truy cập vào các dữ liệu nhạy cảm.
+
+Cách sử dụng:
+1. Tạo một middleware để xác thực mật khẩu:
+   const passwordCheck = (req, res, next) => {
+       const password = req.body.password;
+       if (password === "correctPassword") {
+           next();  // Tiếp tục yêu cầu đến route tiếp theo
+       } else {
+           res.status(403).send("Forbidden");
+       }
+   };
+2. Áp dụng middleware vào route:
+   app.post("/check", passwordCheck, (req, res) => {
+       res.send("Access granted!");
+   });
+
+Ứng dụng vào công việc:
+- Dùng middleware để xử lý các tác vụ như ghi log, xác thực người dùng, bảo mật ứng dụng.
+
+---
+
+3. Xử lý Yêu Cầu HTTP với Express
+Mục đích:
+Khả năng xử lý các yêu cầu HTTP khác nhau như GET, POST, PUT, PATCH, DELETE.
+
+Cách áp dụng vào công việc:
+- Ứng dụng thực tế: Đây là kỹ năng quan trọng khi bạn cần xây dựng API hoặc ứng dụng web nơi bạn sẽ nhận và phản hồi các yêu cầu HTTP từ frontend hoặc các hệ thống khác.
+- Ví dụ: Xử lý yêu cầu gửi dữ liệu từ một biểu mẫu HTML hoặc cập nhật dữ liệu trong cơ sở dữ liệu.
+
+Ví dụ xử lý các yêu cầu HTTP:
+1. Xử lý yêu cầu GET:
+   app.get("/home", (req, res) => {
+       res.send("Welcome to Home Page");
+   });
+2. Xử lý yêu cầu POST:
+   app.post("/submit", (req, res) => {
+       console.log(req.body);
+       res.send("Form submitted!");
+   });
+
+Ứng dụng vào công việc:
+- Thiết lập các endpoint API cho các ứng dụng frontend hoặc mobile app.
+- Xử lý các yêu cầu từ người dùng để lấy hoặc gửi dữ liệu.
+
+---
+
+4. Cài Đặt và Quản Lý Gói NPM
+Mục đích:
+Sử dụng NPM để cài đặt và quản lý các gói thư viện giúp phát triển ứng dụng nhanh chóng.
+
+Cách áp dụng vào công việc:
+- Ứng dụng thực tế: Cài đặt các gói như `body-parser`, `cors`, hoặc `mongoose` để xử lý các yêu cầu HTTP hoặc tương tác với cơ sở dữ liệu MongoDB.
+- Ví dụ: Cài đặt và sử dụng `mongoose` để tương tác với MongoDB trong backend của bạn.
+
+Các bước sử dụng NPM:
+1. Khởi tạo dự án với `npm init`.
+2. Cài đặt gói với `npm install <package_name>`.
+3. Sử dụng gói trong mã:
+   import mongoose from 'mongoose';
+   mongoose.connect('mongodb://localhost/test');
+
+Ứng dụng vào công việc:
+- Tích hợp các thư viện và công cụ vào dự án như kết nối cơ sở dữ liệu, xử lý hình ảnh, hoặc gửi email.
+
+---
+
+5. Sử Dụng Postman và Mã Trạng Thái HTTP
+Mục đích:
+Hiểu cách sử dụng Postman để kiểm tra API và xử lý các mã trạng thái HTTP trong ứng dụng Express.
+
+Cách áp dụng vào công việc:
+- Ứng dụng thực tế: Khi phát triển API, bạn cần phải kiểm tra các yêu cầu HTTP và phản hồi của server. Postman là công cụ tuyệt vời để thử nghiệm và đảm bảo API hoạt động đúng.
+- Ví dụ: Kiểm tra các phản hồi của API khi gửi yêu cầu GET hoặc POST.
+
+Cách sử dụng Postman:
+1. Mở Postman và tạo yêu cầu GET hoặc POST đến URL của API.
+2. Kiểm tra mã trạng thái phản hồi và dữ liệu trả về.
+
+Ứng dụng vào công việc:
+- Kiểm tra và debug API của bạn khi phát triển hoặc khi triển khai lên server.

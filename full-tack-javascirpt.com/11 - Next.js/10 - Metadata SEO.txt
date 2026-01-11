@@ -1,0 +1,78 @@
+🧠 Model 10: Metadata SEO
+--------------------------
+• Vai trò: Cải thiện thứ hạng SEO, hiển thị chính xác trên Google, Facebook (title, description, Open Graph…)
+• Controller: Dùng `metadata` trong Next.js 13+ (App Router) để cấu hình tiêu đề và các thẻ meta.
+
+📘 Ngữ cảnh #10: Thêm tiêu đề và mô tả SEO cho trang /about
+------------------------------------------------------------
+
+🧩 1. Định nghĩa metadata trong `app/about/page.tsx`
+
+```tsx
+// app/about/page.tsx
+
+export const metadata = {
+  title: 'Giới thiệu công ty ABC - About Us',
+  description: 'Trang giới thiệu về công ty ABC, sứ mệnh và tầm nhìn.',
+  openGraph: {
+    title: 'ABC Company - Giới thiệu',
+    description: 'Tìm hiểu về giá trị cốt lõi và đội ngũ công ty ABC.',
+    url: 'https://abc.com/about',
+    siteName: 'ABC Company',
+    images: [
+      {
+        url: 'https://abc.com/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'ABC About Us',
+      },
+    ],
+    locale: 'vi_VN',
+    type: 'website',
+  },
+}
+
+export default function AboutPage() {
+  return (
+    <div>
+      <h1>Giới thiệu công ty</h1>
+      <p>Chúng tôi là công ty hàng đầu trong lĩnh vực công nghệ...</p>
+    </div>
+  )
+}
+```
+
+📝 2. Kết quả:
+- Next.js sẽ tự động tạo các thẻ `<title>`, `<meta name="description">`, `<meta property="og:title">`… trong `<head>`.
+- Dễ dàng tích hợp với Google SEO và chia sẻ mạng xã hội.
+
+📍 3. Thêm favicon, themeColor, viewport?
+
+Bạn có thể khai báo trong `app/layout.tsx` như sau:
+
+```tsx
+// app/layout.tsx
+
+export const metadata = {
+  title: {
+    default: 'ABC Company',
+    template: '%s | ABC',
+  },
+  description: 'Trang web chính thức của công ty ABC.',
+  viewport: 'width=device-width, initial-scale=1',
+  icons: {
+    icon: '/favicon.ico',
+  },
+  themeColor: '#ffffff',
+}
+```
+
+🧠 Mở rộng:
+- Dùng `generateMetadata()` nếu muốn lấy title/description theo động (ví dụ từ CMS).
+- Tùy chỉnh cho từng dynamic route.
+- Kết hợp với công cụ kiểm tra SEO như [Lighthouse](https://developers.google.com/web/tools/lighthouse).
+
+✅ Kết luận:
+- Next.js App Router hỗ trợ SEO mạnh mẽ, không cần viết tay `<head>`.
+- Cấu hình rõ ràng, mở rộng tốt cho trang động lẫn tĩnh.
+

@@ -1,0 +1,87 @@
+
+### Giới thiệu về Web Workers
+
+**Web Workers là gì?**
+Web Workers cho phép bạn thực thi các tác vụ trong một luồng riêng biệt, giúp giữ cho trang web của bạn luôn phản hồi và không bị treo khi thực hiện các tác vụ nặng. Điều này rất hữu ích khi bạn có các tác vụ cần thời gian lâu để hoàn thành mà không muốn làm gián đoạn các hoạt động khác trên trang web.
+
+**Vấn đề với lập trình đồng bộ (Synchronous Programming)**
+Trong lập trình đồng bộ, chương trình phải chờ đợi cho mỗi tác vụ hoàn thành trước khi chuyển sang tác vụ tiếp theo. Điều này có thể gây ra tình trạng không phản hồi khi các tác vụ dài hoặc phức tạp được thực thi.
+
+**Lợi ích của Web Workers**
+Web Workers cho phép chạy các tác vụ trong các luồng riêng biệt. Điều này giúp cho chương trình có thể tiếp tục thực thi các công việc khác (chẳng hạn như xử lý sự kiện người dùng) trong khi các tác vụ nặng đang được thực hiện.
+
+**Ba loại Web Workers:**
+1. **Dedicated Workers**: Được sử dụng bởi một script duy nhất.
+2. **Shared Workers**: Có thể được chia sẻ giữa nhiều script chạy trên các cửa sổ khác nhau.
+3. **Service Workers**: Đóng vai trò như proxy server, giúp lưu trữ tài nguyên và hỗ trợ các ứng dụng web hoạt động ngoại tuyến.
+
+**Sử dụng Dedicated Web Workers**
+Ví dụ dưới đây minh họa cách sử dụng **Dedicated Worker** để tính toán các số nguyên tố mà không làm gián đoạn các tác vụ khác trên trang web.
+
+**Tạo worker trong HTML và JavaScript**:
+```html
+<label for="quota">Number of primes:</label>
+<input type="text" id="quota" name="quota" value="1000000" />
+
+<button id="generate">Generate primes</button>
+<button id="reload">Reload</button>
+
+<textarea id="user-input" rows="5" cols="62">
+Try typing in here immediately after pressing "Generate primes"
+</textarea>
+
+<div id="output"></div>
+```
+
+```js
+// main.js
+const worker = new Worker("./generate.js");
+
+document.querySelector("#generate").addEventListener("click", () => {
+  const quota = document.querySelector("#quota").value;
+  worker.postMessage({
+    command: "generate",
+    quota,
+  });
+});
+
+worker.addEventListener("message", (message) => {
+  document.querySelector("#output").textContent =
+    `Finished generating ${message.data} primes!`;
+});
+```
+
+**Worker Script (generate.js)**:
+```js
+addEventListener("message", (message) => {
+  if (message.data.command === "generate") {
+    generatePrimes(message.data.quota);
+  }
+});
+
+function generatePrimes(quota) {
+  const primes = [];
+  const maximum = 1000000;
+
+  while (primes.length < quota) {
+    const candidate = Math.floor(Math.random() * (maximum + 1));
+    if (isPrime(candidate)) {
+      primes.push(candidate);
+    }
+  }
+
+  postMessage(primes.length);
+}
+```
+
+**Tại sao phải sử dụng Web Workers?**
+- Web Workers giúp giữ cho ứng dụng của bạn phản hồi với người dùng trong khi xử lý các tác vụ lâu dài.
+- Các Workers không thể truy cập DOM trực tiếp, nhưng chúng giao tiếp với main thread thông qua các thông điệp (messages).
+- Workers rất hữu ích khi bạn cần xử lý các tác vụ tính toán nặng như tạo số nguyên tố, xử lý dữ liệu lớn hoặc xử lý các yêu cầu mạng.
+
+**Các loại Web Workers khác:**
+- **Shared Workers**: Được chia sẻ giữa nhiều script trên các cửa sổ khác nhau.
+- **Service Workers**: Dùng để lưu trữ tài nguyên và giúp ứng dụng web hoạt động ngoại tuyến.
+
+**Tóm tắt**
+Web Workers cho phép bạn thực thi các tác vụ trong các luồng riêng biệt mà không làm gián đoạn các tác vụ khác. Dù không thể truy cập trực tiếp vào DOM, Workers rất hữu ích trong việc giữ ứng dụng của bạn luôn phản hồi với người dùng khi thực hiện các tác vụ lâu dài hoặc tính toán nặng.

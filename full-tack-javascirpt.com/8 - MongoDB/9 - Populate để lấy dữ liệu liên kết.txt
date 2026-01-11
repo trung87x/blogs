@@ -1,0 +1,47 @@
+📦 Ngữ cảnh #9: Populate để lấy dữ liệu liên kết (MongoDB + Mongoose)
+
+🧠 Model (Ý nghĩa)
+- Một bản ghi liên kết tới bản ghi khác (1-n, n-1, n-n)
+- Ví dụ: Bài viết (`Post`) liên kết tới người tạo (`User`)
+- Khi truy vấn bài viết, cần lấy thông tin người tạo (populate)
+
+🛠️ Controller (Công cụ / Câu lệnh)
+- Dùng `ref` trong schema để liên kết
+- Dùng `.populate('tênTrường')` để lấy thông tin liên quan
+
+🧪 Example (models/Post.js)
+const mongoose = require('mongoose');
+
+const postSchema = new mongoose.Schema({
+  title: String,
+  content: String,
+  author: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User' // Liên kết tới User model
+  }
+});
+
+module.exports = mongoose.model('Post', postSchema);
+
+🧪 Example (routes/postRoute.js)
+const express = require('express');
+const Post = require('../models/Post');
+const router = express.Router();
+
+// GET /posts - Lấy tất cả bài viết + thông tin người tạo
+router.get('/posts', async (req, res) => {
+  try {
+    const posts = await Post.find().populate('author', 'name email -_id'); 
+    res.json(posts);
+  } catch (err) {
+    res.status(500).json({ error: 'Lỗi khi lấy bài viết' });
+  }
+});
+
+module.exports = router;
+
+📝 Ghi chú:
+- `.populate('author')` sẽ thay ObjectId bằng object `User`
+- Có thể chọn trường cụ thể: `populate('author', 'name email')`
+- Có thể populate lồng nhau (multi-level)
+- Đảm bảo User model đã `export` đúng và có dữ liệu phù hợp

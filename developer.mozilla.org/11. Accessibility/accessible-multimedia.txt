@@ -1,0 +1,107 @@
+ĐA PHƯƠNG TIỆN HỖ TRỢ TRUY CẬP (MULTIMEDIA ACCESSIBILITY)
+=========================================================
+
+1. Ảnh đơn giản (Images)
+- Dùng `alt` để mô tả nội dung hình ảnh.
++ Ví dụ:
+  <img src="cat.jpg" alt="Một con mèo trắng đang nằm ngủ trên ghế.">
+- Nếu ảnh chỉ để trang trí:
+  <img src="decor.png" alt="">
+
+2. Âm thanh & video: Vấn đề của trình phát mặc định
+- `<audio controls>` và `<video controls>` không hỗ trợ bàn phím đầy đủ
+- Không thể tùy chỉnh giao diện bằng CSS
+
+→ Giải pháp: **Tạo trình điều khiển tùy chỉnh (custom controls)**
+
+3. Tạo custom video controls (JS cơ bản)
++ HTML:
+  <video id="player" src="video.mp4"></video>
+  <button id="play">Play</button>
+  <div id="time">00:00</div>
+
++ JavaScript:
+  const video = document.getElementById("player");
+  const playBtn = document.getElementById("play");
+
+  playBtn.onclick = () => {
+    if (video.paused) {
+      video.play();
+      playBtn.textContent = "Pause";
+    } else {
+      video.pause();
+      playBtn.textContent = "Play";
+    }
+  };
+
+  video.ontimeupdate = () => {
+    const min = Math.floor(video.currentTime / 60);
+    const sec = Math.floor(video.currentTime % 60);
+    document.getElementById("time").textContent = `${min}:${sec}`;
+  };
+
+- Gợi ý:
+  + Xóa `controls` trong HTML, chỉ bật nếu JS không hoạt động
+  + Luôn hiển thị thông báo lỗi nếu media không chạy
+
+4. Transcript (văn bản lời thoại)
+- Cung cấp bản chép lời cho **audio**, **podcast**, **video**
+- Có thể chèn trực tiếp vào trang hoặc liên kết ngoài
+
++ Ví dụ chèn trong HTML:
+  <details>
+    <summary>Xem transcript</summary>
+    <p>[00:00] Giới thiệu...</p>
+  </details>
+
+- Gợi ý:
+  + Transcript giúp cả người khiếm thính, người không thể nghe vì môi trường ồn
+
+5. Mô tả bổ sung (Audio Descriptions)
+- Nếu audio tham chiếu biểu đồ/tài liệu → cần mô tả rõ trong transcript
+- Với video → nên tích hợp dưới dạng **caption** hoặc **subtitles**
+
+6. Captions, Subtitles, Descriptions (Text tracks)
+- File phụ đề: **.vtt** (WebVTT format)
+
++ Ví dụ nội dung `subtitles_en.vtt`:
+  WEBVTT
+
+  1
+  00:00:00.000 --> 00:00:02.000
+  Xin chào mọi người!
+
+  2
+  00:00:03.000 --> 00:00:05.500
+  Hôm nay chúng ta học về accessibility.
+
++ Gắn vào video:
+  <video controls>
+    <source src="video.mp4" type="video/mp4">
+    <track kind="subtitles" src="subtitles_en.vtt" srclang="en" label="English">
+  </video>
+
+- Gợi ý:
+  + Dùng `kind="captions"` cho người khiếm thính
+  + Dùng `kind="descriptions"` cho mô tả cảnh quay
+  + Người dùng cần nhấn nút "CC" để bật phụ đề
+
+7. Gợi ý dịch & tạo transcript
+- Có thể dùng:
+  + Dịch thủ công (nội bộ, cộng đồng)
+  + Dịch thuê (Rev, Scribie…)
+  + AI chuyển giọng nói → văn bản (YouTube, Trint, v.v.)
+- KHÔNG nên hứa "sẽ bổ sung transcript sau" nếu chưa có sẵn
+
+---
+
+= CHECKLIST TRUY CẬP CHO MULTIMEDIA =
+- [x] Ảnh có `alt` phù hợp hoặc để trống nếu trang trí
+- [x] Audio có transcript (trực tiếp hoặc liên kết)
+- [x] Video có track phụ đề (.vtt)
+- [x] Nút điều khiển tùy chỉnh (có hỗ trợ bàn phím)
+- [x] Có link thay thế nếu trình phát không hỗ trợ
+- [x] Phụ đề có bật được bằng bàn phím
+- [x] Không chỉ dùng màu/mouse để điều khiển media
+
+= HẾT =

@@ -1,0 +1,134 @@
+/* ==========================
+   CSS BACKGROUNDS VÀ BORDERS
+   ========================== */
+
+/* 1. Background-color – Màu nền */
+.box {
+  background-color: #567895; /* Màu nền của box */
+}
+h2 {
+  background-color: black;
+  color: white;
+}
+span {
+  background-color: rgb(255 255 255 / 50%);
+}
+
+/* 2. Background-image – Ảnh nền */
+.a {
+  background-image: url("balloons.jpg");
+}
+.b {
+  background-image: url("star.png");
+}
+/* Ảnh lớn sẽ không tự co lại, ảnh nhỏ sẽ lặp lại mặc định */
+
+/* 3. Background-repeat – Kiểm soát lặp ảnh nền */
+.box {
+  background-image: url("star.png");
+  background-repeat: no-repeat;     /* Không lặp */
+  /* repeat-x: lặp ngang | repeat-y: lặp dọc | repeat: cả hai */
+  /* space: lặp thêm khoảng trống | round: kéo giãn ảnh */
+}
+
+/* 4. Background-size – Kích thước ảnh nền */
+.box {
+  background-image: url("balloons.jpg");
+  background-repeat: no-repeat;
+  background-size: 80px 10em;  /* Có thể dùng cover | contain */
+}
+
+/* 5. Background-position – Vị trí ảnh nền */
+.box {
+  background-image: url("star.png");
+  background-repeat: no-repeat;
+  background-position: 120px 1em;
+  /* Cũng có thể dùng: top center, 20px top, top 20px right 10px */
+}
+
+/* 6. Background gradients – Gradient làm nền */
+.a {
+  background-image: linear-gradient(
+    105deg,
+    rgb(0 249 255 / 100%) 39%,
+    rgb(51 56 57 / 100%) 96%
+  );
+}
+.b {
+  background-image: radial-gradient(
+    circle,
+    rgb(0 249 255 / 100%) 39%,
+    rgb(51 56 57 / 100%) 96%
+  );
+  background-size: 100px 50px;
+}
+
+/* 7. Nhiều ảnh nền cùng lúc */
+.box {
+  background-image:
+    url("star.png"),
+    url("big-star.png");
+  background-repeat: no-repeat, repeat;
+  background-position: 10px 20px, top right;
+  /* Ảnh sau nằm dưới, ảnh trước nằm trên */
+}
+
+/* 8. Background-attachment – Ảnh nền cố định hoặc cuộn */
+.box {
+  background-image: url("image.png");
+  background-attachment: scroll;  /* hoặc fixed | local */
+}
+
+/* 9. Background shorthand – Viết tắt */
+.box {
+  background:
+    linear-gradient(
+        105deg,
+        rgb(255 255 255 / 20%) 39%,
+        rgb(51 56 57 / 100%) 96%
+    )
+    center center / 400px 200px no-repeat,
+    url("big-star.png") center no-repeat,
+    rebeccapurple;
+  /* Ghi nhớ: background-color phải nằm cuối, size sau position và cách nhau bằng '/' */
+}
+
+/* 10. Accessibility – Khả năng truy cập */
+.box {
+  /* Đảm bảo màu chữ đủ tương phản với nền */
+  /* Đừng dùng ảnh nền cho nội dung chính, chỉ để trang trí */
+}
+
+/* -------------------------
+   PHẦN BORDERS (viền)
+   ------------------------- */
+
+/* 11. Border – Viền cơ bản */
+.box {
+  border: 1px solid black;
+  border-top: 1px solid black;
+  /* Cũng có thể tách riêng: border-width, border-style, border-color */
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: black;
+}
+
+/* 12. Border-style – Kiểu viền */
+.box {
+  border: 5px solid #0b385f;
+  border-bottom-style: dashed;
+}
+h2 {
+  border-top: 2px dotted rebeccapurple;
+  border-bottom: 1em double rgb(24 163 78);
+}
+
+/* 13. Border-radius – Bo góc */
+.box {
+  border: 10px solid rebeccapurple;
+  border-radius: 1em; /* Bo đều 4 góc */
+  border-top-right-radius: 10% 30%; /* Bo riêng từng góc theo chiều ngang dọc */
+}

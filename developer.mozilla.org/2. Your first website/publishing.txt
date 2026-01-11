@@ -1,0 +1,46 @@
+ĐĂNG TẢI WEBSITE LÊN INTERNET
+===============================
+
+1. MỤC TIÊU
+- Biết cách đưa website từ máy tính cá nhân lên mạng Internet.
+- Làm quen các khái niệm: hosting, domain, GitHub Pages.
+- Thực hành đăng tải bằng GitHub.
+
+2. CÁCH PHỔ BIẾN ĐỂ ĐĂNG WEBSITE
+- Mua **hosting** và **tên miền** (domain):
+  + Hosting: nơi chứa file trang web (index.html, hình ảnh…).
+  + Domain: địa chỉ web như `example.com`.
+  + Có thể mua chung hoặc riêng, nếu riêng cần trỏ domain về đúng hosting.
+
+- Dùng **GitHub Pages**: miễn phí, phù hợp học tập, demo.
+- Dùng **công cụ nền web** (CodePen, Glitch,...): dễ dùng, không cần cài đặt.
+
+3. DÙNG GITHUB PAGES (KHUYẾN NGHỊ CHO NGƯỜI MỚI)
+a. Tạo tài khoản GitHub: https://github.com  
+b. Xác minh email sau khi đăng ký.
+
+c. Tạo repository:
+  - Tên repo phải là: `tennguoidung.github.io`
+  - VD: nếu tên tài khoản là `trungdev` thì repo là `trungdev.github.io`
+
+d. Upload file trang web:
+  - Truy cập repo vừa tạo → chọn `Add file` → `Upload files`
+  - Kéo cả thư mục website (phải có file `index.html`) vào khu vực upload.
+  - Nhấn “Commit changes”.
+
+e. Truy cập trang web:
+  - Truy cập theo địa chỉ: `https://tennguoidung.github.io`
+  - VD: `https://trungdev.github.io`
+  - Ghi chú: Có thể mất vài phút để website hiển thị lần đầu.
+
+4. CÁC CÁCH KHÁC
+- Hosting + Domain (mất phí):
+  + Tự kiểm soát, phù hợp làm dự án thật.
+  + Cần FTP hoặc giao diện kéo thả để upload file.
+
+- Dịch vụ miễn phí:
+  + Neocities, Google Sites, WordPress (giới hạn nhiều chức năng).
+
+- Web IDE:
+  + CodePen, JSFiddle, JSBin, Glitch
+  + Dễ chia sẻ demo ngắn, không lưu file ảnh ngoài.

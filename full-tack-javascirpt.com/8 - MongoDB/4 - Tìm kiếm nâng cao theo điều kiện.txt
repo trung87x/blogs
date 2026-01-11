@@ -1,0 +1,56 @@
+📦 Ngữ cảnh #4: Tìm kiếm nâng cao theo điều kiện (MongoDB + Mongoose)
+
+🧠 Model (Ý nghĩa)
+- Không chỉ lấy toàn bộ dữ liệu, ta thường cần lọc theo điều kiện như:
+  - Tìm user theo email
+  - Lọc sản phẩm theo giá, loại, trạng thái
+  - Tìm bài viết có tiêu đề chứa từ khóa
+- Đây là tính năng quan trọng cho admin panel, search, dashboard...
+
+🛠️ Controller (Công cụ / Câu lệnh)
+- `Model.find({ field: value })`
+- `Model.findOne({ field })`
+- Dùng các toán tử MongoDB: `$gt`, `$lt`, `$in`, `$regex`, `$or`, `$and`...
+- Có thể kết hợp `.select()`, `.sort()`, `.limit()`, `.skip()` để phân trang
+
+🧪 Example (routes/productRoute.js)
+const express = require('express');
+const Product = require('../models/Product');
+const router = express.Router();
+
+// GET /products?minPrice=100&maxPrice=1000&category=electronics&keyword=phone
+router.get('/products', async (req, res) => {
+  try {
+    const { minPrice, maxPrice, category, keyword } = req.query;
+
+    const query = {};
+
+    if (minPrice || maxPrice) {
+      query.price = {};
+      if (minPrice) query.price.$gte = parseInt(minPrice);
+      if (maxPrice) query.price.$lte = parseInt(maxPrice);
+    }
+
+    if (category) {
+      query.category = category;
+    }
+
+    if (keyword) {
+      query.name = { $regex: keyword, $options: 'i' }; // tìm gần đúng, không phân biệt hoa thường
+    }
+
+    const products = await Product.find(query).sort({ createdAt: -1 });
+
+    res.json(products);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+module.exports = router;
+
+📝 Ghi chú:
+- `$gte`, `$lte` dùng để lọc theo khoảng giá trị
+- `$regex` dùng cho tìm kiếm gần đúng (search bar)
+- `.sort({ createdAt: -1 })`: sắp xếp mới nhất trước
+- Có thể thêm `.limit()` và `.skip()` cho phân trang (pagination)

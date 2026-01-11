@@ -1,0 +1,103 @@
+
+1. Selenium
+Selenium là công cụ tự động hóa trình duyệt phổ biến nhất. Bạn có thể sử dụng WebDriver, một API mạnh mẽ được xây dựng trên Selenium, giúp tự động hóa các hành động như "mở trang web này", "di chuyển đến phần tử này trên trang", "click vào liên kết này", "kiểm tra xem liên kết có mở đúng URL hay không", v.v. Điều này rất lý tưởng cho việc chạy kiểm thử tự động.
+
+2. Cài đặt Selenium trong Node
+Để bắt đầu, tạo một dự án npm mới, sau đó cài đặt selenium-webdriver bằng cách chạy lệnh:
+```bash
+npm install selenium-webdriver
+```
+Sau khi cài đặt, bạn cần tải xuống các driver thích hợp để WebDriver có thể điều khiển các trình duyệt bạn muốn kiểm thử, ví dụ GeckoDriver (cho Firefox) và ChromeDriver (cho Chrome).
+
+3. Cấu hình Selenium trong Node
+Tạo một file `duck_test.js` và thử một bài kiểm thử đơn giản với Selenium:
+```js
+const { Builder, Browser, By, Key, until } = require("selenium-webdriver");
+
+(async function example() {
+  const driver = await new Builder().forBrowser(Browser.FIREFOX).build();
+  try {
+    await driver.get("https://duckduckgo.com/");
+    await driver.findElement(By.name("q")).sendKeys("webdriver", Key.RETURN);
+    await driver.wait(until.titleIs("webdriver at DuckDuckGo"), 1000);
+    console.log("Test passed!");
+  } catch (e) {
+    console.log(`Error: ${e}`);
+  } finally {
+    await driver.sleep(2000); // Delay long enough to see search page!
+    await driver.quit();
+  }
+})();
+```
+
+4. Kiểm thử trên nhiều trình duyệt
+Bạn có thể chạy kiểm thử trên nhiều trình duyệt cùng lúc. Tạo một file `duck_test_multiple.js` để chạy kiểm thử trên cả Firefox và Chrome:
+```js
+const { Builder, Browser, By, Key } = require("selenium-webdriver");
+
+const driver_fx = new Builder().forBrowser(Browser.FIREFOX).build();
+const driver_chr = new Builder().forBrowser(Browser.CHROME).build();
+
+async function searchTest(driver) {
+  try {
+    await driver.get("https://duckduckgo.com/");
+    await driver.findElement(By.name("q")).sendKeys("webdriver", Key.RETURN);
+    await driver.sleep(2000);
+    const title = await driver.getTitle();
+    if (title === "webdriver at DuckDuckGo") {
+      console.log("Test passed");
+    } else {
+      console.log("Test failed");
+    }
+  } finally {
+    driver.quit();
+  }
+}
+
+searchTest(driver_fx);
+searchTest(driver_chr);
+```
+
+5. Cú pháp WebDriver cơ bản
+Để bắt đầu một bài kiểm thử mới, bạn cần bao gồm module `selenium-webdriver`:
+```js
+const { Builder, Browser } = require("selenium-webdriver");
+let driver = new Builder().forBrowser(Browser.FIREFOX).build();
+```
+
+6. Tương tác với tài liệu
+Sau khi tải trang, bạn cần chọn một phần tử để tương tác. Ví dụ, chọn một phần tử bằng ID:
+```js
+const element = driver.findElement(By.id("myElementId"));
+```
+Bạn có thể tương tác với các phần tử này bằng các phương thức như `click()`, `getText()`, `sendKeys()`.
+
+7. Kiểm tra và xác thực
+Sau khi tương tác, bạn có thể kiểm tra nội dung hoặc trạng thái của phần tử. Ví dụ, lấy nội dung văn bản của một nút:
+```js
+button.getText().then((text) => {
+  console.log(`Button text is '${text}'`);
+});
+```
+
+8. Kiểm thử động với trình duyệt Safari
+Nếu bạn muốn kiểm thử Safari, có thể gặp lỗi yêu cầu "Cho phép Tự động hóa từ xa". Bạn cần bật tùy chọn "Allow Remote Automation" trong menu Develop của Safari.
+
+9. Cài đặt thử nghiệm từ xa với BrowserStack và Sauce Labs
+Bạn có thể chạy thử nghiệm Selenium từ xa bằng cách sử dụng dịch vụ như BrowserStack hoặc Sauce Labs. Cần cung cấp thông tin đăng nhập và khả năng của trình duyệt trong đoạn mã của bạn để chạy thử nghiệm từ xa.
+
+10. Tạo và chạy thử nghiệm với Mocha
+Cài đặt Mocha để viết và chạy các bài kiểm thử có báo cáo kết quả chi tiết hơn:
+```bash
+npm install --save-dev mocha
+npx mocha --no-timeouts
+```
+
+11. Cấu hình và chạy thử nghiệm từ xa trên server của riêng bạn
+Cài đặt và chạy Selenium server trên máy chủ từ xa, ví dụ như trên máy chủ của bạn hoặc một máy chủ đám mây.
+
+12. Tích hợp Selenium với CI tools
+Selenium có thể được tích hợp với các công cụ CI như Travis CI để tự động chạy kiểm thử khi có thay đổi trong mã nguồn.
+
+13. Tóm tắt
+Bài viết này cung cấp hướng dẫn chi tiết về cách thiết lập môi trường kiểm thử tự động với Selenium, từ cài đặt cơ bản đến cách chạy thử nghiệm trên nhiều trình duyệt và tích hợp với các công cụ kiểm thử từ xa.

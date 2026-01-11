@@ -1,0 +1,54 @@
+📦 Ngữ cảnh #8: So sánh mật khẩu khi đăng nhập (MongoDB + Mongoose + bcrypt)
+
+🧠 Model (Ý nghĩa)
+- Khi người dùng đăng nhập, cần so sánh mật khẩu họ nhập (plain) với mật khẩu đã hash trong DB.
+- Không thể so sánh trực tiếp (vì đã mã hóa 1 chiều), nên dùng `bcrypt.compare`.
+
+🛠️ Controller (Công cụ / Câu lệnh)
+- `bcrypt.compare(plainPassword, hashedPassword)` → trả về true/false
+- Nên viết hàm riêng trong model để tái sử dụng dễ dàng
+
+🧪 Example (models/User.js)
+const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+
+const userSchema = new mongoose.Schema({
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true }
+});
+
+// Thêm phương thức vào schema
+userSchema.methods.comparePassword = async function (inputPassword) {
+  return await bcrypt.compare(inputPassword, this.password);
+};
+
+const User = mongoose.model('User', userSchema);
+module.exports = User;
+
+🧪 Example (routes/authRoute.js)
+const express = require('express');
+const User = require('../models/User');
+const router = express.Router();
+
+// POST /login - Đăng nhập user
+router.post('/login', async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const user = await User.findOne({ email });
+    if (!user) return res.status(400).json({ error: 'Email không đúng' });
+
+    const isMatch = await user.comparePassword(password);
+    if (!isMatch) return res.status(400).json({ error: 'Mật khẩu không đúng' });
+
+    res.json({ message: 'Đăng nhập thành công' });
+  } catch (err) {
+    res.status(500).json({ error: 'Lỗi hệ thống' });
+  }
+});
+
+module.exports = router;
+
+📝 Ghi chú:
+- Không nên trả lỗi "sai email hay mật khẩu" cụ thể → lý do bảo mật
+- Có thể tạo token (JWT) tại đây nếu đăng nhập thành công

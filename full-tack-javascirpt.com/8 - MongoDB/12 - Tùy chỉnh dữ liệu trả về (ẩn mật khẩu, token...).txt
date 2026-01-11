@@ -1,0 +1,48 @@
+📦 Ngữ cảnh #12: Tùy chỉnh dữ liệu trả về (ẩn mật khẩu, token...) (MongoDB + Mongoose)
+
+🧠 Model (Ý nghĩa)
+- Khi trả dữ liệu từ DB về client, cần **ẩn các trường nhạy cảm** như:
+  - `password`, `accessToken`, `refreshToken`, v.v.
+- Giúp tăng bảo mật & tránh lộ thông tin nhạy cảm
+
+🛠️ Controller (Công cụ / Câu lệnh)
+- Dùng `select: false` trong schema để mặc định không trả về
+- Dùng `.toJSON()` hoặc `.toObject()` và xóa thủ công
+- Dùng middleware `schema.methods.toJSON = function () { ... }` để xử lý tự động
+
+🧪 Example: models/User.js
+const mongoose = require('mongoose');
+
+const userSchema = new mongoose.Schema({
+  name: String,
+  email: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  password: {
+    type: String,
+    required: true,
+    select: false // Không trả về mặc định
+  },
+  accessToken: {
+    type: String,
+    select: false
+  }
+});
+
+// Tùy chỉnh dữ liệu trả về (ẩn password, token)
+userSchema.methods.toJSON = function () {
+  const obj = this.toObject();
+  delete obj.password;
+  delete obj.accessToken;
+  return obj;
+};
+
+module.exports = mongoose.model('User', userSchema);
+
+📝 Ghi chú:
+- `select: false` không loại bỏ hoàn toàn — cần `.select('+password')` nếu muốn lấy lại khi cần xác thực
+- Có thể kết hợp `.lean()` và xử lý xóa thủ công:  
+  `const user = await User.findById(id).lean(); delete user.password;`
+- Chỉ nên trả về dữ liệu **tối thiểu cần thiết** cho frontend

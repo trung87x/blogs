@@ -1,0 +1,140 @@
+/* =====================
+   MÔ HÌNH HỘP TRONG CSS
+   ===================== */
+
+/* 1. Block vs Inline Elements
+   ---------------------------- */
+/* Block (hiển thị dạng khối):
+   - Bắt đầu dòng mới
+   - Có thể đặt width/height
+   - Có margin/padding/border đầy đủ
+*/
+p {
+  display: block;
+}
+
+/* Inline (hiển thị trong dòng):
+   - Không bắt đầu dòng mới
+   - Không áp dụng width/height
+   - Padding/margin chỉ hoạt động trái phải
+*/
+span {
+  display: inline;
+}
+
+/* Inline-block: kết hợp cả hai */
+span {
+  display: inline-block;
+  width: 100px;
+  height: 50px;
+}
+
+/* 2. Các thành phần trong Box Model
+   ----------------------------------- */
+/*
+   - Content: phần nội dung chính
+   - Padding: khoảng trống bên trong, giữa content và border
+   - Border: viền bao quanh phần tử
+   - Margin: khoảng cách bên ngoài border
+*/
+
+/* 3. Box Model Chuẩn (Standard) – mặc định */
+.box {
+  width: 300px;
+  height: 150px;
+  padding: 40px;
+  border: 5px solid black;
+  margin: 40px;
+  /* Tổng chiều rộng thực tế = 300 + 2*40 + 2*5 = 390px */
+}
+
+/* 4. Box Model Thay Thế (Alternative) – border-box */
+.box {
+  box-sizing: border-box;
+}
+/* Khi đó width = toàn bộ hộp, bao gồm content + padding + border */
+
+/* 5. Gán toàn bộ trang dùng border-box */
+html {
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* 6. Margin
+   ---------- */
+/* Tạo khoảng cách giữa các phần tử */
+.box {
+  margin-top: 20px;
+  margin-right: 2em;
+  margin-bottom: -10px; /* cho phép âm */
+  margin-left: 40px;
+}
+
+/* 7. Margin collapsing – gộp lề */
+.one {
+  margin-bottom: 50px;
+}
+.two {
+  margin-top: 30px;
+}
+/* → Khoảng cách thực tế là 50px (lấy max) */
+
+/* 8. Border – viền */
+.box {
+  border: 2px solid black;
+  border-top: 5px dotted red;
+  border-right-width: 10px;
+  border-bottom-color: blue;
+  border-left-style: double;
+}
+/* Có thể tách theo hướng và thuộc tính: border-style, border-width, border-color */
+
+/* 9. Padding – khoảng cách giữa content và border */
+.box {
+  padding-top: 1em;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  padding-left: 2em;
+}
+/* Padding không thể âm và ảnh hưởng tới background */
+
+/* 10. Hiển thị với inline elements */
+span {
+  display: inline;
+  width: 100px;  /* không có hiệu lực */
+  height: 100px; /* không có hiệu lực */
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid blue;
+}
+/* Top/bottom padding và border không đẩy nội dung khác đi */
+
+/* 11. Dùng inline-block để giải quyết vấn đề trên */
+span {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+  border: 1px solid red;
+}
+
+/* 12. Thực tế sử dụng: navigation link dễ click */
+.links-list a {
+  display: inline-block;
+  padding: 1em 2em;
+  background-color: rgb(179, 57, 81);
+}
+.links-list a:hover {
+  background-color: rgb(66, 28, 40);
+}
+
+/* ======================================================
+   TÓM TẮT:
+   - Block: đầy đủ chiều rộng, có thể đặt size
+   - Inline: nằm trong dòng, giới hạn khả năng set size
+   - Box model gồm: margin → border → padding → content
+   - border-box giúp đơn giản hóa tính toán kích thước
+   - Hiểu rõ cách padding và margin hoạt động là chìa khoá
+   ====================================================== */

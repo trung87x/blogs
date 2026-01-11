@@ -1,0 +1,100 @@
+
+1. Những sai lầm phổ biến đối với người mới bắt đầu
+- Đúng chính tả và phân biệt chữ hoa/thường: Nếu mã của bạn không hoạt động và/hoặc trình duyệt báo lỗi "undefined", hãy kiểm tra xem bạn đã viết đúng tên biến, tên hàm chưa.
+  Ví dụ:
+  - Đúng: getElementsByTagName()
+  - Sai: getElementByTagName()
+
+- Vị trí dấu chấm phẩy: Đảm bảo bạn không đặt dấu chấm phẩy sai.
+  Ví dụ:
+  - Đúng: `elem.style.color = 'red';`
+  - Sai: `elem.style.color = 'red;`
+
+2. Các vấn đề với hàm
+- Quên gọi hàm: Một lỗi phổ biến là khai báo hàm nhưng không gọi nó.
+  Ví dụ:
+  ```js
+  function myFunction() {
+    alert("This is my function.");
+  }
+  myFunction();  // Cần gọi hàm
+  ```
+
+- Phạm vi của hàm (Function scope): Hàm có phạm vi riêng của nó — bạn không thể truy cập giá trị biến được đặt trong hàm từ bên ngoài trừ khi bạn khai báo biến toàn cục.
+
+- Mã sau `return`: Khi bạn trả về từ một hàm, JavaScript sẽ thoát khỏi hàm — không có mã nào sau `return` sẽ chạy.
+
+3. Cú pháp đối tượng và gán
+Khi gán một giá trị bình thường trong JavaScript, bạn dùng dấu "=":
+  ```js
+  const myNumber = 0;
+  ```
+Với đối tượng, cú pháp phải chính xác, bao gồm dấu ngoặc nhọn, tên thành viên phải được phân cách bằng dấu ":" và các thành viên phải được phân cách bằng dấu phẩy:
+  ```js
+  const myObject = {
+    name: "Chris",
+    age: 38,
+  };
+  ```
+
+4. Các định nghĩa cơ bản
+- JavaScript là gì?
+- Biến là gì?
+- Mảng là gì?
+- Vòng lặp là gì?
+- Hàm là gì?
+- Sự kiện là gì?
+- Đối tượng là gì?
+- JSON là gì?
+- API Web là gì?
+- DOM là gì?
+
+5. Các trường hợp sử dụng cơ bản
+**Biến**
+- Cách khai báo biến: `let myVar;`
+- Cách gán giá trị cho biến: `myVar = 5;`
+
+**Số học**
+- Cách thực hiện phép toán cơ bản trong JavaScript.
+- So sánh giá trị: Ví dụ, kiểm tra giá trị nào lớn hơn hoặc so sánh sự bằng nhau.
+
+**Chuỗi (Strings)**
+- Cách tạo một chuỗi trong JavaScript.
+- Cách nối chuỗi: `let fullName = "John" + " " + "Doe";`
+
+**Mảng (Arrays)**
+- Cách tạo mảng: `let fruits = ["apple", "banana", "cherry"];`
+- Cách truy cập và thay đổi giá trị trong mảng.
+
+6. Gỡ lỗi JavaScript
+- Các loại lỗi cơ bản: Lỗi cú pháp, lỗi runtime.
+- Công cụ gỡ lỗi trình duyệt: Sử dụng DevTools trong trình duyệt để kiểm tra lỗi.
+
+7. Quyết định trong mã
+- Câu lệnh if...else: Thực thi các khối mã khác nhau tùy thuộc vào điều kiện.
+- Câu lệnh `switch`: Lựa chọn giữa nhiều giá trị khác nhau.
+
+8. Vòng lặp/ Lặp lại
+- Câu lệnh `while` và `do...while`: Lặp lại mã cho đến khi một điều kiện trở thành đúng.
+
+9. Các trường hợp sử dụng trung cấp
+**Hàm**
+- Hàm ẩn danh: Một hàm không có tên.
+- Tham số của hàm: Cách khai báo và truyền tham số vào hàm.
+
+**Đối tượng (Objects)**
+- Cách tạo đối tượng: `let person = { name: "Chris", age: 38 };`
+- Dot notation và bracket notation: Cách truy cập và thay đổi thuộc tính của đối tượng.
+
+10. Sự kiện (Events)
+- Event handlers: Xử lý sự kiện trong JavaScript.
+- `addEventListener`: Cách sử dụng `addEventListener` để xử lý sự kiện.
+- Event delegation: Quản lý sự kiện hiệu quả khi có nhiều phần tử.
+
+11. JavaScript hướng đối tượng
+- Object prototypes: Làm việc với prototype trong JavaScript.
+- Kế thừa trong JavaScript: Cách tạo đối tượng con kế thừa từ đối tượng cha.
+
+12. JSON
+- Cấu trúc JSON: Cách sử dụng JSON để cấu trúc dữ liệu.
+- Chuyển đổi JSON: `JSON.stringify()` và `JSON.parse()` để chuyển đổi giữa JSON và đối tượng JavaScript.

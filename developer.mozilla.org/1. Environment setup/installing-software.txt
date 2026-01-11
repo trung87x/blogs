@@ -1,0 +1,33 @@
+HƯỚNG DẪN CÀI ĐẶT PHẦN MỀM CƠ BẢN CHO PHÁT TRIỂN WEB
+====================================================
+
+1. TRÌNH SOẠN THẢO MÃ (CODE EDITOR)
+- Gợi ý: Visual Studio Code (VS Code).
+
+2. TRÌNH DUYỆT WEB HIỆN ĐẠI (MODERN WEB BROWSERS)
+- Gợi ý trình duyệt: Chrome, Safari
+
+3. MÁY CHỦ WEB CỤC BỘ (LOCAL WEB SERVER)
+- Gợi ý: Dùng tiện ích Live Preview trong VS Code.
+- Hành động:
+  a. Mở VS Code.
+  b. Chọn menu `View > Extensions`.
+  c. Tìm kiếm “live preview”.
+  d. Cài đặt tiện ích có tên “Live Preview” của Microsoft.
+  e. Khi mở file HTML, nhấn nút “Show Preview” để xem trực tiếp.
+
+4. PHẦN MỀM CHỈNH SỬA HÌNH ẢNH (GRAPHICS EDITORS)
+- Gợi ý miễn phí:
+  + Windows: Photos
+  + macOS: Preview
+  + Online: https://tinypng.com
+  + Mạnh hơn: GIMP, Paint.NET, Canva, Adobe Express
+
+5. QUẢN LÝ PHIÊN BẢN (VERSION CONTROL)
+- Git là công cụ phổ biến để quản lý mã nguồn, làm việc nhóm và theo dõi thay đổi.
+
+6. TRIỂN KHAI WEBSITE (SITE DEPLOYMENT)
+- Gợi ý các cách triển khai:
+  + Hosting + SFTP
+  + GitHub Pages, Netlify
+  + Glitch, CodePen (dễ dùng để demo nhanh)

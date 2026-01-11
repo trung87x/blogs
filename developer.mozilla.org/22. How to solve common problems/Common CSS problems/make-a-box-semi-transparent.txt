@@ -1,0 +1,37 @@
+
+1. Cách làm một hộp bán trong suốt
+Hướng dẫn này sẽ giúp bạn hiểu cách làm một hộp bán trong suốt bằng CSS.
+
+**Thay đổi độ mờ của hộp và nội dung**
+Nếu bạn muốn thay đổi độ mờ của hộp và tất cả các nội dung bên trong hộp, thuộc tính `opacity` của CSS sẽ là công cụ hữu ích. Độ mờ (opacity) là ngược lại với sự trong suốt; vì vậy `opacity: 1` là hoàn toàn mờ đục — bạn sẽ không thể nhìn xuyên qua hộp.
+
+Sử dụng giá trị 0 sẽ làm hộp hoàn toàn trong suốt, và các giá trị giữa hai giá trị này sẽ thay đổi độ mờ, với các giá trị cao hơn sẽ có ít sự trong suốt hơn.
+
+**Thay đổi độ mờ chỉ của màu nền**
+Trong nhiều trường hợp, bạn chỉ muốn làm cho màu nền của hộp bán trong suốt, trong khi giữ lại văn bản và các phần tử khác hoàn toàn mờ đục. Để làm được điều này, hãy sử dụng giá trị `<color>` có kênh alpha, chẳng hạn như `rgb()`. Như với opacity, giá trị 1 cho kênh alpha sẽ làm màu nền hoàn toàn mờ đục. Do đó, `background-color: rgb(0 0 0 / 50%);` sẽ đặt màu nền với độ mờ 50%.
+
+Hãy thử thay đổi giá trị độ mờ và kênh alpha trong các ví dụ dưới đây để xem nhiều hoặc ít hình nền phía sau hộp.
+
+```html
+<div class="wrapper">
+  <div class="box box1">This box uses opacity</div>
+  <div class="box box2">
+    This box has a background color with an alpha channel
+  </div>
+</div>
+```
+
+```css
+.box1 {
+  background-color: #000;
+  color: #fff;
+  opacity: 0.5;
+}
+
+.box2 {
+  background-color: rgb(0 0 0 / 0.5);
+  color: #fff;
+}
+```
+
+Lưu ý: Hãy chú ý để văn bản vẫn giữ được độ tương phản đủ với nền trong các trường hợp bạn đang phủ hình nền; nếu không, bạn có thể làm cho nội dung trở nên khó đọc.

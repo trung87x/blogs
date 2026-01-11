@@ -1,0 +1,45 @@
+📌 Cornell Notes - A Note About 2023 Course Updates
+
+📌 Topic/Title:
+
+Cập nhật khóa học năm 2023
+
+🔎 Keywords/Questions:
+
+Khóa học có gì mới so với phiên bản cũ?
+
+Tại sao lại chuyển từ MongoDB sang Postgres?
+
+Có bao nhiêu nội dung mới được thêm vào?
+
+📝 Notes:
+
+Lịch sử khóa học
+
+Khóa học ban đầu được tạo vào năm 2018.
+
+Công nghệ thay đổi theo thời gian nên khóa học đã được cập nhật liên tục.
+
+Năm 2023, khóa học được tái thiết kế hoàn toàn với 80% nội dung mới.
+
+Nội dung mới trong phiên bản 2023
+
+Flexbox & CSS Grid → Công nghệ bố cục hiện đại giúp xây dựng giao diện linh hoạt hơn.
+
+Postgres → Chuyển từ MongoDB sang Postgres để phù hợp hơn với nhu cầu tuyển dụng hiện nay.
+
+SQL đang trở thành xu hướng do nhiều công ty muốn sử dụng cơ sở dữ liệu quan hệ thay vì NoSQL.
+
+Thêm hơn 50 giờ nội dung mới → Cập nhật khóa học theo chuẩn Web Development Bootcamp hiện tại.
+
+Lý do cập nhật lớn
+
+Đảm bảo khóa học luôn theo kịp công nghệ hiện đại.
+
+Dựa trên nghiên cứu tuyển dụng, giúp học viên có lợi thế cạnh tranh trong thị trường việc làm.
+
+Cung cấp kỹ năng thực tế mà các công ty đang tìm kiếm.
+
+📌 Summary:
+
+Khóa học đã được cập nhật lớn vào năm 2023, với 80% nội dung mới bao gồm Flexbox, Grid và Postgres. Sự thay đổi từ MongoDB sang Postgres phản ánh xu hướng tuyển dụng hiện tại. Hơn 50 giờ nội dung mới giúp học viên tiếp cận các công nghệ hiện đại nhất trong phát triển web.

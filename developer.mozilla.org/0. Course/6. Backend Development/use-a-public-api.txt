@@ -1,0 +1,68 @@
+
+1. Mục Tiêu Dự Án
+Dự án yêu cầu xây dựng một trang web sử dụng Express/Node.js, kết hợp với Axios HTTP client để tích hợp một Public API đã chọn từ danh sách các API công cộng. Trang web này sẽ tương tác với API, lấy dữ liệu và hiển thị dữ liệu đó theo cách dễ sử dụng cho người dùng.
+
+Ứng dụng vào công việc:
+- Dự án này giúp bạn hiểu cách tích hợp API công cộng vào các dự án web, đồng thời cải thiện kỹ năng lập trình server-side với Express và Node.js.
+- Bạn sẽ có cơ hội làm việc với Axios để thực hiện các yêu cầu HTTP và xử lý phản hồi từ API.
+
+---
+
+2. Các Ý Tưởng Dự Án Ví Dụ
+- **JokeAPI**: Xây dựng trang web cung cấp một câu chuyện hài dựa trên tên người dùng.
+- **OpenWeatherMap API**: Tạo trang web cho phép người dùng kiểm tra xem ngày mai có mưa hay không tại vị trí của họ.
+- **Blockchain API**: Xây dựng trang web kiểm tra giá trị của một loại tiền điện tử.
+- **CocktailDB API**: Tạo trang web cung cấp công thức cocktail ngẫu nhiên kèm hình ảnh.
+- **Open UV API**: Tạo trang web cho phép người dùng biết liệu họ có cần bôi kem chống nắng hay không dựa trên vị trí của họ.
+
+Ứng dụng vào công việc:
+- Các API công cộng này giúp bạn có được dữ liệu thời gian thực và có thể tích hợp dễ dàng vào các ứng dụng web thực tế.
+
+---
+
+3. Các Yêu Cầu Kỹ Thuật
+**Lựa chọn API**:
+- Chọn API có khả năng lấy, xử lý và hiển thị dữ liệu một cách có ý nghĩa và tương tác với người dùng.
+- Lựa chọn API không yêu cầu xác thực và đã bật CORS để tránh các vấn đề về bảo mật khi sử dụng API từ máy chủ.
+
+**Thiết lập dự án**:
+- Khởi tạo dự án Node.js với **Express.js**.
+- Cài đặt **Axios** để thực hiện yêu cầu HTTP.
+- Cài đặt **EJS** để xử lý giao diện người dùng động.
+
+**API Integration**:
+- Tạo ít nhất một endpoint **GET** để tương tác với API và sử dụng **Axios** để gửi yêu cầu API và xử lý phản hồi.
+
+**Hiển thị dữ liệu và thiết kế giao diện**:
+- Thiết kế trang web để hiển thị dữ liệu nhận được từ API theo cách dễ sử dụng, sử dụng HTML, CSS và **EJS**.
+
+**Xử lý lỗi**:
+- Thực hiện kiểm tra và đảm bảo rằng mọi lỗi đều được xử lý một cách rõ ràng.
+
+**Tài liệu**:
+- Thêm chú thích trong mã nguồn để giải thích logic.
+- Chia sẻ dự án trên GitHub, bao gồm tệp **README.md** giải thích cách khởi động server và các lệnh cần thiết để chạy mã.
+
+---
+
+4. Các Bước Thực Hiện Dự Án
+1. **Lên kế hoạch**:
+   - Tìm hiểu API bạn muốn sử dụng, các tính năng và cách sử dụng nó trong ứng dụng của bạn.
+
+2. **Thiết lập dự án**:
+   - Tạo cấu trúc thư mục cho dự án, cài đặt các gói cần thiết (Express, Axios, EJS).
+
+3. **Tích hợp API**:
+   - Sử dụng **Axios** để gửi yêu cầu API và nhận dữ liệu.
+   - Truyền dữ liệu vào **EJS** để hiển thị trên giao diện người dùng.
+
+4. **Hiển thị dữ liệu và thiết kế giao diện**:
+   - Thiết kế giao diện dễ sử dụng, sử dụng **EJS** để hiển thị dữ liệu nhận được từ API.
+
+5. **Xử lý lỗi và kiểm tra**:
+   - Thực hiện kiểm tra và đảm bảo rằng mọi lỗi đều được xử lý một cách rõ ràng.
+
+---
+
+### **Tóm Tắt**
+Dự án này giúp bạn học cách tích hợp **Public API** vào dự án web, sử dụng **Express.js** và **Axios** để tương tác với các API và hiển thị dữ liệu qua **EJS**. Bạn sẽ học cách xử lý các yêu cầu API, hiển thị dữ liệu trên trang web và xử lý lỗi hiệu quả.

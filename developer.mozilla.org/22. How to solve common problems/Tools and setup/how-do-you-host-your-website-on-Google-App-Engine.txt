@@ -1,0 +1,59 @@
+
+1. Cách lưu trữ website của bạn trên Google App Engine
+Google App Engine là một nền tảng mạnh mẽ cho phép bạn xây dựng và chạy các ứng dụng trên hạ tầng của Google — cho dù bạn cần xây dựng một ứng dụng web đa tầng từ đầu hay lưu trữ một website tĩnh. Dưới đây là hướng dẫn từng bước để lưu trữ website của bạn trên Google App Engine.
+
+**Tạo một dự án Google Cloud Platform**
+Để sử dụng công cụ của Google cho trang web hoặc ứng dụng của bạn, bạn cần tạo một dự án mới trên Google Cloud Platform. Điều này yêu cầu bạn có một tài khoản Google.
+
+Đi tới bảng điều khiển App Engine trên Google Cloud Platform Console và nhấn nút "Create".
+
+Nếu bạn chưa tạo dự án bao giờ, bạn cần chọn xem có muốn nhận các bản cập nhật qua email hay không, đồng ý với Điều khoản dịch vụ, và sau đó bạn có thể tiếp tục.
+
+Nhập tên cho dự án, chỉnh sửa ID dự án và lưu lại. Trong hướng dẫn này, các giá trị sau được sử dụng:
+
+- Tên dự án: GAE Sample Site
+- ID dự án: gaesamplesite
+
+Nhấn nút "Create" để tạo dự án của bạn.
+
+**Tạo một ứng dụng**
+Mỗi dự án Cloud Platform có thể chứa một ứng dụng App Engine. Hãy chuẩn bị một ứng dụng cho dự án của chúng ta.
+
+Chúng ta sẽ cần một ứng dụng mẫu để xuất bản. Nếu bạn chưa có, hãy tải xuống và giải nén ứng dụng mẫu này.
+
+Xem cấu trúc của ứng dụng mẫu — thư mục `website` chứa nội dung website của bạn và `app.yaml` là tệp cấu hình ứng dụng của bạn.
+
+Nội dung website của bạn phải nằm trong thư mục `website`, và trang landing của nó phải được gọi là `index.html`, nhưng ngoài ra, nó có thể có bất kỳ cấu trúc nào bạn muốn.
+
+Tệp `app.yaml` là tệp cấu hình cho App Engine, cho biết cách ánh xạ URL đến các tệp tĩnh của bạn. Bạn không cần phải chỉnh sửa tệp này.
+
+**Xuất bản ứng dụng của bạn**
+Bây giờ chúng ta đã có dự án và các tệp ứng dụng mẫu được thu thập lại, hãy xuất bản ứng dụng của bạn.
+
+Mở Google Cloud Shell.
+
+Kéo và thả thư mục `sample-app` vào bảng điều khiển bên trái của trình soạn thảo mã.
+
+Chạy lệnh sau trong dòng lệnh để chọn dự án của bạn:
+
+```bash
+gcloud config set project gaesamplesite
+```
+
+Tiếp theo, chạy lệnh sau để đi đến thư mục ứng dụng của bạn:
+
+```bash
+cd sample-app
+```
+
+Bây giờ bạn đã sẵn sàng để triển khai ứng dụng của mình, tức là tải ứng dụng lên App Engine:
+
+```bash
+gcloud app deploy
+```
+
+Chọn một số để xác định khu vực mà bạn muốn ứng dụng của mình được đặt.
+
+Nhấn Y để xác nhận.
+
+Bây giờ, điều hướng trình duyệt của bạn đến địa chỉ `your-project-id.appspot.com` để xem website của bạn trực tuyến. Ví dụ, đối với ID dự án `gaesamplesite`, hãy truy cập `gaesamplesite.appspot.com`.

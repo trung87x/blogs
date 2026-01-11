@@ -1,0 +1,85 @@
+
+### Hiển Thị Dữ Liệu Thư Viện
+
+**Giới thiệu về việc hiển thị dữ liệu**
+Kể từ bài hướng dẫn trước, chúng ta đã xác định các models trong Mongoose để làm việc với cơ sở dữ liệu và tạo một số bản ghi thư viện ban đầu. Tiếp theo, chúng ta sẽ thực hiện các trang web để hiển thị dữ liệu thư viện, bao gồm trang chủ hiển thị số lượng bản ghi của mỗi loại model và các trang chi tiết cho từng loại dữ liệu.
+
+**Bước 1: Cập nhật Controller để lấy Dữ Liệu**
+Trong các bước trước, chúng ta đã tạo ra các routes nhưng chỉ có các hàm xử lý giả (dummy functions) để trả về thông báo "chưa thực hiện". Bây giờ chúng ta sẽ cập nhật các controller để lấy dữ liệu từ cơ sở dữ liệu và trả về cho người dùng.
+
+**Sử dụng async/await trong Controller**
+Để lấy dữ liệu từ cơ sở dữ liệu, chúng ta sẽ sử dụng Mongoose với async/await, giúp mã dễ đọc và dễ hiểu hơn khi làm việc với các tác vụ bất đồng bộ.
+
+**Ví dụ về việc sử dụng async/await trong controller**:
+```javascript
+const Book = require("../models/book");
+const asyncHandler = require("express-async-handler");
+
+// Hàm controller để lấy danh sách tất cả sách
+exports.book_list = asyncHandler(async (req, res, next) => {
+  const books = await Book.find({});
+  res.render("book_list", { title: "Book List", book_list: books });
+});
+```
+Trong ví dụ trên, hàm `book_list` sử dụng `await` để lấy tất cả các sách từ cơ sở dữ liệu và sau đó render chúng ra view `book_list`.
+
+**Bước 2: Tạo và sử dụng Templates với Pug**
+Pug là một template engine giúp bạn tạo các trang HTML động dễ dàng. Pug sử dụng cú pháp đơn giản để xây dựng các view.
+
+**Ví dụ về template Pug cho trang danh sách sách**:
+```pug
+extends layout
+
+block content
+  h1= title
+  ul
+    each book in book_list
+      li
+        a(href='/catalog/book/' + book._id)= book.title
+```
+
+Trong ví dụ trên, `book_list` là một mảng các sách được gửi từ controller. Mỗi sách sẽ được hiển thị dưới dạng một liên kết với tiêu đề sách.
+
+**Bước 3: Trang chủ**
+Trang chủ của chúng ta sẽ hiển thị tổng số bản ghi của từng loại model, bao gồm các mô hình như sách, thể loại, tác giả, và các bản sao sách.
+
+**Ví dụ về controller cho trang chủ**:
+```javascript
+const asyncHandler = require("express-async-handler");
+const Book = require("../models/book");
+const BookInstance = require("../models/bookinstance");
+const Genre = require("../models/genre");
+const Author = require("../models/author");
+
+// Controller cho trang chủ
+exports.index = asyncHandler(async (req, res) => {
+  const [numBooks, numBookInstances, numGenres, numAuthors] = await Promise.all([
+    Book.countDocuments(),
+    BookInstance.countDocuments(),
+    Genre.countDocuments(),
+    Author.countDocuments()
+  ]);
+
+  res.render("index", {
+    title: "Local Library Home",
+    book_count: numBooks,
+    book_instance_count: numBookInstances,
+    genre_count: numGenres,
+    author_count: numAuthors
+  });
+});
+```
+Trang chủ sẽ hiển thị tổng số sách, thể loại, tác giả, và bản sao sách.
+
+**Bước 4: Hiển thị danh sách sách**
+Khi người dùng truy cập vào trang danh sách sách, hệ thống sẽ truy vấn cơ sở dữ liệu và hiển thị danh sách các sách.
+
+**Ví dụ về route và controller cho trang danh sách sách**:
+```javascript
+router.get("/books", book_controller.book_list);
+```
+
+**Tóm tắt**
+Chúng ta đã xây dựng các trang "read-only" cho website thư viện, bao gồm trang chủ, danh sách sách, và chi tiết sách. Mỗi trang đều sử dụng controller để truy vấn dữ liệu từ cơ sở dữ liệu, sau đó render dữ liệu đó vào các view sử dụng Pug. Chúng ta đã học cách sử dụng async/await để xử lý các tác vụ bất đồng bộ và tạo các template Pug để hiển thị dữ liệu.
+
+Trong bài tiếp theo, chúng ta sẽ tiếp tục với các tính năng chỉnh sửa và xóa dữ liệu, sử dụng các form để thêm, sửa và xóa các bản ghi trong cơ sở dữ liệu.

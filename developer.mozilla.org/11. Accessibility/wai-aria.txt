@@ -1,0 +1,100 @@
+
+WAI-ARIA CƠ BẢN
+===============
+
+1. WAI-ARIA là gì?
+- WAI-ARIA (Web Accessibility Initiative – Accessible Rich Internet Applications) là tập thuộc tính HTML được W3C phát triển để thêm ngữ nghĩa cho các phần tử không có sẵn.
+- Mục đích: giúp trình đọc màn hình hiểu được cấu trúc và chức năng của giao diện phức tạp (sliders, tab, dropdown...) khi HTML/CSS/JS không đủ cung cấp thông tin ngữ nghĩa.
+
+2. Cấu trúc cơ bản của WAI-ARIA:
+- Role (vai trò): Mô tả chức năng của phần tử (ví dụ: `role="button"`, `role="navigation"`).
+- State (trạng thái): Phản ánh tình trạng hiện tại (ví dụ: `aria-disabled="true"`, `aria-expanded="false"`).
+- Property (thuộc tính): Cung cấp thêm ngữ nghĩa (ví dụ: `aria-labelledby="label-id"`).
+
+3. Khi nào nên dùng WAI-ARIA?
++ Dùng khi HTML không đủ ngữ nghĩa, ví dụ:
+  - Giao diện làm bằng `<div>` phức tạp
+  - Nội dung cập nhật động
+  - Bổ sung hỗ trợ bàn phím
+  - Điều khiển không-semantics (custom button/tab...)
+
++ KHÔNG dùng nếu HTML gốc đã hỗ trợ tốt (ví dụ: `<button>`, `<nav>`, `<input required>`)
+
+4. Một số tình huống phổ biến và cách dùng:
+
+== a. Signpost / Landmark ==
+- Sử dụng `role` để đánh dấu vùng:
+  + `<header role="banner">`, `<nav role="navigation">`, `<main role="main">`
+- Hoặc dùng các thẻ HTML tương đương: `<header>`, `<nav>`, `<main>` → tự động có role tương ứng
+
+== b. Dynamic Content Updates ==
+- Khi nội dung được cập nhật động bằng JavaScript, screen reader sẽ không biết trừ khi dùng:
+```html
+<section aria-live="assertive" aria-atomic="true">
+  <h1>Random quote</h1>
+  <blockquote><p></p></blockquote>
+</section>
+```
++ `aria-live="assertive"`: đọc ngay khi thay đổi
++ `aria-atomic="true"`: đọc toàn bộ khối
+
+== c. Tăng cường điều hướng bàn phím ==
+- Dùng `tabindex="0"` để phần tử không focus được trở nên focus được
+- `tabindex="-1"` để focus bằng JS (không tham gia vào thứ tự tab)
+
+== d. Mô phỏng điều khiển không-semantics ==
+- Khi dùng `<div>` thay `<button>`:
+```html
+<div tabindex="0" role="button">Click me!</div>
+```
++ Kết hợp với JS bắt sự kiện `keydown` để mô phỏng hành vi phím `Enter` / `Space`
+
+== e. Biểu mẫu và thông báo lỗi ==
+- Hiển thị lỗi:
+```html
+<div class="errors" role="alert" aria-relevant="all">
+  <ul></ul>
+</div>
+```
++ `role="alert"`: nội dung thay đổi sẽ được đọc
++ `aria-relevant="all"`: đọc toàn bộ nội dung khi cập nhật
+
+- Trường bắt buộc:
+```html
+<input type="text" aria-required="true" />
+```
+
+- Dải tuổi hợp lệ:
+```html
+<input type="number" placeholder="1–150" aria-required="true" />
+```
+
+== f. Giao diện tab động ==
+```html
+<div role="tablist">
+  <button role="tab" aria-selected="true" aria-controls="tabpanel-1">Tab 1</button>
+  ...
+</div>
+<div role="tabpanel" id="tabpanel-1" aria-labelledby="tab-1">
+  Nội dung Tab 1
+</div>
+```
++ `role="tablist"`: vùng chứa tab
++ `role="tab"`: nút chuyển tab
++ `aria-selected`: đánh dấu tab đang chọn
++ `role="tabpanel"`: nội dung của tab
++ `aria-labelledby`: liên kết nội dung với tab
+
+== g. Label không nhìn thấy ==
+```html
+<input type="search" aria-label="Search through site content" />
+```
++ Dùng `aria-label` khi không thể hiển thị trực tiếp label
+
+5. Lưu ý:
+- Ưu tiên dùng HTML đúng semantically
+- Dùng ARIA khi thật sự cần
+- Kiểm tra tương thích với screen reader (VoiceOver, NVDA, TalkBack...)
+- Test với người dùng thực tế
+
+= HẾT =

@@ -1,0 +1,62 @@
+
+### Thử thách: Chuỗi các hoạt ảnh (Sequencing Animations)
+
+**Mục tiêu**:
+Trong thử thách này, bạn sẽ cập nhật một trang web để phát một loạt các hoạt ảnh theo thứ tự. Khi hoạt ảnh đầu tiên hoàn thành, hoạt ảnh thứ hai sẽ bắt đầu, và khi hoạt ảnh thứ hai hoàn thành, hoạt ảnh thứ ba sẽ được thực thi. Bạn sẽ sử dụng các kỹ thuật từ bài viết "How to use Promises" để thực hiện thử thách này.
+
+**Mã đã có sẵn**:
+Các hoạt ảnh đã được định nghĩa sẵn trong `main.js`, hoạt ảnh này chỉ đơn giản là xoay hình ảnh và thu nhỏ nó cho đến khi biến mất. Bạn sẽ cần sử dụng API Web Animations để làm cho các hoạt ảnh này xảy ra một cách tuần tự.
+
+**Cập nhật `main.js`**:
+```js
+const aliceTumbling = [
+  { transform: "rotate(0) scale(1)" },
+  { transform: "rotate(360deg) scale(0)" },
+];
+
+const aliceTiming = {
+  duration: 2000,
+  iterations: 1,
+  fill: "forwards",
+};
+
+const alice1 = document.querySelector("#alice1");
+const alice2 = document.querySelector("#alice2");
+const alice3 = document.querySelector("#alice3");
+
+alice1.animate(aliceTumbling, aliceTiming);
+```
+
+**Chuỗi các hoạt ảnh**:
+Bạn sẽ sử dụng `Promise` của thuộc tính `finished` trong đối tượng Animation trả về bởi `animate()`, để biết khi nào một hoạt ảnh đã kết thúc và bắt đầu hoạt ảnh tiếp theo.
+
+**Ví dụ về callback hell (Vấn đề với callback lồng nhau)**:
+```js
+alice1.animate(aliceTumbling, aliceTiming).finished.then(() => {
+  alice2.animate(aliceTumbling, aliceTiming).finished.then(() => {
+    alice3.animate(aliceTumbling, aliceTiming);
+  });
+});
+```
+
+**Chạy hoạt ảnh với Promise chaining**:
+```js
+alice1.animate(aliceTumbling, aliceTiming).finished
+  .then(() => alice2.animate(aliceTumbling, aliceTiming).finished)
+  .then(() => alice3.animate(aliceTumbling, aliceTiming));
+```
+
+**Sử dụng async/await để chạy hoạt ảnh**:
+```js
+async function animateImages() {
+  await alice1.animate(aliceTumbling, aliceTiming).finished;
+  await alice2.animate(aliceTumbling, aliceTiming).finished;
+  await alice3.animate(aliceTumbling, aliceTiming);
+}
+
+animateImages();
+```
+
+**Tóm tắt**:
+- Bạn có thể sử dụng `Promise` từ thuộc tính `finished` trong đối tượng Animation để thực thi hoạt ảnh một cách tuần tự.
+- Đầu tiên, bạn có thể sử dụng **callback hell**, sau đó là **promise chaining**, và cuối cùng là **async/await** để đơn giản hóa mã của mình.

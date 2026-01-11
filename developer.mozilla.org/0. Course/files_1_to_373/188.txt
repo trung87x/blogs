@@ -1,0 +1,63 @@
+📌 Cornell Notes - Creating, Opening, and Removing Files through the Command Line
+
+📌 Topic/Title:
+
+Tạo, mở và xóa tệp bằng dòng lệnh
+
+🔎 Keywords/Questions:
+
+Lệnh mkdir dùng để làm gì?
+
+Cách tạo tệp bằng dòng lệnh?
+
+Lệnh rm có thể xóa tệp và thư mục như thế nào?
+
+Có rủi ro nào khi xóa tệp/thư mục bằng dòng lệnh không?
+
+Tại sao cần cẩn thận với lệnh rm -rf?
+
+📝 Notes:
+
+Tạo thư mục và tệp mới
+
+mkdir TênThưMục: Tạo thư mục mới.
+
+cd TênThưMục: Di chuyển vào thư mục đó.
+
+touch TênTệp: Tạo một tệp mới.
+
+Ví dụ: touch file.txt sẽ tạo một tệp tên file.txt.
+
+Mở tệp bằng dòng lệnh
+
+open TênTệp: Mở tệp bằng ứng dụng mặc định (chỉ dành cho macOS).
+
+open -a "Tên Ứng Dụng" TênTệp: Mở tệp bằng ứng dụng cụ thể.
+
+Ví dụ: open -a "TextEdit" file.txt
+
+Xóa tệp bằng dòng lệnh
+
+rm TênTệp: Xóa một tệp.
+
+Ví dụ: rm file.txt sẽ xóa file.txt.
+
+rm *: Xóa tất cả tệp trong thư mục hiện tại.
+
+pwd (Print Working Directory): Hiển thị đường dẫn thư mục hiện tại để tránh xóa nhầm.
+
+Xóa thư mục bằng dòng lệnh
+
+rm -r TênThưMục: Xóa thư mục cùng tất cả nội dung bên trong.
+
+rm -rf /: CẢNH BÁO! Xóa toàn bộ hệ thống, không thể khôi phục.
+
+Câu chuyện về rm -rf
+
+Lệnh rm -rf / --no-preserve-root có thể xóa sạch toàn bộ máy chủ, gây mất dữ liệu nghiêm trọng.
+
+Một người từng sử dụng lệnh này trên máy chủ thật, gây ra sự cố nghiêm trọng và mất dữ liệu.
+
+📌 Summary:
+
+Dòng lệnh cho phép tạo, mở và xóa tệp/thư mục nhanh chóng bằng các lệnh mkdir, touch, open, và rm. Tuy nhiên, khi sử dụng rm -r hoặc rm -rf, cần cẩn thận để tránh xóa nhầm dữ liệu quan trọng. Đây là lý do dòng lệnh mang lại quyền kiểm soát mạnh mẽ nhưng cũng đòi hỏi trách nhiệm khi sử dụng.

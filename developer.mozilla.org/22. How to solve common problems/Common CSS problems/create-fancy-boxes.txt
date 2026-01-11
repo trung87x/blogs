@@ -1,0 +1,166 @@
+
+1. Tạo các hộp fancy (Fancy Boxes)
+CSS boxes là các yếu tố cơ bản của bất kỳ trang web nào được thiết kế bằng CSS. Làm cho chúng đẹp mắt vừa thú vị vừa thử thách. Thú vị vì nó liên quan đến việc biến ý tưởng thiết kế thành mã code hoạt động, thử thách vì các ràng buộc của CSS. Hãy cùng bắt đầu với các hộp fancy.
+
+Trước khi bắt đầu, hãy đảm bảo bạn đã quen thuộc với mô hình hộp CSS. Cũng nên biết một số kiến thức cơ bản về layout CSS, mặc dù điều này không phải là bắt buộc.
+
+Về mặt kỹ thuật, tạo các hộp fancy chủ yếu là việc làm chủ các thuộc tính CSS border và background và cách áp dụng chúng cho một hộp nhất định. Nhưng ngoài các kỹ thuật, đây cũng là cơ hội để bạn phát huy sự sáng tạo. Việc này không thể hoàn thành trong một ngày, và có những lập trình viên web dành cả đời để vui chơi với nó.
+
+Chúng ta sẽ cùng xem nhiều ví dụ, nhưng luôn làm việc trên phần HTML đơn giản nhất có thể, đó là một phần tử đơn giản:
+
+```html
+<div class="fancy">Hi! I want to be fancy.</div>
+```
+
+Ok, đó là một đoạn HTML rất nhỏ, vậy chúng ta có thể điều chỉnh những gì trên phần tử này? Tất cả những điều sau:
+
+- Các thuộc tính mô hình hộp: chiều rộng, chiều cao, padding, border, v.v.
+- Các thuộc tính nền: background, background-color, background-image, background-position, background-size, v.v.
+- Các pseudo-element: `::before` và `::after`
+- Các thuộc tính khác như: box-shadow, rotate, outline, v.v.
+
+Vậy chúng ta có một sân chơi rất lớn. Hãy bắt đầu vui vẻ.
+
+**Tùy chỉnh mô hình hộp (Box model tweak)**
+Mô hình hộp một mình cho phép chúng ta thực hiện một số việc cơ bản, như thêm border đơn giản, tạo các hình vuông, v.v. Nó trở nên thú vị khi bạn đẩy các thuộc tính đến giới hạn, như có padding và/hoặc margin âm, hoặc có border-radius lớn hơn kích thước thực tế của hộp.
+
+**Tạo hình tròn (Making circles)**
+Đây là điều vừa rất đơn giản vừa rất thú vị. Thuộc tính `border-radius` được sử dụng để tạo các góc bo tròn cho các hộp, nhưng nếu kích thước bán kính bằng hoặc lớn hơn chiều rộng của hộp thì sẽ như thế nào?
+
+```css
+.fancy {
+  text-align: center;
+  padding: 1em;
+  border: 0.5em solid black;
+  width: 4em;
+  height: 4em;
+  border-radius: 100%;
+}
+```
+
+**Nền (Backgrounds)**
+Khi nói về hộp fancy, các thuộc tính cốt lõi để xử lý là các thuộc tính `background-*`. Khi bạn bắt đầu chơi với nền, sẽ như thể hộp CSS của bạn biến thành một bức tranh trắng để bạn tô vẽ.
+
+```css
+.fancy {
+  padding: 1em;
+  width: 100%;
+  height: 200px;
+  box-sizing: border-box;
+  background-color: #e4e4d9;
+  background-image: linear-gradient(175deg, rgb(0 0 0 / 0%) 95%, #8da389 95%),
+                    linear-gradient( 85deg, rgb(0 0 0 / 0%) 95%, #8da389 95%),
+                    linear-gradient(175deg, rgb(0 0 0 / 0%) 90%, #b4b07f 90%),
+                    linear-gradient( 85deg, rgb(0 0 0 / 0%) 92%, #b4b07f 92%);
+}
+```
+
+**Pseudo-elements (Các pseudo-element)**
+Khi tạo kiểu cho một hộp đơn, bạn có thể cảm thấy bị giới hạn và muốn có thêm các hộp để tạo kiểu thú vị hơn. Phần lớn thời gian, điều này dẫn đến việc làm "bẩn" DOM khi thêm các phần tử HTML bổ sung chỉ để phục vụ mục đích tạo kiểu. Một giải pháp để tránh điều này là sử dụng pseudo-elements trong CSS.
+
+Ví dụ, chúng ta có thể biến hộp của mình thành một đám mây bằng cách sử dụng pseudo-elements `::before` và `::after`.
+
+```css
+.fancy {
+  text-align: center;
+  width: 150px;
+  height: 150px;
+  padding: 80px 1em 0 1em;
+  margin: 0 100px;
+  position: relative;
+  background-color: #a4c9cf;
+  border-radius: 100% 100% 0 0;
+}
+
+/* Những style chung cho cả ::before và ::after */
+.fancy::before,
+.fancy::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  z-index: -1;
+  background-color: #a4c9cf;
+  border-radius: 100%;
+}
+
+.fancy::before {
+  width: 125px;
+  height: 125px;
+  left: -80px;
+  border-bottom-right-radius: 0;
+}
+
+.fancy::after {
+  width: 100px;
+  height: 100px;
+  right: -60px;
+  border-bottom-left-radius: 0;
+}
+```
+
+**Blockquote (Trích dẫn)**
+Một ví dụ thực tế hơn về việc sử dụng pseudo-elements là tạo kiểu cho các phần tử `<blockquote>` trong HTML. Điều này giúp ta dễ dàng thêm dấu ngoặc kép ở đầu và cuối trích dẫn.
+
+```html
+<blockquote>
+  People who think they know everything are a great annoyance to those of us who do.
+  <i>Isaac Asimov</i>
+</blockquote>
+```
+
+```css
+blockquote {
+  min-height: 5em;
+  padding: 1em 4em;
+  font: 1em/150% sans-serif;
+  position: relative;
+  background-color: lightgoldenrodyellow;
+}
+
+blockquote::before,
+blockquote::after {
+  position: absolute;
+  height: 3rem;
+  font: 6rem/100% Georgia, "Times New Roman", Times, serif;
+}
+
+blockquote::before {
+  content: "“";
+  top: 0.3rem;
+  left: 0.9rem;
+}
+
+blockquote::after {
+  content: "”";
+  bottom: 0.3rem;
+  right: 0.8rem;
+}
+```
+
+**Tổng hợp và sáng tạo**
+Khi kết hợp tất cả các kỹ thuật trên, bạn có thể tạo ra những hiệu ứng tuyệt vời. Đôi khi, việc hoàn thiện những hộp này phụ thuộc vào sự sáng tạo của bạn, cả trong thiết kế và việc sử dụng các thuộc tính CSS một cách kỹ thuật.
+
+Ví dụ, bạn có thể tạo hiệu ứng bóng đổ một phần với `box-shadow` và một số kỹ thuật sử dụng `rotate` để tạo ra hình học tự nhiên hơn.
+
+```css
+.fancy {
+  position: relative;
+  background-color: #ffc;
+  padding: 2rem;
+  text-align: center;
+  max-width: 200px;
+}
+
+.fancy::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  bottom: 15px;
+  right: 5px;
+  width: 50%;
+  top: 80%;
+  max-width: 200px;
+  box-shadow: 0px 13px 10px black;
+  rotate: 4deg;
+}
+```

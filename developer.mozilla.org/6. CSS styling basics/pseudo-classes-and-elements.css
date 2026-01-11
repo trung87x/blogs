@@ -1,0 +1,99 @@
+/* ================================
+   PSEUDO-CLASSES & PSEUDO-ELEMENTS
+   ================================ */
+
+/* === 1. PSEUDO-CLASS LÀ GÌ? === */
+/*
+  - Là selector dùng để chọn phần tử trong trạng thái cụ thể
+  - Bắt đầu bằng dấu hai chấm (:) — ví dụ: :hover, :first-child
+  - Giúp chọn phần tử mà không cần thêm class trong HTML
+*/
+
+/* Ví dụ: chọn phần tử đầu tiên trong article */
+article p:first-child {
+  font-size: 120%;
+  font-weight: bold;
+}
+/* Hoạt động tương tự như thêm class="first" vào đoạn đầu */
+
+/* Một số pseudo-class phổ biến:
+   - :first-child
+   - :last-child
+   - :only-child
+   - :invalid
+*/
+
+/* === 2. USER-ACTION PSEUDO-CLASSES === */
+/* Áp dụng khi người dùng tương tác với phần tử */
+
+a:link,
+a:visited {
+  color: rebeccapurple;
+  font-weight: bold;
+}
+
+a:hover {
+  color: hotpink;
+}
+
+a:focus {
+  outline: 2px solid blue;
+}
+
+/* === 3. PSEUDO-ELEMENT LÀ GÌ? === */
+/*
+  - Hành xử như thể bạn thêm một phần tử HTML mới
+  - Bắt đầu bằng hai dấu hai chấm (::) — ví dụ: ::before, ::first-line
+  - Không yêu cầu chỉnh sửa HTML
+*/
+
+/* Ví dụ: làm nổi bật dòng đầu tiên của đoạn văn */
+article p::first-line {
+  font-size: 120%;
+  font-weight: bold;
+}
+
+/* === 4. KẾT HỢP PSEUDO-CLASS + PSEUDO-ELEMENT === */
+article p:first-child::first-line {
+  font-size: 120%;
+  font-weight: bold;
+}
+/* Chọn dòng đầu tiên của đoạn đầu tiên trong article */
+
+/* === 5. GENERATED CONTENT – NỘI DUNG TẠO RA BẰNG CSS === */
+
+/* ::before để thêm nội dung vào trước */
+.box::before {
+  content: "Nội dung thêm trước: ";
+}
+
+/* ::after để thêm nội dung vào sau */
+.box::after {
+  content: " ← Xem tiếp";
+}
+
+/* Thường được dùng để thêm biểu tượng, icon, dấu mũi tên, v.v. */
+
+/* === 6. DÙNG ::before HOẶC ::after TẠO PHẦN TỬ ẢO === */
+.box::before {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-color: rebeccapurple;
+  border: 1px solid black;
+}
+/* Tạo ra khối hộp màu, có thể style như phần tử bình thường */
+
+/* ⚠️ CHÚ Ý:
+   - Nội dung trong ::before/::after có thể không được đọc bởi screen reader
+   - Không dùng để thêm thông tin chính (chỉ dùng trang trí)
+*/
+
+/* =======================================================
+   TÓM TẮT:
+   - Pseudo-class (:) → chọn trạng thái phần tử (hover, first-child,...)
+   - Pseudo-element (::) → thêm phần tử ảo như ::before, ::after,...
+   - Có thể kết hợp cả hai để chọn cụ thể hơn
+   - ::before/::after thường dùng với content để tạo hiệu ứng
+   ======================================================= */

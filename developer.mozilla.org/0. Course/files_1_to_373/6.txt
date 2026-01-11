@@ -1,0 +1,77 @@
+📌 Cornell Notes - How Do Websites Actually Work?
+
+📌 Topic/Title:
+
+Cách các trang web thực sự hoạt động
+
+🔎 Keywords/Questions:
+
+Một trang web bao gồm những thành phần nào?
+
+HTML, CSS và JavaScript có vai trò gì?
+
+Trình duyệt web xử lý trang web như thế nào?
+
+Chrome Developer Tools giúp gì trong phát triển web?
+
+📝 Notes:
+
+Trang web hoạt động như thế nào?
+
+Máy khách (Client) gửi yêu cầu đến máy chủ (Server) để nhận dữ liệu.
+
+Máy chủ gửi lại các tệp HTML, CSS và JavaScript để trình duyệt hiển thị trang web.
+
+Ba thành phần chính của một trang web
+
+HTML (HyperText Markup Language): Xác định nội dung trang web (văn bản, hình ảnh, nút bấm).
+
+Nếu trang web là một ngôi nhà, HTML là gạch xây dựng.
+
+CSS (Cascading Style Sheets): Định dạng giao diện trang web (màu sắc, kiểu chữ, bố cục).
+
+CSS giống như sơn tường, thiết kế nội thất cho ngôi nhà.
+
+JavaScript: Thêm chức năng và tính tương tác cho trang web.
+
+Giống như hệ thống điện, đèn thông minh của một ngôi nhà.
+
+Ví dụ: Gửi email trong Gmail hoặc đăng bài trên Instagram.
+
+Cách trình duyệt xử lý một trang web
+
+Khi tải một trang web, trình duyệt sẽ:
+
+Nhận tệp HTML → Hiển thị nội dung trang.
+
+Tải tệp CSS → Cập nhật màu sắc, bố cục.
+
+Chạy JavaScript → Thêm các chức năng như nhập liệu, tương tác.
+
+Chrome Developer Tools (Công cụ dành cho lập trình viên Chrome)
+
+Truy cập bằng cách chuột phải vào phần tử trên web → Inspect (Kiểm tra).
+
+Cho phép xem và chỉnh sửa HTML, CSS của trang web ngay trên trình duyệt.
+
+Có thể sửa nội dung trang tạm thời (vd: đổi "Google Search" thành "Angela Search").
+
+Khi tải lại trang, nội dung gốc từ máy chủ sẽ được khôi phục.
+
+Tại sao sử dụng Google Chrome?
+
+Chrome có bộ công cụ phát triển mạnh mẽ hỗ trợ lập trình web.
+
+Công cụ giúp phân tích và kiểm tra mã nguồn của bất kỳ trang web nào.
+
+📌 Summary:
+
+Một trang web hoạt động dựa trên ba thành phần chính:
+
+HTML: Hiển thị nội dung
+
+CSS: Tạo kiểu dáng
+
+JavaScript: Thêm chức năng
+
+Trình duyệt web tải và hiển thị trang dựa trên các tệp này. Chrome Developer Tools là công cụ hữu ích giúp lập trình viên kiểm tra và chỉnh sửa mã nguồn của trang web một cách trực quan.

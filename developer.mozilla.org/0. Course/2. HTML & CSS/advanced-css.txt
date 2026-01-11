@@ -1,0 +1,78 @@
+
+# Advanced CSS
+
+## 1. Web Design Agency Website
+
+### Mục tiêu:
+Tạo một trang web cho công ty thiết kế web với bố cục đơn giản, chuyên nghiệp, và phải phản hồi tốt trên các kích thước màn hình khác nhau.
+
+### Bố cục trang web:
+- **Tiêu đề chính**: Giới thiệu công ty.
+- **Hai khối nội dung**: Hình ảnh và văn bản mô tả dịch vụ.
+- **Chân trang**: Khẩu hiệu công ty.
+- **Yêu cầu**: Trang web phải phản hồi tốt trên các kích thước màn hình khác nhau.
+
+### Bố cục trên màn hình lớn:
+Sử dụng `float` để căn chỉnh phần tử, với hình ảnh và văn bản hiển thị cạnh nhau.
+
+### Bố cục trên thiết bị di động:
+Sử dụng **media queries** để thay đổi bố cục khi màn hình nhỏ hơn 600px. Các khối nội dung sẽ xếp chồng lên nhau, và hình ảnh sẽ sử dụng `object-fit: cover` để đảm bảo hình ảnh hiển thị đẹp mắt mà không bị méo【201†source】.
+
+---
+
+## 2. Thuộc tính Display trong CSS
+
+### **display** trong CSS giúp quyết định cách phần tử hiển thị:
+- **block**: Phần tử chiếm toàn bộ chiều rộng, mỗi phần tử mới sẽ xuất hiện trên dòng mới.
+- **inline**: Phần tử chỉ chiếm không gian theo nội dung bên trong, không thể thay đổi chiều rộng và chiều cao.
+- **inline-block**: Kết hợp cả hai tính chất của block và inline, cho phép đặt chiều rộng và chiều cao nhưng vẫn hiển thị trên cùng một dòng【202†source】.
+
+---
+
+## 3. Thuộc tính Float trong CSS
+
+### **float** giúp phần tử trôi sang trái (`left`) hoặc phải (`right`), tạo bố cục linh hoạt. Thường dùng trong trường hợp văn bản bao quanh hình ảnh.
+
+- **float: left**: Phần tử sẽ trôi sang trái.
+- **float: right**: Phần tử sẽ trôi sang phải.
+
+### Sử dụng **clear** để ngăn chặn lỗi bố cục:
+- **clear: both** giúp các phần tử không bị bao quanh bởi các phần tử **float**【203†source】.
+
+---
+
+## 4. Cách tạo trang web phản hồi (Responsive Websites)
+
+Trang web phản hồi giúp điều chỉnh bố cục phù hợp với các kích thước màn hình khác nhau, từ máy tính, máy tính bảng đến điện thoại.
+
+### **Media Queries**:
+Cho phép thay đổi CSS dựa trên kích thước màn hình. Ví dụ:
+```css
+@media (max-width: 600px) {
+  .nav {
+    display: none;
+  }
+}
+```
+
+### **CSS Grid**:
+Dùng để tạo bố cục linh hoạt với hàng và cột.
+```css
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+```
+
+### **Flexbox**:
+Tạo bố cục linh hoạt theo chiều ngang hoặc chiều dọc.
+```css
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+```
+
+### **Bootstrap**:
+Framework CSS phổ biến giúp thiết kế trang web phản hồi nhanh chóng. Dùng hệ thống lưới 12 cột【204†source】.

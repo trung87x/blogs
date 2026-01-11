@@ -1,0 +1,82 @@
+
+### Xác Thực Form Phía Client
+
+**Xác thực form là gì?**
+Xác thực form phía client là một bước kiểm tra quan trọng giúp đảm bảo rằng dữ liệu người dùng nhập vào form đúng định dạng và hợp lệ trước khi gửi đến máy chủ. Đây là một phần quan trọng trong việc đảm bảo trải nghiệm người dùng mượt mà, vì người dùng có thể sửa lỗi ngay lập tức thay vì chờ đợi phản hồi từ máy chủ.
+
+**Tại sao xác thực form quan trọng?**
+1. **Đảm bảo dữ liệu đúng định dạng**: Các form sẽ không hoạt động đúng nếu dữ liệu không hợp lệ, thiếu hoặc sai định dạng.
+2. **Bảo vệ thông tin người dùng**: Yêu cầu người dùng nhập thông tin đúng định dạng giúp bảo vệ tài khoản và dữ liệu của họ.
+3. **Bảo vệ ứng dụng**: Các form không được bảo vệ có thể bị khai thác bởi người dùng độc hại để gửi dữ liệu không hợp lệ vào máy chủ.
+
+**Xác thực form phía client so với phía server**
+- **Xác thực phía client** là việc kiểm tra dữ liệu trên trình duyệt trước khi gửi đến máy chủ. Mặc dù xác thực phía client giúp giảm tải cho máy chủ và cải thiện trải nghiệm người dùng, nhưng **xác thực phía server** vẫn luôn cần thiết để bảo vệ hệ thống khỏi dữ liệu xấu.
+- **Lưu ý**: Xác thực phía client có thể bị bỏ qua dễ dàng, do đó không nên chỉ dựa vào nó để bảo vệ ứng dụng.
+
+**Các loại xác thực phía client**:
+1. **Xác thực HTML (HTML form validation)**: Dùng thuộc tính HTML để xác định các yêu cầu cho dữ liệu, chẳng hạn như trường bắt buộc (`required`), độ dài tối thiểu (`minlength`), mẫu (regex pattern), v.v.
+2. **Xác thực bằng JavaScript (JavaScript form validation)**: Dùng JavaScript để kiểm tra và tùy chỉnh quy trình xác thực form.
+
+**Xác thực form với HTML**
+HTML cung cấp một số thuộc tính xác thực cơ bản giúp kiểm tra dữ liệu khi người dùng nhập vào. Các thuộc tính này bao gồm:
+- `required`: Yêu cầu người dùng điền vào trường.
+- `minlength` và `maxlength`: Xác định chiều dài tối thiểu và tối đa của dữ liệu.
+- `min` và `max`: Xác định giá trị nhỏ nhất và lớn nhất cho các trường số.
+- `pattern`: Sử dụng biểu thức chính quy để xác định mẫu dữ liệu.
+
+**Ví dụ về xác thực HTML**:
+```html
+<form>
+  <label for="email">Email: </label>
+  <input type="email" id="email" name="email" required />
+  <button type="submit">Submit</button>
+</form>
+```
+
+**Xác thực form với JavaScript**
+JavaScript được sử dụng để thêm tính năng xác thực nâng cao và cung cấp thông báo lỗi tùy chỉnh. Một ví dụ điển hình là việc kiểm tra tính hợp lệ của một email và hiển thị thông báo nếu người dùng nhập sai định dạng.
+
+**Ví dụ về xác thực JavaScript**:
+```html
+<form id="myForm">
+  <label for="email">Email: </label>
+  <input type="email" id="email" name="email" required />
+  <span id="error-message" style="color: red;"></span>
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+  document.getElementById("myForm").addEventListener("submit", function (event) {
+    const email = document.getElementById("email").value;
+    const errorMessage = document.getElementById("error-message");
+
+    if (!email.includes("@")) {
+      errorMessage.textContent = "Please enter a valid email address.";
+      event.preventDefault(); // Prevent form submission
+    } else {
+      errorMessage.textContent = ""; // Clear error message
+    }
+  });
+</script>
+```
+
+**Xác thực trường bắt buộc với CSS**
+Bạn có thể sử dụng CSS để tạo kiểu cho các trường bắt buộc hoặc không hợp lệ khi người dùng chưa điền dữ liệu đúng. CSS cung cấp các pseudo-classes như `:valid`, `:invalid`, `:required`, giúp dễ dàng định dạng trường hợp dữ liệu không hợp lệ.
+
+**Ví dụ về xác thực bằng CSS**:
+```css
+input:required {
+  border: 2px solid red;
+}
+
+input:valid {
+  border: 2px solid green;
+}
+
+input:invalid {
+  border: 2px solid red;
+}
+```
+
+**Tóm tắt**:
+Xác thực form phía client giúp đảm bảo rằng dữ liệu người dùng nhập vào là hợp lệ và theo đúng định dạng yêu cầu. Nó mang lại lợi ích lớn về trải nghiệm người dùng và hiệu suất ứng dụng. Tuy nhiên, xác thực phía server vẫn luôn là một yếu tố quan trọng để bảo vệ hệ thống của bạn khỏi dữ liệu xấu từ người dùng.

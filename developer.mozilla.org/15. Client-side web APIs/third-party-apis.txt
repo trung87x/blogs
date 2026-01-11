@@ -1,0 +1,58 @@
+
+### APIs bên thứ ba (Third-party APIs)
+
+**API bên thứ ba là gì?**
+API bên thứ ba là các API do các công ty như Facebook, Twitter, Google cung cấp, cho phép bạn sử dụng dữ liệu hoặc dịch vụ của họ trên trang web của mình. Ví dụ: bạn có thể sử dụng API của Google Maps để hiển thị bản đồ tùy chỉnh trên trang của bạn.
+
+**Điểm khác biệt giữa API trình duyệt và API bên thứ ba:**
+- **API trình duyệt** được tích hợp sẵn trong trình duyệt và bạn có thể sử dụng ngay lập tức mà không cần kết nối với máy chủ bên ngoài.
+- **API bên thứ ba** yêu cầu bạn kết nối với máy chủ của bên cung cấp dịch vụ (chẳng hạn như Google, Facebook), và bạn sẽ cần có **API key** để xác thực quyền truy cập vào dịch vụ đó.
+
+**Ví dụ sử dụng Mapquest API**:
+Để sử dụng API của Mapquest, bạn cần nhúng thư viện JavaScript vào trang của mình và gọi các phương thức của API để tạo bản đồ.
+
+```html
+<script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js" defer></script>
+<link rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css" />
+```
+```js
+const map = L.mapquest.map("map", {
+  center: [53.480759, -2.242631],
+  layers: L.mapquest.tileLayer("map"),
+  zoom: 12,
+});
+```
+Ở đây, bạn sử dụng `mapquest.map()` để tạo bản đồ với tọa độ trung tâm, kiểu lớp bản đồ và mức độ thu phóng.
+
+**API bên thứ ba thường yêu cầu API key**:
+Để sử dụng hầu hết các API bên thứ ba, bạn cần đăng ký và lấy một **API key**. Đây là một chuỗi ký tự mà bạn cần bao gồm trong mã của mình để được phép truy cập dịch vụ của bên thứ ba.
+
+Ví dụ về việc yêu cầu API key cho Mapquest:
+```js
+L.mapquest.key = "YOUR-API-KEY-HERE";
+```
+
+**Ví dụ sử dụng RESTful API - NYTimes API**:
+NYTimes cung cấp một API để tìm kiếm bài viết từ báo của họ. Đây là ví dụ về một **RESTful API**, nơi bạn gửi các yêu cầu HTTP để lấy dữ liệu.
+
+```js
+let url = `${baseURL}?api-key=${key}&page=${pageNumber}&q=${searchTerm.value}`;
+fetch(url)
+  .then(response => response.json())
+  .then(json => displayResults(json))
+  .catch(error => console.error(`Error fetching data: ${error.message}`));
+```
+
+**Cách sử dụng YouTube API**:
+- **YouTube Data API** cho phép bạn tìm kiếm video trên YouTube và hiển thị kết quả trên trang web của bạn.
+- **YouTube IFrame Player API** giúp bạn nhúng video từ YouTube vào trang web của mình.
+
+**Ví dụ kết hợp YouTube Data API và IFrame Player API**:
+```html
+<iframe id="player" type="text/html" width="640" height="360" 
+  src="https://www.youtube.com/embed/{videoId}?autoplay=1" 
+  frameborder="0"></iframe>
+```
+
+**Tóm tắt**:
+API bên thứ ba giúp bạn tích hợp các dịch vụ và dữ liệu từ các nền tảng khác vào trang web của mình. Chúng cung cấp nhiều tính năng mạnh mẽ như bản đồ, tìm kiếm video, đăng nhập xã hội và nhiều hơn nữa. Tuy nhiên, bạn cần đăng ký và sử dụng API key để truy cập vào các dịch vụ này.

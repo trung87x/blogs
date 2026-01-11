@@ -1,0 +1,74 @@
+
+# Introduction to HTML
+
+## 1. HTML là gì?
+
+HTML (HyperText Markup Language) là ngôn ngữ đánh dấu dùng để xây dựng và tạo cấu trúc cho các trang web. HTML cung cấp cấu trúc cơ bản của một trang web, bao gồm các thẻ dùng để hiển thị nội dung như văn bản, hình ảnh và liên kết.
+
+HTML có cấu trúc dạng thẻ, bao gồm thẻ mở <tag> và thẻ đóng </tag>. Một số thẻ đặc biệt không cần thẻ đóng, gọi là thẻ tự đóng (self-closing tags).
+
+---
+
+## 2. Các thành phần cơ bản trong HTML
+
+### Thẻ Tiêu Đề và Đoạn Văn
+- <h1>, <h2>, <h3>: Thẻ tiêu đề cho các mức độ khác nhau.
+- <p>: Thẻ đoạn văn, dùng để chứa văn bản.
+
+### Liên Kết và Danh Sách
+- <a>: Thẻ liên kết, dùng để tạo các đường dẫn.
+- <ul>, <ol>, <li>: Các thẻ danh sách không có thứ tự và có thứ tự.
+
+### Thẻ Hình Ảnh và Đoạn Mã
+- <img>: Thẻ dùng để hiển thị hình ảnh. Cần có thuộc tính src để chỉ đường dẫn tới hình ảnh.
+- <code>: Thẻ đoạn mã dùng để hiển thị mã nguồn.
+
+---
+
+## 3. Các Phần Tử Tự Đóng trong HTML
+
+### Self-Closing Tags
+Các phần tử tự đóng là những thẻ không có nội dung bên trong và không cần thẻ đóng. Ví dụ:
+- <br />: Dùng để xuống dòng trong văn bản.
+- <hr />: Dùng để tạo đường kẻ ngang.
+- <img />: Dùng để hiển thị hình ảnh.
+
+Lưu ý, trong HTML5, dấu gạch chéo / ở cuối thẻ tự đóng là tùy chọn, nhưng nên sử dụng để code rõ ràng hơn【62†source】.
+
+---
+
+## 4. Dự Án HTML Cơ Bản: Movie Ranking
+
+Một ví dụ đơn giản để thực hành HTML là tạo một trang web xếp hạng phim yêu thích. Bạn có thể sử dụng các thẻ HTML cơ bản để hiển thị danh sách các bộ phim yêu thích của mình:
+```html
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Xếp hạng phim yêu thích</title>
+</head>
+<body>
+
+    <h1>Những bộ phim hay nhất mọi thời đại</h1>
+    <h2>Top 3 bộ phim yêu thích của tôi</h2>
+    <hr />
+
+    <h3>Spirited Away</h3>
+    <p>Một bộ anime tuyệt đẹp với cốt truyện sáng tạo và đầy cảm xúc.</p>
+
+    <h3>Ex Machina</h3>
+    <p>Phim khoa học viễn tưởng xuất sắc về AI và nhận thức con người.</p>
+
+    <h3>Drive</h3>
+    <p>Bộ phim hành động mang phong cách nghệ thuật với diễn xuất đỉnh cao của Ryan Gosling.</p>
+
+</body>
+</html>
+```
+Dự án này giúp bạn thực hành các thẻ như <h1>, <h2>, <h3>, và <p> để tạo nội dung cơ bản cho trang web【56†source】.
+
+---
+
+## 5. Lợi Ích của HTML và Các Công Cụ Hỗ Trợ
+
+HTML là nền tảng để xây dựng bất kỳ trang web nào. Bạn có thể sử dụng công cụ như Visual Studio Code để soạn thảo HTML dễ dàng. Bằng cách làm quen với HTML cơ bản, bạn sẽ có thể phát triển trang web của mình một cách hiệu quả, từ việc tạo các tiêu đề, đoạn văn cho đến hình ảnh và liên kết.

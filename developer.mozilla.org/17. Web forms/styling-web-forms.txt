@@ -1,0 +1,140 @@
+
+### Styling Web Forms
+
+**Vấn đề trong việc styling các widget form**
+Lịch sử
+Kể từ khi HTML2 giới thiệu các điều khiển form vào năm 1995, việc styling các điều khiển này vẫn gặp rất nhiều thử thách. Ban đầu, các trình duyệt dựa vào hệ điều hành để hiển thị các widget form, nhưng kể từ khi CSS được giới thiệu, các điều khiển này đã dần dần trở nên có thể styling được, mặc dù vẫn có một số ngoại lệ.
+
+**Các loại widget form có thể styling dễ dàng**:
+1. Thẻ `<form>`, `<fieldset>`, `<legend>`
+2. Các trường văn bản đơn dòng `<input>` (ví dụ: type="text", type="email")
+3. Trường văn bản đa dòng `<textarea>`
+4. Các nút `<button>`, `<input>`
+5. Thẻ `<label>`, `<output>`
+
+**Các loại widget khó styling**:
+1. Checkbox và radio button
+2. Trường `<input>` type="search"
+3. Các loại input như `<input type="color">`, `<input type="datetime-local">`, `<input type="range">`, `<input type="file">`
+4. Các thành phần tạo dropdown widgets như `<select>`, `<option>`, `<optgroup>`, `<datalist>`
+5. Các thẻ `<progress>` và `<meter>`
+
+**Styling các widget form dễ dàng**
+Các widget form dễ dàng styling sử dụng các kỹ thuật từ bài trước về CSS và form cơ bản. Dưới đây là một số lưu ý quan trọng khi styling form.
+
+**Font và văn bản**
+Các thuộc tính font và text trong CSS có thể dễ dàng được sử dụng với mọi widget. Tuy nhiên, hành vi của các widget form đôi khi không đồng nhất. Để đảm bảo rằng các form của bạn sử dụng đúng font của trang web, bạn có thể thêm các quy tắc sau vào stylesheet:
+
+```css
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+}
+```
+
+**Box Sizing**
+Để đảm bảo rằng tất cả các widget form có cùng kích thước, bạn có thể sử dụng thuộc tính `box-sizing`:
+
+```css
+input,
+textarea,
+select,
+button {
+  width: 150px;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+```
+
+**Vị trí của thẻ `<legend>`**
+Thẻ `<legend>` giúp mô tả các nhóm điều khiển trong `<fieldset>`. Tuy nhiên, việc điều chỉnh vị trí của nó có thể khá phức tạp. Bạn có thể sử dụng `position: absolute` để thay đổi vị trí của thẻ `<legend>`:
+
+```css
+fieldset {
+  position: relative;
+}
+
+legend {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+```
+
+**Ví dụ về styling form**
+Dưới đây là ví dụ về cách styling một form "postcard" contact form, tạo ra một giao diện đẹp mắt với CSS.
+
+**HTML của form**:
+```html
+<form>
+  <h1>to: Mozilla</h1>
+  <div id="from">
+    <label for="name">from:</label>
+    <input type="text" id="name" name="user_name" />
+  </div>
+  <div id="reply">
+    <label for="mail">reply:</label>
+    <input type="email" id="mail" name="user_email" />
+  </div>
+  <div id="message">
+    <label for="msg">Your message:</label>
+    <textarea id="msg" name="user_message"></textarea>
+  </div>
+  <div class="button">
+    <button type="submit">Send your message</button>
+  </div>
+</form>
+```
+
+**CSS Styling**:
+```css
+@font-face {
+  font-family: "handwriting";
+  src: url("fonts/journal-webfont.woff2") format("woff2"),
+       url("fonts/journal-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font: 1.3rem sans-serif;
+  padding: 0.5em;
+  margin: 0;
+  background: #222;
+}
+
+form {
+  position: relative;
+  width: 740px;
+  height: 498px;
+  margin: 0 auto;
+  padding: 1em;
+  box-sizing: border-box;
+  background: #fff url(background.jpg);
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 10em 1em 1em 1em;
+}
+
+h1 {
+  font: 1em "typewriter", monospace;
+  align-self: end;
+}
+
+#message {
+  grid-row: 1 / 5;
+}
+
+#from, #reply {
+  display: flex;
+}
+```
+
+**Tóm tắt**:
+- Styling form có thể gặp khó khăn vì nhiều widget có giao diện mặc định khác nhau giữa các trình duyệt.
+- Sử dụng các kỹ thuật CSS như `inherit` cho font-family, `box-sizing` cho các điều khiển form và `position` cho các thẻ `<legend>` giúp tạo ra các form đẹp mắt và dễ sử dụng.

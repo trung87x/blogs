@@ -1,0 +1,63 @@
+
+### Tối Ưu Hóa Video Cho Hiệu Suất Web
+
+**Tại sao tối ưu hóa video lại quan trọng?**
+Hình ảnh và video chiếm một phần lớn băng thông tải trang của một website. Trong khi hình ảnh đã được tối ưu hóa, video vẫn là một yếu tố quan trọng ảnh hưởng đến hiệu suất tải trang. Video chiếm khoảng 25% băng thông của một trang web trung bình, vì vậy tối ưu hóa video có thể giúp tiết kiệm băng thông và cải thiện hiệu suất trang web.
+
+**Các kỹ thuật tối ưu hóa video**
+Dưới đây là các kỹ thuật tối ưu hóa video giúp cải thiện hiệu suất trang web và giảm dung lượng tải video:
+
+1. **Nén video**: Nén video giúp giảm dung lượng tệp mà không làm giảm chất lượng quá nhiều. Các phần mềm chỉnh sửa video thường cung cấp tính năng nén tệp, hoặc bạn có thể sử dụng các công cụ như **FFmpeg** để nén video.
+
+   **Công cụ nén video:**
+   - **FFmpeg**: Một công cụ dòng lệnh mạnh mẽ giúp nén và tối ưu hóa video. Bạn có thể sử dụng FFmpeg để chuyển đổi định dạng video và giảm dung lượng tệp.
+
+   **Ví dụ nén video với FFmpeg**:
+   ```bash
+   ffmpeg -i original.mp4 -vcodec libx264 -crf 28 optimized.mp4
+   ```
+
+2. **Tối ưu hóa thứ tự nguồn video**: Đối với các video có nhiều định dạng (ví dụ: `.webm` và `.mp4`), bạn nên đặt định dạng nhỏ hơn ở trước trong thẻ `<video>`. Điều này giúp trình duyệt tải xuống định dạng nhỏ hơn trước, giảm tải trang cho người dùng.
+
+   **Ví dụ về tối ưu hóa thứ tự video**:
+   ```html
+   <video width="400" height="300" controls="controls">
+     <!-- WebM: 10 MB -->
+     <source src="video.webm" type="video/webm" />
+     <!-- MPEG-4/H.264: 12 MB -->
+     <source src="video.mp4" type="video/mp4" />
+   </video>
+   ```
+
+3. **Loại bỏ âm thanh khỏi video không có âm thanh**: Các video hero (video chính trang web) thường không có âm thanh. Việc loại bỏ âm thanh khỏi những video này giúp tiết kiệm băng thông và làm giảm dung lượng tải xuống. Bạn có thể sử dụng **FFmpeg** để loại bỏ âm thanh khỏi video.
+
+   **Ví dụ loại bỏ âm thanh khỏi video**:
+   ```bash
+   ffmpeg -i original.mp4 -an -c:v copy audioFreeVersion.mp4
+   ```
+
+4. **Tối ưu hóa thuộc tính `preload` của video**: Thuộc tính `preload` quyết định mức độ tải video khi trang web được tải. Bạn có thể sử dụng các tùy chọn `auto`, `metadata`, hoặc `none` để điều chỉnh mức độ tải video. Để tiết kiệm băng thông, bạn có thể chọn `none` cho các video ít phổ biến và cần tối ưu hóa tải.
+
+   **Ví dụ về thuộc tính `preload`**:
+   ```html
+   <video preload="none" controls>
+     <source src="video.mp4" type="video/mp4" />
+   </video>
+   ```
+
+5. **Streaming video**: Video streaming cho phép phân phối video với kích thước và băng thông phù hợp với tốc độ mạng của người dùng. Tương tự như hình ảnh đáp ứng (responsive images), video sẽ được phân phối với kích thước tối ưu cho mỗi trình duyệt và thiết bị, giúp video khởi động nhanh chóng và giảm độ trễ khi phát.
+
+   **Ví dụ về streaming video**:
+   ```html
+   <video controls>
+     <source src="video_streaming.mp4" type="video/mp4" />
+   </video>
+   ```
+
+**Các định dạng video tối ưu**
+- **WebM**: Định dạng WebM cung cấp nén hiệu quả cho cả video và hình ảnh động. WebM hỗ trợ các tính năng như nén video và âm thanh, làm cho tệp video nhỏ hơn và nhanh hơn khi tải.
+- **MP4 (H.264)**: MP4 với codec H.264 là định dạng video phổ biến nhất và tương thích với hầu hết các trình duyệt.
+- **AV1**: Định dạng video mới với khả năng nén tốt hơn so với WebM và H.264, nhưng chưa được hỗ trợ rộng rãi như WebM hoặc MP4.
+
+**Tóm tắt**
+Tối ưu hóa video là một bước quan trọng để cải thiện hiệu suất trang web. Bằng cách nén video, tối ưu hóa thứ tự tải video, loại bỏ âm thanh không cần thiết, sử dụng thuộc tính `preload`, và áp dụng streaming video, bạn có thể tiết kiệm băng thông và cải thiện trải nghiệm người dùng. Hãy chú ý chọn định dạng video tối ưu để đảm bảo video của bạn tải nhanh và tương thích với hầu hết các trình duyệt.

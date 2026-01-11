@@ -1,0 +1,181 @@
+
+# Tổng hợp bài học về PostgreSQL, Node.js, Express và EJS
+
+## Giới thiệu về PostgreSQL
+
+PostgreSQL là hệ quản trị cơ sở dữ liệu quan hệ mã nguồn mở, được sử dụng rộng rãi trong các công ty lớn. Nó hỗ trợ đầy đủ các tính năng của một hệ quản trị cơ sở dữ liệu quan hệ, bao gồm lưu trữ và truy xuất dữ liệu dễ dàng cho các ứng dụng web. PostgreSQL hỗ trợ các mối quan hệ dữ liệu phức tạp, truy vấn mạnh mẽ và khả năng mở rộng cao.
+
+## Kết nối PostgreSQL với Node.js
+
+Để kết nối Node.js với PostgreSQL, bạn có thể sử dụng thư viện `pg` (node-postgres). Sau khi cài đặt thư viện `pg` và `express`, bạn có thể cấu hình kết nối tới PostgreSQL như sau:
+
+```javascript
+const { Client } = require('pg');
+const db = new Client({
+    user: 'postgres',
+    host: 'localhost',
+    database: 'mydb',
+    password: 'password',
+    port: 5432
+});
+db.connect();
+```
+
+Sau khi kết nối thành công, bạn có thể gửi các truy vấn SQL từ Node.js tới PostgreSQL để thực hiện các thao tác như thêm, đọc, cập nhật hoặc xóa dữ liệu.
+
+## Các thao tác CRUD với PostgreSQL
+
+### 1. Create (Tạo mới dữ liệu)
+
+Để tạo một bản ghi mới trong PostgreSQL, bạn sử dụng câu lệnh `INSERT INTO`:
+
+```sql
+INSERT INTO table_name (column1, column2, column3)
+VALUES (value1, value2, value3);
+```
+
+Ví dụ, để thêm một mục vào bảng `items` trong ứng dụng To-Do List:
+
+```sql
+INSERT INTO items (title) VALUES ('Mua sữa');
+```
+
+### 2. Read (Đọc dữ liệu)
+
+Để lấy dữ liệu từ bảng, bạn sử dụng câu lệnh `SELECT`:
+
+```sql
+SELECT * FROM table_name;
+```
+
+Để lọc dữ liệu theo điều kiện, bạn có thể dùng `WHERE`:
+
+```sql
+SELECT title FROM items WHERE id = 1;
+```
+
+### 3. Update (Cập nhật dữ liệu)
+
+Để cập nhật dữ liệu trong bảng, bạn sử dụng câu lệnh `UPDATE`:
+
+```sql
+UPDATE items SET title = 'Mua rau' WHERE id = 1;
+```
+
+### 4. Delete (Xóa dữ liệu)
+
+Để xóa dữ liệu, bạn sử dụng câu lệnh `DELETE`:
+
+```sql
+DELETE FROM items WHERE id = 1;
+```
+
+## Mối quan hệ giữa các bảng trong PostgreSQL
+
+PostgreSQL hỗ trợ các mối quan hệ giữa các bảng để quản lý dữ liệu hiệu quả. Dưới đây là các loại mối quan hệ thường gặp:
+
+### Mối quan hệ Một-Một (One-to-One)
+
+Mối quan hệ này xảy ra khi mỗi bản ghi trong bảng A chỉ liên kết với một bản ghi duy nhất trong bảng B. Ví dụ, bảng `students` và bảng `contact_details`:
+
+```sql
+CREATE TABLE students (
+    id SERIAL PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50)
+);
+
+CREATE TABLE contact_details (
+    id SERIAL PRIMARY KEY,
+    student_id INT UNIQUE REFERENCES students(id),
+    phone VARCHAR(15),
+    address VARCHAR(255)
+);
+```
+
+### Mối quan hệ Một-Nhiều (One-to-Many)
+
+Mối quan hệ này xảy ra khi một bản ghi trong bảng A có thể liên kết với nhiều bản ghi trong bảng B. Ví dụ, bảng `students` và bảng `homework_submission`:
+
+```sql
+CREATE TABLE students (
+    id SERIAL PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50)
+);
+
+CREATE TABLE homework_submission (
+    id SERIAL PRIMARY KEY,
+    student_id INT REFERENCES students(id),
+    mark INT
+);
+```
+
+### Mối quan hệ Nhiều-Nhiều (Many-to-Many)
+
+Mối quan hệ này xảy ra khi một bản ghi trong bảng A có thể liên kết với nhiều bản ghi trong bảng B và ngược lại. Để xử lý mối quan hệ này, bạn cần tạo một bảng trung gian:
+
+```sql
+CREATE TABLE students (
+    id SERIAL PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50)
+);
+
+CREATE TABLE classes (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE enrollment (
+    student_id INT REFERENCES students(id),
+    class_id INT REFERENCES classes(id),
+    PRIMARY KEY (student_id, class_id)
+);
+```
+
+## Xử lý lỗi trong PostgreSQL
+
+Khi người dùng nhập sai dữ liệu, bạn cần xử lý lỗi để tránh ứng dụng bị treo. Bạn có thể sử dụng khối `try-catch` trong Node.js để kiểm tra lỗi khi thực hiện các truy vấn.
+
+Ví dụ, xử lý lỗi khi người dùng nhập tên quốc gia không tồn tại:
+
+```javascript
+app.post("/add", async (req, res) => {
+    const countryName = req.body.country;
+    try {
+        const result = await db.query(
+            "SELECT country_code FROM countries WHERE LOWER(country_name) LIKE LOWER($1)",
+            [`%${countryName}%`]
+        );
+
+        if (result.rows.length === 0) {
+            return res.render("index.ejs", { error: "Tên quốc gia không tồn tại." });
+        }
+
+        const countryCode = result.rows[0].country_code;
+        await db.query("INSERT INTO visit_countries (country_code) VALUES ($1)", [countryCode]);
+
+        res.redirect("/");
+    } catch (err) {
+        res.render("index.ejs", { error: "Lỗi khi thêm quốc gia." });
+    }
+});
+```
+
+## Tối ưu hóa tìm kiếm dữ liệu
+
+Khi tìm kiếm dữ liệu trong PostgreSQL, bạn có thể sử dụng từ khóa `LIKE` để tìm kiếm dữ liệu một cách linh hoạt. Dấu `%` trong `LIKE` đại diện cho bất kỳ số lượng ký tự nào.
+
+Ví dụ, tìm kiếm quốc gia chứa từ "United":
+
+```sql
+SELECT country_name FROM countries WHERE country_name LIKE '%United%';
+```
+
+## Kết luận
+
+Với PostgreSQL, bạn có thể tạo cơ sở dữ liệu mạnh mẽ, thực hiện các thao tác CRUD và tạo các mối quan hệ giữa các bảng để tổ chức dữ liệu. Kết hợp với Node.js và Express, bạn có thể xây dựng các ứng dụng web mạnh mẽ và dễ dàng quản lý dữ liệu.
+
+Ứng dụng PostgreSQL trong các dự án thực tế như To-Do List, hệ thống theo dõi hành trình du lịch, và nhiều ứng dụng khác sẽ giúp bạn cải thiện khả năng làm việc với cơ sở dữ liệu và phát triển phần mềm.
+

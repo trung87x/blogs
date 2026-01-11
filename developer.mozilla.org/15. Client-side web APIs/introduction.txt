@@ -1,0 +1,26 @@
+### Giới thiệu về Web APIs
+
+**API là gì?**
+API (Giao diện lập trình ứng dụng) là các công cụ giúp lập trình viên sử dụng các chức năng phức tạp mà không cần phải viết lại mã. Ví dụ, thay vì lập trình trực tiếp với GPU, bạn có thể dùng API để thao tác với đồ họa 3D dễ dàng hơn.
+
+**Các loại API trong JavaScript:**
+- **API trình duyệt**: Được tích hợp trong trình duyệt, giúp bạn thao tác với các tính năng của trình duyệt như DOM, âm thanh, video, v.v.
+- **API bên thứ ba**: Cung cấp từ các dịch vụ bên ngoài như Google Maps, Facebook, YouTube. Bạn cần kết nối qua internet và thường yêu cầu khóa API để sử dụng.
+
+**Cách thức hoạt động:**
+API chủ yếu dựa trên các **đối tượng JavaScript** để lưu trữ dữ liệu và chức năng. Ví dụ, trong Web Audio API, bạn sử dụng `AudioContext` để điều khiển âm thanh.
+
+**Các API phổ biến:**
+- **DOM API**: Dùng để thay đổi nội dung HTML và CSS của trang web.
+- **Fetch API**: Lấy dữ liệu từ server mà không cần tải lại toàn bộ trang.
+- **Canvas API**: Vẽ đồ họa 2D và 3D trên trang web.
+- **Web Audio API**: Điều khiển âm thanh trong trình duyệt.
+- **Geolocation API**: Truy cập thông tin vị trí người dùng.
+
+**Các API bên thứ ba phổ biến:**
+- **Google Maps API**: Nhúng bản đồ vào trang web.
+- **Facebook API**: Đăng nhập qua Facebook và sử dụng các tính năng của Facebook.
+- **YouTube API**: Tìm kiếm và nhúng video từ YouTube.
+
+**Làm thế nào API hoạt động?**
+API thường sử dụng các đối tượng JavaScript để lưu trữ và xử lý dữ liệu. Bạn sẽ kết nối đến các API này qua thư viện JavaScript hoặc gửi yêu cầu HTTP đến một URL nhất định (RESTful API).

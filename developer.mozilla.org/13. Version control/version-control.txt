@@ -1,0 +1,80 @@
+QUẢN LÝ PHIÊN BẢN MÃ NGUỒN (VERSION CONTROL)
+============================================
+
+1. Version Control là gì?
+- Là công cụ giúp:
+  + Lưu lại lịch sử thay đổi mã nguồn
+  + Làm việc nhóm hiệu quả
+  + Quay lại phiên bản cũ nếu cần
+
+- Git: phần mềm quản lý phiên bản
+- GitHub: nền tảng cung cấp máy chủ Git + công cụ cộng tác (issues, pull requests, project boards...)
+
+---
+
+2. Điều kiện cần thiết
+- Máy tính cài sẵn Git (tải tại: https://git-scm.com)
+- Dụng cụ Git:
+  + Dùng lệnh terminal (khuyên học)
+  + Dùng phần mềm GUI: GitHub Desktop, Sourcetree, GitKraken
+- Tài khoản GitHub (tạo miễn phí tại github.com)
+
+---
+
+3. Các hướng dẫn thực hành
+
+a. Làm quen Git và GitHub
++ Tìm hiểu:
+  - Repository là gì
+  - Commit, Branch, Merge
++ Thực hành:
+  - Tạo repo
+  - Commit thay đổi
+  - Tạo pull request và merge
+
+b. Contribute vào dự án người khác
++ Dùng "Fork" để sao chép repo về tài khoản cá nhân
++ Clone → sửa → tạo pull request quay lại repo gốc
+
+c. Pull Request là gì?
++ Cách gửi đề xuất thay đổi mã cho người khác review
++ Người giữ repo có thể xem, bình luận, merge hoặc từ chối
+
+d. Quản lý Issues
++ Issues như diễn đàn: hỏi đáp, báo lỗi, thảo luận
++ Có thể gán người, gắn nhãn, theo dõi trạng thái
++ Dùng để quản lý công việc (task tracking)
+
+---
+
+4. Những lỗi thường gặp & mẹo xử lý
+- Git dễ bị lỗi khi dùng lệnh nâng cao → KHÔNG SAO!
++ Mẹo:
+  - Tìm lỗi trên Google
+  - Dùng tài liệu:
+    * "Flight Rules for Git": hướng dẫn sửa lỗi cụ thể
+    * "Dangit, git!": mẹo xử lý khi làm sai
+
+---
+
+5. Chủ đề nâng cao (tự học thêm)
+- GitHub Flow (quy trình làm việc hiện đại)
+- Giải quyết xung đột khi merge (merge conflict)
+- `.gitignore`: loại file không muốn commit
+- Xác thực GitHub (token, SSH)
+- GitHub Pages: tạo trang web từ repo
+- Markdown: ngôn ngữ dùng viết README, issue, pull request
+- Lệnh Git quan trọng (nên học):
+  + git clone / init / status / add / commit / push / pull / branch / merge / log / checkout / reset...
+
+---
+
+= CHECKLIST CƠ BẢN =
+- [x] Biết tạo repo mới
+- [x] Biết commit và push thay đổi
+- [x] Biết pull từ remote
+- [x] Biết tạo pull request
+- [x] Biết xử lý xung đột merge đơn giản
+- [x] Biết tạo issue và comment
+- [x] Biết tạo nhánh và merge
+- [x] Biết dùng `.gitignore`

@@ -1,0 +1,61 @@
+
+### Cách triển khai API dựa trên Promise trong JavaScript
+
+**Promise là gì?**
+Promise là một đối tượng được trả về bởi các hàm bất đồng bộ, đại diện cho trạng thái hiện tại của một tác vụ. Khi Promise được trả về, tác vụ có thể chưa hoàn thành, nhưng Promise cung cấp các phương thức để xử lý kết quả khi tác vụ hoàn thành (hoặc thất bại).
+
+**Triển khai API alarm() sử dụng Promise**
+Trong ví dụ này, chúng ta sẽ triển khai một API `alarm()` sử dụng Promise. Hàm này nhận vào tên người cần đánh thức và thời gian trì hoãn (delay) tính bằng milliseconds trước khi đánh thức người đó.
+
+**Đóng gói setTimeout() trong Promise**
+Chúng ta sẽ sử dụng `setTimeout()` để triển khai hàm `alarm()`. `setTimeout()` nhận vào một hàm callback và một khoảng thời gian trì hoãn. Khi hết thời gian, hàm callback sẽ được gọi.
+
+**Ví dụ triển khai alarm()**:
+```js
+function alarm(person, delay) {
+  return new Promise((resolve, reject) => {
+    if (delay < 0) {
+      reject(new Error("Alarm delay must not be negative"));
+      return;
+    }
+    setTimeout(() => {
+      resolve(`Wake up, ${person}!`);
+    }, delay);
+  });
+}
+```
+
+**Sử dụng API alarm()**
+Sau khi triển khai `alarm()`, chúng ta có thể gọi API này và sử dụng phương thức `then()` và `catch()` để xử lý kết quả khi Promise được hoàn thành hoặc thất bại.
+
+**Ví dụ sử dụng alarm()**:
+```js
+const name = document.querySelector("#name");
+const delay = document.querySelector("#delay");
+const button = document.querySelector("#set-alarm");
+const output = document.querySelector("#output");
+
+button.addEventListener("click", () => {
+  alarm(name.value, delay.value)
+    .then((message) => (output.textContent = message))
+    .catch((error) => (output.textContent = `Couldn't set alarm: ${error}`));
+});
+```
+
+**Sử dụng async/await với API alarm()**
+Vì `alarm()` trả về một Promise, chúng ta có thể sử dụng `async` và `await` để xử lý Promise theo cách đơn giản hơn.
+
+**Ví dụ sử dụng async/await với alarm()**:
+```js
+button.addEventListener("click", async () => {
+  try {
+    const message = await alarm(name.value, delay.value);
+    output.textContent = message;
+  } catch (error) {
+    output.textContent = `Couldn't set alarm: ${error}`;
+  }
+});
+```
+
+**Tóm tắt**:
+Triển khai API dựa trên Promise giúp xử lý các tác vụ bất đồng bộ một cách dễ dàng. Chúng ta có thể sử dụng các kỹ thuật như Promise chaining, `async/await` và xử lý lỗi đơn giản bằng `catch()` để quản lý các tác vụ bất đồng bộ trong JavaScript.

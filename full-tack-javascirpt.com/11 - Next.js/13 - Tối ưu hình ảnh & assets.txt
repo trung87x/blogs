@@ -1,0 +1,87 @@
+🧠 Model 13: Tối ưu hình ảnh & assets
+--------------------------------------------------
+• Vai trò: Tăng tốc độ tải trang, giảm dung lượng, đảm bảo hiển thị đẹp trên mọi thiết bị.
+• Controller: Dùng `next/image`, `next/font`, `next/script` để tối ưu tự động.
+
+📘 Ngữ cảnh #13: Tối ưu hình ảnh, font và asset khác với Next.js
+-------------------------------------------------------------------
+
+🖼️ 1. Tối ưu hình ảnh với `<Image />` từ `next/image`:
+
+```tsx
+import Image from 'next/image'
+
+export default function Avatar() {
+  return (
+    <Image
+      src="/images/avatar.png"     // trong thư mục public/
+      alt="Ảnh đại diện"
+      width={200}
+      height={200}
+      priority                      // preload ảnh
+    />
+  )
+}
+```
+
+✅ Ưu điểm:
+- Tự động lazy-loading.
+- Chuyển đổi định dạng ảnh (WebP) tùy trình duyệt.
+- Tối ưu responsive và device pixel ratio.
+
+📁 2. Tối ưu font bằng `next/font` (tự host, preload):
+
+```tsx
+import { Inter } from 'next/font/google'
+
+const inter = Inter({ subsets: ['latin'], display: 'swap' })
+
+export default function Page() {
+  return <p className={inter.className}>Văn bản dùng Inter</p>
+}
+```
+
+✅ Ưu điểm:
+- Tải nhanh, không bị FOUT/FOIT.
+- Không cần gọi CDN ngoài (an toàn hơn).
+- Có thể preload và dùng nhiều biến thể (weight, style...).
+
+📜 3. Nhúng script tối ưu với `next/script`:
+
+```tsx
+import Script from 'next/script'
+
+export default function Analytics() {
+  return (
+    <Script
+      src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"
+      strategy="afterInteractive"   // chỉ tải sau khi tương tác
+    />
+  )
+}
+```
+
+✅ Ưu điểm:
+- Điều khiển thứ tự tải script (beforeInteractive, afterInteractive...).
+- Tránh chặn hiển thị (render-blocking).
+- Giúp SEO & Lighthouse tốt hơn.
+
+📂 4. Dùng `/public` cho assets tĩnh:
+
+```
+/public
+  /images
+    logo.png
+  /favicon.ico
+```
+
+Khi dùng: `src="/images/logo.png"`
+
+✅ Tự động cache CDN, không cần cấu hình thêm.
+
+📌 Kết luận:
+- Dùng `next/image` để tự động tối ưu ảnh, không cần tool ngoài.
+- Dùng `next/font` để host font Google nhanh và an toàn hơn.
+- Dùng `next/script` để nhúng script không chặn render.
+- Tất cả đều giúp đạt điểm Lighthouse cao, load nhanh, thân thiện SEO.
+

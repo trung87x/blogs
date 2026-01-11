@@ -1,0 +1,58 @@
+<!-- ==========================
+Emphasis and Importance
+========================== -->
+
+<!-- 1. Nhấn mạnh (emphasis) dùng <em> -->
+<p>Tôi <em>rất</em> vui vì bạn không đến <em>trễ</em>.</p>
+
+<!-- Trình đọc màn hình có thể đọc nhấn mạnh theo giọng khác -->
+
+<!-- 2. Quan trọng (importance) dùng <strong> -->
+<p>Hóa chất này <strong>cực kỳ độc</strong>.</p>
+<p>Tôi trông cậy vào bạn. <strong>Đừng</strong> đến trễ!</p>
+
+<!-- Có thể lồng <strong> và <em> -->
+<p>
+  Chất này <strong>rất nguy hiểm</strong> — nếu uống vào,
+  <strong>bạn có thể <em>chết</em></strong>.
+</p>
+
+<!-- 3. Thực hành với ví dụ cụ thể -->
+<h1><em>Emphasis</em> and <strong>importance</strong></h1>
+
+<p>
+  Máy pha cà phê mới của tôi tên là <strong>The Percolator 2000</strong>.
+  Nó pha ra cà phê <em>thơm ngon</em> và <em>tuyệt vời</em>.
+</p>
+
+<p>
+  Vào mùa đông lạnh giá, thời tiết sẽ <strong>rất lạnh</strong>.
+  Bạn nên <strong>mặc ấm để tránh <em>bị ốm</em></strong>.
+</p>
+
+<!-- 4. Tránh dùng thẻ trình bày thuần túy như <b>, <i>, <u> -->
+<!-- Nhưng nếu dùng thì phải đúng mục đích ngữ nghĩa -->
+
+<!-- <i>: thuật ngữ, tiếng nước ngoài, tên khoa học -->
+<p>Chim ruồi cổ đỏ (<i>Archilochus colubris</i>) rất phổ biến ở Bắc Mỹ.</p>
+
+<!-- <b>: từ khóa hoặc thuật ngữ cần nhấn mạnh -->
+<dl>
+  <dt>Semantic HTML</dt>
+  <dd>
+    Hãy dùng các thẻ dựa trên <b>ngữ nghĩa</b> chứ không phải chỉ vì trình bày.
+  </dd>
+</dl>
+
+<!-- <u>: thường dùng cho lỗi chính tả, tên riêng -->
+<p>Sau này tôi sẽ học cách <u class="spelling-error">đánhvần</u> đúng hơn.</p>
+
+<!-- 5. Mẹo sử dụng đúng -->
+<!-- - Luôn ưu tiên dùng <strong> và <em> thay vì <b> và <i> -->
+<!-- - Tránh dùng <u> nếu không thực sự cần, vì dễ nhầm với hyperlink -->
+<!-- - Suy nghĩ về trải nghiệm của người dùng đọc màn hình (accessibility) -->
+
+<!-- 6. Gợi ý thay thế bằng CSS -->
+<!-- Nếu chỉ muốn làm nghiêng hay đậm để trang trí, dùng <span> và CSS -->
+<span style="font-style: italic;">Văn bản in nghiêng</span>
+<span style="font-weight: bold;">Văn bản đậm</span>

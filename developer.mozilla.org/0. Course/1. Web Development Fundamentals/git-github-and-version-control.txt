@@ -1,0 +1,86 @@
+
+# Git, GitHub và Version Control
+
+## 1. Git - Hệ thống kiểm soát phiên bản
+
+### Git là gì?
+Git là một hệ thống kiểm soát phiên bản phân tán (distributed version control system), giúp bạn theo dõi và quản lý mã nguồn trong các dự án phần mềm. Git cho phép bạn làm việc với các bản sao cục bộ của mã nguồn, đồng thời hỗ trợ làm việc nhóm và kiểm soát các thay đổi.
+
+### Các lệnh Git cơ bản:
+- **git init**: Khởi tạo kho lưu trữ Git trong thư mục.
+- **git add <file>**: Thêm tệp vào khu vực tổ chức (staging area).
+- **git commit -m "message"**: Lưu thay đổi với mô tả.
+- **git status**: Kiểm tra trạng thái các tệp đã thay đổi.
+- **git log**: Xem lịch sử commit.
+- **git diff <file>**: So sánh thay đổi giữa các phiên bản.
+- **git checkout -- <file>**: Hoàn nguyên thay đổi trong tệp.
+
+---
+
+## 2. GitHub và Kho Lưu Trữ Từ Xa
+
+### GitHub là gì?
+GitHub là nền tảng lưu trữ mã nguồn trực tuyến, giúp các lập trình viên lưu trữ, chia sẻ và cộng tác trên các dự án phần mềm. GitHub hỗ trợ nhiều tính năng như Pull Requests, Issues, và Wiki để cộng tác hiệu quả.
+
+### Các lệnh GitHub cơ bản:
+- **git remote add origin <URL>**: Kết nối kho cục bộ với GitHub.
+- **git push -u origin main**: Đẩy mã lên GitHub lần đầu tiên.
+- **git remote -v**: Kiểm tra các remote repositories.
+- **git pull**: Lấy các thay đổi từ GitHub về máy cục bộ.
+
+---
+
+## 3. Sử Dụng Gitignore
+
+### Gitignore là gì?
+Gitignore là một tệp đặc biệt giúp chỉ định những tệp không được theo dõi và đưa vào kho lưu trữ Git. Thông qua gitignore, bạn có thể loại bỏ các tệp không cần thiết hoặc thông tin nhạy cảm.
+
+### Cách sử dụng Gitignore:
+- Tạo tệp `.gitignore` trong thư mục gốc của dự án.
+- Thêm các tệp, thư mục cần loại bỏ, ví dụ:
+  ```txt
+  # Loại bỏ tệp hệ thống
+  .DS_Store
+
+  # Loại bỏ các tệp log
+  *.log
+  ```
+- Sử dụng lệnh `git add .` và `git commit -m "Add gitignore"` để cam kết thay đổi.
+
+---
+
+## 4. Git Clone và Fork
+
+### Git Clone là gì?
+Lệnh `git clone` giúp sao chép một kho lưu trữ từ xa về máy cục bộ. Đây là lệnh dùng khi bạn muốn có một bản sao đầy đủ của kho lưu trữ, bao gồm tất cả các commit.
+
+### Khi nào sử dụng Git Clone?
+Sử dụng `git clone` khi bạn muốn làm việc độc lập với mã nguồn trên máy cục bộ mà không cần đóng góp trở lại kho gốc.
+
+### Fork và Pull Request trên GitHub:
+- **Fork**: Là hành động sao chép kho lưu trữ từ GitHub của người khác vào tài khoản của bạn để thực hiện các thay đổi mà không ảnh hưởng đến kho gốc.
+- **Pull Request**: Sau khi thực hiện thay đổi trên kho forked, bạn có thể gửi Pull Request để yêu cầu hợp nhất các thay đổi của mình vào kho gốc.
+
+---
+
+## 5. Branching và Merging trong Git
+
+### Git Branch là gì?
+Nhánh (branch) là một bản sao của nhánh chính (main) dùng để phát triển các tính năng mới mà không ảnh hưởng đến mã nguồn chính.
+
+### Quy trình làm việc với nhánh:
+- **Tạo nhánh mới**: `git branch <branch-name>`
+- **Chuyển sang nhánh**: `git checkout <branch-name>` hoặc `git switch <branch-name>`
+- **Hợp nhất nhánh**: Khi nhánh hoàn thành, bạn có thể hợp nhất nó vào nhánh chính bằng `git merge <branch-name>`.
+
+---
+
+## 6. Đóng góp cho Dự Án Nguồn Mở
+
+### Cách đóng góp:
+1. **Fork** kho lưu trữ mà bạn muốn đóng góp.
+2. **Clone** kho lưu trữ đã forked về máy cục bộ.
+3. Thực hiện các thay đổi và **commit** chúng.
+4. **Push** thay đổi lên kho forked của bạn trên GitHub.
+5. Gửi **Pull Request** để yêu cầu hợp nhất thay đổi vào kho gốc.
+

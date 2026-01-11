@@ -1,0 +1,78 @@
+# Ngữ cảnh 10: Dùng Prisma/Sequelize để quản lý schema và migrations
+
+🧠 Model (Ý nghĩa dữ liệu & quan hệ)
+- Sử dụng ORM để:
+  - Quản lý cấu trúc bảng bằng mã nguồn (schema).
+  - Dễ dàng migrate database (tạo bảng, sửa cột, rollback...).
+  - Tách biệt logic backend với SQL thuần.
+- Hai công cụ phổ biến: Prisma (modern) và Sequelize (truyền thống).
+
+🛠️ Controller (ORM)
+
+--- PRISMA ---
+
+# 1. Cài đặt Prisma CLI và khởi tạo
+npm install prisma --save-dev
+npx prisma init
+
+# 2. Cấu hình file .env
+DATABASE_URL="postgresql://user:password@localhost:5432/mydb"
+
+# 3. Định nghĩa schema trong prisma/schema.prisma
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  createdAt DateTime @default(now())
+}
+
+# 4. Tạo migration và đẩy schema vào DB
+npx prisma migrate dev --name init
+
+# 5. Tạo dữ liệu mẫu (seed.ts)
+import { PrismaClient } from '@prisma/client'
+const prisma = new PrismaClient()
+
+async function main() {
+  await prisma.user.create({
+    data: { name: 'Trung', email: 'trung@example.com' },
+  });
+}
+main();
+
+--- SEQUELIZE ---
+
+# 1. Cài đặt Sequelize CLI
+npm install sequelize sequelize-cli pg pg-hstore
+npx sequelize init
+
+# 2. Tạo model + migration
+npx sequelize model:generate --name User --attributes name:string,email:string
+
+# 3. Chỉnh sửa file migration (add constraints)
+email: {
+  type: Sequelize.STRING,
+  allowNull: false,
+  unique: true
+},
+name: {
+  type: Sequelize.STRING,
+  allowNull: false
+}
+
+# 4. Chạy migration
+npx sequelize db:migrate
+
+# 5. Seed dữ liệu
+npx sequelize seed:generate --name demo-user
+# Chỉnh file seed và chạy:
+npx sequelize db:seed:all
+
+📘 Ghi chú:
+- Prisma: hướng schema-first, dễ tích hợp TypeScript
+- Sequelize: hướng migration-first, quen thuộc với dev Node.js truyền thống
+- Migration giúp:
+  + Version hoá database (quản lý lịch sử thay đổi)
+  + Dễ rollback, tái tạo schema khi cần
+  + Quản lý production DB an toàn và minh bạch
+

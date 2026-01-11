@@ -1,0 +1,77 @@
+TẠO NỘI DUNG CHO TRANG WEB BẰNG HTML
+======================================
+
+1. MỤC TIÊU
+- Tạo khung nội dung trang web đầu tiên bằng HTML.
+- Làm quen với các phần tử: tiêu đề, đoạn văn, hình ảnh, danh sách, liên kết.
+- Tập viết cấu trúc HTML cơ bản đúng chuẩn.
+
+2. TẠO FILE HTML CƠ BẢN
+
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>My test page</title>
+  </head>
+  <body>
+    <!-- nội dung trang sẽ đặt tại đây -->
+  </body>
+</html>
+
+- `<!doctype html>`: Khai báo tài liệu HTML5.
+- `<html>`: Gói toàn bộ trang.
+- `<head>`: Phần cấu hình, không hiển thị nội dung.
+- `<meta>`: Mã hóa ký tự và khung hiển thị.
+- `<title>`: Tiêu đề xuất hiện ở tab trình duyệt.
+- `<body>`: Phần người dùng nhìn thấy.
+
+3. CHÈN HÌNH ẢNH
+
+<img src="images/firefox-icon.png" alt="Biểu tượng trình duyệt Firefox" />
+
+- `src`: đường dẫn ảnh.
+- `alt`: mô tả thay thế nếu ảnh không hiển thị.
+- Lưu ý: Thư mục `images` đặt cùng cấp với `index.html`.
+
+4. THÊM TIÊU ĐỀ
+
+<h1>Mozilla is cool</h1>
+<h2>Giới thiệu</h2>
+<h3>Chi tiết phụ</h3>
+
+- Dùng từ `<h1>` đến `<h6>` để tạo các cấp độ tiêu đề.
+- `<h1>` dùng một lần duy nhất, thường là tiêu đề chính.
+
+5. VIẾT ĐOẠN VĂN
+
+<p>Đây là một đoạn văn bản giới thiệu nội dung trang.</p>
+
+- Dùng thẻ `<p>` để tạo đoạn văn.
+
+6. TẠO DANH SÁCH
+- Danh sách không thứ tự:
+
+<ul>
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>JavaScript</li>
+</ul>
+
+
+- Danh sách có thứ tự:
+
+<ol>
+  <li>Bước 1: Tạo thư mục</li>
+  <li>Bước 2: Tạo file index.html</li>
+  <li>Bước 3: Viết nội dung</li>
+</ol>
+
+
+7. THÊM LIÊN KẾT
+
+<a href="https://www.mozilla.org/en-US/about/manifesto/">Mozilla Manifesto</a>
+
+- `href`: Đường dẫn cần liên kết tới.
+- Dùng đầy đủ `https://` để tránh lỗi.

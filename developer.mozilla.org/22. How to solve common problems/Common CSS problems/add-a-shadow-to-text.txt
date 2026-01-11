@@ -1,0 +1,30 @@
+
+1. Thêm bóng đổ cho văn bản
+Trong hướng dẫn này, bạn sẽ tìm hiểu cách thêm bóng đổ cho bất kỳ văn bản nào trên trang của bạn.
+
+**Thêm bóng đổ cho văn bản**
+Trong hướng dẫn thêm bóng đổ cho hộp, bạn đã biết cách thêm bóng đổ cho phần tử. Tuy nhiên, kỹ thuật đó chỉ thêm bóng đổ cho hộp bao quanh phần tử. Để thêm bóng đổ cho văn bản bên trong hộp, bạn cần một thuộc tính CSS khác — `text-shadow`.
+
+Thuộc tính `text-shadow` nhận các giá trị sau:
+
+- Độ lệch theo trục X
+- Độ lệch theo trục Y
+- Bán kính mờ
+- Màu sắc
+
+Trong ví dụ dưới đây, chúng ta đã đặt độ lệch trục X là 2px, độ lệch trục Y là 4px, bán kính mờ là 4px và màu sắc là xanh lam bán trong suốt. Hãy thử thay đổi các giá trị khác nhau để xem bóng đổ thay đổi như thế nào.
+
+```html
+<div class="wrapper">
+  <h1>Adding a shadow to text</h1>
+</div>
+```
+
+```css
+h1 {
+  color: royalblue;
+  text-shadow: 2px 4px 4px rgb(46 91 173 / 0.6);
+}
+```
+
+Lưu ý: Việc thêm bóng đổ cho văn bản có thể dễ dàng làm cho văn bản trở nên khó đọc. Hãy đảm bảo rằng các lựa chọn của bạn vẫn giữ cho văn bản dễ đọc và cung cấp đủ độ tương phản màu sắc cho những người gặp khó khăn với văn bản có độ tương phản thấp.

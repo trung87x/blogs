@@ -1,0 +1,81 @@
+
+### Quản Lý Gói (Package Management)
+
+**Quản lý gói là gì?**
+Quản lý gói (Package Management) là hệ thống giúp bạn quản lý các thư viện hoặc công cụ của dự án, bao gồm việc cài đặt, cập nhật và loại bỏ các gói phần mềm. Trong phát triển web hiện đại, việc sử dụng các công cụ và thư viện bên ngoài là rất phổ biến. Package manager giúp bạn dễ dàng cài đặt các thư viện này và đảm bảo tất cả các phần phụ thuộc đều được cài đặt đúng cách.
+
+**Dependency (Phụ thuộc) trong dự án của bạn**
+Một **dependency** (phụ thuộc) là một phần mềm bên ngoài do người khác viết ra và giải quyết một vấn đề mà bạn đang gặp phải. Ví dụ, nếu dự án của bạn cần tính toán ngày tháng theo cách dễ đọc, có thể đã có một thư viện sẵn có giải quyết vấn đề này. Sử dụng dependency giúp bạn tiết kiệm thời gian và công sức, và các thư viện đã được kiểm tra nhiều trong nhiều tình huống khác nhau sẽ giúp đảm bảo tính ổn định của ứng dụng.
+
+**Các loại package manager phổ biến**
+1. **npm (Node Package Manager)**: Đây là công cụ quản lý gói chính thức của Node.js và được sử dụng rộng rãi trong phát triển web.
+2. **Yarn**: Một package manager khác cho JavaScript, nổi bật với tốc độ nhanh và dễ sử dụng.
+3. **pnpm**: Một công cụ mới hơn, cũng nhằm giảm bớt việc cài đặt trùng lặp và giúp tiết kiệm không gian ổ đĩa.
+
+**Cài đặt dependencies bằng npm**
+Khi sử dụng npm, bạn có thể cài đặt các gói và các dependency của dự án. Khi chạy `npm install`, npm sẽ tìm kiếm và cài đặt tất cả các dependencies trong tệp `package.json` của bạn.
+
+**Ví dụ về cài đặt gói**:
+```bash
+npm install <package-name>
+```
+
+**Cài đặt gói và các phụ thuộc của dự án**
+```bash
+npm install
+```
+Lệnh trên sẽ cài đặt tất cả các gói được liệt kê trong `package.json`.
+
+**Cài đặt phiên bản cụ thể**
+Bạn có thể cài đặt một phiên bản cụ thể của gói bằng cách chỉ định phiên bản, ví dụ:
+```bash
+npm install <package-name>@<version>
+```
+
+**Yarn - Package Manager thay thế npm**
+Yarn là một package manager thay thế npm, được thiết kế để nhanh hơn và hiệu quả hơn. Yarn sử dụng một cơ chế khác để cài đặt và lưu trữ các package.
+
+**Ví dụ về cài đặt gói với Yarn**:
+```bash
+yarn add <package-name>
+```
+
+**Quản lý các phiên bản của dependencies**
+Package managers giúp bạn dễ dàng theo dõi và quản lý các phiên bản của dependencies. Ví dụ, khi cài đặt một gói mới, bạn có thể chỉ định một phạm vi phiên bản để tránh việc cài đặt phiên bản không tương thích.
+
+**Cập nhật các dependencies**
+Nếu bạn muốn cập nhật các dependency trong dự án của mình, bạn có thể sử dụng các lệnh như:
+```bash
+npm update
+```
+Hoặc:
+```bash
+yarn upgrade
+```
+
+**Sử dụng `package.json` để quản lý dependencies**
+Tệp `package.json` là nơi bạn xác định các dependencies của dự án. Đây là một tệp quan trọng, chứa các thông tin về tên gói, phiên bản và các script cho dự án của bạn.
+
+**Ví dụ về `package.json`**:
+```json
+{
+  "name": "my-project",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "webpack": "^5.0.0"
+  }
+}
+```
+
+**Cài đặt gói cho môi trường phát triển**
+Có những thư viện chỉ được sử dụng trong môi trường phát triển, chẳng hạn như `webpack`, `eslint`. Những thư viện này được cài đặt dưới mục `devDependencies`.
+
+```bash
+npm install --save-dev <package-name>
+```
+
+**Tóm tắt**
+Package management là công cụ rất quan trọng trong phát triển ứng dụng web. Nó giúp bạn quản lý các thư viện và công cụ phụ thuộc, cài đặt và cập nhật chúng một cách dễ dàng. Hãy lựa chọn package manager phù hợp với dự án của bạn và luôn cập nhật các gói mới để duy trì sự ổn định và hiệu quả cho ứng dụng.

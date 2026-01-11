@@ -1,0 +1,73 @@
+
+### Lưu trữ phía khách hàng (Client-side Storage)
+
+**Lưu trữ phía khách hàng là gì?**
+Lưu trữ phía khách hàng (Client-side Storage) là một phương pháp lưu trữ dữ liệu trực tiếp trên máy của người dùng, thay vì trên máy chủ. Điều này giúp lưu trữ các thông tin như tùy chỉnh của người dùng, lịch sử, giỏ hàng, v.v. mà không cần kết nối đến máy chủ.
+
+**Các phương pháp lưu trữ phía khách hàng:**
+1. **Cookies**:
+   - Cookies là phương pháp lưu trữ dữ liệu lâu dài trên máy khách. Tuy nhiên, cookies có kích thước lưu trữ hạn chế và thường được sử dụng cho các thông tin như session ID hoặc token.
+
+2. **Web Storage API**:
+   - **localStorage**: Lưu trữ dữ liệu vĩnh viễn, tồn tại ngay cả khi trình duyệt được đóng lại.
+   - **sessionStorage**: Lưu trữ dữ liệu chỉ trong suốt phiên làm việc, sẽ bị xóa khi trình duyệt hoặc tab được đóng lại.
+
+**Ví dụ sử dụng Web Storage API**:
+```js
+// Lưu trữ dữ liệu
+localStorage.setItem("username", "Khoa");
+
+// Lấy dữ liệu
+let username = localStorage.getItem("username");
+console.log(username);  // "Khoa"
+
+// Xóa dữ liệu
+localStorage.removeItem("username");
+```
+
+**IndexedDB**:
+- IndexedDB là hệ thống cơ sở dữ liệu trong trình duyệt, cho phép bạn lưu trữ dữ liệu phức tạp hơn như các tệp âm thanh, video hoặc các bộ dữ liệu lớn. Đây là một phương pháp lưu trữ mạnh mẽ cho các ứng dụng web yêu cầu khả năng lưu trữ nhiều dữ liệu.
+
+**Ví dụ sử dụng IndexedDB**:
+```js
+let db;
+const openRequest = indexedDB.open("myDatabase", 1);
+
+openRequest.onupgradeneeded = function(event) {
+  const db = event.target.result;
+  const objectStore = db.createObjectStore("notes", { keyPath: "id", autoIncrement: true });
+  objectStore.createIndex("title", "title", { unique: false });
+  objectStore.createIndex("body", "body", { unique: false });
+};
+
+openRequest.onsuccess = function(event) {
+  db = event.target.result;
+  const transaction = db.transaction(["notes"], "readwrite");
+  const objectStore = transaction.objectStore("notes");
+  objectStore.add({ title: "First Note", body: "This is a note" });
+};
+```
+
+**Cache API và Service Workers**:
+- **Cache API** giúp lưu trữ các phản hồi HTTP và tài nguyên của trang web, cho phép ứng dụng hoạt động khi không có kết nối mạng.
+- **Service Workers** là các script hoạt động nền, giúp quản lý các yêu cầu và lưu trữ dữ liệu ngoại tuyến.
+
+**Ví dụ sử dụng Cache API và Service Worker**:
+```js
+self.addEventListener("install", (e) => {
+  e.waitUntil(
+    caches.open("my-cache").then((cache) => {
+      return cache.addAll(["/index.html", "/style.css", "/app.js"]);
+    })
+  );
+});
+
+self.addEventListener("fetch", (e) => {
+  e.respondWith(
+    caches.match(e.request).then((response) => response || fetch(e.request))
+  );
+});
+```
+
+**Tóm tắt**:
+Lưu trữ phía khách hàng giúp tiết kiệm tài nguyên server và cải thiện trải nghiệm người dùng, đặc biệt là với các ứng dụng cần hoạt động ngoại tuyến hoặc lưu trữ dữ liệu lâu dài. Các phương pháp chính bao gồm Web Storage API, IndexedDB, và Cache API.

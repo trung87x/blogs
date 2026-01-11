@@ -1,0 +1,35 @@
+
+1. Cách làm nổi bật một đoạn văn ngay sau tiêu đề
+Trong hướng dẫn này, bạn sẽ tìm hiểu cách làm nổi bật một đoạn văn ngay sau tiêu đề.
+
+**Cách tạo kiểu cho đoạn văn đầu tiên sau tiêu đề**
+Một mẫu phổ biến là tạo kiểu cho đoạn văn đầu tiên trong bài viết khác với các đoạn văn sau. Thường thì đoạn văn đầu tiên này sẽ nằm ngay sau tiêu đề, và nếu đây là trường hợp trong thiết kế của bạn, bạn có thể sử dụng sự kết hợp giữa các phần tử này để nhắm mục tiêu vào đoạn văn.
+
+**Kết hợp next-sibling**
+CSS có một nhóm các Selectors gọi là combinators, vì chúng chọn các phần tử dựa trên sự kết hợp của các selectors. Trong trường hợp của chúng ta, chúng ta sẽ sử dụng combinator next-sibling. Combinator này chọn một phần tử dựa trên việc nó đứng cạnh một phần tử khác. Trong HTML của chúng ta, có một `<h1>` theo sau là một `<p>`. Đoạn `<p>` là next sibling của `<h1>`, vì vậy chúng ta có thể chọn nó bằng `h1 + p`.
+
+```html
+<div class="wrapper">
+  <h1>A heading</h1>
+  <p>
+    Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion
+    daikon amaranth tatsoi tomatillo melon azuki bean garlic.
+  </p>
+
+  <p>
+    Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette
+    tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato.
+    Dandelion cucumber earthnut pea peanut soko zucchini.
+  </p>
+</div>
+```
+
+```css
+.wrapper h1 + p {
+  font-weight: bold;
+  font-size: 130%;
+  color: rebeccapurple;
+}
+```
+
+Lưu ý: Đây là một cách rất hiệu quả để nhắm mục tiêu và tạo kiểu cho các phần tử theo mối quan hệ của chúng trong DOM.

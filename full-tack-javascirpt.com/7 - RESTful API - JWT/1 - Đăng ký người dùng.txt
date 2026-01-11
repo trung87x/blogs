@@ -1,0 +1,126 @@
+===========================================
+🧩 Ngữ cảnh #1: Đăng ký người dùng
+===========================================
+
+🧠 Mô hình (Model) – Ý nghĩa:
+Người dùng đăng ký (sign up) để tạo tài khoản mới.
+Dữ liệu: name, email, password.
+
+---
+
+🛠️ Controller – Các bước xử lý:
+1. Nhận POST request với dữ liệu người dùng.
+2. Kiểm tra email đã tồn tại trong DB chưa.
+3. Nếu chưa:
+   - Mã hóa mật khẩu bằng bcrypt
+   - Lưu người dùng vào MongoDB
+4. Gửi phản hồi thành công về client
+
+---
+
+📦 Cài các thư viện cần thiết:
+npm install express mongoose bcrypt
+
+---
+
+📄 File: models/User.js
+-----------------------------------
+const mongoose = require('mongoose');
+
+const UserSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    lowercase: true
+  },
+  password: {
+    type: String,
+    required: true
+  }
+}, { timestamps: true });
+
+module.exports = mongoose.model('User', UserSchema);
+
+---
+
+📄 File: routes/auth.js
+-----------------------------------
+const express = require('express');
+const router = express.Router();
+const bcrypt = require('bcrypt');
+const User = require('../models/User');
+
+router.post('/register', async (req, res) => {
+  const { name, email, password } = req.body;
+
+  try {
+    // Kiểm tra email đã tồn tại
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.status(409).json({ message: 'Email đã được đăng ký' });
+    }
+
+    // Mã hóa mật khẩu
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+
+    // Tạo user mới
+    const newUser = new User({
+      name,
+      email,
+      password: hashedPassword,
+    });
+
+    // Lưu vào DB
+    await newUser.save();
+
+    // Phản hồi thành công
+    res.status(201).json({ message: 'Đăng ký thành công' });
+
+  } catch (err) {
+    res.status(500).json({ message: 'Lỗi server', error: err.message });
+  }
+});
+
+module.exports = router;
+
+---
+
+📄 File: server.js (hoặc app.js)
+-----------------------------------
+const express = require('express');
+const mongoose = require('mongoose');
+const authRoutes = require('./routes/auth');
+
+const app = express();
+app.use(express.json());
+
+mongoose.connect('mongodb://localhost:27017/myapp');
+
+app.use('/api/auth', authRoutes);
+
+app.listen(3000, () => {
+  console.log('Server chạy ở http://localhost:3000');
+});
+
+---
+
+🧪 Test API:
+- URL: POST http://localhost:3000/api/auth/register
+- Body:
+{
+  "name": "Trung Đinh",
+  "email": "trung@example.com",
+  "password": "123456"
+}
+
+- Kết quả:
+{
+  "message": "Đăng ký thành công"
+}

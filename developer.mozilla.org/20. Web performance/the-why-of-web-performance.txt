@@ -1,0 +1,40 @@
+Tại sao hiệu suất web quan trọng?
+
+**Hiệu suất web** đề cập đến tốc độ tải trang web và khả năng tương tác của người dùng với trang web đó. Bài viết này giải thích tại sao hiệu suất web lại quan trọng đối với người dùng và mục tiêu kinh doanh của bạn.
+
+### **Hiệu suất web là gì?**
+Hiệu suất web là cách đo lường khách quan và trải nghiệm người dùng khi sử dụng một trang web hoặc ứng dụng. Bao gồm các yếu tố như:
+
+1. **Giảm thời gian tải chung**: Là thời gian để các tệp cần thiết để render (hiển thị) trang web tải về máy tính của người dùng. Các yếu tố như độ trễ mạng, kích thước tệp và số lượng yêu cầu HTTP đều ảnh hưởng đến điều này. Một chiến lược hiệu quả là làm cho tệp càng nhỏ càng tốt, giảm số lượng yêu cầu HTTP và sử dụng các kỹ thuật tải thông minh (như `preload`).
+
+2. **Tạo trang web có thể sử dụng nhanh chóng**: Tải tài nguyên theo thứ tự hợp lý để người dùng có thể bắt đầu sử dụng trang web càng nhanh càng tốt. Các tài nguyên khác có thể tiếp tục tải trong nền trong khi người dùng thực hiện các tác vụ chính. Đây là thời gian từ khi trang bắt đầu tải đến khi người dùng có thể tương tác được gọi là "time to interactive".
+
+3. **Mượt mà và khả năng tương tác**: Trang web có mượt mà không? Cuộn trang có mượt mà không? Các nút có thể nhấp được không? Các pop-up có mở nhanh không và hoạt ảnh có mượt mà không? Để tạo trang web mượt mà, bạn có thể sử dụng **CSS animations** thay vì JavaScript và tối ưu hóa các thay đổi DOM.
+
+4. **Hiệu suất cảm nhận**: Cảm nhận của người dùng về tốc độ của trang web có thể quan trọng hơn hiệu suất thực tế. Dù trang web có thể tải chậm, nếu bạn hiển thị một spinner tải hoặc cung cấp các gợi ý hữu ích trong thời gian chờ đợi, người dùng sẽ cảm thấy thời gian chờ đợi ngắn hơn. **Hiệu suất cảm nhận** là cảm nhận của người dùng, không phải là một chỉ số có thể đo lường trực tiếp.
+
+5. **Đo lường hiệu suất**: Đo lường hiệu suất web bao gồm việc đo tốc độ thực tế và cảm nhận của ứng dụng, tối ưu hóa nơi có thể và theo dõi hiệu suất để đảm bảo rằng những gì bạn đã tối ưu vẫn tiếp tục được duy trì.
+
+### **Tại sao cần quan tâm đến hiệu suất web?**
+Hiệu suất web và các thực hành tốt liên quan là rất quan trọng đối với trải nghiệm của người dùng trên trang web. Trong một chừng mực nào đó, hiệu suất web có thể được xem là một phần của khả năng truy cập web (web accessibility). Bạn cần xem xét thiết bị của người dùng và tốc độ kết nối mạng của họ khi tối ưu hóa hiệu suất.
+
+#### Ví dụ:
+- **CNN.com** có hơn 400 yêu cầu HTTP với kích thước tệp hơn 22.6MB. Trên một máy tính để bàn kết nối với mạng quang học, trang web sẽ tải khá nhanh và kích thước tệp hầu như không quan trọng. Tuy nhiên, nếu bạn tải trang web này trên một thiết bị di động với dữ liệu di động có kết nối kém hoặc trên thiết bị giá rẻ, trang web sẽ rất chậm và có thể không tải được hoặc bị treo.
+
+#### Chi phí dữ liệu:
+- Trong một số khu vực, kết nối internet tính phí theo megabyte, điều này làm cho các tải tệp lớn trở nên rất đắt đỏ. Việc tải một trang web có kích thước lớn (22.6MB) có thể tiêu tốn một phần đáng kể dữ liệu của người dùng và có thể gây ra chi phí cao khi sử dụng dịch vụ roaming quốc tế.
+
+### **Cải thiện tỷ lệ chuyển đổi**
+Giảm thời gian tải và render của trang web sẽ cải thiện tỷ lệ chuyển đổi và giữ chân người dùng.
+
+- **Tỷ lệ chuyển đổi** là tỷ lệ mà người dùng thực hiện hành động mong muốn, như mua hàng, đọc bài viết, hoặc đăng ký nhận bản tin.
+- Người dùng mong đợi trang web tải trong **2 giây** hoặc ít hơn, và bắt đầu bỏ trang nếu nó chậm hơn **3 giây**.
+- **Ví dụ thực tế**:
+   - **Tokopedia** đã giảm thời gian render từ 14 giây xuống 2 giây cho các kết nối 3G và thấy tỷ lệ người truy cập tăng **19%**, tổng số phiên truy cập tăng **35%**, người dùng mới tăng **7%**, người dùng hoạt động tăng **17%**, và số phiên mỗi người dùng tăng **16%**.
+   - **Pinterest** đã xây dựng lại các trang để tối ưu hiệu suất và giảm thời gian chờ đợi **40%**, tăng **15%** lượng truy cập SEO và tăng **15%** tỷ lệ chuyển đổi đăng ký.
+
+### **Tại sao hiệu suất web lại quan trọng đối với doanh nghiệp?**
+Hiệu suất web không chỉ ảnh hưởng đến tốc độ tải trang mà còn liên quan đến các chỉ số quan trọng như tỷ lệ thoát, tỷ lệ chuyển đổi, doanh thu, sự hài lòng của người dùng và thứ hạng trên công cụ tìm kiếm. Các trang web có hiệu suất tốt sẽ tăng tỷ lệ giữ chân người dùng và sự hài lòng của họ, trong khi trang web chậm có thể dẫn đến việc người dùng bỏ đi và không quay lại.
+
+### **Kết luận**
+Hiệu suất web rất quan trọng đối với khả năng truy cập của trang web và các chỉ số khác phục vụ mục tiêu kinh doanh. Hiệu suất web tốt hay xấu có mối quan hệ mạnh mẽ với trải nghiệm người dùng và hiệu quả tổng thể của hầu hết các trang web. Đây chính là lý do tại sao bạn cần quan tâm đến hiệu suất web.

@@ -1,0 +1,123 @@
+
+### Giới thiệu về JavaScript bất đồng bộ (Asynchronous JavaScript)
+
+**Lập trình bất đồng bộ là gì?**
+Lập trình bất đồng bộ là một kỹ thuật cho phép chương trình bắt đầu một tác vụ có thể mất thời gian lâu và vẫn có thể phản hồi các sự kiện khác trong khi tác vụ đó đang chạy, thay vì phải đợi cho đến khi tác vụ đó hoàn thành. Khi tác vụ hoàn thành, kết quả sẽ được trả về cho chương trình.
+
+**Lập trình đồng bộ (Synchronous Programming)**
+Trong lập trình đồng bộ, các câu lệnh sẽ được thực thi theo thứ tự, một câu lệnh sau khi hoàn thành mới tiếp tục sang câu lệnh tiếp theo.
+
+**Ví dụ về lập trình đồng bộ**:
+```js
+const name = "Miriam";
+const greeting = `Hello, my name is ${name}!`;
+console.log(greeting);
+// "Hello, my name is Miriam!"
+```
+Ở đây, mã thực thi theo từng dòng một, từ trên xuống dưới.
+
+**Vấn đề với hàm đồng bộ lâu dài**
+Khi một hàm đồng bộ mất nhiều thời gian để hoàn thành, ví dụ như tính toán các số nguyên tố, chương trình sẽ không thể thực hiện các tác vụ khác trong khi đang chạy hàm đó.
+
+**Ví dụ:**
+```html
+<label for="quota">Number of primes:</label>
+<input type="text" id="quota" name="quota" value="1000000" />
+
+<button id="generate">Generate primes</button>
+<button id="reload">Reload</button>
+
+<div id="output"></div>
+```
+```js
+function generatePrimes(quota) {
+  const primes = [];
+  while (primes.length < quota) {
+    const candidate = random(MAX_PRIME);
+    if (isPrime(candidate)) {
+      primes.push(candidate);
+    }
+  }
+  return primes;
+}
+
+document.querySelector("#generate").addEventListener("click", () => {
+  const primes = generatePrimes(quota.value);
+  output.textContent = `Finished generating ${quota.value} primes!`;
+});
+```
+Chương trình không thể phản hồi khi người dùng nhập liệu trong lúc hàm `generatePrimes()` đang chạy.
+
+**Giải pháp: Lập trình bất đồng bộ**
+Chúng ta cần một cách để chương trình có thể tiếp tục chạy trong khi các tác vụ lâu dài được xử lý. Lập trình bất đồng bộ cho phép thực hiện các tác vụ này mà không làm gián đoạn các hoạt động khác.
+
+**Sự kiện và hàm callback**
+Hàm callback là một dạng của lập trình bất đồng bộ, trong đó một hàm được truyền vào một hàm khác và sẽ được gọi khi tác vụ hoàn thành. Ví dụ về sự kiện bất đồng bộ với `XMLHttpRequest`:
+
+**Ví dụ sử dụng XMLHttpRequest**:
+```html
+<button id="xhr">Click to start request</button>
+<button id="reload">Reload</button>
+
+<pre readonly class="event-log"></pre>
+```
+```js
+const log = document.querySelector(".event-log");
+
+document.querySelector("#xhr").addEventListener("click", () => {
+  log.textContent = "";
+
+  const xhr = new XMLHttpRequest();
+
+  xhr.addEventListener("loadend", () => {
+    log.textContent = `${log.textContent}Finished with status: ${xhr.status}`;
+  });
+
+  xhr.open(
+    "GET",
+    "https://raw.githubusercontent.com/mdn/content/main/files/en-us/_wikihistory.json",
+  );
+  xhr.send();
+  log.textContent = `${log.textContent}Started XHR request
+`;
+});
+```
+Trong ví dụ này, yêu cầu HTTP sẽ chạy bất đồng bộ, giúp chương trình tiếp tục thực hiện các tác vụ khác trong khi chờ kết quả.
+
+**Callback hell**
+Khi sử dụng nhiều callback lồng nhau, mã có thể trở nên khó đọc và khó duy trì, đặc biệt là khi có lỗi xảy ra ở mỗi cấp. Điều này được gọi là **callback hell** hay "pyramid of doom".
+
+**Ví dụ callback hell**:
+```js
+function doStep1(init, callback) {
+  const result = init + 1;
+  callback(result);
+}
+
+function doStep2(init, callback) {
+  const result = init + 2;
+  callback(result);
+}
+
+function doStep3(init, callback) {
+  const result = init + 3;
+  callback(result);
+}
+
+function doOperation() {
+  doStep1(0, (result1) => {
+    doStep2(result1, (result2) => {
+      doStep3(result2, (result3) => {
+        console.log(`result: ${result3}`);
+      });
+    });
+  });
+}
+
+doOperation();
+```
+Kết quả là một chuỗi các hàm callback lồng nhau, rất khó để quản lý và bảo trì.
+
+**Promise**: Giải pháp hiện đại cho callback hell
+Ngày nay, **Promise** được sử dụng thay vì callback để xử lý các tác vụ bất đồng bộ, giúp mã dễ đọc và dễ duy trì hơn.
+

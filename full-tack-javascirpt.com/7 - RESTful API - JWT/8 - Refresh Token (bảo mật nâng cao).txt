@@ -1,0 +1,109 @@
+🧠 Ngữ cảnh #8: Refresh Token (bảo mật nâng cao)
+→ Dùng để cấp lại access token khi token cũ hết hạn, giúp người dùng không bị đăng xuất liên tục.
+
+📁 Gợi ý các file liên quan:
+- middlewares/verifyToken.js      → kiểm tra access token
+- routes/auth.js                  → route cấp lại access token
+- models/RefreshToken.js (tùy chọn) → nếu muốn lưu refresh token vào DB
+
+===============================
+🔑 Kiến trúc tổng quan:
+===============================
+1. Khi đăng nhập thành công:
+   - Backend tạo 2 loại token:
+     ✅ Access Token (ngắn hạn – ví dụ 15 phút)
+     ✅ Refresh Token (dài hạn – ví dụ 7 ngày)
+
+2. Access Token dùng để truy cập API như bình thường
+3. Khi Access Token hết hạn → Client dùng Refresh Token để gọi API `/refresh`
+4. Nếu Refresh Token hợp lệ → Backend cấp Access Token mới
+
+===============================
+📄 Đăng nhập: tạo và gửi 2 token
+===============================
+const jwt = require('jsonwebtoken');
+
+const accessToken = jwt.sign(
+  { userId: user._id, role: user.role },
+  process.env.ACCESS_TOKEN_SECRET,
+  { expiresIn: '15m' }
+);
+
+const refreshToken = jwt.sign(
+  { userId: user._id },
+  process.env.REFRESH_TOKEN_SECRET,
+  { expiresIn: '7d' }
+);
+
+// Lưu refreshToken vào cookie
+res.cookie('refreshToken', refreshToken, {
+  httpOnly: true,
+  secure: true,
+  sameSite: 'Strict',
+  maxAge: 7 * 24 * 60 * 60 * 1000
+});
+
+// Gửi access token về cho client
+res.json({ accessToken });
+
+===============================
+📄 Route: /refresh – cấp lại access token
+===============================
+// routes/auth.js
+router.post('/refresh', (req, res) => {
+  const token = req.cookies.refreshToken;
+  if (!token) return res.status(401).json({ message: 'No refresh token' });
+
+  try {
+    const payload = jwt.verify(token, process.env.REFRESH_TOKEN_SECRET);
+
+    const newAccessToken = jwt.sign(
+      { userId: payload.userId },
+      process.env.ACCESS_TOKEN_SECRET,
+      { expiresIn: '15m' }
+    );
+
+    res.json({ accessToken: newAccessToken });
+  } catch (err) {
+    res.status(403).json({ message: 'Invalid or expired refresh token' });
+  }
+});
+
+===============================
+📄 Middleware kiểm tra access token (cũ):
+===============================
+const verifyToken = (req, res, next) => {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
+  if (!token) return res.sendStatus(401);
+
+  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
+    if (err) return res.sendStatus(403);
+    req.user = decoded;
+    next();
+  });
+};
+
+===============================
+📌 Ghi chú quan trọng:
+===============================
+✅ Access Token:
+- Ngắn hạn, dễ hết hạn, dùng để bảo vệ API
+
+✅ Refresh Token:
+- Dài hạn, nên được lưu trong cookie (httpOnly) để tránh XSS
+- Không nên lưu vào localStorage
+
+✅ Không tái sử dụng Access Token hết hạn → luôn gọi /refresh
+
+✅ Có thể lưu refreshToken vào DB nếu muốn hỗ trợ logout hoặc thu hồi thủ công
+
+✅ Nên tạo route /logout để xóa refreshToken khỏi cookie
+
+===============================
+📄 Route /logout – xoá refreshToken:
+===============================
+router.post('/logout', (req, res) => {
+  res.clearCookie('refreshToken');
+  res.json({ message: 'Logged out successfully' });
+});

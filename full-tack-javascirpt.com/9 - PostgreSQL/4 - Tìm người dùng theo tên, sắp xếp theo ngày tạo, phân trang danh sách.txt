@@ -1,0 +1,47 @@
+# Ngữ cảnh 4: Tìm người dùng theo tên, sắp xếp theo ngày tạo, phân trang danh sách
+
+🧠 Model (Ý nghĩa dữ liệu & quan hệ)
+- Truy vấn có điều kiện, sắp xếp và phân trang là kỹ thuật phổ biến để xử lý dữ liệu lớn:
+  - Tìm người dùng có tên khớp từ khoá.
+  - Sắp xếp theo thời gian tạo mới nhất.
+  - Phân trang kết quả: LIMIT & OFFSET.
+
+🛠️ Controller (SQL)
+
+-- Tạo bảng người dùng (nếu chưa có)
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(100) UNIQUE NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Truy vấn người dùng có tên chứa từ khoá 'trung'
+SELECT *
+FROM users
+WHERE name ILIKE '%trung%';
+
+-- Truy vấn người dùng và sắp xếp theo thời gian tạo (mới nhất trước)
+SELECT *
+FROM users
+ORDER BY created_at DESC;
+
+-- Phân trang: lấy 10 người dùng, bắt đầu từ bản ghi thứ 0
+SELECT *
+FROM users
+ORDER BY created_at DESC
+LIMIT 10 OFFSET 0;
+
+-- Ví dụ: Trang 2 (bắt đầu từ bản ghi thứ 10)
+SELECT *
+FROM users
+ORDER BY created_at DESC
+LIMIT 10 OFFSET 10;
+
+📘 Ghi chú:
+- `ILIKE`: tìm kiếm không phân biệt chữ hoa/thường (PostgreSQL)
+- `ORDER BY created_at DESC`: sắp xếp mới nhất lên trước
+- `LIMIT`: giới hạn số bản ghi trả về
+- `OFFSET`: bỏ qua số bản ghi đầu (dùng cho phân trang)
+- Phân trang = LIMIT + OFFSET (ví dụ: LIMIT 10 OFFSET 20 → trang 3 nếu mỗi trang 10 bản ghi)
+

@@ -1,0 +1,72 @@
+
+1. Công cụ dành cho nhà phát triển của trình duyệt (Browser Developer Tools)
+Mỗi trình duyệt web hiện đại đều bao gồm một bộ công cụ dành cho nhà phát triển mạnh mẽ. Những công cụ này thực hiện nhiều tác vụ khác nhau, từ việc kiểm tra HTML, CSS và JavaScript hiện tại cho đến việc hiển thị các tài nguyên trang đã được yêu cầu và thời gian tải của chúng. Bài viết này giải thích cách sử dụng các chức năng cơ bản của công cụ dành cho nhà phát triển trên trình duyệt.
+
+**Cách mở công cụ dành cho nhà phát triển trong trình duyệt của bạn**
+Các công cụ dành cho nhà phát triển sống bên trong trình duyệt của bạn trong một cửa sổ con trông như thế này, tùy thuộc vào trình duyệt bạn đang sử dụng.
+
+**Cách mở công cụ dành cho nhà phát triển**
+Ba cách để mở:
+
+- **Bàn phím**:
+  - Windows: Ctrl + Shift + I hoặc F12
+  - macOS: ⌘ + ⌥ + I
+- **Thanh menu**:
+  - Firefox: Menu (☰) ➤ More tools ➤ Web Developer Tools
+  - Chrome: More tools ➤ Developer tools
+  - Opera: Developer ➤ Developer tools
+  - Safari: Develop ➤ Show Web Inspector.
+
+**Chú ý:** Công cụ dành cho nhà phát triển của Safari không được bật mặc định. Để bật chúng, hãy vào Safari ➤ Preferences ➤ Advanced, và kiểm tra Show Develop menu trong menu bar hoặc Enable features for web developers checkbox.
+
+**Trình kiểm tra (Inspector): Khám phá DOM và chỉnh sửa CSS**
+Công cụ dành cho nhà phát triển thường mở mặc định vào phần "Inspector", công cụ này hiển thị mã HTML trên trang của bạn khi chạy, cùng với các quy tắc CSS được áp dụng cho mỗi phần tử trên trang. Nó cũng cho phép bạn thay đổi HTML và CSS ngay lập tức và xem kết quả thay đổi trực tiếp trong cửa sổ trình duyệt.
+
+**Khám phá Trình kiểm tra DOM**
+Để bắt đầu, nhấp chuột phải (hoặc Ctrl-click trên Mac) vào một phần tử HTML trong "DOM inspector" và nhìn vào menu ngữ cảnh. Các tùy chọn menu có sẵn sẽ thay đổi tùy theo trình duyệt, nhưng những cái quan trọng hầu hết đều giống nhau:
+
+- **Delete Node** (Đôi khi là Delete Element): Xóa phần tử hiện tại.
+- **Edit as HTML** (Đôi khi là Add attribute/Edit text): Cho phép bạn thay đổi HTML và xem kết quả ngay lập tức. Rất hữu ích khi gỡ lỗi và kiểm tra.
+- **:hover/:active/:focus**: Buộc các trạng thái phần tử như hover, active hoặc focus để bạn có thể xem kiểu dáng của chúng.
+- **Copy/Copy as HTML**: Sao chép HTML hiện tại đã chọn.
+- **Copy CSS Path** và **Copy XPath**: Sao chép selector CSS hoặc biểu thức XPath sẽ chọn phần tử HTML hiện tại.
+
+**Khám phá trình chỉnh sửa CSS**
+Mặc định, trình chỉnh sửa CSS hiển thị các quy tắc CSS được áp dụng cho phần tử hiện tại:
+
+- Các quy tắc CSS được áp dụng cho phần tử hiện tại sẽ được hiển thị theo thứ tự từ cụ thể nhất đến ít cụ thể hơn.
+- Nhấp vào các hộp kiểm bên cạnh mỗi khai báo để xem điều gì sẽ xảy ra nếu bạn xóa khai báo đó.
+- Nhấp vào mũi tên bên cạnh mỗi thuộc tính viết tắt để hiển thị các giá trị dài của thuộc tính đó.
+- Bạn có thể nhấp vào tên hoặc giá trị của một thuộc tính để mở một hộp văn bản, nơi bạn có thể nhập giá trị mới và xem trước trực tiếp sự thay đổi kiểu dáng.
+
+**Trình gỡ lỗi JavaScript (JavaScript Debugger)**
+Trình gỡ lỗi JavaScript cho phép bạn theo dõi giá trị của các biến và đặt điểm dừng (breakpoints), các điểm trong mã mà bạn muốn tạm dừng thực thi và xác định vấn đề cản trở mã của bạn chạy đúng.
+
+**Khám phá Trình gỡ lỗi**
+Mỗi trình gỡ lỗi JavaScript trong trình duyệt có ba phần chính, mặc dù giao diện có thể khác nhau tùy vào trình duyệt bạn sử dụng. Các phần chính bao gồm:
+
+1. **Danh sách tệp**: Danh sách các tệp liên quan đến trang bạn đang gỡ lỗi.
+2. **Mã nguồn**: Đặt các điểm dừng tại các dòng mã bạn muốn tạm dừng thực thi.
+3. **Biểu thức theo dõi và điểm dừng**: Bảng bên phải hiển thị danh sách các biểu thức theo dõi bạn đã thêm và các điểm dừng đã đặt.
+
+**Console JavaScript**
+Console JavaScript là công cụ vô cùng hữu ích để gỡ lỗi mã JavaScript không hoạt động như mong đợi. Nó cho phép bạn chạy các dòng mã JavaScript chống lại trang hiện tại trong trình duyệt và báo lỗi khi trình duyệt cố gắng thực thi mã của bạn.
+
+**Khám phá Console**
+Để kiểm tra, thử nhập các đoạn mã sau vào console và nhấn Enter:
+
+```js
+alert("hello!");
+document.querySelector("html").style.backgroundColor = "purple";
+const loginImage = document.createElement("img");
+loginImage.setAttribute("src", "https://example.com/image.png");
+document.querySelector("h1").appendChild(loginImage);
+```
+
+Những lỗi phổ biến sẽ xuất hiện nếu có lỗi cú pháp hoặc vấn đề trong mã của bạn, và console sẽ báo lỗi cho bạn.
+
+Tìm hiểu thêm về **Console JavaScript** trong các trình duyệt khác nhau:
+
+- Firefox Web Console
+- Chrome JavaScript Console (Opera và Edge sử dụng cùng công cụ)
+- Safari Console Object API và Console Command Line API

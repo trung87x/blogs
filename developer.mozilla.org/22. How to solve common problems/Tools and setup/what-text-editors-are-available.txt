@@ -1,0 +1,56 @@
+1. Các trình soạn thảo văn bản có sẵn để phát triển website
+Bài viết này chúng tôi sẽ cung cấp một số điểm cần lưu ý khi cài đặt trình soạn thảo văn bản cho phát triển web.
+
+**Tiền đề:** Bạn nên đã hiểu về phần mềm cần thiết, sự khác biệt giữa trang web và website, và tên miền là gì.
+
+**Mục tiêu:** Học cách chọn một trình soạn thảo văn bản phù hợp với nhu cầu của bạn khi phát triển website.
+
+**Tóm tắt**
+Một website chủ yếu bao gồm các tệp văn bản, vì vậy để có một trải nghiệm phát triển thú vị và dễ chịu, bạn nên chọn trình soạn thảo văn bản phù hợp.
+
+Sự lựa chọn nhiều đến mức có thể khiến bạn cảm thấy choáng ngợp, vì trình soạn thảo văn bản là công cụ cơ bản trong khoa học máy tính (đúng, phát triển web là khoa học máy tính). Lý tưởng nhất là bạn sẽ thử càng nhiều trình soạn thảo càng tốt và cảm nhận xem cái nào phù hợp với quy trình làm việc của bạn. Tuy nhiên, chúng tôi sẽ đưa ra một số gợi ý để bạn bắt đầu.
+
+Dưới đây là những câu hỏi chính bạn cần xem xét:
+
+- Hệ điều hành (OS) nào tôi muốn làm việc trên đó?
+- Tôi muốn thao tác với công nghệ nào?
+- Tôi mong đợi những tính năng cơ bản gì từ trình soạn thảo văn bản của mình?
+- Tôi có muốn thêm tính năng vào trình soạn thảo của mình không?
+- Tôi có cần hỗ trợ/trợ giúp khi sử dụng trình soạn thảo của mình không?
+- Giao diện của trình soạn thảo có quan trọng với tôi không?
+
+Lưu ý rằng chúng tôi không nhắc đến giá cả. Rõ ràng, điều đó cũng quan trọng, nhưng giá của một sản phẩm ít liên quan đến chất lượng hoặc khả năng của nó. Có một cơ hội lớn là bạn sẽ tìm thấy một trình soạn thảo văn bản phù hợp miễn phí.
+
+Dưới đây là một số trình soạn thảo phổ biến:
+
+| Trình soạn thảo | Giấy phép | Giá | Hệ điều hành | Hỗ trợ | Tài liệu | Mở rộng |
+|-----------------|-----------|-----|--------------|--------|----------|---------|
+| Bluefish | GPL 3 | Miễn phí | Windows, Mac, Linux | Mailing list, wiki | Manual trực tuyến | Có |
+| Brackets | MIT/BSD | Miễn phí | Windows, Mac, Linux | IRC | Wiki GitHub | Có |
+| Nova | Đóng nguồn | $99 | Mac | Twitter, Forum, Online | eBook | Có |
+| CodeLobster | Đóng nguồn | Miễn phí | Windows, Mac, Linux | Forum, Email | Manual trực tuyến | Có |
+| Emacs | GPL 3 | Miễn phí | Windows, Mac, Linux | FAQ, Mailing list, News Group | Manual trực tuyến | Có |
+| Espresso | Đóng nguồn | $99 | Mac | Email | Manual trực tuyến | Có |
+| Gedit | GPL | Miễn phí | Windows, Mac, Linux | Discourse, IRC | Manual trực tuyến | Có |
+| Kate | LGPL, GPL | Miễn phí | Windows, Mac, Linux | Mailing list, IRC | Manual trực tuyến | Có |
+| Notepad++ | GPL | Miễn phí | Windows | Forum | Manual trực tuyến | Có |
+| PSPad | Đóng nguồn | Miễn phí | Windows | FAQ, Forum | Help trực tuyến | Có |
+| Sublime Text | Đóng nguồn | $70 | Windows, Mac, Linux | Forum | Chính thức, Không chính thức | Có |
+| TextMate | Đóng nguồn | $50 | Mac | Twitter, IRC, Mailing list, Email | Manual trực tuyến | Có |
+| BBEdit | Đóng nguồn | Miễn phí | Mac | FAQ | Manual trực tuyến | Không |
+| VIM | Giấy phép mở | Miễn phí | Windows, Mac, Linux | Mailing list | Manual trực tuyến | Có |
+| Visual Studio Code | Mã nguồn mở dưới giấy phép MIT/ Giấy phép riêng cho sản phẩm | Miễn phí | Windows, Mac, Linux | FAQ | Tài liệu | Có |
+
+**Học tập chủ động**
+Trong phần học tập chủ động này, chúng tôi muốn bạn thử sử dụng và/hoặc cài đặt một trình soạn thảo văn bản mà bạn chọn. Máy tính của bạn có thể đã được cài đặt sẵn một trong các trình soạn thảo được đề xuất ở trên (ví dụ, Gedit nếu bạn sử dụng desktop GNOME, Kate nếu bạn sử dụng KDE, v.v.), nếu không thì bạn nên thử cài đặt một hoặc nhiều trình soạn thảo văn bản mà bạn lựa chọn.
+
+Hãy thử tìm hiểu các cài đặt của trình soạn thảo và đọc tài liệu hoặc hướng dẫn sử dụng để xem khả năng của nó. Cụ thể (nếu có thể trong trình soạn thảo của bạn), hãy thử:
+
+- Thay đổi cài đặt tô màu cú pháp và màu sắc
+- Chơi với độ rộng thụt lề, cài đặt nó sao cho phù hợp với nhu cầu của bạn
+- Kiểm tra các cài đặt tự động lưu và lưu phiên
+- Cấu hình các plugin có sẵn và khám phá cách cài đặt các plugin mới
+- Thay đổi giao diện màu sắc
+- Điều chỉnh cài đặt hiển thị và xem cách bạn có thể thay đổi bố cục của các cửa sổ
+- Kiểm tra ngôn ngữ/lập trình nào mà trình soạn thảo của bạn hỗ trợ
+""" 

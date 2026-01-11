@@ -1,0 +1,136 @@
+🧠 Model 11: Đăng nhập / phân quyền
+-------------------------------------
+• Vai trò: Xác thực người dùng, phân quyền theo role (admin, user...), bảo vệ nội dung riêng tư.
+• Controller: Kết hợp NextAuth.js, JWT, middleware để xử lý xác thực và phân quyền.
+
+📘 Ngữ cảnh #11: Hệ thống đăng nhập và phân quyền cơ bản với NextAuth.js + JWT
+-------------------------------------------------------------------------------
+
+📦 1. Cài đặt thư viện:
+
+```bash
+npm install next-auth
+```
+
+📁 2. Cấu trúc thư mục:
+
+```
+/app
+  /api
+    /auth
+      [...nextauth]/route.ts      ← route xác thực
+  /admin
+    /page.tsx                     ← chỉ cho admin truy cập
+  /user
+    /page.tsx                     ← chỉ cho user đã đăng nhập
+/middleware.ts                    ← kiểm tra token & phân quyền
+/lib/auth.ts                      ← hàm kiểm tra role
+```
+
+🛠️ 3. Cấu hình NextAuth: `app/api/auth/[...nextauth]/route.ts`
+
+```ts
+import NextAuth from 'next-auth'
+import CredentialsProvider from 'next-auth/providers/credentials'
+
+const handler = NextAuth({
+  providers: [
+    CredentialsProvider({
+      name: 'Credentials',
+      credentials: {
+        email: { label: "Email", type: "text" },
+        password: { label: "Password", type: "password" }
+      },
+      async authorize(credentials) {
+        const { email, password } = credentials
+        // TODO: kiểm tra email, password từ DB
+        if (email === 'admin@abc.com' && password === 'admin') {
+          return { id: '1', name: 'Admin', email, role: 'admin' }
+        }
+        if (email === 'user@abc.com' && password === 'user') {
+          return { id: '2', name: 'User', email, role: 'user' }
+        }
+        return null
+      }
+    })
+  ],
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) token.role = user.role
+      return token
+    },
+    async session({ session, token }) {
+      session.user.role = token.role
+      return session
+    }
+  },
+  secret: process.env.NEXTAUTH_SECRET,
+})
+
+export { handler as GET, handler as POST }
+```
+
+🔐 4. Middleware kiểm tra phân quyền: `middleware.ts`
+
+```ts
+import { NextResponse } from 'next/server'
+import { getToken } from 'next-auth/jwt'
+
+export async function middleware(req) {
+  const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET })
+  const { pathname } = req.nextUrl
+
+  // Chặn nếu chưa đăng nhập
+  if (pathname.startsWith('/user') && !token) {
+    return NextResponse.redirect(new URL('/login', req.url))
+  }
+
+  // Chặn nếu không phải admin
+  if (pathname.startsWith('/admin') && token?.role !== 'admin') {
+    return NextResponse.redirect(new URL('/unauthorized', req.url))
+  }
+
+  return NextResponse.next()
+}
+
+export const config = {
+  matcher: ['/user/:path*', '/admin/:path*'],
+}
+```
+
+📄 5. Trang login: `app/login/page.tsx` (đơn giản)
+
+```tsx
+'use client'
+import { signIn } from 'next-auth/react'
+
+export default function LoginPage() {
+  return (
+    <div>
+      <h1>Login</h1>
+      <button onClick={() => signIn('credentials', { email: 'admin@abc.com', password: 'admin' })}>
+        Đăng nhập Admin
+      </button>
+    </div>
+  )
+}
+```
+
+🔐 6. Dùng `useSession()` trong client để kiểm tra login:
+
+```tsx
+'use client'
+import { useSession } from 'next-auth/react'
+
+export default function UserPage() {
+  const { data: session } = useSession()
+  if (!session) return <p>Vui lòng đăng nhập</p>
+  return <p>Chào {session.user.name}, bạn là {session.user.role}</p>
+}
+```
+
+✅ Kết luận:
+- Xác thực và phân quyền trong Next.js rất mạnh khi kết hợp với NextAuth + Middleware.
+- Có thể dùng role để kiểm soát quyền xem từng trang.
+- Có thể mở rộng phân quyền theo nhiều cấp (admin, editor, guest...).
+

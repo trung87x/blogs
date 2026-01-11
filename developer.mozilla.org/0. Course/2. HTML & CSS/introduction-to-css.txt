@@ -1,0 +1,98 @@
+
+# Introduction to CSS
+
+## 1. CSS là gì?
+
+CSS (Cascading Style Sheets) là ngôn ngữ định kiểu cho các tài liệu HTML. Nó cho phép bạn kiểm soát cách hiển thị các phần tử HTML trên trang web. CSS giúp tạo ra giao diện đẹp mắt cho trang web của bạn, bao gồm việc thay đổi màu sắc, phông chữ, bố cục, khoảng cách, hình nền và nhiều hiệu ứng khác【109†source】.
+
+---
+
+## 2. Tại sao cần CSS?
+
+Trước khi có CSS, HTML không phân biệt giữa nội dung và kiểu dáng. Các thuộc tính như <font>, <center>, và <color> được dùng để định dạng trang web, làm mã nguồn trở nên lộn xộn và khó bảo trì.
+
+CSS giúp tách biệt nội dung và kiểu dáng, làm cho mã HTML trở nên rõ ràng và dễ bảo trì. Với CSS, bạn có thể thay đổi kiểu dáng của toàn bộ trang web bằng cách chỉ thay đổi một tệp CSS duy nhất【109†source】.
+
+---
+
+## 3. Các cách để thêm CSS vào HTML
+
+Có ba cách để thêm CSS vào trang web:
+
+- **CSS nội tuyến (Inline CSS)**: Viết CSS trực tiếp trong thuộc tính style của một phần tử HTML. Dùng khi chỉ cần thay đổi một phần tử duy nhất.
+  ```html
+  <h1 style="color: blue; font-size: 24px;">Hello, CSS!</h1>
+  ```
+  **Nhược điểm**: Khó bảo trì nếu có nhiều phần tử cần thay đổi.
+
+- **CSS nội bộ (Internal CSS)**: Viết CSS trong thẻ <style> trong phần <head> của HTML. Dùng khi chỉ áp dụng CSS cho một trang duy nhất.
+  ```html
+  <style>
+      h1 { color: red; font-size: 24px; }
+  </style>
+  ```
+  **Nhược điểm**: Không tối ưu cho trang web nhiều trang.
+
+- **CSS bên ngoài (External CSS)**: Viết CSS trong một tệp .css riêng và liên kết vào HTML bằng thẻ <link>. Đây là phương pháp phổ biến và dễ bảo trì.
+  ```html
+  <link rel="stylesheet" href="styles.css">
+  ```
+  **Ưu điểm**: Dễ bảo trì và có thể áp dụng cho nhiều trang web【110†source】.
+
+---
+
+## 4. Bộ chọn CSS (CSS Selectors)
+
+Bộ chọn CSS giúp bạn chọn các phần tử HTML mà bạn muốn áp dụng kiểu dáng. Dưới đây là các loại bộ chọn cơ bản:
+
+- **Bộ chọn phần tử (Element Selector)**: Chọn tất cả các phần tử có tên thẻ cụ thể.
+  ```css
+  p {
+      color: red;
+  }
+  ```
+
+- **Bộ chọn lớp (Class Selector)**: Chọn tất cả các phần tử có lớp cụ thể.
+  ```css
+  .color-title {
+      font-weight: normal;
+  }
+  ```
+
+- **Bộ chọn ID (ID Selector)**: Chọn một phần tử duy nhất với ID cụ thể.
+  ```css
+  #main-header {
+      text-align: center;
+  }
+  ```
+
+- **Bộ chọn thuộc tính (Attribute Selector)**: Chọn phần tử dựa trên thuộc tính và giá trị của nó.
+  ```css
+  input[type="text"] {
+      background-color: yellow;
+  }
+  ```
+
+- **Bộ chọn chung (Universal Selector)**: Chọn tất cả các phần tử trong trang HTML.
+  ```css
+  * {
+      margin: 0;
+      padding: 0;
+  }
+  ```
+
+Các bộ chọn này giúp bạn điều khiển kiểu dáng của phần tử HTML một cách linh hoạt【111†source】.
+
+---
+
+## 5. CSS và Bố Cục Trang Web
+
+CSS giúp bạn tạo các bố cục đẹp mắt và dễ quản lý. Bạn có thể điều chỉnh kích thước hình ảnh, thay đổi màu sắc, và tạo các lớp bố cục phức tạp chỉ với CSS.
+
+Ví dụ, để tạo giao diện học từ vựng màu sắc:
+```css
+#red { color: red; }
+#blue { color: blue; }
+#green { color: green; }
+```
+Kết quả: Mỗi tiêu đề sẽ có màu sắc tương ứng với nội dung【108†source】.

@@ -1,0 +1,222 @@
+
+# **React.js - Hướng Dẫn Ôn Tập Toàn Diện cho Công Việc và Thi Cử**
+
+---
+
+## **1. Giới thiệu về React**
+
+### **React là gì?**
+React là một thư viện JavaScript dùng để xây dựng giao diện người dùng. Nó cho phép bạn chia giao diện thành các thành phần (components) có thể tái sử dụng và quản lý trạng thái (state) của ứng dụng dễ dàng hơn.
+
+- **JSX**: Cú pháp mở rộng cho phép viết HTML bên trong JavaScript. Ví dụ: `<h1>Hello, World!</h1>`.
+- **Virtual DOM**: React sử dụng Virtual DOM để cập nhật và render giao diện một cách hiệu quả bằng cách so sánh trạng thái hiện tại với trạng thái trước đó.
+- **Components**: Các thành phần tái sử dụng được, có thể là thành phần chức năng (Functional Component) hoặc thành phần lớp (Class Component).
+- **Props**: Là cách truyền dữ liệu từ thành phần cha xuống thành phần con.
+- **State**: Đại diện cho dữ liệu cục bộ của thành phần. Quản lý thông qua `useState` trong các thành phần chức năng.
+
+### **Ví dụ về JSX và ReactDOM.render()**
+```jsx
+ReactDOM.render(<h1>Hello, World!</h1>, document.getElementById("root"));
+```
+
+---
+
+## **2. Thành phần trong React**
+
+### **Functional Components**
+```jsx
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+```
+
+### **Class Components**
+```jsx
+class Welcome extends React.Component {
+  render() {
+    return <h1>Hello, {this.props.name}</h1>;
+  }
+}
+```
+
+### **Render một thành phần**
+```jsx
+ReactDOM.render(<Welcome name="Sara" />, document.getElementById('root'));
+```
+
+---
+
+## **3. React Hooks**
+
+### **useState Hook**
+`useState` cho phép khai báo trạng thái trong các thành phần chức năng.
+```jsx
+const [count, setCount] = useState(0);
+```
+- **count** là giá trị của state.
+- **setCount** là hàm dùng để cập nhật trạng thái.
+
+### **useEffect Hook**
+Dùng để xử lý các hiệu ứng phụ (side effects) như fetching dữ liệu, tương tác với DOM, v.v.
+```jsx
+useEffect(() => {
+  console.log('Component rendered');
+}, []);
+```
+
+---
+
+## **4. Xử lý sự kiện trong React**
+Xử lý sự kiện trong React được thực hiện bằng cách truyền các hàm xử lý sự kiện vào các thành phần thông qua props.
+
+### **Ví dụ về onClick**
+```jsx
+function handleClick() {
+  alert('Button clicked');
+}
+<button onClick={handleClick}>Click Me</button>
+```
+
+### **Xử lý sự kiện thay đổi input**
+```jsx
+const [value, setValue] = useState("");
+const handleChange = (e) => setValue(e.target.value);
+<input type="text" value={value} onChange={handleChange} />
+```
+
+---
+
+## **5. Kết xuất có điều kiện trong React**
+
+### **Kết xuất có điều kiện với toán tử bậc ba (? :)**
+Toán tử này giúp hiển thị nội dung tùy theo trạng thái.
+```jsx
+const isLoggedIn = true;
+<h1>{isLoggedIn ? 'Welcome Back!' : 'Please Log In'}</h1>
+```
+
+### **Kết xuất có điều kiện với toán tử &&**
+Dùng khi chỉ muốn hiển thị một thành phần nếu điều kiện đúng.
+```jsx
+const hasUnreadMessages = true;
+{hasUnreadMessages && <p>You have new messages!</p>}
+```
+
+---
+
+## **6. Các kỹ thuật quản lý trạng thái**
+
+### **Quản lý trạng thái với đối tượng**
+Thay vì dùng nhiều biến trạng thái `useState`, bạn có thể quản lý nhiều giá trị trong một đối tượng duy nhất.
+```jsx
+const [contact, setContact] = useState({ firstName: "", lastName: "" });
+
+const handleChange = (e) => {
+  const { name, value } = e.target;
+  setContact(prevContact => ({ ...prevContact, [name]: value }));
+};
+```
+
+### **Cập nhật đối tượng lồng nhau**
+```jsx
+const user = { name: "John", address: { city: "New York", zip: "10001" } };
+const { address: { city, zip } } = user;
+```
+
+---
+
+## **7. Các phương thức mảng trong JavaScript với React**
+
+### **.map()**
+Dùng để lặp qua một mảng và tạo ra một mảng mới với các giá trị được biến đổi.
+```jsx
+const numbers = [1, 2, 3, 4];
+const doubledNumbers = numbers.map(num => num * 2);
+```
+
+### **.filter()**
+Dùng để lọc các phần tử trong mảng theo điều kiện.
+```jsx
+const numbers = [1, 2, 3, 4];
+const evens = numbers.filter(num => num % 2 === 0);
+```
+
+### **.reduce()**
+Dùng để tính toán hoặc tích lũy giá trị từ một mảng.
+```jsx
+const numbers = [1, 2, 3, 4];
+const sum = numbers.reduce((acc, num) => acc + num, 0);
+```
+
+---
+
+## **8. Destructuring trong JavaScript (ES6)**
+
+### **Array Destructuring**
+```jsx
+const [first, second] = [1, 2];
+```
+
+### **Object Destructuring**
+```jsx
+const { name, age } = { name: "Alice", age: 25 };
+```
+
+### **Giá trị mặc định**
+```jsx
+const { name, country = "USA" } = { name: "John" };
+```
+
+---
+
+## **9. Spread Operator trong JavaScript (ES6)**
+
+### **Với mảng**
+Hợp nhất hai mảng.
+```jsx
+const fruits = ["Apple", "Banana"];
+const citrus = ["Lemon", "Orange"];
+const allFruits = [...fruits, ...citrus];
+```
+
+### **Với đối tượng**
+Hợp nhất hai đối tượng.
+```jsx
+const person = { name: "John", age: 30 };
+const user = { ...person, id: 1 };
+```
+
+### **Cập nhật trạng thái trong React**
+```jsx
+setContact(prevContact => ({
+  ...prevContact,
+  [event.target.name]: event.target.value
+}));
+```
+
+---
+
+## **10. Danh sách và khóa trong React**
+Khi làm việc với danh sách trong React, mỗi phần tử phải có một `key` duy nhất.
+```jsx
+{items.map((item, index) => (
+  <li key={index}>{item}</li>
+))}
+```
+
+---
+
+## **11. Mẹo cuối cùng cho thi cử và công việc với React**
+
+- **Hiểu rõ JSX và vai trò của nó** trong việc xác định các phần tử giao diện.
+- **Thành thạo useState và useEffect** để quản lý trạng thái và các hiệu ứng phụ.
+- **Luyện tập với các sự kiện** như click và thay đổi input.
+- **Học cách kết xuất có điều kiện** để hiển thị nội dung dựa trên các điều kiện.
+- **Thực hành với các phương thức mảng** như `map()`, `filter()`, và `reduce()` để xử lý dữ liệu.
+- **Làm quen với destructuring và spread operators** để có mã ngắn gọn và dễ hiểu.
+
+```jsx
+// Ví dụ về việc xử lý mảng hiệu quả trong React
+const items = ['Item1', 'Item2', 'Item3'];
+const listItems = items.map(item => <li>{item}</li>);
+```

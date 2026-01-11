@@ -1,0 +1,79 @@
+===========================================
+🧩 Ngữ cảnh #5: Lưu Token phía client
+===========================================
+
+🧠 Mô hình (Model) – Ý nghĩa:
+Sau khi backend trả về JWT token sau khi đăng nhập, 
+client cần lưu token để sử dụng trong các request tiếp theo.
+
+Có 2 lựa chọn phổ biến:
+1. Lưu vào localStorage hoặc sessionStorage
+2. Lưu vào HTTP-only Cookie (bảo mật hơn)
+
+---
+
+📦 Lưu token vào localStorage (phổ biến với SPA):
+Dễ dùng, dễ triển khai trong React / Vue / JS thuần
+
+📄 Ví dụ (React hoặc JS thuần):
+// Sau khi đăng nhập thành công
+localStorage.setItem('token', response.data.token);
+
+// Khi gọi API có bảo vệ
+const token = localStorage.getItem('token');
+
+fetch('http://localhost:3000/api/profile', {
+  method: 'GET',
+  headers: {
+    Authorization: `Bearer ${token}`
+  }
+});
+
+---
+
+📦 Lưu token vào cookie HTTP-only:
+An toàn hơn vì JavaScript không đọc được token → tránh XSS
+
+📄 Express backend gửi token qua cookie:
+res.cookie('token', token, {
+  httpOnly: true,
+  secure: true, // bắt buộc nếu dùng HTTPS
+  sameSite: 'Strict',
+  maxAge: 3600000 // 1 giờ
+});
+
+📄 Client fetch cần thêm `credentials: 'include'`:
+fetch('http://localhost:3000/api/profile', {
+  method: 'GET',
+  credentials: 'include'
+});
+
+📄 Backend cần cấu hình CORS cho cookie:
+const cors = require('cors');
+
+app.use(cors({
+  origin: 'http://localhost:3001', // địa chỉ frontend
+  credentials: true
+}));
+
+---
+
+📌 GHI CHÚ QUAN TRỌNG:
+
+✅ localStorage:
+- Ưu: Triển khai đơn giản, dễ debug
+- Nhược: Dễ bị tấn công XSS nếu frontend không bảo vệ tốt
+
+✅ HTTP-only Cookie:
+- Ưu: Bảo mật cao hơn vì token không truy cập qua JS
+- Nhược: Phức tạp hơn, cần cấu hình CORS đúng
+
+✅ Token hết hạn → cần logout hoặc refresh token
+
+✅ Không lưu token trong biến toàn cục hoặc context nếu không mã hoá
+
+✅ Cookie cần thêm:
+  - httpOnly: true
+  - secure: true
+  - sameSite: 'Strict' hoặc 'Lax'
+  - credentials: 'include' bên phía client

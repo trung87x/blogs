@@ -1,0 +1,40 @@
+# Ngữ cảnh 1: Tạo bảng người dùng và lưu thông tin cơ bản
+
+🧠 Model (Ý nghĩa dữ liệu & quan hệ)
+- Tạo bảng `users` để lưu trữ thông tin người dùng.
+- Mỗi user có các thuộc tính:
+  - `id`: số tự tăng, định danh duy nhất
+  - `name`: tên người dùng (chuỗi)
+  - `age`: tuổi người dùng (số nguyên, ràng buộc tuổi >= 0)
+  - `email`: địa chỉ email duy nhất
+  - `is_active`: trạng thái hoạt động (true/false)
+  - `created_at`: ngày tạo (tự động)
+
+🛠️ Controller (SQL)
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  age INTEGER CHECK (age >= 0),
+  email VARCHAR(100) UNIQUE NOT NULL,
+  is_active BOOLEAN DEFAULT true,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Thêm người dùng mới
+INSERT INTO users (name, age, email)
+VALUES ('Trung Đinh', 28, 'trung@example.com');
+
+-- Truy vấn danh sách người dùng
+SELECT * FROM users;
+
+-- Ví dụ lỗi nếu email trùng (vi phạm UNIQUE)
+INSERT INTO users (name, age, email)
+VALUES ('Người khác', 30, 'trung@example.com'); -- ❌ lỗi UNIQUE
+
+📘 Ghi chú:
+- `SERIAL`: tự động tăng số nguyên
+- `CHECK (age >= 0)`: kiểm tra điều kiện logic
+- `UNIQUE`: không cho phép trùng giá trị
+- `DEFAULT`: dùng khi không cung cấp giá trị
+- `CURRENT_TIMESTAMP`: thời gian hiện tại
+

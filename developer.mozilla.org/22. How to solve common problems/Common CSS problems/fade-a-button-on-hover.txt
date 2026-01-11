@@ -1,0 +1,38 @@
+
+1. Cách làm mờ một nút khi di chuột (Fade a button on hover)
+Trong hướng dẫn này, bạn sẽ tìm hiểu cách làm mờ một nút với sự thay đổi nhẹ giữa hai màu sắc khi di chuột qua nút.
+
+Trong ví dụ về nút, chúng ta có thể thay đổi màu nền của nút bằng cách định nghĩa màu nền khác cho pseudo-class :hover. Tuy nhiên, khi di chuột qua nút, màu nền sẽ thay đổi ngay lập tức. Để tạo ra sự thay đổi mượt mà hơn giữa hai màu, chúng ta có thể sử dụng CSS Transitions.
+
+**Sử dụng transitions**
+Sau khi thêm màu sắc mong muốn cho trạng thái hover, thêm thuộc tính `transition` vào các quy tắc cho nút. Đối với một transition đơn giản, giá trị của `transition` là tên của thuộc tính hoặc các thuộc tính mà bạn muốn transition áp dụng và thời gian mà transition sẽ diễn ra.
+
+Đối với pseudo-classes `:active` và `:focus`, thuộc tính `transition` được đặt là `none`, để nút chuyển sang trạng thái active ngay lập tức khi được click.
+
+Trong ví dụ dưới đây, transition diễn ra trong 1 giây, bạn có thể thử thay đổi giá trị này để thấy sự khác biệt khi thay đổi tốc độ.
+
+```html
+<div class="wrapper">
+  <button class="fade">Hover over me</button>
+</div>
+```
+
+```css
+.fade {
+  background-color: #db1f48;
+  color: #fff;
+  transition: background-color 1s;
+}
+
+.fade:hover {
+  background-color: #004369;
+}
+
+.fade:focus,
+.fade:active {
+  background-color: black;
+  transition: none;
+}
+```
+
+Lưu ý: Thuộc tính `transition` là cách viết tắt cho `transition-delay`, `transition-duration`, `transition-property`, và `transition-timing-function`. Xem các trang của những thuộc tính này trên MDN để tìm cách điều chỉnh các transition của bạn.

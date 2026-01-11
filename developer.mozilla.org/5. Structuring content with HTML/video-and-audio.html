@@ -1,0 +1,96 @@
+<!-- ==========================
+Video and Audio in HTML
+========================== -->
+
+<!-- 1. Chèn video đơn giản -->
+<video src="rabbit320.webm" controls>
+  <p>
+    Trình duyệt của bạn không hỗ trợ video HTML.
+    <a href="rabbit320.webm">Xem video tại đây</a>.
+  </p>
+</video>
+
+<!-- Giải thích:
+- controls: bật thanh điều khiển phát/tạm dừng/âm lượng
+- Nội dung <p>: fallback (trường hợp trình duyệt cũ)
+-->
+
+<!-- 2. Hỗ trợ nhiều định dạng video -->
+<video controls>
+  <source src="rabbit320.mp4" type="video/mp4" />
+  <source src="rabbit320.webm" type="video/webm" />
+  <p>Trình duyệt không hỗ trợ video. <a href="rabbit320.mp4">Xem tại đây</a>.</p>
+</video>
+
+<!-- Giúp đảm bảo tương thích với nhiều trình duyệt -->
+
+<!-- 3. Các thuộc tính mở rộng của <video> -->
+<video
+  controls
+  width="400"
+  height="400"
+  autoplay
+  loop
+  muted
+  preload="auto"
+  poster="poster.png">
+  <source src="rabbit320.mp4" type="video/mp4" />
+  <source src="rabbit320.webm" type="video/webm" />
+  <p>Trình duyệt không hỗ trợ video. <a href="rabbit320.mp4">Xem tại đây</a>.</p>
+</video>
+
+<!-- Giải thích thêm:
+- width / height: kích thước trình phát
+- autoplay: tự động phát khi tải trang
+- loop: phát lặp lại
+- muted: tắt tiếng mặc định
+- preload: preload video (auto / metadata / none)
+- poster: hình ảnh hiển thị trước khi phát video
+-->
+
+<!-- 4. Chèn âm thanh -->
+<audio controls>
+  <source src="viper.mp3" type="audio/mp3" />
+  <source src="viper.ogg" type="audio/ogg" />
+  <p>Trình duyệt không hỗ trợ âm thanh. <a href="viper.mp3">Tải xuống</a>.</p>
+</audio>
+
+<!-- Lưu ý:
+- <audio> tương tự <video> nhưng không có hình ảnh
+- Không có thuộc tính poster, width/height
+-->
+
+<!-- 5. Phụ đề video bằng WebVTT và <track> -->
+<video controls>
+  <source src="example.mp4" type="video/mp4" />
+  <source src="example.webm" type="video/webm" />
+  <track kind="subtitles" src="subtitles_es.vtt" srclang="es" label="Spanish" />
+</video>
+
+<!-- Giải thích:
+- kind="subtitles": dạng phụ đề
+- src="subtitles_es.vtt": file .vtt chứa nội dung phụ đề
+- srclang="es": ngôn ngữ phụ đề (es = tiếng Tây Ban Nha)
+- label="Spanish": tên hiển thị cho người dùng chọn
+-->
+
+<!-- 6. Nội dung tệp .vtt mẫu (WebVTT) -->
+<!-- subtitles_es.vtt -->
+WEBVTT
+
+1
+00:00:22.230 --> 00:00:24.606
+Esta hoja tiene pasado oscuro.
+
+2
+00:00:30.739 --> 00:00:34.074
+¡Cuidado con el lobo!
+
+<!-- Dùng Notepad UTF-8 để tạo tệp .vtt -->
+
+<!-- 7. Gợi ý thực hành:
+- Ghi âm hoặc quay video bằng điện thoại
+- Chuyển định dạng sang .mp4, .webm, .mp3, .ogg
+- Dùng <video> hoặc <audio> để chèn vào trang
+- Dùng poster tự tạo để làm ảnh nền trước khi phát
+- Thêm phụ đề với <track> và .vtt nếu cần -->

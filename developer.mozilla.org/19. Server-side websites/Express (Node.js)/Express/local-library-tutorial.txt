@@ -1,0 +1,33 @@
+
+### Hướng Dẫn Xây Dựng Website Thư Viện Địa Phương (Local Library)
+
+**Giới thiệu về Local Library**
+Hướng dẫn này giúp bạn xây dựng một website đơn giản sử dụng framework Express để quản lý catalog cho một thư viện địa phương. Chúng ta sẽ sử dụng website "Local Library" làm ví dụ xuyên suốt các bài học trong loạt bài hướng dẫn này.
+
+**Mục tiêu của hướng dẫn**
+Trong loạt bài hướng dẫn này, bạn sẽ học được các bước cơ bản để phát triển ứng dụng web với Express. Các bước này bao gồm:
+1. **Sử dụng Express Application Generator**: Tạo một website cơ bản và cấu trúc ứng dụng.
+2. **Khởi động và dừng máy chủ Node**: Điều khiển máy chủ web Node để chạy ứng dụng.
+3. **Sử dụng cơ sở dữ liệu**: Lưu trữ và truy xuất dữ liệu từ cơ sở dữ liệu.
+4. **Tạo Routes**: Xử lý các yêu cầu và tạo các routes cho ứng dụng.
+5. **Xử lý form và template**: Hiển thị dữ liệu từ cơ sở dữ liệu bằng cách sử dụng các template động.
+6. **Triển khai ứng dụng lên môi trường sản xuất**: Đưa ứng dụng lên server để người dùng có thể truy cập.
+
+**Tại sao chọn Local Library?**
+Dự án Local Library được chọn vì tính đơn giản và dễ hiểu, có thể mở rộng và dễ dàng minh họa cho những tính năng cơ bản của Express. Website này sẽ giúp bạn hiểu cách thức hoạt động của các ứng dụng web và làm quen với các tính năng của Express, từ quản lý cơ sở dữ liệu đến xử lý các yêu cầu HTTP.
+
+**Các tính năng cơ bản của website**
+- **Xem danh sách sách**: Người dùng có thể duyệt qua các cuốn sách có sẵn trong thư viện.
+- **Thêm sách mới**: Quản trị viên có thể thêm sách mới vào hệ thống.
+- **Quản lý tài khoản người dùng**: Người dùng có thể đăng nhập để quản lý tài khoản của mình.
+
+**Phát triển ứng dụng Local Library**
+Bắt đầu từ những tính năng cơ bản như xem sách, bạn sẽ được dẫn dắt thêm vào các tính năng nâng cao như tạo mới sách, xác thực người dùng, và xây dựng các form. Trong quá trình này, bạn sẽ học cách xây dựng các routes, sử dụng template engine để render dữ liệu, và xử lý các yêu cầu POST để tương tác với người dùng.
+
+**Lợi ích khi sử dụng Express**
+- **Cấu trúc rõ ràng**: Express giúp dễ dàng xây dựng các ứng dụng web theo mô hình MVC (Model-View-Controller), rất phù hợp cho các ứng dụng web đơn giản và phức tạp.
+- **Quản lý dễ dàng**: Express có rất nhiều module hỗ trợ, giúp bạn dễ dàng tích hợp các tính năng như xác thực người dùng, quản lý session, gửi email, v.v.
+- **Hỗ trợ cộng đồng mạnh mẽ**: Express có một cộng đồng phát triển rộng lớn và nhiều tài liệu hướng dẫn có sẵn trên Internet.
+
+**Tóm tắt**
+Dự án "Local Library" sẽ giúp bạn làm quen với các khái niệm cơ bản trong việc phát triển ứng dụng web với Express, bao gồm các bước tạo ứng dụng, xử lý yêu cầu, làm việc với cơ sở dữ liệu, và tạo các template động. Bạn sẽ dần dần mở rộng và phát triển các tính năng cho ứng dụng của mình theo từng bài học.

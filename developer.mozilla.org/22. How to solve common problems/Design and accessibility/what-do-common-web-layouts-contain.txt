@@ -1,0 +1,37 @@
+1. Các bố cục web phổ biến chứa đựng gì?
+Khi thiết kế các trang cho website của bạn, điều quan trọng là có một ý tưởng về những bố cục phổ biến nhất.
+
+**Tiền đề:** Hãy chắc chắn rằng bạn đã suy nghĩ về những gì bạn muốn đạt được với dự án web của mình.
+
+**Mục tiêu:** Học cách xác định vị trí của các yếu tố trên trang web và cách sắp xếp chúng.
+
+**Tóm tắt**
+Có lý do tại sao chúng ta nói về thiết kế web. Bạn bắt đầu với một trang trắng, và bạn có thể đưa nó đi theo nhiều hướng khác nhau. Và nếu bạn không có nhiều kinh nghiệm, bắt đầu với một trang trắng có thể hơi đáng sợ. Chúng tôi có hơn 25 năm kinh nghiệm và sẽ cung cấp cho bạn một số quy tắc cơ bản để giúp bạn thiết kế trang web của mình.
+
+Ngay cả với sự tập trung mới vào web di động, gần như tất cả các trang web chính thống đều được xây dựng từ các phần này:
+
+**Header (Đầu trang)**
+Hiển thị ở đầu mỗi trang trên trang web. Chứa thông tin liên quan đến tất cả các trang (chẳng hạn như tên trang web hoặc logo) và hệ thống điều hướng dễ sử dụng.
+
+**Main content (Nội dung chính)**
+Khu vực lớn nhất, chứa nội dung riêng biệt cho trang hiện tại.
+
+**Stuff on the side (Thông tin bên cạnh)**
+1) Thông tin bổ sung cho nội dung chính; 2) Thông tin được chia sẻ giữa một tập hợp các trang; 3) Hệ thống điều hướng thay thế. Thực tế, mọi thứ không hoàn toàn cần thiết cho nội dung chính của trang.
+
+**Footer (Chân trang)**
+Hiển thị ở cuối mỗi trang trên trang web. Giống như phần đầu trang, chứa thông tin toàn cầu ít nổi bật hơn như thông báo pháp lý hoặc thông tin liên hệ.
+
+Những yếu tố này khá phổ biến trong tất cả các loại thiết bị, nhưng chúng có thể được bố trí theo nhiều cách khác nhau. Dưới đây là một số ví dụ:
+
+- **Bố cục một cột:** Đặc biệt quan trọng cho trình duyệt di động để không làm rối trang nhỏ.
+- **Bố cục hai cột:** Thường được sử dụng cho các máy tính bảng với màn hình kích thước trung bình.
+- **Bố cục ba cột:** Chỉ phù hợp với màn hình máy tính lớn.
+
+Bắt đầu từ các bố cục đơn giản, bạn có thể trộn lẫn chúng để tạo ra các thiết kế phức tạp hơn. Ví dụ:
+- Nội dung chính ở trên, các thông tin bên cạnh xếp chồng dưới.
+- Một cột chính và hai bên cạnh xếp chồng lên nhau.
+
+Đây chỉ là các ví dụ cơ bản và bạn hoàn toàn tự do sắp xếp các phần tử theo ý muốn. Bạn sẽ nhận thấy rằng, dù nội dung có thể di chuyển trên màn hình, chúng ta luôn giữ phần đầu trang ở trên cùng và phần chân trang ở dưới cùng. Ngoài ra, nội dung chính luôn là phần quan trọng nhất, vì vậy hãy dành phần lớn không gian cho nó.
+
+Những quy tắc này có thể giúp bạn. Dĩ nhiên, còn có những thiết kế phức tạp và ngoại lệ, nhưng trong các bài viết khác, chúng tôi sẽ thảo luận cách thiết kế các trang web đáp ứng (tự thay đổi tùy theo kích thước màn hình) và những trang web có bố cục thay đổi giữa các trang.

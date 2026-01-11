@@ -1,0 +1,70 @@
+CÔNG CỤ VÀ KỸ THUẬT KIỂM TRA TRUY CẬP WEBSITE
+=============================================
+
+1. Kiểm tra thứ tự nội dung (source order)
+- Lý do: Trình đọc màn hình đọc nội dung theo HTML gốc (không theo CSS).
+- Cách kiểm tra:
+  + Firefox: View > Page Style > No Style
+  + Chrome/Edge: Cài extension "Web Developer Toolbar" → CSS > Disable All Styles
+- Ví dụ thực hành:
+  + Tắt CSS và kiểm tra thứ tự đọc của nội dung có còn hợp lý không.
+- Nhận xét:
+  + Cần đảm bảo nội dung vẫn dễ hiểu khi bỏ lớp giao diện (CSS).
+
+1.1. Kiểm tra độ tương phản màu
+- Dụng cụ: WebAIM Color Contrast Checker.
+- Lưu ý:
+  + Không chỉ dùng màu để phân biệt (ví dụ: trường bắt buộc nên có dấu `*`, không chỉ dùng màu đỏ).
+- Nhận xét:
+  + Độ tương phản tốt giúp người dùng nhìn rõ nội dung kể cả dưới ánh sáng mạnh.
+
+2. Công cụ kiểm tra truy cập tự động
+- Gợi ý:
+  + WAVE → Nhập URL để hiển thị lỗi truy cập.
+  + Google Lighthouse → Có trong Chrome DevTools (tab "Lighthouse").
+  + aXe (Deque) → Dùng dưới dạng extension hoặc tích hợp vào quy trình test.
+- Nhận xét:
+  + Các công cụ này hữu ích nhưng **không thay thế được kiểm thử với người dùng thật**.
+
+3. Trình đọc màn hình (Screen Readers)
+
+3.1. VoiceOver (macOS/iOS)
+- Bật/tắt: Cmd + F5
+- Modifier: CapsLock hoặc Ctrl + Option
+- Phím tắt phổ biến:
+  + VO + mũi tên: di chuyển
+  + VO + Space: kích hoạt mục
+  + VO + U: mở Rotor (danh sách tiêu đề, liên kết...)
+- Gợi ý thực hành:
+  + Truy cập trang web → dùng Rotor để kiểm tra có bao nhiêu tiêu đề hoặc liên kết dễ hiểu.
+
+3.2. NVDA (Windows)
+- Tải từ: nvaccess.org
+- Bật: Ctrl + Alt + N
+- Modifier: Insert hoặc CapsLock
+- Phím tắt quan trọng:
+  + H: đi đến tiêu đề tiếp theo
+  + K: đi đến liên kết tiếp theo
+  + D: landmark (vùng chức năng)
+  + Enter: kích hoạt mục đang chọn
+- Gợi ý thực hành:
+  + Kiểm tra các form: nhấn F → tab qua các ô → lắng nghe nhãn có được đọc đúng không.
+
+4. Kiểm thử truy cập với ví dụ
+- Ví dụ:
+  + `good-links.html` vs `bad-links.html`: nên đặt tên liên kết cụ thể (VD: "Xem sản phẩm A", không phải "Click here").
+  + `good-form.html` vs `bad-form.html`: form có `<label>` rõ ràng giúp trình đọc màn hình hiểu đúng.
+  + `good-table.html`: bảng có dùng `<th>` để trình đọc màn hình biết được hàng/cột nào đang đọc.
+
+- Gợi ý:
+  + Tạo 1 form đơn giản → dùng trình đọc màn hình đọc thử → cải thiện nếu thiếu nhãn hoặc mô tả không rõ ràng.
+
+5. Checklist nhanh kiểm tra truy cập
+- [x] HTML có cấu trúc rõ ràng (dùng đúng thẻ `<h1>`...`<h6>`, `<label>`, `<nav>`, ...)
+- [x] Có thể dùng hoàn toàn bằng bàn phím (Tab/Shift+Tab/Enter)
+- [x] Có văn bản thay thế cho ảnh (`alt=""`)
+- [x] Đủ độ tương phản màu (VD: đen trên trắng, không phải xám nhạt trên trắng)
+- [x] Nội dung ẩn vẫn truy cập được (VD: menu dropdown phải đọc được)
+- [x] Không lệ thuộc JavaScript cho chức năng chính
+- [x] Có kiểm thử với trình đọc màn hình (VoiceOver, NVDA,...)
+- [x] Có chính sách truy cập rõ ràng cho người dùng

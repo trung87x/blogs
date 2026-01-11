@@ -1,0 +1,86 @@
+[Ngữ cảnh #10] Deploy + Tối ưu cấu trúc project (MVC)
+
+🎯 Mục tiêu:
+- Cấu trúc project dễ mở rộng, chia lớp rõ ràng
+- Có thể deploy lên các nền tảng như Render, Vercel
+- Sử dụng script `npm start`, `npm run dev`, `npm run build`
+
+📁 Cấu trúc tối ưu gợi ý:
+backend-app/
+├── src/
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── services/
+│   ├── middlewares/
+│   ├── config/
+│   └── index.js           <-- app chính
+├── .env
+├── package.json
+├── README.md
+└── server.js              <-- khởi động từ đây
+
+---------------------
+📄 server.js
+---------------------
+require('dotenv').config();
+const app = require('./src');
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`🚀 Server chạy tại http://localhost:${PORT}`);
+});
+
+---------------------
+📄 src/index.js
+---------------------
+const express = require('express');
+const app = express();
+const userRoutes = require('./routes/user.route');
+const errorHandler = require('./middlewares/error.middleware');
+
+app.use(express.json());
+app.use('/api/users', userRoutes);
+app.use(errorHandler);
+
+module.exports = app;
+
+---------------------
+📄 package.json
+---------------------
+{
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "build": "echo 'No build step for backend Node.js'"
+  }
+}
+
+---------------------
+🌍 Hướng dẫn deploy:
+---------------------
+
+1. **Deploy trên Render** (miễn phí, đơn giản)
+- Tạo repo trên GitHub
+- Push code lên repo đó
+- Vào https://render.com
+- New Web Service → chọn repo
+- Start Command: `npm start`
+- Environment:
+  - PORT: 10000 (Render tự gán)
+  - Thêm các biến từ `.env`
+
+2. **Deploy trên Vercel** (thường dùng cho frontend, có thể dùng cho serverless API)
+- Dùng cho app dạng serverless (Next.js, vercel serverless functions)
+- Không phù hợp nếu bạn dùng Express dạng truyền thống
+
+3. **Deploy nội bộ / máy chủ thật**
+- Sử dụng `pm2` hoặc `docker` để chạy
+- Có thể thêm reverse proxy bằng Nginx
+
+---------------------
+📌 Ghi chú:
+---------------------
+- Cấu trúc rõ ràng giúp bảo trì / mở rộng / tuyển dev dễ hơn
+- Tách `server.js` và `app/index.js` để dễ test / deploy
+- `npm start` là lệnh tiêu chuẩn khi deploy

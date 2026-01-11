@@ -1,0 +1,46 @@
+
+1. Kiểm thử tự động giúp tiết kiệm thời gian
+Việc chạy các kiểm thử thủ công trên nhiều trình duyệt và thiết bị có thể rất tốn thời gian và công sức. Để xử lý vấn đề này, bạn nên làm quen với các công cụ tự động hóa. Bài viết này sẽ giúp bạn hiểu về kiểm thử tự động, cách sử dụng công cụ như Selenium/WebDriver và các ứng dụng kiểm thử trình duyệt như Sauce Labs, BrowserStack và TestingBot.
+
+2. Tự động hóa giúp công việc dễ dàng hơn
+Thông qua việc sử dụng các công cụ tự động hóa, chúng ta có thể giảm bớt khối lượng công việc khi kiểm thử các tính năng của website hoặc ứng dụng. Có hai cách chính để tự động hóa kiểm thử:
+
+- Sử dụng công cụ task runner như Grunt hoặc Gulp, hoặc sử dụng npm scripts để tự động chạy các tác vụ như kiểm tra mã (linting), nén mã (minifying), thêm tiền tố CSS hoặc biên dịch JavaScript cho các tính năng mới.
+- Sử dụng hệ thống tự động hóa trình duyệt như Selenium để chạy các kiểm thử trên các trình duyệt đã cài đặt và trả về kết quả, báo lỗi khi có sự cố.
+
+3. Sử dụng task runner để tự động hóa công cụ kiểm thử
+Bạn có thể tăng tốc các tác vụ như linting và minifying mã bằng cách sử dụng task runner. Ví dụ, sử dụng Gulp, một công cụ dễ tiếp cận cho người mới bắt đầu.
+
+**Cài đặt Node và npm**:
+Cài đặt Node.js và npm là bước đầu tiên, và bạn có thể sử dụng Node version manager để dễ dàng cài đặt và cập nhật Node.js.
+
+4. Cài đặt Gulp tự động hóa
+Cài đặt Gulp và sử dụng nó để tự động hóa các công cụ kiểm thử:
+- Cài đặt gulp-cli toàn cục: `npm install --global gulp-cli`
+- Cài đặt gulp trong dự án: `npm install --save-dev gulp`
+
+**Cấu hình gulpfile.mjs**:
+```js
+import gulp from "gulp";
+
+export default function (cb) {
+  console.log("Gulp running");
+  cb();
+}
+```
+
+5. Thêm các tác vụ thực tế vào Gulp
+Ví dụ về các tác vụ kiểm tra HTML, CSS và JavaScript sử dụng các plugin như `gulp-htmltidy`, `gulp-csslint`, và `gulp-jshint`.
+
+6. Các vấn đề cần lưu ý khi chạy kiểm thử
+- Cần đảm bảo rằng các phần tử trên trang có thể được chọn dễ dàng và ổn định.
+- Viết các kiểm thử độc lập, không phụ thuộc vào kết quả của các kiểm thử khác.
+
+7. Sử dụng dịch vụ kiểm thử trình duyệt thương mại
+Các dịch vụ như Sauce Labs, BrowserStack và TestingBot giúp bạn kiểm thử từ xa mà không cần phải thiết lập môi trường kiểm thử trên máy tính của mình.
+
+8. Sử dụng API của BrowserStack và Sauce Labs
+Cả BrowserStack và Sauce Labs đều cung cấp API RESTful cho phép bạn truy xuất chi tiết về tài khoản, phiên kiểm thử và thông tin các bài kiểm thử tự động.
+
+9. Tóm tắt
+Bài viết này cung cấp cho bạn cái nhìn tổng quan về cách sử dụng tự động hóa để kiểm thử các ứng dụng và website, tiết kiệm thời gian và công sức, đồng thời tối ưu hóa quy trình kiểm thử.

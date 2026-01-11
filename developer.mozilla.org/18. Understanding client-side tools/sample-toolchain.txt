@@ -1,0 +1,61 @@
+
+### Giới Thiệu Về Một Toolchain Hoàn Chỉnh
+
+**Toolchain là gì?**
+Trong phát triển web hiện đại, một **toolchain** là một tập hợp các công cụ được sử dụng để giúp phát triển và triển khai ứng dụng. Các công cụ này có thể giúp bạn từ việc viết mã, kiểm tra, xây dựng, đến việc triển khai ứng dụng lên môi trường sản xuất. Toolchain không chỉ bao gồm các công cụ để viết mã mà còn giúp quản lý mã nguồn, kiểm tra mã, và triển khai phần mềm.
+
+**Các công cụ trong Toolchain**
+Toolchain mà chúng ta sẽ sử dụng trong bài này để xây dựng và triển khai một mini-site sẽ bao gồm các công cụ sau:
+- **JSX**: Là các phần mở rộng cú pháp của React, cho phép bạn định nghĩa cấu trúc thành phần bên trong JavaScript.
+- **JavaScript hiện đại**: Các tính năng JavaScript mới nhất như `import`.
+- **Prettier**: Công cụ để định dạng mã.
+- **ESLint**: Công cụ kiểm tra mã để phát hiện lỗi cú pháp và vi phạm quy tắc.
+- **PostCSS**: Công cụ cho phép sử dụng các tính năng CSS nâng cao như lồng nhau.
+- **Vite**: Công cụ xây dựng và tối ưu mã JavaScript.
+- **GitHub**: Để quản lý mã nguồn và triển khai ứng dụng qua GitHub Pages.
+
+**Lợi ích của Toolchain**
+Toolchain giúp đơn giản hóa quy trình phát triển phần mềm, làm cho nó trở nên hiệu quả hơn và dễ dàng quản lý hơn. Việc tích hợp các công cụ vào một quy trình làm việc sẽ giúp giảm thiểu các lỗi, tự động hóa các tác vụ và đảm bảo rằng ứng dụng được triển khai đúng cách.
+
+**Cài đặt Git và GitHub**
+Trước khi bắt đầu, bạn sẽ cần một tài khoản GitHub và Git được cài đặt trên máy tính của mình. GitHub là dịch vụ lưu trữ mã nguồn dựa trên Git, cho phép bạn lưu trữ, chia sẻ và quản lý các dự án mã nguồn.
+
+**Cài đặt git**:
+Git là công cụ kiểm soát phiên bản mã nguồn phổ biến nhất. Để cài đặt Git, bạn có thể truy cập trang chủ của Git tại https://git-scm.com/ và làm theo hướng dẫn.
+
+**Cài đặt GitHub**:
+Tạo một tài khoản GitHub nếu bạn chưa có. Bạn có thể đăng ký tại https://github.com/ và sử dụng dịch vụ lưu trữ mã của GitHub để lưu trữ mã nguồn của mình.
+
+**Cài đặt công cụ cần thiết**
+1. **Cài đặt Node.js và npm**: Đảm bảo rằng bạn đã cài đặt Node.js, vì npm (Node Package Manager) là công cụ quản lý gói mà chúng ta sẽ sử dụng.
+2. **Cài đặt Vite**: Vite là một công cụ xây dựng hiện đại giúp tối ưu mã và tạo môi trường phát triển nhanh chóng. Bạn có thể cài đặt Vite qua npm bằng lệnh:
+```bash
+npm install --save-dev vite
+```
+
+**Cấu hình Vite và cài đặt các phụ thuộc**
+Chúng ta sẽ sử dụng Vite để thiết lập môi trường phát triển, vì vậy đầu tiên bạn cần khởi tạo một dự án npm:
+```bash
+npm init
+npm install plotly.js-dist-min
+npm install --save-dev vite
+```
+
+**Cấu hình ESLint và Prettier**
+Để duy trì mã sạch sẽ và đảm bảo không có lỗi cú pháp, chúng ta sẽ sử dụng ESLint để kiểm tra mã và Prettier để định dạng mã tự động.
+
+**Cài đặt ESLint**:
+```bash
+npm install --save-dev eslint
+```
+
+**Cài đặt Prettier**:
+```bash
+npm install --save-dev prettier
+```
+
+**Cấu hình ESLint và Prettier trong dự án**:
+Tạo các tệp cấu hình `.eslintrc` và `.prettierrc.json` trong thư mục gốc của dự án để xác định các quy tắc cho ESLint và Prettier.
+
+**Tóm tắt**:
+Toolchain giúp bạn tạo ra một môi trường phát triển mạnh mẽ, từ việc cài đặt công cụ, kiểm tra mã, đến triển khai ứng dụng. Trong bài tiếp theo, chúng ta sẽ tiếp tục xây dựng ứng dụng và triển khai nó lên GitHub Pages.

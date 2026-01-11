@@ -1,0 +1,112 @@
+VIẾT HTML THÂN THIỆN VỚI NGƯỜI KHUYẾT TẬT
+=========================================
+
+1. Dùng thẻ HTML đúng chức năng (Semantic HTML)
+- Ưu tiên thẻ thật thay vì "giả lập" bằng <div> hoặc <span>
++ Ví dụ:
+  <button>Phát video</button> ✅
+  <div onclick="...">Phát video</div> ❌
+
+- Lợi ích:
+  + Tự động hỗ trợ bàn phím (Tab, Enter)
+  + Hiểu rõ cấu trúc trang
+  + Tốt cho SEO và responsive design
+
+2. Cấu trúc nội dung rõ ràng bằng heading, paragraph, list
++ Ví dụ:
+  <h1>Tiêu đề chính</h1>
+  <p>Đoạn giới thiệu</p>
+  <ol><li>Mục 1</li><li>Mục 2</li></ol>
+
+- Gợi ý:
+  + Tránh dùng <br> + <span> để làm giả heading
+  + Trình đọc màn hình sẽ hiểu rõ hơn nếu dùng thẻ đúng
+
+3. Tổ chức bố cục bằng <header>, <nav>, <main>, <article>, <footer>
++ Ví dụ:
+  <header><h1>Trang Chủ</h1></header>
+  <main><article><h2>Bài viết</h2></article></main>
+  <footer>Bản quyền...</footer>
+
+- Gợi ý:
+  + Bố cục rõ ràng giúp screen reader định vị nội dung nhanh hơn
+
+4. Dùng đúng thẻ cho UI control
+- Dùng <button>, <a>, <input>, <label>
+- Tránh dùng <div>, <span> cho tương tác
+
++ Ví dụ đúng:
+  <label for="name">Tên:</label>
+  <input id="name" type="text">
+
++ Ví dụ sai:
+  <div onclick="...">Gửi</div>
+
+- Nếu bắt buộc dùng <div>, cần thêm:
+  + tabindex="0"
+  + role="button"
+  + JS để bắt phím Enter:
+    document.onkeydown = (e) => {
+      if (e.key === "Enter") document.activeElement.click();
+    }
+
+5. Viết nhãn (label) rõ nghĩa, không mơ hồ
++ Ví dụ đúng:
+  <a href="whales.html">Tìm hiểu về cá voi</a>
++ Ví dụ sai:
+  <a href="whales.html">Click here</a>
+
+- Gợi ý:
+  + Nhãn phải hiểu được dù không nhìn thấy ngữ cảnh xung quanh
+
+6. Bảng dữ liệu (<table>)
+- Dùng <th scope="col"> và <caption>
++ Ví dụ:
+  <table>
+    <caption>Danh sách học sinh</caption>
+    <tr><th scope="col">Tên</th><th>Tuổi</th></tr>
+    <tr><td>An</td><td>12</td></tr>
+  </table>
+
+- Gợi ý:
+  + Trình đọc màn hình sẽ đọc đúng dòng/cột
+
+7. Hình ảnh phải có alt hoặc mô tả
++ Ví dụ:
+  <img src="cat.jpg" alt="Mèo trắng đang ngủ trên ghế">
++ Nếu chỉ để trang trí:
+  <img src="icon.png" alt="">
+
+- Gợi ý:
+  + Đừng đưa text vào trong ảnh
+  + Nếu dùng mô tả dài, có thể dùng:
+    <img aria-labelledby="desc-id">
+    <p id="desc-id">Chi tiết mô tả hình ảnh</p>
+
+8. Skip link
+- Cho phép bỏ qua menu để đến nội dung chính
++ Ví dụ:
+  <a href="#main" class="skip-link">Bỏ qua để vào nội dung</a>
+
+9. Link mở tab mới hoặc tải file
+- Ghi rõ hành động xảy ra:
++ <a href="file.pdf" target="_blank">Báo cáo 2023 (PDF, mở tab mới)</a>
+
+10. Khoảng cách giữa các liên kết tương tác
+- Tạo đủ margin/padding để tránh click nhầm
++ CSS: a { margin-right: 1rem; }
+
+---
+
+= CHECKLIST NHANH =
+- [x] Dùng <button>, <a>, <label>, <input> đúng nơi
+- [x] Có heading rõ ràng, không "giả lập"
+- [x] Ảnh có alt hoặc aria
+- [x] Bảng dùng <th>, <caption>, scope
+- [x] Label form liên kết rõ ràng
+- [x] Link có mô tả rõ, không "click here"
+- [x] Có skip-link đầu trang
+- [x] Khoảng cách đủ giữa các nút/link
+- [x] Không dựa hoàn toàn vào màu sắc
+
+= HẾT =

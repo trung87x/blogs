@@ -1,0 +1,88 @@
+
+# Multi-Page Websites
+
+## 1. Khái niệm về trang web nhiều trang
+
+Trang web nhiều trang bao gồm nhiều tệp HTML được liên kết với nhau. Các trang này có thể chứa các phần khác nhau của nội dung và thường được tổ chức trong cùng một thư mục dự án.
+
+Ví dụ về các trang trong một trang web:
+- **index.html**: Trang chủ.
+- **about.html**: Trang giới thiệu về bản thân.
+- **contact.html**: Trang liên hệ.
+- **services.html**: Trang dịch vụ.
+
+### Tại sao cần nhiều trang HTML trong một website?
+Một trang web lớn với nhiều phần cần có các trang riêng biệt để quản lý nội dung dễ dàng. Việc chia nhỏ trang web thành nhiều tệp HTML giúp tổ chức tốt hơn và dễ dàng điều hướng giữa các trang.
+
+---
+
+## 2. Liên kết giữa các trang HTML
+
+Để điều hướng giữa các trang, bạn sử dụng thẻ <a> (anchor element) trong HTML. Dưới đây là cách liên kết các trang trong một website:
+
+```html
+<a href="./about.html">Giới thiệu</a>
+<a href="./contact.html">Liên hệ</a>
+```
+Thẻ <a> cho phép bạn điều hướng từ trang này sang trang khác trong website của mình.
+
+---
+
+## 3. Sử dụng đường dẫn tệp
+
+### Đường dẫn tuyệt đối và tương đối
+- **Đường dẫn tuyệt đối** chỉ định vị trí của tệp từ thư mục gốc.
+- **Đường dẫn tương đối** sử dụng vị trí của tệp hiện tại để xác định đường dẫn tới tệp khác. Đường dẫn tương đối giúp dễ dàng khi di chuyển toàn bộ dự án vì nó không phụ thuộc vào vị trí của thư mục.
+
+Ví dụ:
+```html
+<img src="images/cat.png" alt="Hình ảnh con mèo">
+<a href="about.html">Giới thiệu</a>
+```
+
+---
+
+## 4. Sử dụng hình ảnh làm liên kết
+
+Một tính năng hữu ích là sử dụng hình ảnh như một liên kết. Dưới đây là cách tạo liên kết từ hình ảnh:
+```html
+<a href="about.html">
+  <img src="images/cat.png" alt="Nhấp vào đây để xem trang giới thiệu">
+</a>
+```
+Khi người dùng nhấp vào hình ảnh, họ sẽ được chuyển đến trang `about.html`.
+
+---
+
+## 5. Dự án Portfolio Website
+
+### Các bước thực hiện dự án
+Dự án này giúp bạn tạo một trang web danh mục đầu tư cá nhân để trưng bày các dự án đã làm trước đó. Cấu trúc của dự án sẽ bao gồm các trang HTML sau:
+- **index.html**: Trang chính.
+- **about.html**: Giới thiệu về bản thân.
+- **contact.html**: Thông tin liên hệ.
+- **movie-ranking.html**: Dự án xếp hạng phim.
+- **birthday-invite.html**: Dự án thiệp mời sinh nhật.
+
+### Liên kết giữa các trang trong dự án
+Dưới đây là ví dụ về cách liên kết các trang trong dự án:
+```html
+<h3><a href="public/movie-ranking.html">Dự án Xếp hạng Phim</a></h3>
+<h3><a href="public/birthday-invite.html">Dự án Thiệp mời Sinh nhật</a></h3>
+```
+
+### Chụp ảnh màn hình các dự án
+Để tạo một trang danh mục đầu tư hiệu quả, bạn cần chụp ảnh màn hình của các dự án và hiển thị chúng trên website:
+```html
+<img src="assets/images/movie-ranking.png" alt="Dự án Xếp hạng Phim" height="200">
+<img src="assets/images/birthday-invite.png" alt="Dự án Thiệp mời Sinh nhật" height="200">
+```
+
+---
+
+## 6. Thực hành tạo trang web nhiều trang
+
+### Các bước thực hành:
+1. Tạo các trang `about.html` và `contact.html`.
+2. Từ `index.html`, thêm liên kết đến hai trang này.
+3. Hiển thị hình ảnh và sử dụng nó làm liên kết đến `about.html`.

@@ -1,0 +1,87 @@
+
+### Web Forms - Form Đầu Tiên của Bạn
+
+**Web forms là gì?**
+Web forms là một trong những phương tiện chính để người dùng tương tác với một trang web hoặc ứng dụng. Chúng cho phép người dùng nhập dữ liệu, dữ liệu này thường sẽ được gửi tới máy chủ web để xử lý và lưu trữ, hoặc có thể được sử dụng ngay trên phía client để cập nhật giao diện.
+
+**Cấu trúc cơ bản của Web Forms**
+Một form HTML bao gồm các điều khiển form (hay còn gọi là widget) và các phần tử khác để giúp cấu trúc form. Các điều khiển có thể là các trường văn bản đơn hoặc đa dòng, hộp thả xuống, nút bấm, hộp kiểm, hoặc nút radio, và chúng chủ yếu được tạo ra bằng thẻ `<input>`, mặc dù có một số phần tử khác mà bạn cần học.
+
+**Thiết kế form của bạn**
+Trước khi bắt đầu mã hóa, hãy dành thời gian suy nghĩ về form của bạn. Thiết kế một bản phác thảo giúp bạn xác định các dữ liệu đúng đắn mà bạn muốn yêu cầu người dùng nhập. Đảm bảo rằng form càng đơn giản càng tốt để tránh làm người dùng cảm thấy khó chịu.
+
+**Tạo form liên hệ đơn giản:**
+Chúng ta sẽ tạo một form liên hệ đơn giản với ba trường văn bản và một nút gửi. Khi người dùng bấm nút, dữ liệu sẽ được gửi đến một máy chủ web.
+
+**HTML cho form liên hệ đơn giản**:
+```html
+<form action="/my-handling-form-page" method="post">
+  <p>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="user_name" />
+  </p>
+  <p>
+    <label for="mail">Email:</label>
+    <input type="email" id="mail" name="user_email" />
+  </p>
+  <p>
+    <label for="msg">Message:</label>
+    <textarea id="msg" name="user_message"></textarea>
+  </p>
+  <p class="button">
+    <button type="submit">Send your message</button>
+  </p>
+</form>
+```
+
+**Các thẻ HTML chính trong Form**:
+1. **`<form>`**: Định nghĩa một form, với các thuộc tính như `action` và `method` để chỉ định nơi gửi dữ liệu và phương thức HTTP.
+2. **`<label>`**: Được sử dụng để tạo nhãn mô tả cho các trường nhập liệu. Thẻ `for` kết nối với ID của các trường nhập liệu.
+3. **`<input>`**: Dùng để tạo các trường văn bản, email, hoặc các trường khác tùy thuộc vào loại.
+4. **`<textarea>`**: Dùng cho trường nhập liệu nhiều dòng, ví dụ để nhập tin nhắn.
+5. **`<button>`**: Dùng để tạo nút gửi dữ liệu khi người dùng hoàn thành form.
+
+**CSS cơ bản cho form**:
+```css
+body {
+  text-align: center;
+}
+
+form {
+  display: inline-block;
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 1em;
+}
+
+label {
+  display: inline-block;
+  min-width: 90px;
+  text-align: right;
+}
+
+input, textarea {
+  font: 1em sans-serif;
+  width: 300px;
+  box-sizing: border-box;
+  border: 1px solid #999;
+}
+
+textarea {
+  vertical-align: top;
+  height: 5em;
+}
+
+button {
+  margin-left: 0.5em;
+}
+```
+
+**Xử lý dữ liệu form trên máy chủ**:
+Dữ liệu form được gửi đến máy chủ dưới dạng các cặp tên/giá trị. Bạn cần sử dụng thuộc tính `name` trên mỗi trường nhập liệu để xác định tên dữ liệu. Ví dụ, trong form của chúng ta:
+- `user_name`: Tên người dùng.
+- `user_email`: Email người dùng.
+- `user_message`: Tin nhắn người dùng.
+
+**Tóm tắt**:
+Chúc mừng, bạn đã tạo thành công form đầu tiên của mình! Bây giờ bạn có thể gửi và xử lý dữ liệu từ người dùng. Tuy nhiên, Web Forms có rất nhiều tính năng mạnh mẽ hơn mà bạn sẽ khám phá trong các bài học sau. Các bài học tiếp theo sẽ giúp bạn làm việc với việc xác thực form, gửi dữ liệu qua AJAX, và nhiều kỹ thuật khác.

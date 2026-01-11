@@ -1,0 +1,39 @@
+Hiệu suất JavaScript là gì?
+
+Hiệu suất JavaScript liên quan đến cách mã JavaScript được tối ưu để giảm thiểu thời gian tải, độ trễ và tác động đến hiệu suất của trang web. Dưới đây là những yếu tố quan trọng liên quan đến tối ưu hóa hiệu suất JavaScript:
+
+1. **Giảm tải JavaScript không cần thiết**:
+   - **Không sử dụng framework khi không cần thiết**: Nếu không cần các tính năng phức tạp, hãy cân nhắc sử dụng JavaScript thuần thay vì các framework nặng nề. Các framework như React, Angular hay Vue thường mang lại sự tiện lợi nhưng cũng kéo theo mã nguồn lớn và các tệp tải về nhiều hơn.
+   - **Loại bỏ mã không sử dụng**: Hãy đảm bảo rằng bạn loại bỏ bất kỳ đoạn mã nào không cần thiết để giảm dung lượng tệp JavaScript.
+   - **Sử dụng tính năng trình duyệt có sẵn**: Một số tính năng của trình duyệt như kiểm tra form, trình phát video, hoặc CSS animations có thể thay thế JavaScript, giúp giảm thiểu mã nguồn và cải thiện hiệu suất.
+
+2. **Tối ưu hóa việc tải và thực thi JavaScript**:
+   - **Preload tài nguyên quan trọng**: Sử dụng thẻ `<link rel="preload">` để tải JavaScript quan trọng ngay lập tức mà không làm gián đoạn quá trình render của trang.
+   - **Defer hoặc Async cho mã JavaScript không quan trọng**: Thêm thuộc tính `async` hoặc `defer` vào thẻ `<script>` để tải các tệp JavaScript song song với quá trình phân tích HTML, giúp giảm độ trễ khi render trang.
+   - **Tải JavaScript khi cần thiết**: Dùng phương pháp như `import()` để tải các mô-đun JavaScript chỉ khi chúng thực sự cần thiết thay vì tải tất cả ngay từ đầu.
+
+3. **Chia nhỏ các tác vụ dài**:
+   - Các tác vụ JavaScript tốn thời gian (như tính toán phức tạp, hoặc các yêu cầu mạng) có thể gây “block” luồng chính của trình duyệt và làm giảm trải nghiệm người dùng. Bạn nên chia các tác vụ dài thành các tác vụ nhỏ hơn để trình duyệt có thể xử lý các tác vụ quan trọng khác giữa các tác vụ nhỏ đó.
+
+4. **Tối ưu hóa hoạt ảnh JavaScript**:
+   - **Sử dụng CSS animations thay vì JavaScript**: Để tăng hiệu suất, hãy sử dụng **CSS animations** thay vì **JavaScript animations**, vì CSS animations được trình duyệt tối ưu tốt hơn và ít tốn tài nguyên hơn.
+   - **Dùng `requestAnimationFrame()` cho hoạt ảnh**: Nếu cần sử dụng JavaScript để tạo hoạt ảnh, hãy dùng phương thức `requestAnimationFrame()` thay vì `setInterval()` hoặc `setTimeout()`, vì nó giúp tạo ra các khung hình mượt mà hơn và ít tốn tài nguyên.
+
+5. **Tối ưu hóa sự kiện**:
+   - **Hủy bỏ event listeners không cần thiết**: Nếu một sự kiện không còn cần thiết nữa (như sự kiện chuột hoặc sự kiện cuộn khi không sử dụng), bạn nên loại bỏ event listeners để tiết kiệm tài nguyên.
+   - **Sử dụng event delegation**: Thay vì gắn event listener cho từng phần tử con trong DOM, bạn có thể gắn một listener cho phần tử cha. Khi sự kiện xảy ra trên phần tử con, nó sẽ "bubble" lên cha, giảm số lượng listener và cải thiện hiệu suất.
+
+6. **Viết mã hiệu quả**:
+   - **Giảm thao tác với DOM**: Tránh thao tác DOM nhiều lần, vì mỗi thay đổi DOM đều tốn tài nguyên. Thay vào đó, hãy nhóm các thay đổi DOM lại và thực hiện chúng một lần duy nhất.
+   - **Giảm số lượng vòng lặp**: Vòng lặp có thể tốn rất nhiều tài nguyên nếu không được tối ưu. Nếu cần phải sử dụng vòng lặp, hãy giảm thiểu số lần lặp hoặc sử dụng các phương pháp khác để tránh vòng lặp không cần thiết.
+
+7. **Chạy mã JavaScript ngoài luồng chính**:
+   - **Sử dụng mã bất đồng bộ (Asynchronous JavaScript)**: JavaScript bất đồng bộ không làm gián đoạn luồng chính của trình duyệt. Bạn có thể sử dụng các API bất đồng bộ như `fetch()` để xử lý các yêu cầu mạng hoặc thao tác với tệp mà không làm ảnh hưởng đến UI.
+   - **Web Workers**: Web Workers cho phép chạy mã JavaScript trong một luồng riêng biệt, giúp không làm gián đoạn luồng chính của trình duyệt. Điều này rất hữu ích cho các tác vụ tính toán phức tạp.
+
+8. **Theo dõi hiệu suất JavaScript**:
+   - Đo lường hiệu suất JavaScript rất quan trọng để xác định các phần mã cần tối ưu. Các công cụ như **Chrome DevTools** hoặc **Lighthouse** có thể giúp bạn phân tích và cải thiện hiệu suất của mã JavaScript.
+
+### **Kết luận**:
+Tối ưu hóa hiệu suất JavaScript không chỉ giúp giảm thời gian tải và độ trễ mà còn cải thiện trải nghiệm người dùng tổng thể. Bạn cần giảm thiểu mã không cần thiết, tối ưu hóa việc tải tài nguyên và phân phối mã, đồng thời tối ưu hóa sự kiện và thao tác DOM để trang web hoạt động mượt mà hơn. Hãy nhớ rằng hiệu suất JavaScript có thể ảnh hưởng trực tiếp đến tốc độ trang web và sự hài lòng của người dùng.
+

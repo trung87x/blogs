@@ -1,0 +1,62 @@
+
+1. Cách làm nổi bật dòng đầu tiên của một đoạn văn
+Trong hướng dẫn này, bạn sẽ tìm hiểu cách làm nổi bật dòng đầu tiên của một đoạn văn, ngay cả khi bạn không biết dòng đó dài bao nhiêu.
+
+**Tạo kiểu cho dòng đầu tiên của văn bản**
+Bạn có thể muốn làm cho dòng đầu tiên của một đoạn văn lớn hơn và đậm hơn. Việc bao quanh dòng đầu tiên bằng một `<span>` có thể giúp bạn tạo kiểu, nhưng nếu dòng đầu tiên trở nên ngắn hơn do kích thước viewport nhỏ hơn, văn bản có kiểu sẽ tự động xuống dòng sang dòng tiếp theo.
+
+**Sử dụng pseudo-element**
+Pseudo-element có thể thay thế `<span>`; tuy nhiên, nó linh hoạt hơn — nội dung chính xác được chọn bởi pseudo-element được tính toán sau khi trình duyệt đã hiển thị nội dung, vì vậy nó sẽ hoạt động ngay cả khi kích thước viewport thay đổi.
+
+Trong trường hợp này, chúng ta cần sử dụng pseudo-element `::first-line`. Nó chọn dòng đầu tiên đã được định dạng của mỗi đoạn văn, nghĩa là bạn có thể tạo kiểu cho nó theo yêu cầu.
+
+```html
+<div class="wrapper">
+  <p>
+    Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion
+    daikon amaranth tatsoi tomatillo melon azuki bean garlic.
+  </p>
+
+  <p>
+    Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette
+    tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato.
+    Dandelion cucumber earthnut pea peanut soko zucchini.
+  </p>
+</div>
+```
+
+```css
+.wrapper p::first-line {
+  font-weight: bold;
+  font-size: 130%;
+}
+```
+
+Lưu ý: Tất cả pseudo-elements đều hoạt động theo cách này. Chúng hoạt động như thể bạn đã chèn một phần tử vào tài liệu, nhưng chúng làm điều đó một cách động dựa trên nội dung khi nó được hiển thị trong thời gian chạy.
+
+**Kết hợp pseudo-elements với các selector khác**
+Trong ví dụ trên, pseudo-element chọn dòng đầu tiên của mỗi đoạn văn. Để chỉ chọn dòng đầu tiên của đoạn văn đầu tiên, bạn có thể kết hợp nó với một selector khác. Trong trường hợp này, chúng ta sử dụng pseudo-class `:first-child`. Điều này cho phép chúng ta chọn dòng đầu tiên của phần tử con đầu tiên của `.wrapper` nếu phần tử con đầu tiên đó là một đoạn văn.
+
+```html
+<div class="wrapper">
+  <p>
+    Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion
+    daikon amaranth tatsoi tomatillo melon azuki bean garlic.
+  </p>
+
+  <p>
+    Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette
+    tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato.
+    Dandelion cucumber earthnut pea peanut soko zucchini.
+  </p>
+</div>
+```
+
+```css
+.wrapper p:first-child::first-line {
+  font-weight: bold;
+  font-size: 130%;
+}
+```
+
+Lưu ý: Khi kết hợp pseudo-elements với các selector khác trong một selector phức tạp, pseudo-elements phải xuất hiện sau tất cả các thành phần khác trong selector.

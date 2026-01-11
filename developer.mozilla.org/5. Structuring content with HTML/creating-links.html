@@ -1,0 +1,96 @@
+<!-- ==========================
+Creating Links in HTML
+========================== -->
+
+<!-- 1. Liên kết cơ bản (Basic link with href) -->
+<p>
+  Truy cập <a href="https://www.mozilla.org/en-US/">Trang chủ Mozilla</a>
+</p>
+
+<!-- 2. Liên kết dạng block (Block-level link: ví dụ với thẻ <h1>) -->
+<a href="https://developer.mozilla.org/en-US/">
+  <h1>MDN Web Docs</h1>
+</a>
+
+<!-- 3. Ảnh có thể là liên kết (Image link) -->
+<a href="https://developer.mozilla.org/en-US/">
+  <img src="mdn_logo.svg" alt="MDN Web Docs" />
+</a>
+
+<!-- 4. Dùng thuộc tính title cho mô tả thêm (tooltip khi hover) -->
+<a href="https://www.mozilla.org/en-US/"
+   title="Trang chính thức của Mozilla">
+   Truy cập Mozilla
+</a>
+
+<!-- 5. Đường dẫn tương đối (Relative path) -->
+<!-- Liên kết đến file cùng thư mục -->
+<a href="contacts.html">Liên hệ</a>
+
+<!-- Liên kết đến file trong thư mục con -->
+<a href="projects/index.html">Trang Dự Án</a>
+
+<!-- Quay lên thư mục cha rồi truy cập file -->
+<a href="../pdfs/project-brief.pdf">Tải file mô tả dự án</a>
+
+<!-- 6. Fragment: liên kết tới phần cụ thể trong trang -->
+<!-- Mục tiêu -->
+<h2 id="Mailing_address">Địa chỉ thư từ</h2>
+
+<!-- Liên kết tới mục tiêu -->
+<a href="#Mailing_address">Xem địa chỉ thư</a>
+
+<!-- Liên kết tới phần trong file khác -->
+<a href="contacts.html#Mailing_address">Địa chỉ trên trang liên hệ</a>
+
+<!-- 7. Liên kết tuyệt đối vs. tương đối -->
+<!-- Tuyệt đối: đầy đủ domain -->
+<a href="https://www.example.com/projects/index.html">Trang dự án</a>
+
+<!-- Tương đối: phù hợp khi làm việc cục bộ hoặc cùng cấu trúc thư mục -->
+<a href="pdfs/project-brief.pdf">Tài liệu PDF</a>
+
+<!-- 8. Văn bản liên kết rõ ràng (good link text) -->
+<!-- Tốt -->
+<a href="https://www.mozilla.org/en-US/firefox/new/">Tải Firefox</a>
+
+<!-- Không tốt (khó hiểu cho người dùng hoặc SEO) -->
+<a href="https://www.mozilla.org/en-US/firefox/new/">Click vào đây</a>
+
+<!-- 9. Báo trước nếu liên kết mở ra tab mới hoặc tải file -->
+<a href="/large-report.pdf" download>
+  Tải báo cáo (PDF, 10MB)
+</a>
+
+<a href="https://www.example.com/video-stream/" target="_blank">
+  Xem video (phát trực tuyến, mở trong tab mới)
+</a>
+
+<!-- 10. Dùng thuộc tính download khi liên kết tải file -->
+<a
+  href="https://download.mozilla.org/?product=firefox-latest-ssl&os=win64&lang=en-US"
+  download="firefox-latest-64bit-installer.exe">
+  Tải Firefox cho Windows (64-bit)
+</a>
+
+<!-- 11. Mở liên kết trong tab mới (target="_blank") -->
+<a href="https://www.mozilla.org/en-US/" target="_blank">Mozilla Foundation</a>
+
+<!-- 12. Menu điều hướng (navigation menu đơn giản) -->
+<nav>
+  <ul>
+    <li><a href="index.html">Trang chủ</a></li>
+    <li><a href="projects.html">Dự án</a></li>
+    <li><a href="pictures.html">Hình ảnh</a></li>
+    <li><a href="social.html">Mạng xã hội</a></li>
+  </ul>
+</nav>
+
+<!-- 13. Email links -->
+<!-- Liên kết mở ứng dụng gửi email -->
+<a href="mailto:someone@example.com">Gửi email</a>
+
+<!-- Gửi email có sẵn tiêu đề, cc, nội dung -->
+<a href="mailto:someone@example.com?cc=other@example.com&subject=Chủ đề&body=Nội dung email">
+  Gửi email với thông tin sẵn
+</a>

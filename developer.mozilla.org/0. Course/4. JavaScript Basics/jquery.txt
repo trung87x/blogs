@@ -1,0 +1,139 @@
+
+# jQuery - Thư Viện JavaScript Phổ Biến
+
+jQuery là một thư viện JavaScript mạnh mẽ giúp đơn giản hóa việc thao tác với DOM (Document Object Model) và sự kiện trên trang web. Nó giúp rút ngắn mã JavaScript, tăng khả năng tương thích trên nhiều trình duyệt, và cung cấp nhiều phương thức tiện ích cho việc thao tác với phần tử HTML.
+
+## 1. jQuery là gì?
+
+jQuery là một thư viện JavaScript được tạo ra bởi John Resig vào năm 2006. Thư viện này giúp lập trình viên viết mã JavaScript nhanh hơn và dễ hiểu hơn bằng cách cung cấp các phương thức hỗ trợ thao tác với DOM, sự kiện, hiệu ứng, AJAX và nhiều tính năng khác.
+
+### Tại sao jQuery lại phổ biến?
+- **Cú pháp ngắn gọn**: jQuery giúp rút ngắn cú pháp JavaScript dài dòng.
+- **Tương thích trình duyệt**: jQuery tự động xử lý sự khác biệt giữa các trình duyệt, giúp mã hoạt động trên nhiều nền tảng mà không cần sửa chữa.
+- **Dễ bảo trì và sử dụng**: Cung cấp các phương thức có sẵn để thao tác với DOM và sự kiện một cách dễ dàng.
+
+## 2. Cách Tích Hợp jQuery vào Trang Web
+
+### Sử Dụng CDN
+Bạn có thể tích hợp jQuery vào trang web thông qua CDN (Content Delivery Network) để giảm băng thông và tăng tốc độ tải trang.
+
+```html
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+```
+
+### Tải Xuống và Liên Kết Tệp jQuery
+Bạn có thể tải tệp jQuery về và thêm vào trang web của mình.
+
+```html
+<script src="js/jquery.min.js"></script>
+```
+
+### $(document).ready()
+Đảm bảo rằng tài liệu HTML đã được tải hoàn toàn trước khi chạy mã jQuery.
+
+```javascript
+$(document).ready(function() {
+    $("h1").css("color", "red");
+});
+```
+
+Nếu đặt thẻ `<script>` ở cuối trang, bạn không cần sử dụng `$(document).ready()`.
+
+## 3. Thao Tác Với Phần Tử DOM
+
+### Chọn Phần Tử
+jQuery giúp chọn phần tử DOM một cách nhanh chóng và dễ dàng.
+
+- **Chọn phần tử theo thẻ**:
+```javascript
+$("h1").css("color", "red");
+```
+- **Chọn phần tử theo class**:
+```javascript
+$(".title").css("font-size", "20px");
+```
+- **Chọn phần tử theo ID**:
+```javascript
+$("#header").css("background-color", "blue");
+```
+
+### Thêm và Xóa Phần Tử
+Bạn có thể sử dụng các phương thức như `.before()`, `.after()`, `.prepend()`, và `.append()` để thêm phần tử vào trang.
+
+```javascript
+$("h1").before("<button>New</button>"); // Thêm nút trước h1
+$("h1").append("<button>New</button>"); // Thêm nút vào cuối h1
+```
+
+### Thay Đổi Thuộc Tính và Nội Dung
+jQuery cho phép bạn thay đổi nội dung văn bản hoặc thuộc tính của phần tử.
+
+- **Thay đổi nội dung văn bản**:
+```javascript
+$("h1").text("Hello World");
+```
+- **Thay đổi thuộc tính**:
+```javascript
+$("img").attr("src", "new-image.jpg");
+```
+
+## 4. Sử Dụng Sự Kiện với jQuery
+
+### Thêm Sự Kiện Click
+jQuery giúp bạn dễ dàng thêm sự kiện `click` vào phần tử.
+
+```javascript
+$("button").click(function() {
+    alert("Button clicked!");
+});
+```
+
+### Lắng Nghe Sự Kiện Phím Nhấn
+Sử dụng `.keydown()` để lắng nghe sự kiện bàn phím.
+
+```javascript
+$(document).keydown(function(event) {
+    console.log("Phím đã nhấn:", event.key);
+});
+```
+
+### Thêm Sự Kiện với .on()
+Phương thức `.on()` cho phép bạn gán nhiều sự kiện cùng lúc, giúp mã trở nên linh hoạt hơn.
+
+```javascript
+$("h1").on("mouseover", function() {
+    $(this).css("color", "purple");
+});
+```
+
+## 5. Hiệu Ứng với jQuery
+
+### Hiệu Ứng Mờ Dần
+Sử dụng `.fadeOut()`, `.fadeIn()`, hoặc `.fadeToggle()` để tạo hiệu ứng mờ dần cho phần tử.
+
+```javascript
+$("button").click(function() {
+    $("h1").fadeToggle();
+});
+```
+
+### Hiệu Ứng Trượt
+Dùng `.slideUp()`, `.slideDown()`, hoặc `.slideToggle()` để tạo hiệu ứng trượt.
+
+```javascript
+$("button").click(function() {
+    $("h1").slideToggle();
+});
+```
+
+### Tạo Hoạt Ảnh Tùy Chỉnh với .animate()
+Dùng `.animate()` để thay đổi các thuộc tính CSS có giá trị số.
+
+```javascript
+$("button").click(function() {
+    $("h1").animate({opacity: 0.5, marginLeft: "50px"});
+});
+```
+
+## Kết luận
+jQuery là một thư viện JavaScript mạnh mẽ giúp đơn giản hóa việc thao tác với DOM và sự kiện trên trang web. Nó giúp rút ngắn mã và làm cho trang web hoạt động mượt mà hơn, hỗ trợ nhiều phương thức tiện ích cho việc thêm hiệu ứng động và xử lý sự kiện.

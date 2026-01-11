@@ -1,0 +1,52 @@
+
+### Đo Lường Hiệu Suất Website
+
+**Đo lường hiệu suất là gì?**
+Đo lường hiệu suất giúp bạn đánh giá thành công của ứng dụng, website hoặc dịch vụ web của mình. Việc đo lường này có thể giúp bạn so sánh hiệu suất của ứng dụng với đối thủ, hoặc so sánh hiệu suất của ứng dụng qua các phiên bản khác nhau. Các chỉ số hiệu suất cần được thu thập, đo lường một cách nhất quán, và phân tích để các bên không chuyên về kỹ thuật có thể hiểu và sử dụng.
+
+**Công cụ đo lường hiệu suất**
+Có một số công cụ giúp bạn đo lường và cải thiện hiệu suất website. Các công cụ này có thể chia thành hai nhóm chính:
+
+1. **Công cụ chỉ ra hoặc đo lường hiệu suất**: Các công cụ như PageSpeed Insights, Firefox Network Monitor, và Performance Monitor cho phép bạn xem tốc độ tải trang của website. Chúng cũng chỉ ra các phần có thể cải thiện để tối ưu hóa hiệu suất ứng dụng web.
+2. **Performance APIs**: Các API hiệu suất cho phép bạn xây dựng các công cụ đo lường hiệu suất riêng của mình.
+
+**Công cụ đo hiệu suất tổng quan**
+Các công cụ như PageSpeed Insights có thể cung cấp các phép đo hiệu suất nhanh chóng. Bạn chỉ cần nhập URL và nhận một báo cáo về hiệu suất trong vài giây. Báo cáo này chứa các điểm số cho biết website của bạn hoạt động tốt như thế nào trên thiết bị di động và desktop.
+
+**Ví dụ báo cáo từ PageSpeed Insights**:
+Báo cáo hiệu suất cung cấp thông tin về thời gian mà người dùng phải chờ trước khi thấy bất kỳ thứ gì được hiển thị trên trang, bao nhiêu byte cần được tải để hiển thị trang, và nhiều thông tin khác. Nó cũng cho bạn biết liệu các giá trị đo lường có được coi là tốt hay xấu.
+
+**Webpagetest.org** là một công cụ khác giúp bạn kiểm tra website và trả về các chỉ số giá trị.
+
+**Công cụ Mạng (Network Monitor)**
+Các trình duyệt hiện đại cung cấp công cụ giúp bạn chạy kiểm tra đối với các trang đã tải và xác định hiệu suất của chúng. Ví dụ, Firefox Network Monitor sẽ trả về thông tin chi tiết về tất cả các tài nguyên được tải từ mạng, kèm theo biểu đồ waterfall cho thấy thời gian tải của từng tài nguyên.
+
+**Ví dụ về Network Monitor trên Firefox**:
+Network Monitor của Firefox hiển thị danh sách các tài nguyên đã tải và thời gian tải của từng tài nguyên.
+
+Bạn cũng có thể tham khảo tài liệu của **Chrome's Network Monitor** để biết thêm chi tiết.
+
+**Công cụ Performance Monitor**
+Công cụ Performance Monitor cho phép bạn đo hiệu suất của giao diện người dùng trong khi thực hiện các hành động khác nhau. Công cụ này sẽ chỉ ra các tính năng có thể làm chậm ứng dụng hoặc website của bạn.
+
+**Ví dụ về công cụ Performance Monitor**:
+Các công cụ như Firefox Performance Monitor sẽ ghi lại các sự kiện hiệu suất của ứng dụng web khi bạn thực hiện các hành động và cung cấp biểu đồ waterfall giúp phân tích.
+
+**Performance APIs**
+Khi viết mã cho Web, nhiều API hiệu suất có sẵn để tạo các công cụ đo lường hiệu suất của riêng bạn.
+
+- **Navigation Timing API**: API này giúp đo lường hiệu suất phía client, bao gồm thời gian cần thiết để tải trang, thời gian xử lý các sự kiện, và các thông số khác. Bạn có thể sử dụng API này để lấy các chỉ số liên quan đến tất cả các sự kiện điều hướng trong một trang web.
+
+  **Các chỉ số của Navigation Timing API**:
+  - `navigationStart`, `redirectStart`, `unloadStart`, `connectStart`, `responseStart`, v.v.
+
+- **Performance API**: Cung cấp thông tin về hiệu suất của trang hiện tại, bao gồm nhiều API khác nhau như Navigation Timing API, User Timing API, và Resource Timing API.
+
+**Ví dụ về PerformanceEntry**:
+PerformanceEntry cho phép bạn ghi lại các điểm quan trọng trong dòng thời gian hiệu suất của trang web. Bạn có thể tạo các entry trực tiếp bằng cách gọi `mark()` trong ứng dụng của mình để đo lường thời gian thực thi.
+
+**PerformanceObserver API**:
+PerformanceObserver API giúp bạn theo dõi các sự kiện đo lường hiệu suất và nhận thông báo khi có các entry mới được ghi lại trong dòng thời gian hiệu suất của trình duyệt.
+
+**Tóm tắt**
+Bài viết này giới thiệu một số công cụ giúp bạn đo lường hiệu suất của ứng dụng web hoặc trang web. Các công cụ như PageSpeed Insights và Webpagetest.org cung cấp báo cáo nhanh chóng về hiệu suất, trong khi các công cụ như Network Monitor và Performance Monitor của trình duyệt cho phép bạn kiểm tra chi tiết hơn. Performance APIs giúp bạn tạo các công cụ đo lường hiệu suất riêng, giúp tối ưu hóa website và ứng dụng của mình.

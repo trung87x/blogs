@@ -1,0 +1,112 @@
+KỸ NĂNG NGHIÊN CỨU VÀ TỰ HỌC LẬP TRÌNH WEB
+=============================================
+
+1. MỤC TIÊU
+- Học cách tìm tài liệu chất lượng cao để giải quyết vấn đề lập trình.
+- Tự xây dựng kế hoạch học tập hiệu quả, phù hợp với bản thân.
+- Rèn tư duy học tập liên tục và giải quyết vấn đề một cách khoa học.
+
+2. CHIẾN LƯỢC NGHIÊN CỨU HIỆU QUẢ
+- Tìm kiếm Google khi gặp lỗi hoặc thắc mắc.
+- Ưu tiên tài liệu chính thống như:
+  + MDN Web Docs
+  + Stack Overflow
+  + freeCodeCamp, Codecademy, Dev.to, Scrimba
+  + YouTube tutorial chất lượng
+
+- Biết phân biệt loại tài liệu:
+  + Reference: giống từ điển, liệt kê cú pháp.
+  + Tutorial: hướng dẫn từng bước cho người mới.
+  + Guide/How-to: giải quyết bài toán cụ thể.
+  + Explainer: giải thích khái niệm ở mức cao.
+  + Forum/Q&A: cộng đồng hỏi – đáp.
+
+- Mẹo:
+  + Ưu tiên tài liệu cập nhật trong 2–3 năm gần nhất.
+  + So sánh thông tin từ nhiều nguồn.
+  + Đọc kỹ chính sách bản quyền nếu dùng code của người khác.
+
+3. KỸ NĂNG TÌM KIẾM
+- Tìm keyword cụ thể, tránh mơ hồ.
+- Khi dùng công cụ như AI (ChatGPT, Copilot), cần kiểm tra lại kết quả:
+  + AI có thể sai hoặc không hiểu ngữ cảnh.
+  + Dùng AI để gợi ý bước đầu, không dùng làm nguồn duy nhất.
+
+4. GIẢI QUYẾT VẤN ĐỀ
+- **Phân tích từng bước nhỏ**:
+  + Tách bài toán lớn thành các phần nhỏ dễ xử lý.
+  + VD: menu ngang → tách ra từng bước xử lý CSS, HTML, layout...
+
+- **Ghi lại mẫu giải quyết (pattern)**:
+  + Lưu snippet thường dùng trong thư mục cá nhân.
+  + Xây dựng “kho mẫu code” riêng để tra cứu nhanh.
+
+- **Quan sát & học từ code người khác**:
+  + Dùng DevTools để xem cách web ngoài hoạt động.
+  + Học cách triển khai tính năng thực tế.
+
+5. LẬP KẾ HOẠCH HỌC TẬP
+- Đặt mục tiêu rõ ràng:
+  + VD: "Học xong HTML, CSS trong 3 tháng."
+
+- Lập danh sách cần học:
+  + HTML, CSS, JS cơ bản.
+  + Cách deploy website.
+  + Kỹ năng làm việc nhóm, marketing...
+
+- Tính toán thời gian:
+  + Ước lượng tổng thời gian học → chia đều theo tuần.
+  + Có thể ghi nhật ký học mỗi tuần.
+
+- Tạo mục tiêu con:
+  + VD:
+    a. HTML/CSS căn bản: tháng 1
+    b. JS cơ bản: tháng 2
+    c. Dự án nhỏ: tháng 3
+
+6. GIỮ ĐỘNG LỰC HỌC
+- Môi trường học tập hiệu quả:
+  + Bàn ghế phù hợp, không gian yên tĩnh.
+  + Loại bỏ điện thoại, TV, xao nhãng.
+
+- Sức khoẻ là quan trọng:
+  + Ăn đủ, ngủ đủ, tập thể dục nhẹ mỗi ngày.
+
+- Tự thưởng:
+  + VD: học 2h → được chơi game 30 phút.
+
+- Học cùng bạn:
+  + Tìm bạn học chung, nhóm study, hoặc tham gia khóa học có cộng đồng.
+
+7. RUBBER DUCKING & NGHỈ GIẢI LAO
+- Rubber Ducking:
+  + Giải thích lỗi với một người bạn / đồ vật → tự tìm ra hướng giải quyết.
+
+- Nghỉ ngắn:
+  + Áp dụng quy tắc 20–20–20:
+    + 20 phút làm việc → nhìn xa 20 mét trong 20 giây.
+  + Nghỉ dài 15 phút mỗi 1–1.5 giờ học.
+
+8. XÂY DỰNG MẠNG LƯỚI HỖ TRỢ
+- Đồng đội:
+  + Hỏi – đáp nhóm bạn học, đồng nghiệp.
+
+- Mentor / Giảng viên / Senior:
+  + Chỉ hỏi khi thật sự cần thiết.
+  + Chuẩn bị rõ nội dung câu hỏi và những gì đã thử.
+
+- Cộng đồng:
+  + Tham gia diễn đàn như MDN Discord, fCC forum, Reddit, Meetup...
+
+- Chia sẻ lại:
+  + Giúp người khác để tạo kết nối và ghi nhớ kiến thức.
+
+9. TƯ DUY HỌC TẬP LIÊN TỤC
+- Thế giới web luôn thay đổi:
+  + Luôn tìm hiểu công nghệ mới, đọc release note trình duyệt.
+
+- Gợi ý:
+  + Theo dõi blog kỹ thuật.
+  + Viết blog chia sẻ kiến thức học được.
+  + Tự đặt “dự án nghiên cứu nhỏ” hàng tháng.
+

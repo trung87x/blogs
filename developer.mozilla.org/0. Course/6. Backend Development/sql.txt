@@ -1,0 +1,88 @@
+
+1. SQL là gì?
+SQL (Structured Query Language) là ngôn ngữ để thao tác và quản lý cơ sở dữ liệu quan hệ. SQL giúp bạn thực hiện các thao tác CRUD (Create, Read, Update, Delete) để làm việc với dữ liệu trong cơ sở dữ liệu.
+
+Ứng dụng vào công việc:
+- SQL là công cụ quan trọng để quản lý dữ liệu trong các hệ thống cơ sở dữ liệu, giúp xây dựng và duy trì các ứng dụng web, ứng dụng doanh nghiệp, và hệ thống thông tin.
+
+---
+
+2. CRUD trong Cơ Sở Dữ Liệu SQL
+CRUD là bốn thao tác chính trong SQL:
+- **Create**: Tạo dữ liệu mới trong cơ sở dữ liệu (ví dụ: thêm bài viết, người dùng).
+- **Read**: Đọc dữ liệu từ cơ sở dữ liệu (truy vấn thông tin).
+- **Update**: Cập nhật dữ liệu hiện có.
+- **Delete**: Xóa dữ liệu【201†source】.
+
+Ứng dụng vào công việc:
+- Khi làm việc với cơ sở dữ liệu, việc nắm vững CRUD là rất quan trọng để có thể thao tác và duy trì dữ liệu trong hệ thống.
+
+---
+
+3. Tạo Bảng và Thêm Dữ Liệu
+**CREATE TABLE** giúp tạo bảng mới trong cơ sở dữ liệu, trong khi **INSERT INTO** được dùng để thêm dữ liệu vào bảng.
+
+**Ví dụ**:
+```sql
+CREATE TABLE products (
+    id INT PRIMARY KEY,
+    name TEXT,
+    price MONEY
+);
+
+INSERT INTO products (id, name, price)
+VALUES (1, 'Pen', 1.20);
+```
+
+Ứng dụng vào công việc:
+- Tạo bảng và thêm dữ liệu là bước cơ bản trong việc xây dựng cơ sở dữ liệu.
+
+---
+
+4. Lọc và Truy Vấn Dữ Liệu
+**SELECT** giúp bạn truy vấn dữ liệu từ bảng, và **WHERE** dùng để lọc dữ liệu dựa trên điều kiện.
+
+**Ví dụ**:
+```sql
+SELECT * FROM products WHERE price > 1.00;
+```
+
+Ứng dụng vào công việc:
+- Truy vấn và lọc dữ liệu là những thao tác quan trọng khi làm việc với cơ sở dữ liệu, đặc biệt khi bạn cần hiển thị dữ liệu theo các điều kiện nhất định trong các ứng dụng web.
+
+---
+
+5. Cập Nhật và Thêm Cột
+**UPDATE** được dùng để thay đổi dữ liệu trong bảng, trong khi **ALTER TABLE** dùng để thay đổi cấu trúc bảng, ví dụ như thêm cột mới.
+
+**Ví dụ**:
+```sql
+UPDATE products SET price = 1.50 WHERE id = 1;
+
+ALTER TABLE products ADD COLUMN stock INT;
+```
+
+Ứng dụng vào công việc:
+- Cập nhật dữ liệu và thay đổi cấu trúc bảng giúp bạn duy trì và điều chỉnh cơ sở dữ liệu khi yêu cầu của ứng dụng thay đổi.
+
+---
+
+6. Xóa Dữ Liệu và Bảng
+**DELETE** dùng để xóa dữ liệu khỏi bảng mà không xóa bảng. Bạn có thể xóa một bản ghi hoặc toàn bộ dữ liệu trong bảng.
+
+**Ví dụ**:
+```sql
+DELETE FROM products WHERE id = 1;
+```
+
+Ứng dụng vào công việc:
+- Xóa dữ liệu là một thao tác quan trọng khi bạn muốn dọn dẹp hoặc thay đổi các bản ghi trong cơ sở dữ liệu【204†source】.
+
+---
+
+### Tóm Tắt
+- **SQL** là ngôn ngữ cơ bản để thao tác và quản lý cơ sở dữ liệu quan hệ.
+- Các thao tác **CRUD** (Create, Read, Update, Delete) là những thao tác cơ bản trong SQL.
+- **SELECT** và **WHERE** giúp truy vấn và lọc dữ liệu, trong khi **INSERT INTO**, **UPDATE**, và **DELETE** giúp bạn thao tác dữ liệu trong cơ sở dữ liệu.
+- **ALTER TABLE** giúp thay đổi cấu trúc bảng.
+

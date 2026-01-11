@@ -1,0 +1,73 @@
+
+1. Cách sử dụng GitHub Pages để xuất bản website
+GitHub là một trang web "social coding". Nó cho phép bạn tải các kho mã (repositories) lên để lưu trữ trong hệ thống kiểm soát phiên bản Git. Sau đó, bạn có thể hợp tác trên các dự án mã nguồn, và hệ thống này là mã nguồn mở mặc định, nghĩa là bất kỳ ai trên thế giới cũng có thể tìm thấy mã của bạn, sử dụng nó, học hỏi từ nó và cải thiện nó. Bạn cũng có thể làm điều này với mã của người khác! Bài viết này cung cấp hướng dẫn cơ bản về cách xuất bản nội dung sử dụng tính năng GitHub Pages.
+
+**Xuất bản nội dung**
+GitHub là một cộng đồng rất quan trọng và hữu ích để tham gia, và Git/GitHub là một hệ thống kiểm soát phiên bản rất phổ biến — hầu hết các công ty công nghệ hiện nay đều sử dụng nó trong quy trình làm việc. GitHub có một tính năng rất hữu ích gọi là GitHub Pages, cho phép bạn xuất bản mã website trực tiếp lên web.
+
+**Cài đặt cơ bản GitHub**
+Trước hết, cài đặt Git trên máy tính của bạn. Đây là phần mềm kiểm soát phiên bản cơ bản mà GitHub hoạt động dựa trên đó.
+Tiếp theo, đăng ký tài khoản GitHub. Điều này rất đơn giản và dễ dàng.
+Sau khi đăng ký xong, đăng nhập vào github.com bằng tên người dùng và mật khẩu của bạn.
+
+**Chuẩn bị mã của bạn để tải lên**
+Bạn có thể lưu trữ bất kỳ mã nào trong kho lưu trữ GitHub, nhưng để sử dụng tính năng GitHub Pages một cách hiệu quả, mã của bạn nên được cấu trúc như một website điển hình, ví dụ, với điểm vào chính là tệp HTML gọi là `index.html`.
+
+Điều bạn cần làm tiếp theo là khởi tạo thư mục mã của bạn thành một kho Git. Để làm điều này:
+
+Chuyển dòng lệnh đến thư mục test-site của bạn (hoặc bất kỳ thư mục nào chứa website của bạn). Để làm điều này, sử dụng lệnh `cd` (tức là "change directory"). Dưới đây là lệnh bạn sẽ gõ nếu bạn đã đặt website của mình trong thư mục `test-site` trên màn hình chính:
+
+```bash
+cd Desktop/test-site
+```
+
+Khi dòng lệnh đã chỉ vào thư mục website của bạn, gõ lệnh sau, lệnh này yêu cầu công cụ git biến thư mục thành một kho Git:
+
+```bash
+git init
+```
+
+**Tạo kho cho mã của bạn**
+Tiếp theo, bạn cần tạo một kho mới cho các tệp của mình. Nhấp vào dấu cộng (+) ở góc trên bên phải trang chủ GitHub, sau đó chọn "New Repository".
+Trên trang này, trong ô "Repository name", nhập tên cho kho mã của bạn, ví dụ `my-repository`.
+Cũng điền mô tả để nói về kho mã của bạn sẽ chứa gì. Màn hình của bạn sẽ trông như sau: trang kho mới mở trong trình duyệt, chủ sở hữu kho và tên kho được điền, giống như ô mô tả tùy chọn. Hộp công khai được chọn, hộp riêng tư không được chọn, cũng như hộp "initialize this repository with a readme".
+Nhấn "Create repository"; điều này sẽ đưa bạn đến trang tiếp theo: Trang kho được mở trong trình duyệt, bên dưới tiêu đề GitHub, các liên kết tìm kiếm và điều hướng đến yêu cầu kéo, vấn đề và gist của kho. Tiếp theo là liên kết trang kho, tên của chủ sở hữu kho theo sau là tên kho của kho, và bên dưới là thanh điều hướng ngang chứa các tab khác nhau liên quan đến kho của bạn, tab mã được chọn hiển thị tài liệu giải thích cách tạo kho hoặc cách đẩy từ dòng lệnh.
+
+**Tải các tệp lên GitHub**
+Trên trang hiện tại, bạn quan tâm đến phần "…or push an existing repository from the command line". Bạn sẽ thấy hai dòng mã được liệt kê trong phần này. Sao chép toàn bộ dòng đầu tiên, dán nó vào dòng lệnh và nhấn Enter. Lệnh sẽ trông như thế này:
+
+```bash
+git remote add origin https://github.com/chrisdavidmills/my-repository.git
+```
+
+Tiếp theo, gõ hai lệnh sau, nhấn Enter sau mỗi lệnh. Những lệnh này chuẩn bị mã để tải lên GitHub và yêu cầu Git quản lý các tệp này.
+
+```bash
+git add --all
+git commit -m 'adding my files to my repository'
+```
+
+Cuối cùng, đẩy mã lên GitHub bằng cách vào trang GitHub mà bạn đang xem và nhập vào terminal lệnh thứ hai trong hai lệnh chúng ta đã thấy trong phần "…or push an existing repository from the command line":
+
+```bash
+git push -u origin main
+```
+
+Bây giờ bạn cần bật GitHub Pages cho kho của mình. Để làm điều này, từ trang chủ kho của bạn chọn "Settings", sau đó chọn "Pages" từ thanh bên trái. Dưới phần "Source", chọn nhánh "main". Trang sẽ tự động làm mới.
+
+Truy cập lại phần GitHub Pages và bạn sẽ thấy một dòng có dạng "Your site is ready to be published at https://xxxxxx."
+
+Nếu bạn nhấp vào URL này, bạn sẽ thấy phiên bản trực tiếp của ví dụ của mình, miễn là trang chủ được gọi là `index.html` — nó đi đến điểm vào này theo mặc định. Nếu điểm vào của trang bạn được gọi là một cái gì đó khác, ví dụ `myPage.html`, bạn sẽ cần phải truy cập vào `https://xxxxxx/myPage.html`.
+
+**Kiến thức GitHub bổ sung**
+Nếu bạn muốn thực hiện thêm thay đổi cho trang thử nghiệm của mình và tải chúng lên GitHub, bạn cần thay đổi các tệp của mình như đã làm trước đó. Sau đó, bạn cần nhập các lệnh sau (nhấn Enter sau mỗi lệnh) để đẩy những thay đổi đó lên GitHub:
+
+```bash
+git add --all
+git commit -m 'another commit'
+git push
+```
+
+Bạn có thể thay thế 'another commit' bằng một thông điệp thích hợp hơn để mô tả thay đổi mà bạn vừa thực hiện.
+
+Chúng ta đã chỉ đề cập đến bề mặt của Git. Để tìm hiểu thêm, hãy tham khảo trang Git và GitHub của chúng tôi.

@@ -1,0 +1,116 @@
+<!-- ==========================
+Table Basics in HTML
+========================== -->
+
+<!-- 1. Cấu trúc bảng cơ bản -->
+<table>
+  <tr>
+    <td>Ô 1</td>
+    <td>Ô 2</td>
+    <td>Ô 3</td>
+    <td>Ô 4</td>
+  </tr>
+  <tr>
+    <td>Hàng 2, Ô 1</td>
+    <td>Hàng 2, Ô 2</td>
+    <td>Hàng 2, Ô 3</td>
+    <td>Hàng 2, Ô 4</td>
+  </tr>
+</table>
+
+<!-- Giải thích:
+- <table>: bắt đầu bảng
+- <tr>: hàng (table row)
+- <td>: ô dữ liệu (table data)
+-->
+
+<!-- 2. Thêm tiêu đề với <th> -->
+<table>
+  <tr>
+    <th></th>
+    <th>Knocky</th>
+    <th>Flor</th>
+    <th>Ella</th>
+    <th>Juan</th>
+  </tr>
+  <tr>
+    <th>Breed</th>
+    <td>Jack Russell</td>
+    <td>Poodle</td>
+    <td>Streetdog</td>
+    <td>Cocker Spaniel</td>
+  </tr>
+  <tr>
+    <th>Age</th>
+    <td>16</td>
+    <td>9</td>
+    <td>10</td>
+    <td>5</td>
+  </tr>
+</table>
+
+<!-- Lưu ý:
+- <th> là ô tiêu đề (table header), thường in đậm, căn giữa mặc định
+- <th> có thể nằm ở đầu hàng hoặc đầu cột
+-->
+
+<!-- 3. Gộp cột dùng colspan -->
+<table>
+  <tr>
+    <th colspan="2">Animals</th>
+  </tr>
+  <tr>
+    <th colspan="2">Hippopotamus</th>
+  </tr>
+  <tr>
+    <th rowspan="2">Horse</th>
+    <td>Mare</td>
+  </tr>
+  <tr>
+    <td>Stallion</td>
+  </tr>
+  <tr>
+    <th colspan="2">Crocodile</th>
+  </tr>
+  <tr>
+    <th rowspan="2">Chicken</th>
+    <td>Hen</td>
+  </tr>
+  <tr>
+    <td>Rooster</td>
+  </tr>
+</table>
+
+<!-- Giải thích:
+- colspan="2": gộp 2 cột ngang
+- rowspan="2": gộp 2 hàng dọc
+-->
+
+<!-- 4. Khi nào KHÔNG nên dùng bảng -->
+<!-- KHÔNG dùng bảng để bố cục trang web -->
+<!-- Hãy dùng CSS layout thay thế -->
+
+<!-- Lý do:
+- Trình đọc màn hình sẽ bị rối nếu bảng không dùng đúng mục đích
+- Gây khó bảo trì mã HTML
+- Không phản hồi tốt trên thiết bị di động
+-->
+
+<!-- 5. Bảng cần thêm CSS để dễ đọc hơn -->
+<style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th,
+  td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+</style>
+
+<!-- Nên dùng CSS để làm bảng đẹp và dễ nhìn hơn -->

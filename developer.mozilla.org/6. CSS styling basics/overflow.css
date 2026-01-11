@@ -1,0 +1,87 @@
+/* ===========================
+   KIỂM SOÁT NỘI DUNG TRÀN HỘP
+   =========================== */
+
+/* === 1. KHÁI NIỆM OVERFLOW === */
+/*
+  - Overflow xảy ra khi nội dung vượt quá kích thước của hộp (box).
+  - Điều này thường xảy ra khi đặt chiều cao/chiều rộng giới hạn.
+  - CSS mặc định sẽ *hiển thị* nội dung bị tràn để tránh mất dữ liệu.
+*/
+
+/* === 2. Ví dụ overflow đơn giản === */
+.box {
+  width: 250px;
+  height: 100px;
+  border: 1px solid #333;
+}
+/* Nếu nội dung dài hơn 100px → bị tràn ra ngoài. */
+
+/* === 3. Thuộc tính overflow === */
+/*
+  - visible (mặc định): hiển thị tràn nội dung
+  - hidden: ẩn phần bị tràn
+  - scroll: luôn hiển thị thanh cuộn
+  - auto: chỉ hiển thị thanh cuộn khi cần thiết
+*/
+
+/* === 4. overflow: hidden – Ẩn phần bị tràn === */
+.box {
+  overflow: hidden;
+}
+/* ⚠️ Cẩn trọng vì có thể ẩn nội dung quan trọng */
+
+/* === 5. overflow: scroll – Luôn hiển thị thanh cuộn === */
+.box {
+  overflow: scroll;
+}
+/*
+  - Scrollbar hiển thị dù có tràn hay không.
+  - Dùng khi muốn layout ổn định (không nhảy khi scrollbar xuất hiện).
+*/
+
+/* === 6. overflow-x, overflow-y – điều khiển theo trục === */
+.word {
+  width: 100px;
+  font-size: 250%;
+  border: 5px solid #333;
+  overflow-x: scroll;
+}
+/* Dùng khi muốn cuộn theo chiều ngang/dọc riêng biệt */
+
+/* === 7. overflow: auto – Cuộn khi cần thiết === */
+.box {
+  overflow: auto;
+}
+/*
+  - Tự động hiển thị thanh cuộn nếu cần.
+  - Là lựa chọn an toàn nhất và thường dùng.
+*/
+
+/* === 8. overflow: scroll hidden – kết hợp 2 trục === */
+.box {
+  overflow: scroll hidden;
+}
+/* overflow-x: scroll, overflow-y: hidden */
+
+/* === 9. overflow trong layout hiện đại === */
+/*
+  - Flexbox, Grid, v.v. xử lý overflow tốt hơn cách cũ.
+  - Tránh dùng container cố định chiều cao trừ khi thật sự cần thiết.
+*/
+
+/* === 10. Mẹo kiểm thử overflow === */
+/*
+  - Kiểm tra với nội dung dài/ngắn khác nhau
+  - Tăng kích thước font để test giao diện
+  - Kiểm tra xem phần tử bị tràn có quan trọng không?
+  - Dùng DevTools để quan sát hành vi overflow
+*/
+
+/* ========================================================
+   TÓM TẮT:
+   - overflow: visible | hidden | scroll | auto
+   - Sử dụng overflow-x, overflow-y khi cần riêng biệt
+   - Chỉ dùng hidden nếu chắc chắn không ảnh hưởng trải nghiệm
+   - auto là phương án an toàn, linh hoạt cho hầu hết trường hợp
+   ======================================================== */

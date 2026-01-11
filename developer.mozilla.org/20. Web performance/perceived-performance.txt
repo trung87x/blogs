@@ -1,0 +1,39 @@
+
+### Hiệu Suất Cảm Nhận (Perceived Performance)
+
+**Hiệu suất cảm nhận là gì?**
+Hiệu suất cảm nhận là thước đo chủ quan về hiệu suất, khả năng phản hồi và độ tin cậy của một website. Nó mô tả cách mà website "cảm nhận" với người dùng, hoặc nói cách khác là tốc độ cảm nhận của người dùng khi truy cập một website. Mặc dù không thể đo lường chính xác như thời gian tải tài nguyên thực tế, hiệu suất cảm nhận lại cực kỳ quan trọng vì nó ảnh hưởng trực tiếp đến trải nghiệm người dùng.
+
+**Lý do tại sao hiệu suất cảm nhận lại quan trọng?**
+Thực tế là thời gian mà người dùng cảm nhận được khi tải trang web và tương tác với các yếu tố của trang có thể ảnh hưởng đến cách họ đánh giá website. Dù bạn không thể làm cho website chạy nhanh hơn, nhưng bạn có thể cải thiện cảm nhận của người dùng về tốc độ bằng cách tối ưu hóa cách thức và thời gian hiển thị của các yếu tố trong trang.
+
+**Một quy tắc chung để cải thiện hiệu suất cảm nhận là gì?**
+Quy tắc chung là thay vì khiến người dùng chờ đợi cho đến khi một tác vụ hoàn tất, hãy cung cấp phản hồi nhanh chóng và cập nhật trạng thái thường xuyên. Ví dụ, khi tải trang, thay vì đợi tất cả hình ảnh và tài nguyên tải xong, bạn có thể hiển thị nội dung văn bản ngay khi nó tải về. Điều này giúp người dùng thấy có sự chuyển động và cảm giác rằng trang web đang hoạt động, thay vì chỉ thấy trang web "trống rỗng".
+
+**Ví dụ về cải thiện hiệu suất cảm nhận**
+- **Hiển thị văn bản trước**: Khi trang web tải, hiển thị văn bản ngay lập tức thay vì đợi tất cả tài nguyên (hình ảnh, CSS, JavaScript) tải xong.
+- **Hiển thị "loading animation"**: Cung cấp một hoạt ảnh loading cho người dùng khi họ click vào liên kết hoặc bắt đầu một tác vụ dài.
+
+**Các chỉ số hiệu suất cảm nhận**
+Mặc dù không có một chỉ số cụ thể nào có thể đánh giá chính xác hiệu suất cảm nhận, có một số chỉ số có thể giúp bạn đánh giá mức độ cảm nhận của người dùng:
+
+1. **First Paint (FP)**: Thời gian đầu tiên mà trang bắt đầu được hiển thị (có thể chỉ là màu nền hoặc thay đổi nhỏ).
+2. **First Contentful Paint (FCP)**: Thời gian đến khi nội dung quan trọng (ví dụ: văn bản, hình ảnh nền, v.v.) bắt đầu hiển thị.
+3. **First Meaningful Paint (FMP)**: Thời gian khi nội dung hữu ích đầu tiên được render lên màn hình.
+4. **Largest Contentful Paint (LCP)**: Thời gian render phần tử lớn nhất (ví dụ: hình ảnh, đoạn văn bản) có thể nhìn thấy trong viewport.
+5. **Speed Index**: Đo thời gian trung bình để các pixel hiển thị trên màn hình.
+6. **Time to Interactive (TTI)**: Thời gian cho đến khi UI của trang web có thể tương tác với người dùng (hoàn thành tất cả các tác vụ tải lâu dài).
+
+**Cải thiện hiệu suất cảm nhận**
+Dưới đây là một số mẹo để cải thiện hiệu suất cảm nhận:
+
+1. **Giảm thời gian tải ban đầu**: Đảm bảo rằng bạn tải các tài nguyên quan trọng trước (như văn bản, CSS và hình ảnh hiển thị đầu tiên) và tải các tài nguyên không quan trọng sau khi trang đã hiển thị.
+2. **Chia nhỏ nội dung tương tác với nội dung**: Tối ưu hóa tải tài nguyên để đảm bảo rằng chỉ những phần có thể tương tác được tải trước, trong khi các phần không quan trọng có thể tải sau.
+3. **Tránh tình trạng "content jump"**: Đảm bảo rằng nội dung không bị dịch chuyển hoặc thay đổi vị trí khi tải các tài nguyên khác. Ví dụ, nếu bạn đang tải quảng cáo hoặc hình ảnh bên ngoài, bạn có thể để dành không gian cho chúng trước khi tải.
+4. **Tránh chậm trễ khi tải phông chữ**: Đảm bảo rằng phông chữ được tải nhanh chóng, tránh các vấn đề "flickering" khi chuyển đổi từ phông chữ dự phòng sang phông chữ chính thức.
+
+**Tối ưu hóa các yếu tố tương tác**
+- Đảm bảo rằng các yếu tố tương tác (như trường nhập liệu và nút) luôn có thể tương tác ngay lập tức. Người dùng sẽ cảm thấy trang web có độ trễ nếu các yếu tố này phản hồi lâu hơn 50ms.
+
+**Tóm tắt**
+Hiệu suất cảm nhận có thể quan trọng hơn nhiều so với tốc độ tải thực tế của một website. Việc giảm thời gian mà người dùng phải chờ đợi để thấy nội dung hữu ích và giữ cho trang web phản hồi nhanh chóng sẽ giúp cải thiện cảm nhận về hiệu suất. Các kỹ thuật như tối ưu hóa tải trang ban đầu, giảm thiểu "content jump", và cải thiện tốc độ phông chữ đều giúp nâng cao hiệu suất cảm nhận của trang web.

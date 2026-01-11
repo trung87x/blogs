@@ -1,0 +1,93 @@
+<!-- ==========================
+Images in HTML
+========================== -->
+
+<!-- 1. Chèn ảnh bằng thẻ <img> -->
+<img src="dinosaur.jpg" alt="Dinosaur" />
+
+<!-- Nếu ảnh nằm trong thư mục con -->
+<img src="images/dinosaur.jpg" alt="Dinosaur" />
+
+<!-- Nếu dùng URL tuyệt đối (không khuyến khích trong thực tế) -->
+<img src="https://example.com/images/dinosaur.jpg" alt="Dinosaur" />
+
+<!-- ⚠️ Tránh dùng hotlink từ website người khác nếu không có phép -->
+
+<!-- 2. Văn bản thay thế (alt text) -->
+<img src="images/dinosaur.jpg"
+     alt="The head and torso of a dinosaur skeleton;
+          it has a large head with long sharp teeth" />
+
+<!-- Nếu ảnh không hiện, alt sẽ hiển thị để mô tả nội dung -->
+
+<!-- alt nên được viết tùy theo mục đích:
+- Nếu ảnh trang trí → alt=""
+- Nếu ảnh mang ý nghĩa nội dung → viết mô tả ngắn gọn
+- Nếu ảnh là link → alt nên mô tả nội dung của liên kết
+- Không dùng ảnh để chứa chữ (thay vì dùng CSS nếu cần hiệu ứng) -->
+
+<!-- 3. Thuộc tính width và height -->
+<img src="images/dinosaur.jpg"
+     alt="Dinosaur skeleton"
+     width="400"
+     height="341" />
+
+<!-- Giúp trình duyệt giữ chỗ → tránh giật nội dung khi ảnh load -->
+
+<!-- ⚠️ Không dùng để phóng to/thu nhỏ ảnh → dùng CSS hoặc resize trước -->
+
+<!-- 4. Thuộc tính title (tooltip khi hover) -->
+<img src="images/dinosaur.jpg"
+     alt="Dinosaur skeleton"
+     title="A T-Rex on display in the Manchester University Museum" />
+
+<!-- ⚠️ Không nên phụ thuộc vào title để mô tả, vì không thân thiện với screen reader -->
+
+<!-- 5. Dùng <figure> và <figcaption> để nhóm ảnh và mô tả -->
+<figure>
+  <img src="images/dinosaur.jpg"
+       alt="The head and torso of a dinosaur skeleton"
+       width="400"
+       height="341" />
+  <figcaption>A T-Rex on display in the Manchester University Museum.</figcaption>
+</figure>
+
+<!-- figure dùng cho nội dung độc lập (ảnh, video, đoạn mã, v.v.) -->
+
+<!-- 6. Ảnh nền bằng CSS (dùng khi ảnh chỉ mang tính trang trí) -->
+<style>
+  p {
+    background-image: url("images/dinosaur.jpg");
+  }
+</style>
+
+<!-- ⚠️ Ảnh từ CSS không có ý nghĩa ngữ nghĩa, không đọc được bởi screen reader -->
+
+<!-- 7. Phân biệt khi nào dùng HTML image vs CSS image:
+- Có ý nghĩa nội dung → dùng <img>
+- Trang trí → dùng CSS background-image -->
+
+<!-- 8. License & bản quyền ảnh -->
+<!-- ⚠️ Luôn đảm bảo bạn có quyền sử dụng ảnh:
+- Mua ảnh có license
+- Dùng ảnh miễn phí từ kho như Pixabay, Unsplash, Wikimedia Commons
+- Dùng ảnh public domain (CC0) -->
+
+<!-- 9. Ví dụ ảnh hotlink cho học tập -->
+<img
+  src="https://raw.githubusercontent.com/mdn/learning-area/master/html/multimedia-and-embedding/images-in-html/dinosaur_small.jpg"
+  alt="Small dinosaur image"
+  width="200"
+  height="171"
+  title="Sample dinosaur from MDN" />
+
+<!-- 10. Tự học thực hành:
+- Cố tình sai tên file để kiểm tra alt
+- Thử đổi kích thước và xem ảnh bị méo không
+- Tắt ảnh trong trình duyệt để trải nghiệm như người khiếm thị -->
+
+<!-- 🔁 Tóm tắt:
+- <img> là replaced element → nội dung lấy từ ngoài
+- Nên dùng alt ngắn gọn nhưng đủ ý
+- Sử dụng width/height đúng cách để layout mượt
+- Dùng <figure> + <figcaption> nếu muốn gắn caption -->

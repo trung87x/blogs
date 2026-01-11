@@ -1,0 +1,88 @@
+🧠 Model 15: Deploy & tối ưu hiệu suất
+--------------------------------------------------
+• Vai trò: Đưa ứng dụng lên môi trường production, đảm bảo tải nhanh, tối ưu SEO, giảm chi phí tài nguyên.
+• Controller: Dùng `next build`, `vercel`, tối ưu với caching, ISR (Incremental Static Regeneration), edge functions...
+
+📘 Ngữ cảnh #15: Deploy & tối ưu hiệu suất cho ứng dụng Next.js
+-------------------------------------------------------------------
+
+🚀 1. Build ứng dụng
+
+```bash
+npm run build      # Build production
+npm run start      # Khởi chạy local production
+```
+
+⚙️ 2. Deploy lên Vercel
+
+- Truy cập [https://vercel.com](https://vercel.com)
+- Kết nối GitHub → Import repo → chọn "Framework: Next.js"
+- Vercel sẽ tự động detect và deploy với:
+  - `next build`
+  - Hỗ trợ cả SSR, SSG, ISR
+  - Domain mặc định + tùy chỉnh
+
+🏎️ 3. Tối ưu tốc độ tải trang
+
+✅ a. Dùng ISR (Incremental Static Regeneration):
+
+```ts
+// app/blog/[slug]/page.tsx
+export const revalidate = 60 // Revalidate mỗi 60s
+
+export default async function Page({ params }) {
+  const post = await getPost(params.slug)
+  return <div>{post.title}</div>
+}
+```
+
+✅ b. Dùng caching hợp lý trong API route:
+
+```ts
+export const dynamic = 'force-dynamic'  // hoặc 'force-static', 'auto'
+export const revalidate = 300           // API này cache trong 5 phút
+```
+
+✅ c. Tối ưu ảnh:
+
+```tsx
+import Image from 'next/image'
+
+<Image
+  src="/hero.jpg"
+  alt="Hero"
+  width={1200}
+  height={600}
+  priority
+/>
+```
+
+✅ d. Sử dụng CDN, edge function:
+
+- Vercel tự động phân phối static và ISR qua CDN edge.
+- Có thể dùng `app/api/hello/route.ts` làm API ở edge (gần client hơn).
+
+✅ e. Prefetch, preload:
+
+- `next/link` tự động prefetch.
+- Dùng `priority` cho ảnh hoặc `preload` script quan trọng.
+
+✅ f. Giảm bundle size:
+
+- Import chính xác: `import lodash/isEmpty` thay vì toàn bộ lodash.
+- Tối ưu dynamic import:
+
+```tsx
+const Chart = dynamic(() => import('./Chart'), { ssr: false })
+```
+
+🔍 4. Đo hiệu suất
+
+- Dùng [Lighthouse](https://pagespeed.web.dev/)
+- Hoặc tab "Analytics" trong Vercel → Core Web Vitals
+
+🎯 Kết luận:
+- Dùng `vercel` để deploy Next.js cực kỳ nhanh chóng.
+- ISR giúp build static linh hoạt, không cần rebuild toàn bộ.
+- Các kỹ thuật cache, preload, edge đều được tích hợp mặc định.
+

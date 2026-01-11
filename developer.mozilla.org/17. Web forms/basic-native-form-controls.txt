@@ -1,0 +1,80 @@
+
+### Các Điều Khiển Form Cơ Bản Trong HTML
+
+**Điều khiển form là gì?**
+Các điều khiển form trong HTML là các phần tử cho phép người dùng nhập dữ liệu vào form. Các điều khiển này bao gồm các trường văn bản, checkbox, radio button, nút bấm, v.v., giúp thu thập thông tin từ người dùng và gửi nó đến máy chủ.
+
+**Các loại điều khiển cơ bản**:
+1. **Text input fields**: Các trường nhập liệu cơ bản nhất trong form.
+2. **Password fields**: Trường nhập liệu mật khẩu, ẩn các ký tự nhập vào.
+3. **Checkboxes và Radio buttons**: Các lựa chọn có thể đánh dấu, như lựa chọn các mục yêu thích.
+4. **Buttons**: Các nút để gửi dữ liệu hoặc làm việc khác.
+5. **File picker**: Điều khiển để chọn tệp từ máy tính của người dùng.
+
+**Trường văn bản (Text input fields)**
+Trường văn bản đơn dòng có thể được tạo bằng thẻ `<input>` với thuộc tính `type="text"`. Trường này cho phép người dùng nhập bất kỳ loại văn bản nào.
+
+**Ví dụ về trường văn bản**:
+```html
+<input type="text" id="comment" name="comment" value="I'm a text field" />
+```
+
+**Trường mật khẩu (Password field)**
+Trường mật khẩu sử dụng thẻ `<input>` với thuộc tính `type="password"`. Các ký tự nhập vào sẽ được ẩn đi, giúp bảo mật thông tin.
+
+**Ví dụ về trường mật khẩu**:
+```html
+<input type="password" id="pwd" name="pwd" />
+```
+
+**Trường ẩn (Hidden content)**
+Trường ẩn sử dụng thẻ `<input>` với `type="hidden"`, không hiển thị cho người dùng nhưng vẫn được gửi đến máy chủ khi form được gửi đi.
+
+**Ví dụ về trường ẩn**:
+```html
+<input type="hidden" id="timestamp" name="timestamp" value="1286705410" />
+```
+
+**Checkboxes và Radio Buttons**
+- **Checkboxes**: Cho phép người dùng chọn nhiều lựa chọn.
+- **Radio buttons**: Cho phép người dùng chọn chỉ một trong nhiều lựa chọn trong nhóm.
+
+**Ví dụ về checkbox**:
+```html
+<input type="checkbox" id="questionOne" name="subscribe" value="yes" checked />
+<label for="questionOne">Subscribe to newsletter</label>
+```
+
+**Ví dụ về radio button**:
+```html
+<input type="radio" id="soup" name="meal" value="soup" checked />
+<label for="soup">Soup</label>
+```
+
+**Nút bấm (Button)**
+Có ba loại nút bấm cơ bản: `submit`, `reset`, và `button`. Nút `submit` sẽ gửi dữ liệu form, nút `reset` sẽ reset form về giá trị mặc định, và nút `button` không thực hiện hành động gì nếu không có JavaScript.
+
+**Ví dụ về nút bấm**:
+```html
+<input type="submit" value="Submit" />
+<input type="reset" value="Reset" />
+<button type="button">Click me!</button>
+```
+
+**File Picker**
+Trường lựa chọn tệp cho phép người dùng chọn tệp từ máy tính của họ. Bạn có thể sử dụng thuộc tính `accept` để chỉ định loại tệp được phép chọn.
+
+**Ví dụ về file picker**:
+```html
+<input type="file" name="file" id="file" accept="image/*" multiple />
+```
+
+**Thuộc tính chung của các điều khiển form**:
+- **autofocus**: Đặt tự động lấy focus khi trang tải.
+- **disabled**: Ngăn người dùng tương tác với điều khiển.
+- **form**: Liên kết điều khiển với một form.
+- **name**: Tên của điều khiển, gửi cùng dữ liệu form.
+- **value**: Giá trị mặc định của điều khiển.
+
+**Tóm tắt**:
+Các điều khiển form cơ bản trong HTML rất đa dạng và hữu ích để thu thập dữ liệu từ người dùng. Chúng giúp xây dựng các form tương tác, có thể gửi và xử lý thông tin từ người dùng một cách hiệu quả. Trong bài tiếp theo, chúng ta sẽ khám phá các loại điều khiển form nâng cao hơn.

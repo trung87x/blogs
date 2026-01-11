@@ -1,0 +1,64 @@
+
+1. Cách điền hình ảnh vào một hộp mà không làm biến dạng
+Trong hướng dẫn này, bạn sẽ tìm hiểu một kỹ thuật để làm cho hình ảnh HTML hoàn toàn điền đầy vào một hộp.
+
+**Sử dụng object-fit**
+Khi bạn thêm một hình ảnh vào trang web bằng phần tử HTML `<img>`, hình ảnh sẽ giữ nguyên kích thước và tỷ lệ khung hình của tệp hình ảnh, hoặc của bất kỳ thuộc tính chiều rộng hoặc chiều cao HTML nào. Đôi khi bạn muốn hình ảnh hoàn toàn lấp đầy hộp mà bạn đã đặt nó vào. Trong trường hợp đó, bạn cần quyết định điều gì sẽ xảy ra nếu hình ảnh có tỷ lệ khung hình không phù hợp với hộp chứa.
+
+Có ba cách bạn có thể xử lý:
+1. Hình ảnh sẽ hoàn toàn lấp đầy hộp, giữ tỷ lệ khung hình và cắt bớt phần thừa ở phía quá lớn để vừa với hộp.
+2. Hình ảnh sẽ vừa với hộp, với nền hiển thị dưới dạng các thanh ở phía quá nhỏ.
+3. Hình ảnh sẽ lấp đầy hộp và kéo dài, có thể khiến nó hiển thị với tỷ lệ khung hình sai.
+
+Thuộc tính `object-fit` giúp bạn thực hiện mỗi cách trên. Trong ví dụ dưới đây, bạn có thể thấy cách các giá trị khác nhau của `object-fit` hoạt động khi sử dụng cùng một hình ảnh. Hãy chọn cách tiếp cận phù hợp nhất với thiết kế của bạn.
+
+```html
+<div class="wrapper">
+  <div class="box box1">
+    <img
+      alt="a colorful hot air balloon against a clear sky"
+      src="https://mdn.github.io/shared-assets/images/examples/balloon.jpg" />
+  </div>
+  <div class="box box2">
+    <img
+      alt="a colorful hot air balloon against a clear sky"
+      src="https://mdn.github.io/shared-assets/images/examples/balloon.jpg" />
+  </div>
+  <div class="box box3">
+    <img
+      alt="a colorful hot air balloon against a clear sky"
+      src="https://mdn.github.io/shared-assets/images/examples/balloon.jpg" />
+  </div>
+</div>
+```
+
+```css
+.wrapper {
+  height: 200px;
+  display: flex;
+  gap: 20px;
+}
+
+.box {
+  border: 5px solid #000;
+}
+
+.box img {
+  width: 100%;
+  height: 100%;
+}
+
+.box1 img {
+  object-fit: cover;
+}
+
+.box2 img {
+  object-fit: contain;
+}
+
+.box3 img {
+  object-fit: fill;
+}
+```
+
+Lưu ý: Thuộc tính `object-fit` giúp bạn điều chỉnh cách hình ảnh hiển thị trong hộp mà không làm biến dạng hình ảnh.

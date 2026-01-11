@@ -1,0 +1,64 @@
+
+### Thiết Lập Môi Trường Phát Triển Node
+
+**Môi trường phát triển Node là gì?**
+Môi trường phát triển Node cho phép bạn phát triển và kiểm tra các ứng dụng web sử dụng Node.js và Express. Để bắt đầu phát triển với Express, bạn cần cài đặt Node.js, npm (Node Package Manager), và (tùy chọn) Express Application Generator trên máy tính của mình.
+
+**Quy trình cài đặt môi trường phát triển Node**
+1. **Cài đặt Node.js và npm**: Node.js là môi trường thực thi JavaScript, và npm là công cụ quản lý gói đi kèm. Bạn cần cài đặt cả hai để có thể sử dụng Express.
+
+**Cài đặt Node.js**:
+- Để cài đặt Node.js, bạn có thể tải trực tiếp từ trang [Node.js](https://nodejs.org/en/), và chọn bản Long Term Support (LTS).
+- Đối với người dùng Linux, có thể sử dụng các package manager như `apt` trên Ubuntu để cài đặt Node.js.
+
+**Cài đặt npm**:
+npm là công cụ đi kèm với Node.js. Sau khi cài đặt Node.js, npm sẽ tự động được cài đặt cùng. Để kiểm tra xem npm đã được cài đặt hay chưa, bạn có thể chạy lệnh:
+```bash
+npm -v
+```
+
+2. **Cài đặt Express**: Sau khi cài đặt Node.js và npm, bạn có thể sử dụng npm để cài đặt Express.
+```bash
+npm install express
+```
+
+**Cài đặt Express Application Generator**:
+Express Application Generator là công cụ giúp tạo nhanh một ứng dụng Express cơ bản với cấu trúc thư mục sẵn có. Bạn có thể cài đặt công cụ này bằng npm:
+```bash
+npm install -g express-generator
+```
+
+Sau khi cài đặt, bạn có thể tạo một ứng dụng mới với Express bằng cách chạy:
+```bash
+express myapp
+cd myapp
+npm install
+npm start
+```
+
+**Kiểm tra môi trường phát triển**:
+Sau khi cài đặt, bạn có thể thử nghiệm việc tạo một máy chủ Node.js cơ bản với Express.
+
+**Ví dụ mã Express cơ bản**:
+```javascript
+const express = require('express');
+const app = express();
+const port = 3000;
+
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
+});
+```
+
+Lưu mã trên vào tệp `app.js`, sau đó chạy:
+```bash
+node app.js
+```
+Truy cập `http://localhost:3000` trong trình duyệt, bạn sẽ thấy dòng chữ "Hello World!" trên màn hình.
+
+**Tóm tắt**:
+Môi trường phát triển Node giúp bạn xây dựng và triển khai ứng dụng web dễ dàng với Express. Cài đặt Node.js, npm và Express giúp bạn bắt đầu phát triển các ứng dụng web mạnh mẽ. Bằng cách sử dụng công cụ Express Application Generator, bạn có thể nhanh chóng tạo một ứng dụng Express và bắt đầu lập trình ngay lập tức.

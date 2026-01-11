@@ -1,0 +1,66 @@
+
+### Các Loại Input trong HTML5
+
+**Các loại input trong HTML5 là gì?**
+HTML5 đã giới thiệu nhiều loại input mới giúp người dùng nhập liệu một cách dễ dàng và chính xác hơn. Những loại input này giúp cho việc thu thập thông tin từ người dùng trở nên thuận tiện và dễ dàng, đồng thời cải thiện trải nghiệm người dùng trên các thiết bị di động với các bàn phím phù hợp.
+
+**Các loại input trong HTML5**:
+1. **Email address field**: Trường nhập liệu email giúp người dùng nhập email hợp lệ và sử dụng bàn phím phù hợp trên các thiết bị di động.
+2. **Search field**: Trường tìm kiếm được thiết kế đặc biệt cho các hộp tìm kiếm trên trang web.
+3. **Phone number field**: Trường nhập liệu số điện thoại cho phép người dùng nhập số điện thoại dễ dàng, đặc biệt trên các thiết bị di động.
+4. **URL field**: Trường nhập URL giúp đảm bảo rằng người dùng nhập đúng định dạng URL.
+5. **Numeric field**: Trường nhập liệu số cho phép người dùng nhập các giá trị số với các điều chỉnh bằng nút tăng/giảm.
+6. **Slider controls**: Trường điều khiển dạng thanh trượt để chọn các giá trị trong một phạm vi nhất định.
+7. **Date and time pickers**: Các trường chọn ngày, giờ, hoặc tuần giúp người dùng dễ dàng chọn thời gian.
+8. **Color picker control**: Trường chọn màu cho phép người dùng chọn màu sắc trực quan.
+
+**Ví dụ về trường nhập liệu email**:
+```html
+<input type="email" id="email" name="email" />
+```
+Trường này sẽ yêu cầu người dùng nhập một địa chỉ email hợp lệ. Nếu người dùng nhập không đúng, trình duyệt sẽ hiển thị thông báo lỗi.
+
+**Ví dụ về trường tìm kiếm**:
+```html
+<input type="search" id="search" name="search" />
+```
+Trường tìm kiếm sẽ có giao diện và tính năng đặc biệt, ví dụ như hiển thị biểu tượng kính lúp và hỗ trợ tự động điền trong nhiều trình duyệt.
+
+**Ví dụ về trường số điện thoại**:
+```html
+<input type="tel" id="tel" name="tel" />
+```
+Trường nhập số điện thoại sẽ hiển thị bàn phím số trên các thiết bị di động, giúp việc nhập liệu dễ dàng hơn.
+
+**Ví dụ về trường URL**:
+```html
+<input type="url" id="url" name="url" />
+```
+Trường này đảm bảo rằng người dùng nhập đúng định dạng URL và hiển thị thông báo lỗi nếu nhập sai.
+
+**Ví dụ về trường số**:
+```html
+<input type="number" id="number" name="number" />
+```
+Trường số này chỉ cho phép nhập số và có các nút điều chỉnh tăng/giảm giá trị.
+
+**Ví dụ về thanh trượt (Slider)**:
+```html
+<input type="range" name="price" id="price" min="50000" max="500000" step="1000" value="250000" />
+```
+Thanh trượt này cho phép người dùng chọn giá trị trong một phạm vi xác định.
+
+**Ví dụ về chọn ngày**:
+```html
+<input type="date" name="date" id="date" />
+```
+Trường này cho phép người dùng chọn một ngày từ một widget lịch.
+
+**Ví dụ về chọn màu**:
+```html
+<input type="color" name="color" id="color" />
+```
+Trường này cho phép người dùng chọn màu từ một công cụ chọn màu mặc định.
+
+**Tóm tắt**:
+HTML5 đã giới thiệu nhiều loại input mới giúp cải thiện trải nghiệm người dùng trên các trang web, đặc biệt là với các thiết bị di động. Những loại input này không chỉ giúp đảm bảo tính chính xác của dữ liệu mà còn giúp người dùng nhập liệu nhanh chóng và dễ dàng hơn.

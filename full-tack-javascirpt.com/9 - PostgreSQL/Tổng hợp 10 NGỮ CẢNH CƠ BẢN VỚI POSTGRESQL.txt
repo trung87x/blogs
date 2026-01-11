@@ -1,0 +1,162 @@
+# Tổng hợp 10 NGỮ CẢNH CƠ BẢN VỚI POSTGRESQL
+
+--------------------------------------------------
+# Ngữ cảnh 1: Tạo bảng người dùng và lưu thông tin cơ bản
+
+🧠 Model:
+- Tạo bảng `users` với các cột: id, name, age, email, is_active, created_at.
+
+🛠️ SQL:
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  age INTEGER CHECK (age >= 0),
+  email VARCHAR(100) UNIQUE NOT NULL,
+  is_active BOOLEAN DEFAULT true,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO users (name, age, email)
+VALUES ('Trung Đinh', 28, 'trung@example.com');
+
+SELECT * FROM users;
+
+--------------------------------------------------
+# Ngữ cảnh 2: Một bài viết thuộc về một người dùng (user-post)
+
+🧠 Model:
+- Quan hệ 1-nhiều: 1 user → nhiều posts. Bảng posts có user_id làm khóa ngoại.
+
+🛠️ SQL:
+CREATE TABLE posts (
+  id SERIAL PRIMARY KEY,
+  title TEXT NOT NULL,
+  content TEXT,
+  user_id INTEGER NOT NULL REFERENCES users(id),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO posts (title, content, user_id)
+VALUES ('Giới thiệu PostgreSQL', 'Bài viết này nói về PostgreSQL...', 1);
+
+SELECT posts.id, posts.title, users.name AS author
+FROM posts
+JOIN users ON posts.user_id = users.id;
+
+--------------------------------------------------
+# Ngữ cảnh 3: Thêm mới người dùng, sửa thông tin, xoá khỏi hệ thống
+
+🧠 Model:
+- CRUD người dùng: INSERT, SELECT, UPDATE, DELETE.
+
+🛠️ SQL:
+INSERT INTO users (name, email)
+VALUES ('Nguyễn Văn A', 'a@example.com');
+
+UPDATE users
+SET name = 'Nguyễn Văn B', is_active = false
+WHERE id = 1;
+
+DELETE FROM users WHERE id = 1;
+
+--------------------------------------------------
+# Ngữ cảnh 4: Tìm người dùng theo tên, sắp xếp theo ngày tạo, phân trang danh sách
+
+🧠 Model:
+- Truy vấn có điều kiện, sắp xếp, phân trang (ILIKE, ORDER BY, LIMIT, OFFSET).
+
+🛠️ SQL:
+SELECT * FROM users WHERE name ILIKE '%trung%';
+
+SELECT * FROM users ORDER BY created_at DESC LIMIT 10 OFFSET 0;
+
+--------------------------------------------------
+# Ngữ cảnh 5: Hiển thị danh sách bài viết kèm tên tác giả
+
+🧠 Model:
+- JOIN bảng posts với users để lấy tên tác giả.
+
+🛠️ SQL:
+SELECT posts.id, posts.title, users.name AS author, posts.created_at
+FROM posts
+JOIN users ON posts.user_id = users.id;
+
+--------------------------------------------------
+# Ngữ cảnh 6: Thống kê số bài viết mỗi người dùng đã đăng
+
+🧠 Model:
+- Dùng GROUP BY và COUNT để thống kê bài viết theo user.
+
+🛠️ SQL:
+SELECT users.name, COUNT(posts.id) AS total_posts
+FROM users
+LEFT JOIN posts ON users.id = posts.user_id
+GROUP BY users.id, users.name
+ORDER BY total_posts DESC;
+
+--------------------------------------------------
+# Ngữ cảnh 7: Tăng tốc truy vấn khi dữ liệu lớn (email, username)
+
+🧠 Model:
+- Tạo chỉ mục (INDEX) cho các cột thường truy vấn.
+
+🛠️ SQL:
+CREATE INDEX idx_users_email ON users(email);
+CREATE INDEX idx_users_name ON users(name);
+
+EXPLAIN ANALYZE SELECT * FROM users WHERE email = 'trung@example.com';
+
+--------------------------------------------------
+# Ngữ cảnh 8: Đảm bảo email là duy nhất, tuổi > 0, tên không để trống
+
+🧠 Model:
+- Dùng ràng buộc NOT NULL, UNIQUE, CHECK để bảo vệ dữ liệu.
+
+🛠️ SQL:
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  age INTEGER CHECK (age > 0),
+  email VARCHAR(100) UNIQUE NOT NULL
+);
+
+-- Lỗi nếu vi phạm:
+-- name = NULL, age <= 0, email trùng
+
+--------------------------------------------------
+# Ngữ cảnh 9: Xử lý nhiều thao tác trong một giao dịch (tạo user + log + gửi mail)
+
+🧠 Model:
+- Dùng transaction để đảm bảo tất cả thao tác cùng thành công hoặc cùng rollback.
+
+🛠️ SQL:
+BEGIN;
+
+INSERT INTO users (name, email) VALUES ('Trung Đinh', 'trung@example.com');
+INSERT INTO logs (action) VALUES ('Tạo người dùng: Trung Đinh');
+
+COMMIT;
+-- Nếu lỗi:
+-- ROLLBACK;
+
+--------------------------------------------------
+# Ngữ cảnh 10: Dùng Prisma/Sequelize để quản lý schema và migrations
+
+🧠 Model:
+- ORM giúp quản lý cấu trúc DB bằng code, dễ migrate/rollback.
+
+🛠️ Prisma:
+npx prisma init
+# schema.prisma
+model User {
+  id    Int    @id @default(autoincrement())
+  name  String
+  email String @unique
+}
+npx prisma migrate dev --name init
+
+🛠️ Sequelize:
+npx sequelize init
+npx sequelize model:generate --name User --attributes name:string,email:string
+npx sequelize db:migrate
+

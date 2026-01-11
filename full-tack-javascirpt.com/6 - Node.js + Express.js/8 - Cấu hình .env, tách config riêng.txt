@@ -1,0 +1,66 @@
+[Ngữ cảnh #8] Cấu hình .env, tách config riêng (MVC)
+
+🎯 Mục tiêu:
+- Tách cấu hình (PORT, DB_URL, SECRET_KEY…) ra khỏi code
+- Dễ bảo trì, triển khai nhiều môi trường (dev/prod)
+- Sử dụng thư viện dotenv để load biến môi trường
+
+📁 Cấu trúc:
+backend-mvc/
+├── server.js
+├── config/
+│   └── index.js
+├── .env
+├── routes/
+├── controllers/
+...
+
+---------------------
+📄 .env
+---------------------
+PORT=3000
+DB_URL=mongodb://localhost:27017/myapp
+JWT_SECRET=trung_secrect_key_123
+
+---------------------
+📄 config/index.js
+---------------------
+require('dotenv').config();
+
+module.exports = {
+  port: process.env.PORT || 3000,
+  dbUrl: process.env.DB_URL,
+  jwtSecret: process.env.JWT_SECRET
+};
+
+---------------------
+📄 server.js
+---------------------
+const express = require('express');
+const app = express();
+const config = require('./config');
+
+// Middleware
+app.use(express.json());
+
+// Route mẫu
+app.get('/', (req, res) => {
+  res.send('✅ App đang chạy!');
+});
+
+// Khởi động server
+app.listen(config.port, () => {
+  console.log(`🚀 Server chạy tại http://localhost:${config.port}`);
+});
+
+---------------------
+📦 Cài đặt:
+---------------------
+npm install dotenv
+
+---------------------
+📌 Ghi chú:
+---------------------
+- Đừng push file `.env` lên GitHub!
+- Có thể thêm `.env.example` để chia sẻ cấu hình mẫu
+

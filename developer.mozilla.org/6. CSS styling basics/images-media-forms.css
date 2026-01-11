@@ -1,0 +1,97 @@
+/* =============================
+   IMAGES, MEDIA & FORM ELEMENTS
+   ============================= */
+
+/* === 1. REPLACED ELEMENTS (Phần tử thay thế) === */
+/*
+  - Ví dụ: <img>, <video>, <iframe>, v.v.
+  - Không thể chỉnh layout nội tại, chỉ điều khiển cách hiển thị.
+  - Có tỉ lệ (aspect ratio) nội tại → ảnh/video sẽ hiển thị theo kích thước gốc.
+*/
+
+/* === 2. XỬ LÝ KÍCH THƯỚC HÌNH ẢNH === */
+img {
+  max-width: 100%;
+}
+/*
+  - Hạn chế tràn hộp chứa, ảnh sẽ co lại nếu lớn hơn.
+  - Kỹ thuật phổ biến với ảnh, video, iframe để đảm bảo responsive.
+*/
+
+/* === 3. OBJECT-FIT – kiểm soát ảnh trong hộp === */
+.cover {
+  object-fit: cover;   /* Lấp đầy hộp, giữ tỉ lệ → bị crop */
+}
+
+.contain {
+  object-fit: contain; /* Vừa khít trong hộp, giữ tỉ lệ → có viền đen */
+}
+
+.fill {
+  object-fit: fill;    /* Lấp đầy nhưng không giữ tỉ lệ */
+}
+
+/* === 4. IMAGE TRONG GRID/FLEX === */
+/*
+  - Khác với <div>, ảnh không tự co giãn trong layout.
+  - Phải dùng width/height hoặc object-fit để điều khiển.
+*/
+
+/* === 5. FORM ELEMENTS – Styling cơ bản === */
+input[type="text"],
+input[type="email"] {
+  border: 2px solid #000;
+  padding: 10px;
+  margin: 0 0 1em 0;
+  width: 80%;
+}
+
+input[type="submit"] {
+  border: 3px solid #333;
+  background-color: #999;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 2em;
+  font-weight: bold;
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  background-color: #333;
+}
+
+/*
+⚠️ Cẩn trọng: nếu bỏ viền/background form input → khó nhận biết là vùng nhập.
+Một số input phức tạp (date, file...) có thể không thể style toàn bộ.
+*/
+
+/* === 6. FORM RESET – reset hành vi trình duyệt mặc định === */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* Ngăn trình duyệt cũ hiển thị thanh cuộn không cần thiết */
+textarea {
+  overflow: auto;
+}
+
+/*
+NOTE:
+- Một số trình duyệt không kế thừa font từ <body> cho input → cần ép bằng font-family: inherit.
+- Normalize.css là một file reset phổ biến giúp đồng bộ style giữa các trình duyệt.
+*/
+
+/* ===========================================
+   TỔNG KẾT:
+   - img/video là replaced element → style theo container
+   - object-fit giúp ảnh/video hiển thị đúng mục đích
+   - input đơn giản dễ style, input phức tạp cần cẩn thận
+   - Dùng reset CSS cho form để nhất quán giữa trình duyệt
+   =========================================== */

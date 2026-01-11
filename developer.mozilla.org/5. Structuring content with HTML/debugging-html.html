@@ -1,0 +1,79 @@
+<!-- ==========================
+Debugging HTML
+========================== -->
+
+<!-- 1. HTML là ngôn ngữ phân tích dễ chịu (permissive) -->
+<!-- Trình duyệt cố gắng sửa lỗi tự động, nhưng kết quả không phải lúc nào cũng đúng -->
+
+<!-- Ví dụ: sai cú pháp lồng thẻ -->
+<!-- Lỗi -->
+<p>I didn't expect to find the <em>next-door neighbor's <strong>cat</em></strong> here!</p>
+
+<!-- Sau khi trình duyệt sửa (DOM thực tế) -->
+<p>
+  I didn't expect to find the
+  <em>next-door neighbor's <strong>cat</strong></em> here!
+</p>
+
+<!-- 2. Dùng công cụ DevTools trong trình duyệt -->
+<!-- Các tab cần dùng: "Inspector" (Firefox), "Elements" (Chrome/Safari/Edge) -->
+
+<!-- Các thao tác cơ bản -->
+<!-- - Click để mở rộng/collapse thẻ -->
+<!-- - Di chuyển bằng phím ↑ ↓ hoặc chuột -->
+<!-- - Highlight xem vùng đang chọn -->
+<!-- - Có thể sửa trực tiếp HTML trong giao diện DOM -->
+
+<!-- 3. Ví dụ HTML có lỗi (lưu thành debug-example.html) -->
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>HTML debugging examples</title>
+  </head>
+  <body>
+    <h1>HTML debugging examples</h1>
+    <p>What causes errors in HTML?
+    <ul>
+      <li>Unclosed elements: If an element is <strong>not closed properly,
+      <li>Badly nested elements: <strong>strong <em>strong emphasized?</strong> what is this?</em>
+      <li>Unclosed attributes: <a href="https://www.mozilla.org/>link to Mozilla homepage</a>
+    </ul>
+  </body>
+</html>
+
+<!-- Lỗi bao gồm:
+- <p> không đóng
+- <strong> không đóng đúng
+- <a> thiếu dấu " kết thúc href
+-->
+
+<!-- 4. Dùng công cụ Validator để kiểm tra HTML -->
+<!-- Trang web: https://validator.w3.org/ -->
+
+<!-- 3 cách dùng:
+- Validate by URL
+- Validate by File Upload
+- Validate by Direct Input (dán mã trực tiếp)
+-->
+
+<!-- Một số thông báo lỗi thường gặp:
+- "Unclosed element strong": thiếu </strong>
+- "End tag violates nesting rules": sai thứ tự đóng thẻ
+- "End of file inside attribute": thiếu dấu " kết thúc chuỗi
+-->
+
+<!-- 5. Chiến lược sửa lỗi hiệu quả -->
+<!-- - Sửa lỗi một phần, kiểm tra lại -->
+<!-- - Một lỗi có thể gây hiệu ứng domino (ẩn lỗi khác) -->
+<!-- - Khi không còn lỗi: "No errors or warnings to show." -->
+
+<!-- 6. Tổng kết -->
+<!-- HTML dễ sửa, nhưng đừng chủ quan: viết sai có thể khiến trình duyệt hiểu sai -->
+
+<!-- Mẹo:
+- Luôn đóng thẻ đúng thứ tự
+- Tránh quên dấu " trong thuộc tính
+- Sử dụng công cụ devtools để xem DOM thật
+- Dùng validator để kiểm tra code lớn
+-->

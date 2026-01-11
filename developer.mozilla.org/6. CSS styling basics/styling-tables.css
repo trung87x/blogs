@@ -1,0 +1,100 @@
+/* ===================
+   TRANG TRÍ BẢNG HTML
+   =================== */
+
+/* === 1. KHAI BÁO CƠ BẢN === */
+table {
+  table-layout: fixed;      /* Kiểm soát layout dễ dự đoán */
+  width: 100%;              /* Tự mở rộng theo container */
+  border-collapse: collapse;/* Ghép viền lại gọn gàng */
+  border: 3px solid purple; /* Viền ngoài cùng */
+}
+
+th, td {
+  padding: 20px;            /* Tạo khoảng cách dễ nhìn */
+}
+
+/* === 2. ĐẶT CHIỀU RỘNG CỘT THEO TỈ LỆ === */
+thead th:nth-child(1) { width: 30%; }
+thead th:nth-child(2) { width: 20%; }
+thead th:nth-child(3) { width: 15%; }
+thead th:nth-child(4) { width: 35%; }
+
+/* === 3. KIỂU CHỮ VÀ CĂN CHỮ === */
+html {
+  font-family: "helvetica neue", helvetica, arial, sans-serif;
+}
+
+thead th,
+tfoot th {
+  font-family: "Rock Salt", cursive;
+}
+
+th {
+  letter-spacing: 2px;
+}
+
+td {
+  letter-spacing: 1px;
+}
+
+tbody td {
+  text-align: center;
+}
+
+tfoot th {
+  text-align: right;
+}
+
+/* === 4. HIỆU ỨNG MÀU NỀN VÀ VIỀN HEADER/FOOTER === */
+thead,
+tfoot {
+  background: url(leopardskin.jpg);
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}
+
+thead th,
+tfoot th,
+tfoot td {
+  background: linear-gradient(to bottom, rgb(0 0 0 / 10%), rgb(0 0 0 / 50%));
+  border: 3px solid purple;
+}
+
+/* === 5. ZEBRA STRIPING – TẠO HIỆU ỨNG SỌC CHO HÀNG === */
+tbody tr:nth-child(odd) {
+  background-color: #ff33cc;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #e495e4;
+}
+
+tbody tr {
+  background-image: url(noise.png);
+}
+
+table {
+  background-color: #ff33cc; /* fallback nếu không hỗ trợ nth-child */
+}
+
+/* === 6. STYLE CHO CAPTION (TIÊU ĐỀ BẢNG) === */
+caption {
+  font-family: "Rock Salt", cursive;
+  padding: 20px;
+  font-style: italic;
+  caption-side: bottom;
+  color: #666;
+  text-align: right;
+  letter-spacing: 1px;
+}
+
+/* ========================================================
+   QUICK TIPS – TIPS NHANH KHI STYLE TABLE:
+   - Dùng <thead>, <tbody>, <tfoot> để chia vùng rõ ràng
+   - Dùng table-layout: fixed + % width cho layout ổn định
+   - Dùng border-collapse để viền gọn gàng hơn
+   - Zebra striping giúp đọc bảng dễ hơn
+   - Căn giữa/thẳng phải phù hợp giúp bảng dễ theo dõi
+   - Caption nên style rõ ràng và linh hoạt
+   ======================================================== */

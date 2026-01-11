@@ -1,0 +1,122 @@
+🧠 Model 9: Bảo vệ route, kiểm tra login
+----------------------------------------
+• Vai trò: Ngăn chặn truy cập trái phép vào các trang cần đăng nhập.
+• Controller: Dùng Middleware (`middleware.ts`) để kiểm tra JWT hoặc session trước khi cho phép truy cập.
+
+🔐 Ngữ cảnh #9: Chỉ cho phép user đã đăng nhập truy cập `/dashboard`
+---------------------------------------------------------------------
+• Mục tiêu: Nếu chưa đăng nhập → chuyển về `/login`, nếu đã đăng nhập → cho vào `/dashboard`.
+
+🛡️ 1. Cấu hình middleware kiểm tra token
+
+```ts
+// middleware.ts
+import { NextResponse } from 'next/server'
+import type { NextRequest } from 'next/server'
+
+export function middleware(request: NextRequest) {
+  const token = request.cookies.get('token')?.value
+
+  // Nếu không có token, chuyển hướng về trang đăng nhập
+  if (!token) {
+    return NextResponse.redirect(new URL('/login', request.url))
+  }
+
+  // Có token, tiếp tục truy cập
+  return NextResponse.next()
+}
+
+// Áp dụng middleware cho các route cần bảo vệ
+export const config = {
+  matcher: ['/dashboard/:path*'], // bảo vệ mọi route con của /dashboard
+}
+```
+
+🔑 2. Đặt cookie "token" sau khi đăng nhập thành công
+
+```ts
+// app/api/login/route.ts (ví dụ login)
+import { NextResponse } from 'next/server'
+
+export async function POST(request: Request) {
+  const { email, password } = await request.json()
+
+  // ⚠️ Giả định user hợp lệ
+  const isValidUser = email === 'admin@gmail.com' && password === '123456'
+
+  if (!isValidUser) {
+    return NextResponse.json({ message: 'Sai thông tin đăng nhập' }, { status: 401 })
+  }
+
+  // Tạo response và set cookie
+  const response = NextResponse.json({ message: 'Đăng nhập thành công' })
+  response.cookies.set('token', 'fake-jwt-token', {
+    httpOnly: true,
+    path: '/',
+  })
+
+  return response
+}
+```
+
+🏁 3. Giao diện /dashboard (nếu vào được tức là đã có token)
+
+```tsx
+// app/dashboard/page.tsx
+export default function DashboardPage() {
+  return <h1>Chào mừng đến trang quản trị!</h1>
+}
+```
+
+📌 4. Giao diện đăng nhập đơn giản (client-side)
+
+```tsx
+'use client'
+
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+
+export default function LoginPage() {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const router = useRouter()
+
+  const handleLogin = async () => {
+    const res = await fetch('/api/login', {
+      method: 'POST',
+      body: JSON.stringify({ email, password }),
+      headers: { 'Content-Type': 'application/json' },
+    })
+
+    if (res.ok) {
+      router.push('/dashboard')
+    } else {
+      alert('Sai tài khoản hoặc mật khẩu')
+    }
+  }
+
+  return (
+    <div>
+      <h2>Đăng nhập</h2>
+      <input placeholder="Email" onChange={e => setEmail(e.target.value)} />
+      <input placeholder="Mật khẩu" type="password" onChange={e => setPassword(e.target.value)} />
+      <button onClick={handleLogin}>Đăng nhập</button>
+    </div>
+  )
+}
+```
+
+✅ Kết quả:
+- Truy cập `/dashboard` khi chưa có cookie `token` sẽ bị redirect về `/login`.
+- Sau khi đăng nhập, cookie `token` được set, truy cập `/dashboard` thành công.
+
+📚 Ghi nhớ:
+- Middleware Next.js chạy **trước khi render trang** → phù hợp bảo vệ route.
+- Dùng `request.cookies.get()` để đọc cookie.
+- Có thể kết hợp NextAuth, JWT thật sự để bảo mật cao hơn.
+
+🧠 Mở rộng:
+- Kiểm tra token hợp lệ (giải mã JWT).
+- Gắn role để phân quyền nâng cao.
+- Hết hạn token tự động chuyển hướng logout.
+
