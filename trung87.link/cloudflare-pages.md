@@ -17,14 +17,13 @@
 
 Ở bước này, Cloudflare sẽ yêu cầu bạn điền thông số. Hãy chú ý các mục sau:
 
-* **Project name:** Bạn có thể để mặc định hoặc đổi tên tùy ý.
-* **Production branch:** Thường là `main`.
-* **Framework preset:** Bạn hãy mở danh sách và chọn **Next.js**.
-* *Lưu ý:* Nếu bạn chỉ làm trang tĩnh, bạn có thể chọn "Next.js (Static)". Nếu trang web có các tính năng xử lý ở Server, hãy chọn "Next.js".
+- **Project name:** Bạn có thể để mặc định hoặc đổi tên tùy ý.
+- **Production branch:** Thường là `main`.
+- **Framework preset:** Bạn hãy mở danh sách và chọn **Next.js**.
+- _Lưu ý:_ Nếu bạn chỉ làm trang tĩnh, bạn có thể chọn "Next.js (Static)". Nếu trang web có các tính năng xử lý ở Server, hãy chọn "Next.js".
 
-
-* **Build command:** Khi chọn preset là Next.js, Cloudflare sẽ tự điền lệnh (thường là `npx @cloudflare/next-on-pages` hoặc `npm run build`). Bạn không cần thay đổi trừ khi có yêu cầu đặc biệt.
-* **Root directory:** Để trống (nếu code nằm ngay thư mục gốc của GitHub).
+- **Build command:** Khi chọn preset là Next.js, Cloudflare sẽ tự điền lệnh (thường là `npx @cloudflare/next-on-pages` hoặc `npm run build`). Bạn không cần thay đổi trừ khi có yêu cầu đặc biệt.
+- **Root directory:** Để trống (nếu code nằm ngay thư mục gốc của GitHub).
 
 ### Bước 4: Triển khai (Deploy)
 
@@ -37,10 +36,12 @@
 ### Một số lưu ý nhỏ để tránh lỗi:
 
 1. **Node.js Version:** Đôi khi dự án ở máy bạn chạy phiên bản Node.js mới nhưng Cloudflare mặc định dùng bản cũ dẫn đến lỗi build. Bạn có thể vào phần **Settings** -> **Build & deployments** -> **Environment variables** và thêm một biến:
-* Variable name: `NODE_VERSION`
-* Value: `18` hoặc `20` (tùy bản bạn đang dùng).
 
+- Variable name: `NODE_VERSION`
+- Value: `18` hoặc `20` (tùy bản bạn đang dùng).
 
 2. **Next.js Runtime:** Nếu bạn dùng các tính năng như Server-side Rendering (SSR), bạn nên thêm dòng `export const runtime = 'edge'` vào trong các file `page.js` để nó tương thích tốt nhất với hạ tầng của Cloudflare.
+
+3. **Thêm "Compatibility Flag"** Next.js cần môi trường Node.js để chạy một số tính năng. Vẫn trong tab Settings -> Build & deployments. Kéo xuống dưới tìm mục Compatibility flags. Ở phần Production, hãy thêm flag: nodejs_compat.
 
 **Nếu trong lúc build bị hiện thông báo màu đỏ (Failed), bạn hãy copy đoạn mã lỗi đó gửi vào đây, mình sẽ hướng dẫn cách sửa cụ thể nhé!**
