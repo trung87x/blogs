@@ -37,7 +37,7 @@ npm install -D prettier prettier-plugin-tailwindcss
 
 npm install @headlessui/react motion clsx
 
-npm install @heroicons/react  
+npm install @heroicons/react
 
 npm install styled-components
 

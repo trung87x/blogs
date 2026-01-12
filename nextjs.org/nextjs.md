@@ -40,6 +40,20 @@ pnpm i tailwindcss @tailwindcss/postcss postcss
   @import "tailwindcss";
 -->
 
+<!-- // Inter font family
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+
+@theme {
+  --font-sans: InterVariable, sans-serif;
+  --font-sans--font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+}
+
+<html class="bg-white dark:bg-gray-950 scheme-light dark:scheme-dark">
+-->
+
+npm i @headlessui/react @heroicons/react
+npm i framer-motion
+
 npm i -D prettier prettier-plugin-tailwindcss
 npm i clsx
 
